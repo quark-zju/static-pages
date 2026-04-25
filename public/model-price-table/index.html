@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Price Table</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #0f766e;
+      --accent-soft: #dff7f3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #e8fff9 0%, var(--bg) 45%, #edf2ff 100%);
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, #f8fafc, #ecfeff);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .table-wrap {
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1100px;
+    }
+
+    thead tr.group th {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #374151;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    th.model,
+    td.model,
+    th.notes,
+    td.notes {
+      text-align: left;
+      white-space: normal;
+    }
+
+    th.sortable {
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    th.sortable:hover {
+      background: var(--accent-soft);
+    }
+
+    th.sortable.active {
+      color: var(--accent);
+    }
+
+    th.sortable .arrow {
+      margin-left: 4px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    th.sortable.active .arrow {
+      color: var(--accent);
+    }
+
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    .muted {
+      color: #9ca3af;
+    }
+
+    .stack {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .stack.left {
+      align-items: flex-start;
+    }
+
+    .stack-item {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .key {
+      color: var(--muted);
+      margin-right: 4px;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 12px;
+      }
+
+      .header {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>模型价格对比（按 Usage Assumption 估算）</h1>
+      <div id="usage" class="meta">加载中...</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr class="group">
+            <th class="model" rowspan="2">Model</th>
+            <th colspan="4">Unit Price (USD / 1M Tokens)</th>
+            <th colspan="5">Estimated Cost (USD)</th>
+            <th class="notes" rowspan="2">Notes</th>
+          </tr>
+          <tr id="header-row"></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const HEADER_COLUMNS = [
+      { key: 'unit.input', label: 'Input' },
+      { key: 'unit.cached_read', label: 'Cached Read' },
+      { key: 'unit.cached_write', label: 'Cached Write' },
+      { key: 'unit.output', label: 'Output' },
+      { key: 'est.input', label: 'Est. Input' },
+      { key: 'est.cached_read', label: 'Est. Cached Read' },
+      { key: 'est.cached_write', label: 'Est. Cached Write' },
+      { key: 'est.output', label: 'Est. Output' },
+      { key: 'est.total', label: 'Est. Total' }
+    ];
+
+    const state = {
+      sortKey: 'est.total',
+      sortDir: 'asc',
+      data: []
+    };
+
+    function formatNumber(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) {
+        return '<span class="muted">-</span>';
+      }
+      return Number(value).toFixed(2);
+    }
+
+    function formatValue(value, alignLeft = false) {
+      if (value === null || value === undefined) {
+        return '<span class="muted">-</span>';
+      }
+      if (typeof value === 'number') {
+        return formatNumber(value);
+      }
+      if (typeof value === 'object') {
+        const entries = Object.entries(value);
+        if (entries.length === 0) {
+          return '<span class="muted">-</span>';
+        }
+        return `<span class="stack ${alignLeft ? 'left' : ''}">` +
+          entries.map(([k, v]) => `<span class="stack-item"><span class="key">${k}:</span>${formatNumber(v)}</span>`).join('') +
+          '</span>';
+      }
+      return String(value);
+    }
+
+    function numericComparable(value) {
+      if (value === null || value === undefined) {
+        return Number.NEGATIVE_INFINITY;
+      }
+      if (typeof value === 'number') {
+        return value;
+      }
+      if (typeof value === 'object') {
+        const numbers = Object.values(value).filter((v) => typeof v === 'number' && Number.isFinite(v));
+        if (numbers.length === 0) {
+          return Number.NEGATIVE_INFINITY;
+        }
+        return Math.min(...numbers);
+      }
+      return Number.NEGATIVE_INFINITY;
+    }
+
+    function getByPath(obj, path) {
+      return path.split('.').reduce((acc, key) => (acc == null ? null : acc[key]), obj);
+    }
+
+    function calculateEstimatedCosts(model, usage) {
+      const unit = model.unit_price_usd_per_1m_tokens;
+      const est = {
+        input: unit.input * usage.input,
+        cached_read: unit.cached_read * usage.cached_read,
+        cached_write: null,
+        output: unit.output * usage.output,
+        total: null
+      };
+
+      if (typeof unit.cached_write === 'number') {
+        est.cached_write = unit.cached_write * usage.input;
+        est.total = est.input + est.cached_read + est.cached_write + est.output;
+      } else if (unit.cached_write && typeof unit.cached_write === 'object') {
+        est.cached_write = {};
+        est.total = {};
+        for (const [k, v] of Object.entries(unit.cached_write)) {
+          const writeCost = v * usage.input;
+          est.cached_write[k] = writeCost;
+          est.total[k] = est.input + est.cached_read + writeCost + est.output;
+        }
+      } else {
+        est.cached_write = null;
+        est.total = est.input + est.cached_read + est.output;
+      }
+
+      return est;
+    }
+
+    function sortRows(rows) {
+      const { sortKey, sortDir } = state;
+      const direction = sortDir === 'asc' ? 1 : -1;
+
+      return [...rows].sort((a, b) => {
+        if (sortKey === 'model' || sortKey === 'notes') {
+          const va = String(a[sortKey] || '');
+          const vb = String(b[sortKey] || '');
+          return va.localeCompare(vb, 'zh-Hans-CN') * direction;
+        }
+
+        const va = getByPath(a, sortKey);
+        const vb = getByPath(b, sortKey);
+        const na = numericComparable(va);
+        const nb = numericComparable(vb);
+
+        if (na === nb) {
+          return a.model.localeCompare(b.model, 'zh-Hans-CN');
+        }
+        return (na - nb) * direction;
+      });
+    }
+
+    function renderHeader() {
+      const headerRow = document.getElementById('header-row');
+      const cols = [
+        ...HEADER_COLUMNS,
+        { key: 'model', label: 'Model (Sort)' },
+        { key: 'notes', label: 'Notes (Sort)' }
+      ];
+
+      const byKey = new Map(cols.map((c) => [c.key, c]));
+
+      headerRow.innerHTML = [
+        ...HEADER_COLUMNS.map((col) => {
+          const active = state.sortKey === col.key;
+          const arrow = active ? (state.sortDir === 'asc' ? '▲' : '▼') : '↕';
+          return `<th class="sortable ${active ? 'active' : ''}" data-sort="${col.key}">${col.label}<span class="arrow">${arrow}</span></th>`;
+        })
+      ].join('');
+
+      const staticModel = document.querySelector('thead tr.group th.model');
+      const staticNotes = document.querySelector('thead tr.group th.notes');
+
+      const modelCol = byKey.get('model');
+      const notesCol = byKey.get('notes');
+
+      const updateCell = (th, col) => {
+        const active = state.sortKey === col.key;
+        const arrow = active ? (state.sortDir === 'asc' ? '▲' : '▼') : '↕';
+        th.classList.add('sortable');
+        if (active) {
+          th.classList.add('active');
+        } else {
+          th.classList.remove('active');
+        }
+        th.setAttribute('data-sort', col.key);
+        th.innerHTML = `${col.label}<span class="arrow">${arrow}</span>`;
+      };
+
+      updateCell(staticModel, modelCol);
+      updateCell(staticNotes, notesCol);
+
+      document.querySelectorAll('th.sortable').forEach((th) => {
+        th.addEventListener('click', () => {
+          const key = th.getAttribute('data-sort');
+          if (!key) {
+            return;
+          }
+          if (state.sortKey === key) {
+            state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+          } else {
+            state.sortKey = key;
+            state.sortDir = 'asc';
+          }
+          renderTable();
+        });
+      });
+    }
+
+    function renderBody() {
+      const tbody = document.getElementById('rows');
+      const sorted = sortRows(state.data);
+
+      tbody.innerHTML = sorted.map((row) => {
+        return `
+          <tr>
+            <td class="model">${formatValue(row.model, true)}</td>
+            <td>${formatValue(row.unit.input)}</td>
+            <td>${formatValue(row.unit.cached_read)}</td>
+            <td>${formatValue(row.unit.cached_write)}</td>
+            <td>${formatValue(row.unit.output)}</td>
+            <td>${formatValue(row.est.input)}</td>
+            <td>${formatValue(row.est.cached_read)}</td>
+            <td>${formatValue(row.est.cached_write)}</td>
+            <td>${formatValue(row.est.output)}</td>
+            <td>${formatValue(row.est.total)}</td>
+            <td class="notes">${formatValue(row.notes, true)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderTable() {
+      renderHeader();
+      renderBody();
+    }
+
+    async function bootstrap() {
+      try {
+        const res = await fetch('./data.json');
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const json = await res.json();
+        const usage = json.usage_assumption_million_tokens;
+
+        document.getElementById('usage').innerHTML =
+          `Usage assumption (million tokens): Input ${usage.input}, Cached Read ${usage.cached_read}, Output ${usage.output}. ` +
+          '当模型存在 Cached Write 单价时，估计值按 Input 用量计算。';
+
+        state.data = json.models.map((model) => {
+          return {
+            model: model.model,
+            notes: model.notes,
+            unit: model.unit_price_usd_per_1m_tokens,
+            est: calculateEstimatedCosts(model, usage)
+          };
+        });
+
+        renderTable();
+      } catch (err) {
+        document.getElementById('usage').textContent = `加载失败: ${err.message}`;
+      }
+    }
+
+    bootstrap();
+  </script>
+</body>
+</html>
