@@ -40,6 +40,40 @@
       "notes": "有额外 cache storage（未计入）"
     },
     {
+      "model": "Qwen 3.6 Plus (<=256K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.276,
+        "cached_read": 0.028,
+        "cached_write": 0.344,
+        "output": 1.651
+      },
+      "sample_cost_usd": {
+        "input": 8.09,
+        "cached_read": 11.54,
+        "cached_write": 10.08,
+        "output": 3.30,
+        "total": 33.00
+      },
+      "notes": "显式 cache write/read 收费；按输入 <=256K 档"
+    },
+    {
+      "model": "Qwen 3.6 Plus (256K-1M)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.101,
+        "cached_read": 0.111,
+        "cached_write": 1.376,
+        "output": 6.602
+      },
+      "sample_cost_usd": {
+        "input": 32.26,
+        "cached_read": 45.73,
+        "cached_write": 40.32,
+        "output": 13.20,
+        "total": 131.51
+      },
+      "notes": "显式 cache write/read 收费；按输入 256K-1M 档"
+    },
+    {
       "model": "GPT-5.4-mini",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.75,
