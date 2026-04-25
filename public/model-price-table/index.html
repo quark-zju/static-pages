@@ -56,6 +56,42 @@
       line-height: 1.6;
     }
 
+    .usage-controls {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: end;
+    }
+
+    .usage-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 150px;
+    }
+
+    .usage-field label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .usage-field input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 14px;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .usage-field input:focus {
+      outline: 2px solid #99f6e4;
+      outline-offset: 1px;
+      border-color: var(--accent);
+    }
+
     .table-wrap {
       overflow: auto;
     }
@@ -150,12 +186,16 @@
         padding: 12px;
       }
 
-      .header {
-        padding: 16px;
-      }
+    .header {
+      padding: 16px;
+    }
 
       h1 {
         font-size: 18px;
+      }
+
+      .usage-field {
+        min-width: 120px;
       }
     }
   </style>
@@ -165,6 +205,20 @@
     <div class="header">
       <h1>模型价格对比（按 Usage Assumption 估算）</h1>
       <div id="usage" class="meta">加载中...</div>
+      <div class="usage-controls">
+        <div class="usage-field">
+          <label for="usage-input">Input (million tokens)</label>
+          <input id="usage-input" type="number" min="0" step="0.1">
+        </div>
+        <div class="usage-field">
+          <label for="usage-cached-read">Cached Read (million tokens)</label>
+          <input id="usage-cached-read" type="number" min="0" step="0.1">
+        </div>
+        <div class="usage-field">
+          <label for="usage-output">Output (million tokens)</label>
+          <input id="usage-output" type="number" min="0" step="0.1">
+        </div>
+      </div>
     </div>
     <div class="table-wrap">
       <table>
@@ -198,7 +252,13 @@
     const state = {
       sortKey: 'est.total',
       sortDir: 'asc',
-      data: []
+      data: [],
+      rawModels: [],
+      usage: {
+        input: 0,
+        cached_read: 0,
+        output: 0
+      }
     };
 
     function formatNumber(value) {
@@ -385,6 +445,44 @@
       renderBody();
     }
 
+    function setUsageText() {
+      const usage = state.usage;
+      document.getElementById('usage').innerHTML =
+        `Usage assumption (million tokens): Input ${usage.input}, Cached Read ${usage.cached_read}, Output ${usage.output}. ` +
+        '当模型存在 Cached Write 单价时，估计值按 Input 用量计算。';
+    }
+
+    function recalculateRows() {
+      state.data = state.rawModels.map((model) => {
+        return {
+          model: model.model,
+          notes: model.notes,
+          unit: model.unit_price_usd_per_1m_tokens,
+          est: calculateEstimatedCosts(model, state.usage)
+        };
+      });
+      renderTable();
+      setUsageText();
+    }
+
+    function bindUsageInputs() {
+      const fields = [
+        { id: 'usage-input', key: 'input' },
+        { id: 'usage-cached-read', key: 'cached_read' },
+        { id: 'usage-output', key: 'output' }
+      ];
+
+      fields.forEach(({ id, key }) => {
+        const input = document.getElementById(id);
+        input.value = String(state.usage[key]);
+        input.addEventListener('input', () => {
+          const value = Number(input.value);
+          state.usage[key] = Number.isFinite(value) && value >= 0 ? value : 0;
+          recalculateRows();
+        });
+      });
+    }
+
     async function bootstrap() {
       try {
         const res = await fetch('./data.json');
@@ -392,22 +490,10 @@
           throw new Error(`HTTP ${res.status}`);
         }
         const json = await res.json();
-        const usage = json.usage_assumption_million_tokens;
-
-        document.getElementById('usage').innerHTML =
-          `Usage assumption (million tokens): Input ${usage.input}, Cached Read ${usage.cached_read}, Output ${usage.output}. ` +
-          '当模型存在 Cached Write 单价时，估计值按 Input 用量计算。';
-
-        state.data = json.models.map((model) => {
-          return {
-            model: model.model,
-            notes: model.notes,
-            unit: model.unit_price_usd_per_1m_tokens,
-            est: calculateEstimatedCosts(model, usage)
-          };
-        });
-
-        renderTable();
+        state.rawModels = json.models;
+        state.usage = { ...json.usage_assumption_million_tokens };
+        bindUsageInputs();
+        recalculateRows();
       } catch (err) {
         document.getElementById('usage').textContent = `加载失败: ${err.message}`;
       }
