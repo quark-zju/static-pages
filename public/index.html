@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Pages 风格示例</title>
+  <title>项目导航</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap");
 
@@ -65,8 +65,7 @@
     }
 
     .content {
-      padding: 56px 32px;
-      text-align: center;
+      padding: 48px 28px;
     }
 
     h1 {
@@ -74,56 +73,65 @@
       font-size: clamp(28px, 4vw, 42px);
       letter-spacing: -0.02em;
       line-height: 1.2;
+      text-align: center;
     }
 
     p {
-      margin: 18px auto 0;
+      margin: 16px auto 0;
       max-width: 640px;
       color: var(--gh-muted);
       font-size: 17px;
       line-height: 1.7;
+      text-align: center;
     }
 
-    .actions {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+    .project-list {
+      margin: 34px auto 0;
+      max-width: 760px;
+      display: grid;
       gap: 12px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      font-weight: 600;
+    .project-item {
+      display: block;
+      padding: 16px 18px;
+      border: 1px solid var(--gh-border);
+      border-radius: 10px;
+      background: #fff;
       text-decoration: none;
-      transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+      color: inherit;
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
     }
 
-    .btn-primary {
-      background: var(--gh-blue);
-      color: #ffffff;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: var(--gh-blue-hover);
+    .project-item:hover {
+      border-color: #8fb8e8;
+      box-shadow: 0 10px 18px rgba(31, 35, 40, 0.08);
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
+    .project-title {
+      color: var(--gh-blue);
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .project-desc {
+      margin-top: 8px;
+      color: var(--gh-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .project-path {
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 12px;
+      color: #656d76;
       background: #f6f8fa;
-      border-color: var(--gh-border);
-      color: var(--gh-text);
-    }
-
-    .btn-secondary:hover {
-      background: #eef2f6;
-      transform: translateY(-1px);
+      border: 1px solid var(--gh-border);
+      border-radius: 999px;
+      padding: 2px 8px;
     }
 
     .status {
@@ -153,12 +161,8 @@
         font-size: 16px;
       }
 
-      .btn {
-        width: 100%;
-      }
-
-      .actions {
-        align-items: stretch;
+      .content {
+        padding: 36px 16px;
       }
     }
   </style>
@@ -172,15 +176,17 @@
     </header>
 
     <section class="content">
-      <h1>欢迎来到你的 GitHub Pages</h1>
+      <h1>项目导航</h1>
       <p>
-        这是一个简洁的首页模板，采用接近 GitHub Pages 的浅色调、边框层次和按钮风格，
-        你可以在此基础上继续扩展项目文档、演示入口或个人站点内容。
+        这里收录当前站点里的子项目入口。点击卡片即可进入对应页面。
       </p>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="#">查看项目</a>
-        <a class="btn btn-secondary" href="#">阅读文档</a>
+      <div class="project-list">
+        <a class="project-item" href="./model-price-table/">
+          <h2 class="project-title">Model Price Table</h2>
+          <div class="project-desc">多模型价格对比表，支持按照 Usage Assumption 实时估算输入、缓存读写和输出成本。</div>
+          <span class="project-path">/model-price-table/</span>
+        </a>
       </div>
 
       <div class="status">页面已部署并运行中</div>
