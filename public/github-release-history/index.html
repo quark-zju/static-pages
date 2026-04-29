@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Release History</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap");
+
+    :root {
+      --gh-bg: #f6f8fa;
+      --gh-surface: #ffffff;
+      --gh-border: #d0d7de;
+      --gh-text: #24292f;
+      --gh-muted: #57606a;
+      --gh-blue: #0969da;
+      --gh-blue-hover: #0860ca;
+      --gh-green: #2da44e;
+      --gh-orange: #bf8700;
+      --gh-red: #cf222e;
+      --gh-shadow: 0 10px 30px rgba(31, 35, 40, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans", "Noto Sans SC", sans-serif;
+      color: var(--gh-text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(9, 105, 218, 0.08) 0%, rgba(9, 105, 218, 0) 45%),
+        radial-gradient(circle at 100% 100%, rgba(45, 164, 78, 0.08) 0%, rgba(45, 164, 78, 0) 40%),
+        var(--gh-bg);
+      display: grid;
+      place-items: start center;
+      padding: 24px;
+    }
+
+    .page {
+      width: min(960px, 100%);
+      background: var(--gh-surface);
+      border: 1px solid var(--gh-border);
+      border-radius: 14px;
+      box-shadow: var(--gh-shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--gh-border);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 35, 40, 0.2);
+      background: #f0f3f6;
+    }
+
+    .content { padding: 24px 28px; }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    select {
+      font-family: inherit;
+      font-size: 14px;
+      padding: 7px 28px 7px 12px;
+      border: 1px solid var(--gh-border);
+      border-radius: 8px;
+      background: white;
+      color: var(--gh-text);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%2357606a'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+    }
+
+    select:focus { outline: 2px solid #8fb8e8; outline-offset: 1px; }
+
+    .radio-group {
+      display: flex;
+      border: 1px solid var(--gh-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .radio-group label {
+      padding: 7px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      background: white;
+      border-right: 1px solid var(--gh-border);
+      transition: background 100ms;
+    }
+
+    .radio-group label:last-child { border-right: none; }
+    .radio-group label:hover { background: #f3f4f6; }
+    .radio-group input { display: none; }
+    .radio-group input:checked + span { color: var(--gh-blue); font-weight: 600; }
+    .radio-group label:has(input:checked) { background: #ddf4ff; }
+
+    .stats {
+      margin-top: 16px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--gh-muted);
+    }
+
+    .chart-container {
+      margin-top: 20px;
+      position: relative;
+      min-height: 300px;
+    }
+
+    svg {
+      width: 100%;
+      display: block;
+    }
+
+    svg text {
+      font-family: "IBM Plex Sans", "Noto Sans SC", sans-serif;
+    }
+
+    .tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #1f2937;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 100ms;
+      z-index: 10;
+    }
+
+    .tooltip.show { opacity: 1; }
+
+    .loading {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--gh-muted);
+      font-size: 16px;
+    }
+
+    .error {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--gh-red);
+      font-size: 16px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--gh-muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover { color: var(--gh-blue); }
+
+    @media (max-width: 640px) {
+      body { padding: 8px; }
+      .content { padding: 20px 16px; }
+      h1 { font-size: 18px; }
+      .header-row { flex-direction: column; }
+      .stats { gap: 12px; }
+      .stat-value { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar" aria-hidden="true">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </header>
+
+    <div class="content">
+      <a href="../" class="back-link">&larr; 项目导航</a>
+
+      <div class="header-row">
+        <h1>GitHub Release History</h1>
+        <div class="controls">
+          <div class="radio-group" id="mode-switch">
+            <label><input type="radio" name="mode" value="bar" checked><span>按月柱状</span></label>
+            <label><input type="radio" name="mode" value="scatter"><span>散点时间线</span></label>
+          </div>
+          <select id="repo-select"></select>
+        </div>
+      </div>
+
+      <div class="stats" id="stats"></div>
+      <div class="chart-container" id="chart">
+        <div class="loading">加载中...</div>
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const state = {
+      projects: [],
+      current: null,
+      data: null,
+      mode: "bar",
+      colors: { bar: "#0969da", barHover: "#0860ca", scatter: "#2da44e", prerelease: "#bf8700" }
+    };
+
+    const selectEl = document.getElementById("repo-select");
+    const statsEl = document.getElementById("stats");
+    const chartEl = document.getElementById("chart");
+    const tooltipEl = document.getElementById("tooltip");
+
+    // Mode switching
+    document.querySelectorAll("input[name=mode]").forEach(r => {
+      r.addEventListener("change", () => {
+        state.mode = r.value;
+        if (state.data) renderChart();
+      });
+    });
+
+    // Project switching
+    selectEl.addEventListener("change", () => {
+      const selected = state.projects[selectEl.value];
+      if (selected) loadProject(selected);
+    });
+
+    async function init() {
+      try {
+        const resp = await fetch("./projects.json");
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const json = await resp.json();
+        state.projects = json.projects || [];
+        renderSelector();
+        if (state.projects.length > 0) {
+          selectEl.value = "0";
+          await loadProject(state.projects[0]);
+        } else {
+          chartEl.innerHTML = '<div class="error">暂无项目数据。请运行 <code>scripts/fetch_releases.py</code> 下载数据。</div>';
+        }
+      } catch (err) {
+        chartEl.innerHTML = `<div class="error">加载失败: ${err.message}</div>`;
+      }
+    }
+
+    function renderSelector() {
+      selectEl.innerHTML = state.projects.map((p, i) =>
+        `<option value="${i}">${p.repo}</option>`
+      ).join("");
+    }
+
+    async function loadProject(proj) {
+      chartEl.innerHTML = '<div class="loading">加载中...</div>';
+      try {
+        const resp = await fetch(`./${proj.file}`);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        state.data = await resp.json();
+        state.current = proj;
+        renderStats();
+        renderChart();
+      } catch (err) {
+        chartEl.innerHTML = `<div class="error">加载失败: ${err.message}</div>`;
+      }
+    }
+
+    function renderStats() {
+      const d = state.data;
+      if (!d || !d.releases.length) {
+        statsEl.innerHTML = "";
+        return;
+      }
+      const releases = d.releases;
+      const first = releases[0].date;
+      const last = releases[releases.length - 1].date;
+      const days = (new Date(last) - new Date(first)) / 86400000;
+      const avgDays = days / (releases.length - 1 || 1);
+      const months = Math.max(1, days / 30);
+      const perMonth = (releases.length / months).toFixed(1);
+
+      statsEl.innerHTML = [
+        { v: releases.length, l: "Total Releases" },
+        { v: first, l: "First Release" },
+        { v: last, l: "Latest Release" },
+        { v: `${perMonth} / mo`, l: "Avg Cadence" },
+        { v: `${avgDays.toFixed(1)} d`, l: "Avg Interval" },
+      ].map(s => `<div class="stat"><span class="stat-value">${s.v}</span><span class="stat-label">${s.l}</span></div>`).join("");
+    }
+
+    function groupByMonth(releases) {
+      const buckets = new Map();
+      releases.forEach(r => {
+        const month = r.date.slice(0, 7);
+        if (!buckets.has(month)) buckets.set(month, { total: 0, releases: [], prereleases: 0 });
+        const b = buckets.get(month);
+        b.total++;
+        b.releases.push(r);
+        if (r.prerelease) b.prereleases++;
+      });
+      return Array.from(buckets.entries())
+        .map(([month, data]) => ({ month, ...data }))
+        .sort((a, b) => a.month.localeCompare(b.month));
+    }
+
+    function renderChart() {
+      const d = state.data;
+      if (!d || !d.releases.length) {
+        chartEl.innerHTML = '<div class="error">无 release 数据</div>';
+        return;
+      }
+
+      const tooltip = tooltipEl;
+      const mode = state.mode;
+      const releases = d.releases;
+      tooltip.classList.remove("show");
+      chartEl.innerHTML = "";
+      chartEl.appendChild(tooltip);
+
+      if (mode === "bar") {
+        renderBarChart(releases, tooltip);
+      } else {
+        renderScatterChart(releases, tooltip);
+      }
+    }
+
+    function renderBarChart(releases, tooltip) {
+      const months = groupByMonth(releases);
+      const svgNS = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(svgNS, "svg");
+
+      const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+      const containerWidth = chartEl.clientWidth;
+      const width = containerWidth;
+      const height = 380;
+      const plotW = width - margin.left - margin.right;
+      const plotH = height - margin.top - margin.bottom;
+
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+      const maxCount = Math.max(...months.map(m => m.total), 1);
+      const barWidth = Math.max(3, Math.min(30, plotW / months.length - 2));
+      const totalBarsWidth = months.length * (barWidth + 2) - 2;
+      const xOffset = totalBarsWidth < plotW ? (plotW - totalBarsWidth) / 2 : 0;
+
+      function x(i) { return margin.left + xOffset + i * (barWidth + 2); }
+      function y(val) { return margin.top + plotH - (val / maxCount) * plotH; }
+
+      // Define gradients and filters
+      const defs = document.createElementNS(svgNS, "defs");
+      defs.innerHTML = `
+        <filter id="barShadow"><feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.15"/></filter>
+      `;
+      svg.appendChild(defs);
+
+      // Grid lines
+      const gridCount = 5;
+      for (let i = 0; i <= gridCount; i++) {
+        const val = Math.round((maxCount / gridCount) * i);
+        const yy = y(val);
+        const line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", margin.left);
+        line.setAttribute("x2", width - margin.right);
+        line.setAttribute("y1", yy);
+        line.setAttribute("y2", yy);
+        line.setAttribute("stroke", "#e8eaed");
+        line.setAttribute("stroke-width", "1");
+        svg.appendChild(line);
+
+        const text = document.createElementNS(svgNS, "text");
+        text.setAttribute("x", margin.left - 8);
+        text.setAttribute("y", yy + 4);
+        text.setAttribute("text-anchor", "end");
+        text.setAttribute("fill", "#57606a");
+        text.setAttribute("font-size", "11");
+        text.textContent = val;
+        svg.appendChild(text);
+      }
+
+      // Bars
+      months.forEach((m, i) => {
+        const group = document.createElementNS(svgNS, "g");
+
+        const barH = plotH - (m.total / maxCount) * plotH;
+        // Main bar
+        if (m.total > m.prereleases) {
+          const rect = document.createElementNS(svgNS, "rect");
+          rect.setAttribute("x", x(i));
+          rect.setAttribute("y", y(m.total));
+          rect.setAttribute("width", barWidth);
+          rect.setAttribute("height", (m.total / maxCount) * plotH);
+          rect.setAttribute("fill", state.colors.bar);
+          rect.setAttribute("rx", "2");
+          rect.setAttribute("filter", "url(#barShadow)");
+          rect.style.cursor = "pointer";
+          group.appendChild(rect);
+        }
+
+        // Prerelease overlay
+        if (m.prereleases > 0) {
+          const preH = (m.prereleases / maxCount) * plotH;
+          const rect = document.createElementNS(svgNS, "rect");
+          rect.setAttribute("x", x(i));
+          rect.setAttribute("y", y(m.prereleases));
+          rect.setAttribute("width", barWidth);
+          rect.setAttribute("height", preH || 1);
+          rect.setAttribute("fill", state.colors.prerelease);
+          rect.setAttribute("rx", "2");
+          rect.style.cursor = "pointer";
+          group.appendChild(rect);
+        }
+
+        group.addEventListener("mouseenter", (e) => {
+          tooltip.innerHTML = `<strong>${m.month}</strong><br>Releases: ${m.total}${m.prereleases ? ` (${m.prereleases} pre)` : ""}`;
+          tooltip.classList.add("show");
+        });
+        group.addEventListener("mousemove", (e) => {
+          const rect = chartEl.getBoundingClientRect();
+          tooltip.style.left = (e.clientX - rect.left + 12) + "px";
+          tooltip.style.top = (e.clientY - rect.top - 40) + "px";
+        });
+        group.addEventListener("mouseleave", () => tooltip.classList.remove("show"));
+
+        svg.appendChild(group);
+      });
+
+      // X-axis labels (show every N months)
+      const labelInterval = Math.max(1, Math.floor(months.length / 15));
+      months.forEach((m, i) => {
+        if (i % labelInterval !== 0 && i !== months.length - 1) return;
+        const text = document.createElementNS(svgNS, "text");
+        text.setAttribute("x", x(i) + barWidth / 2);
+        text.setAttribute("y", height - 14);
+        text.setAttribute("text-anchor", "end");
+        text.setAttribute("transform", `rotate(-45, ${x(i) + barWidth / 2}, ${height - 14})`);
+        text.setAttribute("fill", "#57606a");
+        text.setAttribute("font-size", "10");
+        text.textContent = m.month;
+        svg.appendChild(text);
+      });
+
+      // X axis label
+      const xLabel = document.createElementNS(svgNS, "text");
+      xLabel.setAttribute("x", margin.left + plotW / 2);
+      xLabel.setAttribute("y", height - 2);
+      xLabel.setAttribute("text-anchor", "middle");
+      xLabel.setAttribute("fill", "#57606a");
+      xLabel.setAttribute("font-size", "11");
+      xLabel.textContent = "Month";
+      svg.appendChild(xLabel);
+
+      // Y axis label
+      const yLabel = document.createElementNS(svgNS, "text");
+      yLabel.setAttribute("x", 12);
+      yLabel.setAttribute("y", margin.top + plotH / 2);
+      yLabel.setAttribute("text-anchor", "middle");
+      yLabel.setAttribute("fill", "#57606a");
+      yLabel.setAttribute("font-size", "11");
+      yLabel.setAttribute("transform", `rotate(-90, 12, ${margin.top + plotH / 2})`);
+      yLabel.textContent = "Releases / Month";
+      svg.appendChild(yLabel);
+
+      chartEl.insertBefore(svg, chartEl.firstChild);
+    }
+
+    function renderScatterChart(releases, tooltip) {
+      const svgNS = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(svgNS, "svg");
+
+      const margin = { top: 20, right: 30, bottom: 50, left: 50 };
+      const containerWidth = chartEl.clientWidth;
+      const width = containerWidth;
+      const height = 380;
+      const plotW = width - margin.left - margin.right;
+      const plotH = height - margin.top - margin.bottom;
+
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+      const firstDate = new Date(releases[0].date);
+      const lastDate = new Date(releases[releases.length - 1].date);
+      const timeRange = lastDate - firstDate || 1;
+
+      function x(d) { return margin.left + ((new Date(d.date) - firstDate) / timeRange) * plotW; }
+      function y(i) { return margin.top + 30 + (i / (releases.length - 1 || 1)) * (plotH - 60); }
+
+      // Grid lines
+      const gridCount = 6;
+      for (let i = 0; i <= gridCount; i++) {
+        const yy = margin.top + (plotH / gridCount) * i;
+        const line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", margin.left);
+        line.setAttribute("x2", width - margin.right);
+        line.setAttribute("y1", yy);
+        line.setAttribute("y2", yy);
+        line.setAttribute("stroke", "#e8eaed");
+        line.setAttribute("stroke-width", "1");
+        svg.appendChild(line);
+      }
+
+      // Timeline line
+      const line = document.createElementNS(svgNS, "polyline");
+      const points = releases.map((r, i) => `${x(r)},${y(i)}`).join(" ");
+      line.setAttribute("points", points);
+      line.setAttribute("fill", "none");
+      line.setAttribute("stroke", "#d0d7de");
+      line.setAttribute("stroke-width", "1.5");
+      svg.appendChild(line);
+
+      // Dots
+      releases.forEach((r, i) => {
+        const circle = document.createElementNS(svgNS, "circle");
+        circle.setAttribute("cx", x(r));
+        circle.setAttribute("cy", y(i));
+        circle.setAttribute("r", r.prerelease ? 3.5 : 5);
+        circle.setAttribute("fill", r.prerelease ? state.colors.prerelease : state.colors.scatter);
+        circle.setAttribute("stroke", "#fff");
+        circle.setAttribute("stroke-width", "1");
+        circle.style.cursor = "pointer";
+
+        circle.addEventListener("mouseenter", () => {
+          tooltip.innerHTML = `<strong>${r.tag || r.name}</strong><br>${r.date}${r.prerelease ? " (pre-release)" : ""}`;
+          tooltip.classList.add("show");
+        });
+        circle.addEventListener("mousemove", (e) => {
+          const rect = chartEl.getBoundingClientRect();
+          tooltip.style.left = (e.clientX - rect.left + 12) + "px";
+          tooltip.style.top = (e.clientY - rect.top - 40) + "px";
+        });
+        circle.addEventListener("mouseleave", () => tooltip.classList.remove("show"));
+
+        svg.appendChild(circle);
+      });
+
+      // X-axis labels
+      const labelCount = Math.min(6, Math.ceil(timeRange / (365 * 86400000)));
+      for (let i = 0; i <= labelCount; i++) {
+        const d = new Date(firstDate.getTime() + (timeRange / labelCount) * i);
+        const xx = margin.left + (i / labelCount) * plotW;
+        const text = document.createElementNS(svgNS, "text");
+        text.setAttribute("x", xx);
+        text.setAttribute("y", height - 14);
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "#57606a");
+        text.setAttribute("font-size", "10");
+        text.textContent = d.toISOString().slice(0, 10);
+        svg.appendChild(text);
+      }
+
+      chartEl.insertBefore(svg, chartEl.firstChild);
+    }
+
+    init();
+  </script>
+</body>
+</html>
