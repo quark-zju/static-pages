@@ -1,0 +1,4513 @@
+{
+  "repo": "openai/codex",
+  "updated": "2026-04-29T21:22:09Z",
+  "total": 751,
+  "releases": [
+    {
+      "tag": "codex-rs-e40bc9911433bd3f942ef4604626fab5638a7a72-1-rust-v0.0.2504301327",
+      "date": "2025-04-30",
+      "prerelease": true,
+      "name": "codex-rs-e40bc9911433bd3f942ef4604626fab5638a7a72-1-rust-v0.0.2504301327"
+    },
+    {
+      "tag": "codex-rs-72a4c38e41bc64f5a7c8c73d52f45784cb6b7137-1-rust-v0.0.2504301219",
+      "date": "2025-04-30",
+      "prerelease": true,
+      "name": "codex-rs-72a4c38e41bc64f5a7c8c73d52f45784cb6b7137-1-rust-v0.0.2504301219"
+    },
+    {
+      "tag": "codex-rs-5915a59c8290765d6097caf4074aae93a85380fa-1-rust-v0.0.2505021951",
+      "date": "2025-05-03",
+      "prerelease": true,
+      "name": "codex-rs-5915a59c8290765d6097caf4074aae93a85380fa-1-rust-v0.0.2505021951"
+    },
+    {
+      "tag": "codex-rs-132146b6d4e133d014f763a0d8dabd853f3fc0c0-1-rust-v0.0.2505061740",
+      "date": "2025-05-07",
+      "prerelease": true,
+      "name": "codex-rs-132146b6d4e133d014f763a0d8dabd853f3fc0c0-1-rust-v0.0.2505061740"
+    },
+    {
+      "tag": "codex-rs-7f24ec8cae83ae22e7cc306fea4844958370827d-1-rust-v0.0.2505101753",
+      "date": "2025-05-11",
+      "prerelease": true,
+      "name": "codex-rs-7f24ec8cae83ae22e7cc306fea4844958370827d-1-rust-v0.0.2505101753"
+    },
+    {
+      "tag": "codex-rs-9949f6404378db6f54a01bcadb1956e0535d4921-1-rust-v0.0.2505121520",
+      "date": "2025-05-12",
+      "prerelease": true,
+      "name": "codex-rs-9949f6404378db6f54a01bcadb1956e0535d4921-1-rust-v0.0.2505121520"
+    },
+    {
+      "tag": "codex-rs-94c47d69a3f92257e7f9717a2044bd55786eb999-1-rust-v0.0.2505121726",
+      "date": "2025-05-13",
+      "prerelease": true,
+      "name": "codex-rs-94c47d69a3f92257e7f9717a2044bd55786eb999-1-rust-v0.0.2505121726"
+    },
+    {
+      "tag": "codex-rs-3a70a0bc280734d09448cb08ec05b5c44f7c798e-1-rust-v0.0.2505141337",
+      "date": "2025-05-14",
+      "prerelease": true,
+      "name": "codex-rs-3a70a0bc280734d09448cb08ec05b5c44f7c798e-1-rust-v0.0.2505141337"
+    },
+    {
+      "tag": "codex-rs-8d6a8b308e7457d432564083bb2f577cd39e132b-1-rust-v0.0.2505151627",
+      "date": "2025-05-15",
+      "prerelease": true,
+      "name": "codex-rs-8d6a8b308e7457d432564083bb2f577cd39e132b-1-rust-v0.0.2505151627"
+    },
+    {
+      "tag": "codex-rs-cb19037ca3822e9b19b51417392f8afc046be607-1-rust-v0.0.2505141652",
+      "date": "2025-05-15",
+      "prerelease": true,
+      "name": "codex-rs-cb19037ca3822e9b19b51417392f8afc046be607-1-rust-v0.0.2505141652"
+    },
+    {
+      "tag": "codex-rs-b5257992b06373acef8b20a4ca25ffc1b96688e2-1-rust-v0.0.2505161708",
+      "date": "2025-05-17",
+      "prerelease": true,
+      "name": "codex-rs-b5257992b06373acef8b20a4ca25ffc1b96688e2-1-rust-v0.0.2505161708"
+    },
+    {
+      "tag": "codex-rs-5ee08335ac690a69035720a798df9865bc5a4278-1-rust-v0.0.2505171051",
+      "date": "2025-05-17",
+      "prerelease": true,
+      "name": "codex-rs-5ee08335ac690a69035720a798df9865bc5a4278-1-rust-v0.0.2505171051"
+    },
+    {
+      "tag": "codex-rs-c74d7e13e7d8daf3a2493f6216918d5e59a38bed-1-rust-v0.0.2505191518",
+      "date": "2025-05-19",
+      "prerelease": true,
+      "name": "codex-rs-c74d7e13e7d8daf3a2493f6216918d5e59a38bed-1-rust-v0.0.2505191518"
+    },
+    {
+      "tag": "codex-rs-68e94c8c08943e1d4a53bd7987e319ba7dbffb74-1-rust-v0.0.2505191609",
+      "date": "2025-05-19",
+      "prerelease": true,
+      "name": "codex-rs-68e94c8c08943e1d4a53bd7987e319ba7dbffb74-1-rust-v0.0.2505191609"
+    },
+    {
+      "tag": "codex-rs-79cb07bf70a9036200aa2b61b211fe47ea13184a-1-rust-v0.0.2505212314",
+      "date": "2025-05-22",
+      "prerelease": true,
+      "name": "codex-rs-79cb07bf70a9036200aa2b61b211fe47ea13184a-1-rust-v0.0.2505212314"
+    },
+    {
+      "tag": "codex-rs-6a77484c94956d5cd319da3f8500b178ec93fc90-1-rust-v0.0.2505220956",
+      "date": "2025-05-22",
+      "prerelease": true,
+      "name": "codex-rs-6a77484c94956d5cd319da3f8500b178ec93fc90-1-rust-v0.0.2505220956"
+    },
+    {
+      "tag": "codex-rs-d2eee362c1c6cdc00bcb5bf1d479823ef33c143a-1-rust-v0.0.2505231137",
+      "date": "2025-05-23",
+      "prerelease": true,
+      "name": "codex-rs-d2eee362c1c6cdc00bcb5bf1d479823ef33c143a-1-rust-v0.0.2505231137"
+    },
+    {
+      "tag": "codex-rs-aa156ceac953c3e6f3602e6eb2f61b14ac8adaf3-1-rust-v0.0.2505231205",
+      "date": "2025-05-23",
+      "prerelease": true,
+      "name": "codex-rs-aa156ceac953c3e6f3602e6eb2f61b14ac8adaf3-1-rust-v0.0.2505231205"
+    },
+    {
+      "tag": "codex-rs-d519bd8bbd1e1fd9efdc5d68cf7bebdec0dd0f28-1-rust-v0.0.2505270918",
+      "date": "2025-05-27",
+      "prerelease": true,
+      "name": "codex-rs-d519bd8bbd1e1fd9efdc5d68cf7bebdec0dd0f28-1-rust-v0.0.2505270918"
+    },
+    {
+      "tag": "codex-rs-b152435fb95e7f1ab197ae2cdde68ae29a7d219b-1-rust-v0.0.2505291458",
+      "date": "2025-05-29",
+      "prerelease": true,
+      "name": "codex-rs-b152435fb95e7f1ab197ae2cdde68ae29a7d219b-1-rust-v0.0.2505291458"
+    },
+    {
+      "tag": "codex-rs-378d773f3af95384eef51addf560df30aa9fd15f-1-rust-v0.0.2505301630",
+      "date": "2025-05-30",
+      "prerelease": true,
+      "name": "codex-rs-378d773f3af95384eef51addf560df30aa9fd15f-1-rust-v0.0.2505301630"
+    },
+    {
+      "tag": "codex-rs-dfac02b343605ce61154ab2e075ac6c38f533916-1-rust-v0.0.2505291659",
+      "date": "2025-05-30",
+      "prerelease": true,
+      "name": "codex-rs-dfac02b343605ce61154ab2e075ac6c38f533916-1-rust-v0.0.2505291659"
+    },
+    {
+      "tag": "codex-rs-ca8e97fcbcb991e542b8689f2d4eab9d30c399d6-1-rust-v0.0.2505302325",
+      "date": "2025-05-31",
+      "prerelease": true,
+      "name": "codex-rs-ca8e97fcbcb991e542b8689f2d4eab9d30c399d6-1-rust-v0.0.2505302325"
+    },
+    {
+      "tag": "codex-rs-45519e12f39777b65c05ed498503ddcb60beb289-1-rust-v0.0.2506030956",
+      "date": "2025-06-03",
+      "prerelease": true,
+      "name": "codex-rs-45519e12f39777b65c05ed498503ddcb60beb289-1-rust-v0.0.2506030956"
+    },
+    {
+      "tag": "codex-rs-ac6e1b2661320a631d80aa51bdfa8f1635e0c8fa-1-rust-v0.0.2506052246",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "codex-rs-ac6e1b2661320a631d80aa51bdfa8f1635e0c8fa-1-rust-v0.0.2506052246"
+    },
+    {
+      "tag": "codex-rs-84eae7b1bc4e3b5420f2d6127b7c17e7a979a5b0-1-rust-v0.0.2506052135",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "codex-rs-84eae7b1bc4e3b5420f2d6127b7c17e7a979a5b0-1-rust-v0.0.2506052135"
+    },
+    {
+      "tag": "codex-rs-5fc3c3023d9f179fb416b2722d1434bac278e916-1-rust-v0.0.2506060849",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "codex-rs-5fc3c3023d9f179fb416b2722d1434bac278e916-1-rust-v0.0.2506060849"
+    },
+    {
+      "tag": "codex-rs-121686615fd634e35f3e415896f36908cf8632f9-1-rust-v0.0.2506052203",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "codex-rs-121686615fd634e35f3e415896f36908cf8632f9-1-rust-v0.0.2506052203"
+    },
+    {
+      "tag": "codex-rs-6a8a936f75ea44faf05ff4fab0c6a36fc970428d-1-rust-v0.0.2506261603",
+      "date": "2025-06-26",
+      "prerelease": true,
+      "name": "codex-rs-6a8a936f75ea44faf05ff4fab0c6a36fc970428d-1-rust-v0.0.2506261603"
+    },
+    {
+      "tag": "codex-rs-b289c9207090b2e27494545d7b5404e063bd86f3-1-rust-v0.1.0-alpha.4",
+      "date": "2025-06-28",
+      "prerelease": true,
+      "name": "0.1.0-alpha.4"
+    },
+    {
+      "tag": "codex-rs-2925136536b06a324551627468d17e959afa18d4-1-rust-v0.2.0-alpha.2",
+      "date": "2025-06-29",
+      "prerelease": true,
+      "name": "0.2.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.2.0",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "0.2.0"
+    },
+    {
+      "tag": "rust-v0.3.0",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "0.3.0"
+    },
+    {
+      "tag": "rust-v0.4.0",
+      "date": "2025-07-09",
+      "prerelease": false,
+      "name": "0.4.0"
+    },
+    {
+      "tag": "rust-v0.5.0",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "0.5.0"
+    },
+    {
+      "tag": "rust-v0.6.0",
+      "date": "2025-07-12",
+      "prerelease": false,
+      "name": "0.6.0"
+    },
+    {
+      "tag": "rust-v0.7.0",
+      "date": "2025-07-14",
+      "prerelease": false,
+      "name": "0.7.0"
+    },
+    {
+      "tag": "rust-v0.8.0",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "0.8.0"
+    },
+    {
+      "tag": "rust-v0.9.0-beta.1",
+      "date": "2025-07-22",
+      "prerelease": true,
+      "name": "0.9.0-beta.1"
+    },
+    {
+      "tag": "rust-v0.9.0-beta",
+      "date": "2025-07-22",
+      "prerelease": true,
+      "name": "0.9.0-beta"
+    },
+    {
+      "tag": "rust-v0.9.0-alpha",
+      "date": "2025-07-22",
+      "prerelease": true,
+      "name": "0.9.0-alpha"
+    },
+    {
+      "tag": "rust-v0.9.0",
+      "date": "2025-07-23",
+      "prerelease": false,
+      "name": "0.9.0"
+    },
+    {
+      "tag": "rust-v0.10.0",
+      "date": "2025-07-24",
+      "prerelease": false,
+      "name": "0.10.0"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha",
+      "date": "2025-07-25",
+      "prerelease": true,
+      "name": "0.11.0-alpha"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha.2",
+      "date": "2025-07-28",
+      "prerelease": true,
+      "name": "0.11.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha.1",
+      "date": "2025-07-28",
+      "prerelease": true,
+      "name": "0.11.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha.3",
+      "date": "2025-07-31",
+      "prerelease": true,
+      "name": "0.11.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.11.0-beta.1",
+      "date": "2025-08-01",
+      "prerelease": true,
+      "name": "0.11.0-beta.1"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha.5",
+      "date": "2025-08-01",
+      "prerelease": true,
+      "name": "0.11.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.11.0-alpha.4",
+      "date": "2025-08-01",
+      "prerelease": true,
+      "name": "0.11.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.11.0",
+      "date": "2025-08-02",
+      "prerelease": false,
+      "name": "0.11.0"
+    },
+    {
+      "tag": "rust-v0.13.0",
+      "date": "2025-08-05",
+      "prerelease": false,
+      "name": "0.13.0"
+    },
+    {
+      "tag": "rust-v0.12.0",
+      "date": "2025-08-05",
+      "prerelease": false,
+      "name": "0.12.0"
+    },
+    {
+      "tag": "rust-v0.14.0",
+      "date": "2025-08-06",
+      "prerelease": false,
+      "name": "0.14.0"
+    },
+    {
+      "tag": "rust-v0.15.0-alpha.1",
+      "date": "2025-08-06",
+      "prerelease": true,
+      "name": "0.15.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.14.0-alpha.3",
+      "date": "2025-08-06",
+      "prerelease": true,
+      "name": "0.14.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.14.0-alpha.2",
+      "date": "2025-08-06",
+      "prerelease": true,
+      "name": "0.14.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.14.0-alpha.1",
+      "date": "2025-08-06",
+      "prerelease": true,
+      "name": "0.14.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.16.0",
+      "date": "2025-08-07",
+      "prerelease": false,
+      "name": "0.16.0"
+    },
+    {
+      "tag": "rust-v0.15.0",
+      "date": "2025-08-07",
+      "prerelease": false,
+      "name": "0.15.0"
+    },
+    {
+      "tag": "rust-v0.19.0",
+      "date": "2025-08-08",
+      "prerelease": false,
+      "name": "0.19.0"
+    },
+    {
+      "tag": "rust-v0.20.0-alpha.4",
+      "date": "2025-08-08",
+      "prerelease": true,
+      "name": "0.20.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.20.0-alpha.3",
+      "date": "2025-08-08",
+      "prerelease": true,
+      "name": "0.20.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.20.0-alpha.2",
+      "date": "2025-08-08",
+      "prerelease": true,
+      "name": "0.20.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.20.0-alpha.1",
+      "date": "2025-08-08",
+      "prerelease": true,
+      "name": "0.20.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.20.0",
+      "date": "2025-08-09",
+      "prerelease": false,
+      "name": "0.20.0"
+    },
+    {
+      "tag": "rust-v0.21.0-alpha.1",
+      "date": "2025-08-11",
+      "prerelease": true,
+      "name": "0.21.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.21.0",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "0.21.0"
+    },
+    {
+      "tag": "rust-v0.22.0-alpha.1",
+      "date": "2025-08-13",
+      "prerelease": true,
+      "name": "0.22.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.22.0-alpha.5",
+      "date": "2025-08-14",
+      "prerelease": true,
+      "name": "0.22.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.22.0-alpha.4",
+      "date": "2025-08-14",
+      "prerelease": true,
+      "name": "0.22.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.22.0-alpha.3",
+      "date": "2025-08-14",
+      "prerelease": true,
+      "name": "0.22.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.22.0-alpha.2",
+      "date": "2025-08-14",
+      "prerelease": true,
+      "name": "0.22.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.22.0",
+      "date": "2025-08-15",
+      "prerelease": false,
+      "name": "0.22.0"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.1",
+      "date": "2025-08-15",
+      "prerelease": true,
+      "name": "0.23.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.2",
+      "date": "2025-08-17",
+      "prerelease": true,
+      "name": "0.23.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.4",
+      "date": "2025-08-18",
+      "prerelease": true,
+      "name": "0.23.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.3",
+      "date": "2025-08-18",
+      "prerelease": true,
+      "name": "0.23.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.5",
+      "date": "2025-08-19",
+      "prerelease": true,
+      "name": "0.23.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.23.0",
+      "date": "2025-08-20",
+      "prerelease": false,
+      "name": "0.23.0"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.8",
+      "date": "2025-08-20",
+      "prerelease": true,
+      "name": "0.23.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.7",
+      "date": "2025-08-20",
+      "prerelease": true,
+      "name": "0.23.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.23.0-alpha.6",
+      "date": "2025-08-20",
+      "prerelease": true,
+      "name": "0.23.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.1",
+      "date": "2025-08-21",
+      "prerelease": true,
+      "name": "0.24.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.2",
+      "date": "2025-08-22",
+      "prerelease": true,
+      "name": "0.24.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.3",
+      "date": "2025-08-23",
+      "prerelease": true,
+      "name": "0.24.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.5",
+      "date": "2025-08-24",
+      "prerelease": true,
+      "name": "0.24.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.4",
+      "date": "2025-08-24",
+      "prerelease": true,
+      "name": "0.24.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.8",
+      "date": "2025-08-25",
+      "prerelease": true,
+      "name": "0.24.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.7",
+      "date": "2025-08-25",
+      "prerelease": true,
+      "name": "0.24.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.6",
+      "date": "2025-08-25",
+      "prerelease": true,
+      "name": "0.24.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.24.0",
+      "date": "2025-08-26",
+      "prerelease": false,
+      "name": "0.24.0"
+    },
+    {
+      "tag": "rust-v0.24.0-alpha.9",
+      "date": "2025-08-26",
+      "prerelease": true,
+      "name": "0.24.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.25.0",
+      "date": "2025-08-27",
+      "prerelease": false,
+      "name": "0.25.0"
+    },
+    {
+      "tag": "rust-v0.26.0-alpha.1",
+      "date": "2025-08-27",
+      "prerelease": true,
+      "name": "0.26.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.25.0-alpha.2",
+      "date": "2025-08-27",
+      "prerelease": true,
+      "name": "0.25.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.25.0-alpha.1",
+      "date": "2025-08-27",
+      "prerelease": true,
+      "name": "0.25.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.27.0",
+      "date": "2025-08-29",
+      "prerelease": false,
+      "name": "0.27.0"
+    },
+    {
+      "tag": "rust-v0.26.0",
+      "date": "2025-08-29",
+      "prerelease": false,
+      "name": "0.26.0"
+    },
+    {
+      "tag": "rust-v0.28.0",
+      "date": "2025-09-02",
+      "prerelease": false,
+      "name": "0.28.0"
+    },
+    {
+      "tag": "rust-v0.28.0-alpha.2",
+      "date": "2025-09-02",
+      "prerelease": true,
+      "name": "0.28.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.29.0",
+      "date": "2025-09-03",
+      "prerelease": false,
+      "name": "0.29.0"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.2",
+      "date": "2025-09-03",
+      "prerelease": true,
+      "name": "0.29.1-alpha.2"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.6",
+      "date": "2025-09-04",
+      "prerelease": true,
+      "name": "0.29.1-alpha.6"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.5",
+      "date": "2025-09-04",
+      "prerelease": true,
+      "name": "0.29.1-alpha.5"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.4",
+      "date": "2025-09-04",
+      "prerelease": true,
+      "name": "0.29.1-alpha.4"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.3",
+      "date": "2025-09-04",
+      "prerelease": true,
+      "name": "0.29.1-alpha.3"
+    },
+    {
+      "tag": "rust-v0.30.0",
+      "date": "2025-09-05",
+      "prerelease": false,
+      "name": "0.30.0"
+    },
+    {
+      "tag": "rust-v0.29.1-alpha.7",
+      "date": "2025-09-05",
+      "prerelease": true,
+      "name": "0.29.1-alpha.7"
+    },
+    {
+      "tag": "rust-v0.31.0-alpha.2",
+      "date": "2025-09-06",
+      "prerelease": true,
+      "name": "0.31.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.31.0-alpha.1",
+      "date": "2025-09-06",
+      "prerelease": true,
+      "name": "0.31.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.31.0",
+      "date": "2025-09-08",
+      "prerelease": false,
+      "name": "0.31.0"
+    },
+    {
+      "tag": "rust-v0.32.0-alpha.1",
+      "date": "2025-09-08",
+      "prerelease": true,
+      "name": "0.32.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.31.0-alpha.4",
+      "date": "2025-09-08",
+      "prerelease": true,
+      "name": "0.31.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.31.0-alpha.3",
+      "date": "2025-09-08",
+      "prerelease": true,
+      "name": "0.31.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.32.0-alpha.2",
+      "date": "2025-09-09",
+      "prerelease": true,
+      "name": "0.32.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.34.0",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "0.34.0"
+    },
+    {
+      "tag": "rust-v0.33.0",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "0.33.0"
+    },
+    {
+      "tag": "rust-v0.32.0",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "0.32.0"
+    },
+    {
+      "tag": "rust-v0.34.0-alpha.2",
+      "date": "2025-09-10",
+      "prerelease": true,
+      "name": "0.34.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.34.0-alpha.1",
+      "date": "2025-09-10",
+      "prerelease": true,
+      "name": "0.34.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.33.0-alpha.1",
+      "date": "2025-09-10",
+      "prerelease": true,
+      "name": "0.33.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.32.0-alpha.3",
+      "date": "2025-09-10",
+      "prerelease": true,
+      "name": "0.32.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.4",
+      "date": "2025-09-11",
+      "prerelease": true,
+      "name": "0.35.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.3",
+      "date": "2025-09-11",
+      "prerelease": true,
+      "name": "0.35.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.2",
+      "date": "2025-09-11",
+      "prerelease": true,
+      "name": "0.35.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.1",
+      "date": "2025-09-11",
+      "prerelease": true,
+      "name": "0.35.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.7",
+      "date": "2025-09-12",
+      "prerelease": true,
+      "name": "0.35.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.6",
+      "date": "2025-09-12",
+      "prerelease": true,
+      "name": "0.35.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.5",
+      "date": "2025-09-12",
+      "prerelease": true,
+      "name": "0.35.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.9",
+      "date": "2025-09-14",
+      "prerelease": true,
+      "name": "0.35.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.8",
+      "date": "2025-09-14",
+      "prerelease": true,
+      "name": "0.35.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.36.0",
+      "date": "2025-09-15",
+      "prerelease": false,
+      "name": "0.36.0"
+    },
+    {
+      "tag": "rust-v0.35.0",
+      "date": "2025-09-15",
+      "prerelease": false,
+      "name": "0.35.0"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.13",
+      "date": "2025-09-15",
+      "prerelease": true,
+      "name": "0.35.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.12",
+      "date": "2025-09-15",
+      "prerelease": true,
+      "name": "0.35.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.11",
+      "date": "2025-09-15",
+      "prerelease": true,
+      "name": "0.35.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.35.0-alpha.10",
+      "date": "2025-09-15",
+      "prerelease": true,
+      "name": "0.35.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.37.0-alpha.1",
+      "date": "2025-09-16",
+      "prerelease": true,
+      "name": "0.37.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.38.0",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "0.38.0"
+    },
+    {
+      "tag": "rust-v0.37.0",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "0.37.0"
+    },
+    {
+      "tag": "rust-v0.39.0-alpha.1",
+      "date": "2025-09-17",
+      "prerelease": true,
+      "name": "0.39.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.37.0-alpha.4",
+      "date": "2025-09-17",
+      "prerelease": true,
+      "name": "0.37.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.39.0",
+      "date": "2025-09-18",
+      "prerelease": false,
+      "name": "0.39.0"
+    },
+    {
+      "tag": "rust-v0.39.0-alpha.2",
+      "date": "2025-09-18",
+      "prerelease": true,
+      "name": "0.39.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.40.0-alpha.1",
+      "date": "2025-09-19",
+      "prerelease": true,
+      "name": "0.40.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.40.0",
+      "date": "2025-09-23",
+      "prerelease": false,
+      "name": "0.40.0"
+    },
+    {
+      "tag": "rust-v0.40.0-alpha.3",
+      "date": "2025-09-23",
+      "prerelease": true,
+      "name": "0.40.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.40.0-alpha.2",
+      "date": "2025-09-23",
+      "prerelease": true,
+      "name": "0.40.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.41.0",
+      "date": "2025-09-24",
+      "prerelease": false,
+      "name": "0.41.0"
+    },
+    {
+      "tag": "rust-v0.41.0-alpha.1",
+      "date": "2025-09-24",
+      "prerelease": true,
+      "name": "0.41.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.42.0",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "0.42.0"
+    },
+    {
+      "tag": "rust-v0.42.0-alpha.3",
+      "date": "2025-09-26",
+      "prerelease": true,
+      "name": "0.42.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.42.0-alpha.2",
+      "date": "2025-09-26",
+      "prerelease": true,
+      "name": "0.42.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.42.0-alpha.1",
+      "date": "2025-09-26",
+      "prerelease": true,
+      "name": "0.42.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.2",
+      "date": "2025-09-27",
+      "prerelease": true,
+      "name": "0.43.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.1",
+      "date": "2025-09-27",
+      "prerelease": true,
+      "name": "0.43.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.3",
+      "date": "2025-09-28",
+      "prerelease": true,
+      "name": "0.43.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.4",
+      "date": "2025-09-29",
+      "prerelease": true,
+      "name": "0.43.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.7",
+      "date": "2025-09-30",
+      "prerelease": true,
+      "name": "0.43.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.6",
+      "date": "2025-09-30",
+      "prerelease": true,
+      "name": "0.43.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.5",
+      "date": "2025-09-30",
+      "prerelease": true,
+      "name": "0.43.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.8",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.15",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.14",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.13",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.12",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.11",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.10",
+      "date": "2025-10-01",
+      "prerelease": true,
+      "name": "0.43.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.17",
+      "date": "2025-10-02",
+      "prerelease": true,
+      "name": "0.43.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.16",
+      "date": "2025-10-02",
+      "prerelease": true,
+      "name": "0.43.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.44.0",
+      "date": "2025-10-03",
+      "prerelease": false,
+      "name": "0.44.0"
+    },
+    {
+      "tag": "rust-v0.43.0-alpha.18",
+      "date": "2025-10-03",
+      "prerelease": true,
+      "name": "0.43.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.1",
+      "date": "2025-10-04",
+      "prerelease": true,
+      "name": "0.45.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.4",
+      "date": "2025-10-05",
+      "prerelease": true,
+      "name": "0.45.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.3",
+      "date": "2025-10-05",
+      "prerelease": true,
+      "name": "0.45.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.2",
+      "date": "2025-10-05",
+      "prerelease": true,
+      "name": "0.45.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.45.0",
+      "date": "2025-10-06",
+      "prerelease": false,
+      "name": "0.45.0"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.6",
+      "date": "2025-10-06",
+      "prerelease": true,
+      "name": "0.45.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.45.0-alpha.5",
+      "date": "2025-10-06",
+      "prerelease": true,
+      "name": "0.45.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.1",
+      "date": "2025-10-07",
+      "prerelease": true,
+      "name": "0.46.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.7",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.6",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.5",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.4",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.3",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.46.0-alpha.2",
+      "date": "2025-10-08",
+      "prerelease": true,
+      "name": "0.46.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.46.0",
+      "date": "2025-10-09",
+      "prerelease": false,
+      "name": "0.46.0"
+    },
+    {
+      "tag": "rust-v0.47.0-alpha.1",
+      "date": "2025-10-09",
+      "prerelease": true,
+      "name": "0.47.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.47.0-alpha.2",
+      "date": "2025-10-16",
+      "prerelease": true,
+      "name": "0.47.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.47.0",
+      "date": "2025-10-17",
+      "prerelease": false,
+      "name": "0.47.0"
+    },
+    {
+      "tag": "rust-v0.47.0-alpha.3",
+      "date": "2025-10-17",
+      "prerelease": true,
+      "name": "0.47.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.48.0-alpha.1",
+      "date": "2025-10-20",
+      "prerelease": true,
+      "name": "0.48.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.48.0-alpha.3",
+      "date": "2025-10-21",
+      "prerelease": true,
+      "name": "0.48.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.48.0-alpha.2",
+      "date": "2025-10-21",
+      "prerelease": true,
+      "name": "0.48.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.48.0",
+      "date": "2025-10-23",
+      "prerelease": false,
+      "name": "0.48.0"
+    },
+    {
+      "tag": "rust-v0.48.0-alpha.4",
+      "date": "2025-10-23",
+      "prerelease": true,
+      "name": "0.48.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.49.0",
+      "date": "2025-10-24",
+      "prerelease": false,
+      "name": "0.49.0"
+    },
+    {
+      "tag": "rust-v0.50.0-alpha.1",
+      "date": "2025-10-24",
+      "prerelease": true,
+      "name": "0.50.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.50.0",
+      "date": "2025-10-25",
+      "prerelease": false,
+      "name": "0.50.0"
+    },
+    {
+      "tag": "rust-v0.50.0-alpha.3",
+      "date": "2025-10-25",
+      "prerelease": true,
+      "name": "0.50.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.50.0-alpha.2",
+      "date": "2025-10-25",
+      "prerelease": true,
+      "name": "0.50.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.2",
+      "date": "2025-10-27",
+      "prerelease": true,
+      "name": "0.51.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.1",
+      "date": "2025-10-27",
+      "prerelease": true,
+      "name": "0.51.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.5",
+      "date": "2025-10-28",
+      "prerelease": true,
+      "name": "0.51.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.4",
+      "date": "2025-10-28",
+      "prerelease": true,
+      "name": "0.51.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.3",
+      "date": "2025-10-28",
+      "prerelease": true,
+      "name": "rust-v0.51.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.9",
+      "date": "2025-10-29",
+      "prerelease": true,
+      "name": "0.51.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.8",
+      "date": "2025-10-29",
+      "prerelease": true,
+      "name": "0.51.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.6",
+      "date": "2025-10-29",
+      "prerelease": true,
+      "name": "0.51.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.52.0",
+      "date": "2025-10-30",
+      "prerelease": false,
+      "name": "0.52.0"
+    },
+    {
+      "tag": "rust-v0.53.0-alpha.1",
+      "date": "2025-10-30",
+      "prerelease": true,
+      "name": "0.53.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.11",
+      "date": "2025-10-30",
+      "prerelease": true,
+      "name": "0.51.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.51.0-alpha.10",
+      "date": "2025-10-30",
+      "prerelease": true,
+      "name": "0.51.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.53.0",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "0.53.0"
+    },
+    {
+      "tag": "rust-v0.54.0-alpha.1",
+      "date": "2025-10-31",
+      "prerelease": true,
+      "name": "0.54.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.54.0-alpha.2",
+      "date": "2025-11-03",
+      "prerelease": true,
+      "name": "0.54.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.55.0",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "0.55.0"
+    },
+    {
+      "tag": "rust-v0.54.0",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "0.54.0"
+    },
+    {
+      "tag": "rust-v0.54.0-alpha.3",
+      "date": "2025-11-04",
+      "prerelease": true,
+      "name": "0.54.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.56.0-alpha.3",
+      "date": "2025-11-05",
+      "prerelease": true,
+      "name": "0.56.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.56.0-alpha.2",
+      "date": "2025-11-05",
+      "prerelease": true,
+      "name": "0.56.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.56.0-alpha.1",
+      "date": "2025-11-05",
+      "prerelease": true,
+      "name": "0.56.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.56.0-alpha.5",
+      "date": "2025-11-06",
+      "prerelease": true,
+      "name": "0.56.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.56.0-alpha.4",
+      "date": "2025-11-06",
+      "prerelease": true,
+      "name": "0.56.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.56.0",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "0.56.0"
+    },
+    {
+      "tag": "rust-v0.57.0-alpha.1",
+      "date": "2025-11-07",
+      "prerelease": true,
+      "name": "0.57.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.57.0-alpha.3",
+      "date": "2025-11-08",
+      "prerelease": true,
+      "name": "0.57.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.57.0-alpha.2",
+      "date": "2025-11-08",
+      "prerelease": true,
+      "name": "0.57.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.57.0",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "0.57.0"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.2",
+      "date": "2025-11-10",
+      "prerelease": true,
+      "name": "0.58.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.1",
+      "date": "2025-11-10",
+      "prerelease": true,
+      "name": "0.58.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.4",
+      "date": "2025-11-11",
+      "prerelease": true,
+      "name": "0.58.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.3",
+      "date": "2025-11-11",
+      "prerelease": true,
+      "name": "0.58.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.6",
+      "date": "2025-11-12",
+      "prerelease": true,
+      "name": "0.58.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.5",
+      "date": "2025-11-12",
+      "prerelease": true,
+      "name": "0.58.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.58.0",
+      "date": "2025-11-13",
+      "prerelease": false,
+      "name": "0.58.0"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.1",
+      "date": "2025-11-13",
+      "prerelease": true,
+      "name": "0.59.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.9",
+      "date": "2025-11-13",
+      "prerelease": true,
+      "name": "0.58.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.8",
+      "date": "2025-11-13",
+      "prerelease": true,
+      "name": "0.58.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.7",
+      "date": "2025-11-13",
+      "prerelease": true,
+      "name": "0.58.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.58.0-alpha.10",
+      "date": "2025-11-13",
+      "prerelease": true,
+      "name": "0.58.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.5",
+      "date": "2025-11-15",
+      "prerelease": true,
+      "name": "0.59.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.4",
+      "date": "2025-11-15",
+      "prerelease": true,
+      "name": "0.59.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.6",
+      "date": "2025-11-17",
+      "prerelease": true,
+      "name": "0.59.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.9",
+      "date": "2025-11-18",
+      "prerelease": true,
+      "name": "0.59.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.7",
+      "date": "2025-11-18",
+      "prerelease": true,
+      "name": "0.59.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.10",
+      "date": "2025-11-18",
+      "prerelease": true,
+      "name": "0.59.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.60.1",
+      "date": "2025-11-19",
+      "prerelease": false,
+      "name": "0.60.1"
+    },
+    {
+      "tag": "rust-v0.59.0",
+      "date": "2025-11-19",
+      "prerelease": false,
+      "name": "0.59.0"
+    },
+    {
+      "tag": "rust-v0.61.1-alpha.1",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.61.1-alpha.1"
+    },
+    {
+      "tag": "rust-v0.61.0-alpha.2",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.61.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.20",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.18",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.17",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.16",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.15",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.14",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.13",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.12",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.59.0-alpha.11",
+      "date": "2025-11-19",
+      "prerelease": true,
+      "name": "0.59.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.61.0",
+      "date": "2025-11-20",
+      "prerelease": false,
+      "name": "0.61.0"
+    },
+    {
+      "tag": "rust-v0.62.0-alpha.1",
+      "date": "2025-11-20",
+      "prerelease": true,
+      "name": "0.62.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.61.0-alpha.3",
+      "date": "2025-11-20",
+      "prerelease": true,
+      "name": "0.61.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.63.0",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "0.63.0"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.2",
+      "date": "2025-11-21",
+      "prerelease": true,
+      "name": "0.64.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.1",
+      "date": "2025-11-21",
+      "prerelease": true,
+      "name": "0.64.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.62.0-alpha.3",
+      "date": "2025-11-21",
+      "prerelease": true,
+      "name": "0.62.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.62.0-alpha.2",
+      "date": "2025-11-21",
+      "prerelease": true,
+      "name": "0.62.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.5",
+      "date": "2025-11-22",
+      "prerelease": true,
+      "name": "0.64.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.4",
+      "date": "2025-11-22",
+      "prerelease": true,
+      "name": "0.64.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.9",
+      "date": "2025-11-25",
+      "prerelease": true,
+      "name": "0.64.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.10",
+      "date": "2025-11-28",
+      "prerelease": true,
+      "name": "0.64.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.12",
+      "date": "2025-12-01",
+      "prerelease": true,
+      "name": "0.64.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.11",
+      "date": "2025-12-01",
+      "prerelease": true,
+      "name": "0.64.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.64.0",
+      "date": "2025-12-02",
+      "prerelease": false,
+      "name": "0.64.0"
+    },
+    {
+      "tag": "rust-v0.64.0-alpha.13",
+      "date": "2025-12-02",
+      "prerelease": true,
+      "name": "0.64.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.8",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.7",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.6",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.4",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.3",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.2",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.1",
+      "date": "2025-12-03",
+      "prerelease": true,
+      "name": "0.65.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.65.0",
+      "date": "2025-12-04",
+      "prerelease": false,
+      "name": "0.65.0"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.4",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.66.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.3",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.66.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.2",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.66.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.1",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.66.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.9",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.65.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.11",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.65.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.65.0-alpha.10",
+      "date": "2025-12-04",
+      "prerelease": true,
+      "name": "0.65.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.7",
+      "date": "2025-12-05",
+      "prerelease": true,
+      "name": "0.66.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.6",
+      "date": "2025-12-05",
+      "prerelease": true,
+      "name": "0.66.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.5",
+      "date": "2025-12-05",
+      "prerelease": true,
+      "name": "0.66.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.9",
+      "date": "2025-12-06",
+      "prerelease": true,
+      "name": "0.66.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.8",
+      "date": "2025-12-06",
+      "prerelease": true,
+      "name": "0.66.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.10",
+      "date": "2025-12-07",
+      "prerelease": true,
+      "name": "0.66.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.12",
+      "date": "2025-12-08",
+      "prerelease": true,
+      "name": "0.66.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.11",
+      "date": "2025-12-08",
+      "prerelease": true,
+      "name": "0.66.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.66.0",
+      "date": "2025-12-09",
+      "prerelease": false,
+      "name": "0.66.0"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.2",
+      "date": "2025-12-09",
+      "prerelease": true,
+      "name": "0.67.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.1",
+      "date": "2025-12-09",
+      "prerelease": true,
+      "name": "0.67.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.66.0-alpha.14",
+      "date": "2025-12-09",
+      "prerelease": true,
+      "name": "0.66.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.69.0",
+      "date": "2025-12-10",
+      "prerelease": false,
+      "name": "0.69.0"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.9",
+      "date": "2025-12-10",
+      "prerelease": true,
+      "name": "0.67.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.8",
+      "date": "2025-12-10",
+      "prerelease": true,
+      "name": "0.67.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.7",
+      "date": "2025-12-10",
+      "prerelease": true,
+      "name": "0.67.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.6",
+      "date": "2025-12-10",
+      "prerelease": true,
+      "name": "0.67.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.67.0-alpha.4",
+      "date": "2025-12-10",
+      "prerelease": true,
+      "name": "0.67.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.71.0",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "0.71.0"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.1",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "0.72.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.70.0-alpha.4",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "0.70.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.70.0-alpha.3",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "0.70.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.70.0-alpha.2",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "0.70.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.70.0-alpha.1",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "0.70.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.8",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.6",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.5",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.4",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.3",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.72.0-alpha.2",
+      "date": "2025-12-12",
+      "prerelease": true,
+      "name": "0.72.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.72.0",
+      "date": "2025-12-13",
+      "prerelease": false,
+      "name": "0.72.0"
+    },
+    {
+      "tag": "rust-v0.73.0-alpha.1",
+      "date": "2025-12-13",
+      "prerelease": true,
+      "name": "0.73.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.73.0",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "0.73.0"
+    },
+    {
+      "tag": "rust-v0.73.0-alpha.3",
+      "date": "2025-12-15",
+      "prerelease": true,
+      "name": "0.73.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.73.0-alpha.2",
+      "date": "2025-12-15",
+      "prerelease": true,
+      "name": "0.73.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.1",
+      "date": "2025-12-16",
+      "prerelease": true,
+      "name": "0.74.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.5",
+      "date": "2025-12-17",
+      "prerelease": true,
+      "name": "0.74.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.4",
+      "date": "2025-12-17",
+      "prerelease": true,
+      "name": "0.74.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.3",
+      "date": "2025-12-17",
+      "prerelease": true,
+      "name": "0.74.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.2",
+      "date": "2025-12-17",
+      "prerelease": true,
+      "name": "0.74.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.75.0",
+      "date": "2025-12-18",
+      "prerelease": false,
+      "name": "0.75.0"
+    },
+    {
+      "tag": "rust-v0.74.0",
+      "date": "2025-12-18",
+      "prerelease": false,
+      "name": "0.74.0"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.4",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.76.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.3",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.76.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.2",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.76.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.1",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.76.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.9",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.74.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.8",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.74.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.7",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.74.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.74.0-alpha.6",
+      "date": "2025-12-18",
+      "prerelease": true,
+      "name": "0.74.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.76.0",
+      "date": "2025-12-19",
+      "prerelease": false,
+      "name": "0.76.0"
+    },
+    {
+      "tag": "rust-v0.77.0-alpha.1",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.77.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.9",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.76.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.8",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.76.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.7",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.76.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.6",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.76.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.76.0-alpha.5",
+      "date": "2025-12-19",
+      "prerelease": true,
+      "name": "0.76.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.77.0",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "0.77.0"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.1",
+      "date": "2025-12-21",
+      "prerelease": true,
+      "name": "0.78.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.77.0-alpha.3",
+      "date": "2025-12-21",
+      "prerelease": true,
+      "name": "0.77.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.77.0-alpha.2",
+      "date": "2025-12-21",
+      "prerelease": true,
+      "name": "0.77.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.4",
+      "date": "2025-12-22",
+      "prerelease": true,
+      "name": "0.78.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.3",
+      "date": "2025-12-22",
+      "prerelease": true,
+      "name": "0.78.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.2",
+      "date": "2025-12-22",
+      "prerelease": true,
+      "name": "0.78.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.8",
+      "date": "2025-12-23",
+      "prerelease": true,
+      "name": "0.78.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.7",
+      "date": "2025-12-23",
+      "prerelease": true,
+      "name": "0.78.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.6",
+      "date": "2025-12-23",
+      "prerelease": true,
+      "name": "0.78.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.9",
+      "date": "2025-12-27",
+      "prerelease": true,
+      "name": "0.78.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.10",
+      "date": "2026-01-02",
+      "prerelease": true,
+      "name": "0.78.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.12",
+      "date": "2026-01-05",
+      "prerelease": true,
+      "name": "0.78.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.78.0-alpha.11",
+      "date": "2026-01-05",
+      "prerelease": true,
+      "name": "0.78.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.78.0",
+      "date": "2026-01-06",
+      "prerelease": false,
+      "name": "0.78.0"
+    },
+    {
+      "tag": "rust-v0.79.0-alpha.3",
+      "date": "2026-01-06",
+      "prerelease": true,
+      "name": "0.79.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.79.0-alpha.2",
+      "date": "2026-01-06",
+      "prerelease": true,
+      "name": "0.79.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.79.0-alpha.1",
+      "date": "2026-01-06",
+      "prerelease": true,
+      "name": "0.79.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.79.0",
+      "date": "2026-01-07",
+      "prerelease": false,
+      "name": "0.79.0"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.3",
+      "date": "2026-01-07",
+      "prerelease": true,
+      "name": "0.80.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.2",
+      "date": "2026-01-07",
+      "prerelease": true,
+      "name": "0.80.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.1",
+      "date": "2026-01-07",
+      "prerelease": true,
+      "name": "0.80.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.4",
+      "date": "2026-01-08",
+      "prerelease": true,
+      "name": "0.80.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.80.0",
+      "date": "2026-01-09",
+      "prerelease": false,
+      "name": "0.80.0"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.1",
+      "date": "2026-01-09",
+      "prerelease": true,
+      "name": "0.81.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.6",
+      "date": "2026-01-09",
+      "prerelease": true,
+      "name": "0.80.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.80.0-alpha.5",
+      "date": "2026-01-09",
+      "prerelease": true,
+      "name": "0.80.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.2",
+      "date": "2026-01-11",
+      "prerelease": true,
+      "name": "0.81.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.3",
+      "date": "2026-01-12",
+      "prerelease": true,
+      "name": "0.81.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.7",
+      "date": "2026-01-13",
+      "prerelease": true,
+      "name": "0.81.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.5",
+      "date": "2026-01-13",
+      "prerelease": true,
+      "name": "0.81.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.4",
+      "date": "2026-01-13",
+      "prerelease": true,
+      "name": "0.81.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.81.0",
+      "date": "2026-01-14",
+      "prerelease": false,
+      "name": "0.81.0"
+    },
+    {
+      "tag": "rust-v0.82.0-alpha.3",
+      "date": "2026-01-14",
+      "prerelease": true,
+      "name": "0.82.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.82.0-alpha.2",
+      "date": "2026-01-14",
+      "prerelease": true,
+      "name": "0.82.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.82.0-alpha.1",
+      "date": "2026-01-14",
+      "prerelease": true,
+      "name": "0.82.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.9",
+      "date": "2026-01-14",
+      "prerelease": true,
+      "name": "0.81.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.81.0-alpha.8",
+      "date": "2026-01-14",
+      "prerelease": true,
+      "name": "0.81.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.85.0",
+      "date": "2026-01-15",
+      "prerelease": false,
+      "name": "0.85.0"
+    },
+    {
+      "tag": "rust-v0.84.0",
+      "date": "2026-01-15",
+      "prerelease": false,
+      "name": "0.84.0"
+    },
+    {
+      "tag": "rust-v0.86.0-alpha.1",
+      "date": "2026-01-15",
+      "prerelease": true,
+      "name": "0.86.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.85.0-alpha.2",
+      "date": "2026-01-15",
+      "prerelease": true,
+      "name": "0.85.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.85.0-alpha.1",
+      "date": "2026-01-15",
+      "prerelease": true,
+      "name": "0.85.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.87.0",
+      "date": "2026-01-16",
+      "prerelease": false,
+      "name": "0.87.0"
+    },
+    {
+      "tag": "rust-v0.86.0",
+      "date": "2026-01-16",
+      "prerelease": false,
+      "name": "0.86.0"
+    },
+    {
+      "tag": "rust-v0.87.0-alpha.1",
+      "date": "2026-01-16",
+      "prerelease": true,
+      "name": "0.87.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.1",
+      "date": "2026-01-17",
+      "prerelease": true,
+      "name": "0.88.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.3",
+      "date": "2026-01-18",
+      "prerelease": true,
+      "name": "0.88.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.2",
+      "date": "2026-01-18",
+      "prerelease": true,
+      "name": "0.88.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.8",
+      "date": "2026-01-19",
+      "prerelease": true,
+      "name": "0.88.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.7",
+      "date": "2026-01-19",
+      "prerelease": true,
+      "name": "0.88.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.6",
+      "date": "2026-01-19",
+      "prerelease": true,
+      "name": "0.88.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.5",
+      "date": "2026-01-19",
+      "prerelease": true,
+      "name": "0.88.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.4",
+      "date": "2026-01-19",
+      "prerelease": true,
+      "name": "0.88.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.9",
+      "date": "2026-01-20",
+      "prerelease": true,
+      "name": "0.88.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.88.0",
+      "date": "2026-01-21",
+      "prerelease": false,
+      "name": "0.88.0"
+    },
+    {
+      "tag": "rust-v0.89.0-alpha.1",
+      "date": "2026-01-21",
+      "prerelease": true,
+      "name": "0.89.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.17",
+      "date": "2026-01-21",
+      "prerelease": true,
+      "name": "0.88.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.15",
+      "date": "2026-01-21",
+      "prerelease": true,
+      "name": "0.88.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.88.0-alpha.14",
+      "date": "2026-01-21",
+      "prerelease": true,
+      "name": "0.88.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.89.0",
+      "date": "2026-01-22",
+      "prerelease": false,
+      "name": "0.89.0"
+    },
+    {
+      "tag": "rust-v0.89.0-alpha.5",
+      "date": "2026-01-22",
+      "prerelease": true,
+      "name": "0.89.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.89.0-alpha.4",
+      "date": "2026-01-22",
+      "prerelease": true,
+      "name": "0.89.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.89.0-alpha.3",
+      "date": "2026-01-22",
+      "prerelease": true,
+      "name": "0.89.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.89.0-alpha.2",
+      "date": "2026-01-22",
+      "prerelease": true,
+      "name": "0.89.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.90.0-alpha.2",
+      "date": "2026-01-23",
+      "prerelease": true,
+      "name": "0.90.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.90.0-alpha.1",
+      "date": "2026-01-23",
+      "prerelease": true,
+      "name": "0.90.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.90.0-alpha.5",
+      "date": "2026-01-24",
+      "prerelease": true,
+      "name": "0.90.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.91.0",
+      "date": "2026-01-25",
+      "prerelease": false,
+      "name": "0.91.0"
+    },
+    {
+      "tag": "rust-v0.90.0",
+      "date": "2026-01-25",
+      "prerelease": false,
+      "name": "0.90.0"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.1",
+      "date": "2026-01-25",
+      "prerelease": true,
+      "name": "0.92.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.90.0-alpha.7",
+      "date": "2026-01-25",
+      "prerelease": true,
+      "name": "0.90.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.90.0-alpha.6",
+      "date": "2026-01-25",
+      "prerelease": true,
+      "name": "0.90.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.5",
+      "date": "2026-01-26",
+      "prerelease": true,
+      "name": "0.92.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.4",
+      "date": "2026-01-26",
+      "prerelease": true,
+      "name": "0.92.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.3",
+      "date": "2026-01-26",
+      "prerelease": true,
+      "name": "0.92.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.2",
+      "date": "2026-01-26",
+      "prerelease": true,
+      "name": "0.92.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.92.0",
+      "date": "2026-01-27",
+      "prerelease": false,
+      "name": "0.92.0"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.9",
+      "date": "2026-01-27",
+      "prerelease": true,
+      "name": "0.92.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.8",
+      "date": "2026-01-27",
+      "prerelease": true,
+      "name": "0.92.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.7",
+      "date": "2026-01-27",
+      "prerelease": true,
+      "name": "0.92.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.11",
+      "date": "2026-01-27",
+      "prerelease": true,
+      "name": "0.92.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.92.0-alpha.10",
+      "date": "2026-01-27",
+      "prerelease": true,
+      "name": "0.92.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.16",
+      "date": "2026-01-29",
+      "prerelease": true,
+      "name": "0.93.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.15",
+      "date": "2026-01-29",
+      "prerelease": true,
+      "name": "0.93.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.13",
+      "date": "2026-01-29",
+      "prerelease": true,
+      "name": "0.93.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.24",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "0.93.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.23",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "0.93.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.20",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "0.93.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.18",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "0.93.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.17",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "0.93.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.93.0",
+      "date": "2026-01-31",
+      "prerelease": false,
+      "name": "0.93.0"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.2",
+      "date": "2026-01-31",
+      "prerelease": true,
+      "name": "0.94.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.93.0-alpha.25",
+      "date": "2026-01-31",
+      "prerelease": true,
+      "name": "0.93.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.7",
+      "date": "2026-02-01",
+      "prerelease": true,
+      "name": "0.94.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.6",
+      "date": "2026-02-01",
+      "prerelease": true,
+      "name": "0.94.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.4",
+      "date": "2026-02-01",
+      "prerelease": true,
+      "name": "0.94.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.3",
+      "date": "2026-02-01",
+      "prerelease": true,
+      "name": "0.94.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.94.0",
+      "date": "2026-02-02",
+      "prerelease": false,
+      "name": "0.94.0"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.9",
+      "date": "2026-02-02",
+      "prerelease": true,
+      "name": "0.94.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.8",
+      "date": "2026-02-02",
+      "prerelease": true,
+      "name": "0.94.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.11",
+      "date": "2026-02-02",
+      "prerelease": true,
+      "name": "0.94.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.94.0-alpha.10",
+      "date": "2026-02-02",
+      "prerelease": true,
+      "name": "0.94.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.8",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.7",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.6",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.5",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.4",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.3",
+      "date": "2026-02-03",
+      "prerelease": true,
+      "name": "0.95.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.96.0",
+      "date": "2026-02-04",
+      "prerelease": false,
+      "name": "0.96.0"
+    },
+    {
+      "tag": "rust-v0.95.0",
+      "date": "2026-02-04",
+      "prerelease": false,
+      "name": "0.95.0"
+    },
+    {
+      "tag": "rust-v0.97.0-alpha.1",
+      "date": "2026-02-04",
+      "prerelease": true,
+      "name": "0.97.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.96.0-alpha.2",
+      "date": "2026-02-04",
+      "prerelease": true,
+      "name": "0.96.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.96.0-alpha.1",
+      "date": "2026-02-04",
+      "prerelease": true,
+      "name": "0.96.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.95.0-alpha.9",
+      "date": "2026-02-04",
+      "prerelease": true,
+      "name": "0.95.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.98.0",
+      "date": "2026-02-05",
+      "prerelease": false,
+      "name": "0.98.0"
+    },
+    {
+      "tag": "rust-v0.97.0",
+      "date": "2026-02-05",
+      "prerelease": false,
+      "name": "0.97.0"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.3",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.99.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.2",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.99.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.1",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.99.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.98.0-alpha.2",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.98.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.98.0-alpha.1",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.98.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.97.0-alpha.4",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.97.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.97.0-alpha.3",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.97.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.97.0-alpha.2",
+      "date": "2026-02-05",
+      "prerelease": true,
+      "name": "0.97.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.6",
+      "date": "2026-02-06",
+      "prerelease": true,
+      "name": "0.99.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.5",
+      "date": "2026-02-06",
+      "prerelease": true,
+      "name": "0.99.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.4",
+      "date": "2026-02-06",
+      "prerelease": true,
+      "name": "0.99.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.9",
+      "date": "2026-02-07",
+      "prerelease": true,
+      "name": "0.99.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.11",
+      "date": "2026-02-09",
+      "prerelease": true,
+      "name": "0.99.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.10",
+      "date": "2026-02-09",
+      "prerelease": true,
+      "name": "0.99.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.23",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.22",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.22"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.21",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.21"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.20",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.17",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.16",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.14",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.13",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.12",
+      "date": "2026-02-10",
+      "prerelease": true,
+      "name": "0.99.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.99.0",
+      "date": "2026-02-11",
+      "prerelease": false,
+      "name": "0.99.0"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.26",
+      "date": "2026-02-11",
+      "prerelease": true,
+      "name": "0.99.0-alpha.26"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.25",
+      "date": "2026-02-11",
+      "prerelease": true,
+      "name": "0.99.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.99.0-alpha.24",
+      "date": "2026-02-11",
+      "prerelease": true,
+      "name": "0.99.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.2",
+      "date": "2026-02-11",
+      "prerelease": true,
+      "name": "0.100.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.1",
+      "date": "2026-02-11",
+      "prerelease": true,
+      "name": "0.100.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.101.0",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "0.101.0"
+    },
+    {
+      "tag": "rust-v0.100.0",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "0.100.0"
+    },
+    {
+      "tag": "rust-v0.101.0-alpha.1",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.101.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.9",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.100.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.4",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.100.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.3",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.100.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.11",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.100.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.100.0-alpha.10",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "0.100.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.4",
+      "date": "2026-02-13",
+      "prerelease": true,
+      "name": "0.102.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.3",
+      "date": "2026-02-13",
+      "prerelease": true,
+      "name": "0.102.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.2",
+      "date": "2026-02-13",
+      "prerelease": true,
+      "name": "0.102.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.7",
+      "date": "2026-02-14",
+      "prerelease": true,
+      "name": "0.102.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.6",
+      "date": "2026-02-14",
+      "prerelease": true,
+      "name": "0.102.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.8",
+      "date": "2026-02-16",
+      "prerelease": true,
+      "name": "0.102.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.103.0",
+      "date": "2026-02-17",
+      "prerelease": false,
+      "name": "0.103.0"
+    },
+    {
+      "tag": "rust-v0.102.0",
+      "date": "2026-02-17",
+      "prerelease": false,
+      "name": "0.102.0"
+    },
+    {
+      "tag": "rust-v0.103.0-alpha.1",
+      "date": "2026-02-17",
+      "prerelease": true,
+      "name": "0.103.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.102.0-alpha.11",
+      "date": "2026-02-17",
+      "prerelease": true,
+      "name": "0.102.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.104.0",
+      "date": "2026-02-18",
+      "prerelease": false,
+      "name": "0.104.0"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.3",
+      "date": "2026-02-18",
+      "prerelease": true,
+      "name": "0.105.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.2",
+      "date": "2026-02-18",
+      "prerelease": true,
+      "name": "0.105.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.1",
+      "date": "2026-02-18",
+      "prerelease": true,
+      "name": "0.105.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.104.0-alpha.1",
+      "date": "2026-02-18",
+      "prerelease": true,
+      "name": "0.104.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.6",
+      "date": "2026-02-19",
+      "prerelease": true,
+      "name": "0.105.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.5",
+      "date": "2026-02-19",
+      "prerelease": true,
+      "name": "0.105.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.4",
+      "date": "2026-02-19",
+      "prerelease": true,
+      "name": "0.105.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.9",
+      "date": "2026-02-20",
+      "prerelease": true,
+      "name": "0.105.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.8",
+      "date": "2026-02-20",
+      "prerelease": true,
+      "name": "0.105.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.7",
+      "date": "2026-02-20",
+      "prerelease": true,
+      "name": "0.105.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.11",
+      "date": "2026-02-21",
+      "prerelease": true,
+      "name": "0.105.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.10",
+      "date": "2026-02-21",
+      "prerelease": true,
+      "name": "0.105.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.13",
+      "date": "2026-02-22",
+      "prerelease": true,
+      "name": "0.105.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.12",
+      "date": "2026-02-22",
+      "prerelease": true,
+      "name": "0.105.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.16",
+      "date": "2026-02-23",
+      "prerelease": true,
+      "name": "0.105.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.15",
+      "date": "2026-02-23",
+      "prerelease": true,
+      "name": "0.105.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.14",
+      "date": "2026-02-23",
+      "prerelease": true,
+      "name": "0.105.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.18",
+      "date": "2026-02-24",
+      "prerelease": true,
+      "name": "0.105.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.17",
+      "date": "2026-02-24",
+      "prerelease": true,
+      "name": "0.105.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.105.0",
+      "date": "2026-02-25",
+      "prerelease": false,
+      "name": "0.105.0"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.3",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.106.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.2",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.106.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.1",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.106.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.26",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.105.0-alpha.26"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.25",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.105.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.24",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.105.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.23",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.105.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.105.0-alpha.22",
+      "date": "2026-02-25",
+      "prerelease": true,
+      "name": "0.105.0-alpha.22"
+    },
+    {
+      "tag": "rust-v0.106.0",
+      "date": "2026-02-26",
+      "prerelease": false,
+      "name": "0.106.0"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.1",
+      "date": "2026-02-26",
+      "prerelease": true,
+      "name": "0.107.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.9",
+      "date": "2026-02-26",
+      "prerelease": true,
+      "name": "0.106.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.8",
+      "date": "2026-02-26",
+      "prerelease": true,
+      "name": "0.106.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.106.0-alpha.11",
+      "date": "2026-02-26",
+      "prerelease": true,
+      "name": "0.106.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.5",
+      "date": "2026-02-27",
+      "prerelease": true,
+      "name": "0.107.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.4",
+      "date": "2026-02-27",
+      "prerelease": true,
+      "name": "0.107.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.3",
+      "date": "2026-02-27",
+      "prerelease": true,
+      "name": "0.107.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.2",
+      "date": "2026-02-27",
+      "prerelease": true,
+      "name": "0.107.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.8",
+      "date": "2026-02-28",
+      "prerelease": true,
+      "name": "0.107.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.7",
+      "date": "2026-02-28",
+      "prerelease": true,
+      "name": "0.107.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.107.0",
+      "date": "2026-03-02",
+      "prerelease": false,
+      "name": "0.107.0"
+    },
+    {
+      "tag": "rust-v0.107.0-alpha.9",
+      "date": "2026-03-02",
+      "prerelease": true,
+      "name": "0.107.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.5",
+      "date": "2026-03-03",
+      "prerelease": true,
+      "name": "0.108.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.3",
+      "date": "2026-03-03",
+      "prerelease": true,
+      "name": "0.108.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.2",
+      "date": "2026-03-03",
+      "prerelease": true,
+      "name": "0.108.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.1",
+      "date": "2026-03-03",
+      "prerelease": true,
+      "name": "0.108.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.9",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.8",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.7",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.6",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.12",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.11",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.108.0-alpha.10",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "0.108.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.111.0",
+      "date": "2026-03-05",
+      "prerelease": false,
+      "name": "0.111.0"
+    },
+    {
+      "tag": "rust-v0.110.0",
+      "date": "2026-03-05",
+      "prerelease": false,
+      "name": "0.110.0"
+    },
+    {
+      "tag": "rust-v0.111.0-alpha.2",
+      "date": "2026-03-05",
+      "prerelease": true,
+      "name": "0.111.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.111.0-alpha.1",
+      "date": "2026-03-05",
+      "prerelease": true,
+      "name": "0.111.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.110.0-alpha.1",
+      "date": "2026-03-05",
+      "prerelease": true,
+      "name": "0.110.0-alpha.1"
+    },
+    {
+      "tag": "artifact-runtime-v2.4.0",
+      "date": "2026-03-05",
+      "prerelease": true,
+      "name": "artifact-runtime-v2.4.0"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.7",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.6",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.5",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.4",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.3",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.2",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.1",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "0.112.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.9",
+      "date": "2026-03-07",
+      "prerelease": true,
+      "name": "0.112.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.8",
+      "date": "2026-03-07",
+      "prerelease": true,
+      "name": "0.112.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.11",
+      "date": "2026-03-07",
+      "prerelease": true,
+      "name": "0.112.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.10",
+      "date": "2026-03-07",
+      "prerelease": true,
+      "name": "0.112.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.112.0",
+      "date": "2026-03-08",
+      "prerelease": false,
+      "name": "0.112.0"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.13",
+      "date": "2026-03-08",
+      "prerelease": true,
+      "name": "0.112.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.112.0-alpha.12",
+      "date": "2026-03-08",
+      "prerelease": true,
+      "name": "0.112.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.113.0-alpha.2",
+      "date": "2026-03-09",
+      "prerelease": true,
+      "name": "0.113.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.113.0-alpha.1",
+      "date": "2026-03-09",
+      "prerelease": true,
+      "name": "0.113.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.113.0",
+      "date": "2026-03-10",
+      "prerelease": false,
+      "name": "0.113.0"
+    },
+    {
+      "tag": "rust-v0.114.0-alpha.4",
+      "date": "2026-03-10",
+      "prerelease": true,
+      "name": "0.114.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.114.0-alpha.3",
+      "date": "2026-03-10",
+      "prerelease": true,
+      "name": "0.114.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.114.0-alpha.2",
+      "date": "2026-03-10",
+      "prerelease": true,
+      "name": "0.114.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.114.0-alpha.1",
+      "date": "2026-03-10",
+      "prerelease": true,
+      "name": "0.114.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.6",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.5",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.4",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.3",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.2",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.1",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.115.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.114.0-alpha.7",
+      "date": "2026-03-11",
+      "prerelease": true,
+      "name": "0.114.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.114.0",
+      "date": "2026-03-11",
+      "prerelease": false,
+      "name": "0.114.0"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.9",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.14",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.13",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.12",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.11",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.7",
+      "date": "2026-03-12",
+      "prerelease": true,
+      "name": "0.115.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.21",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.21"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.20",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.19",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.19"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.18",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.17",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.16",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.15",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "0.115.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.24",
+      "date": "2026-03-14",
+      "prerelease": true,
+      "name": "0.115.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.23",
+      "date": "2026-03-14",
+      "prerelease": true,
+      "name": "0.115.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.22",
+      "date": "2026-03-14",
+      "prerelease": true,
+      "name": "0.115.0-alpha.22"
+    },
+    {
+      "tag": "rust-v0.115.0",
+      "date": "2026-03-16",
+      "prerelease": false,
+      "name": "0.115.0"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.1",
+      "date": "2026-03-16",
+      "prerelease": true,
+      "name": "0.116.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.27",
+      "date": "2026-03-16",
+      "prerelease": true,
+      "name": "0.115.0-alpha.27"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.26",
+      "date": "2026-03-16",
+      "prerelease": true,
+      "name": "0.115.0-alpha.26"
+    },
+    {
+      "tag": "rust-v0.115.0-alpha.25",
+      "date": "2026-03-16",
+      "prerelease": true,
+      "name": "0.115.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.4",
+      "date": "2026-03-17",
+      "prerelease": true,
+      "name": "0.116.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.3",
+      "date": "2026-03-17",
+      "prerelease": true,
+      "name": "0.116.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.2",
+      "date": "2026-03-17",
+      "prerelease": true,
+      "name": "0.116.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.9",
+      "date": "2026-03-18",
+      "prerelease": true,
+      "name": "0.116.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.8",
+      "date": "2026-03-18",
+      "prerelease": true,
+      "name": "0.116.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.6",
+      "date": "2026-03-18",
+      "prerelease": true,
+      "name": "0.116.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.5",
+      "date": "2026-03-18",
+      "prerelease": true,
+      "name": "0.116.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.116.0",
+      "date": "2026-03-19",
+      "prerelease": false,
+      "name": "0.116.0"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.2",
+      "date": "2026-03-19",
+      "prerelease": true,
+      "name": "0.117.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.12",
+      "date": "2026-03-19",
+      "prerelease": true,
+      "name": "0.116.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.11",
+      "date": "2026-03-19",
+      "prerelease": true,
+      "name": "0.116.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.116.0-alpha.10",
+      "date": "2026-03-19",
+      "prerelease": true,
+      "name": "0.116.0-alpha.10"
+    },
+    {
+      "tag": "rusty-v8-v146.4.0",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "rusty-v8-v146.4.0"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.6",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "0.117.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.5",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "0.117.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.3",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "0.117.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.8",
+      "date": "2026-03-21",
+      "prerelease": true,
+      "name": "0.117.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.7",
+      "date": "2026-03-21",
+      "prerelease": true,
+      "name": "0.117.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.9",
+      "date": "2026-03-23",
+      "prerelease": true,
+      "name": "0.117.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.10",
+      "date": "2026-03-23",
+      "prerelease": true,
+      "name": "0.117.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.14",
+      "date": "2026-03-24",
+      "prerelease": true,
+      "name": "0.117.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.13",
+      "date": "2026-03-24",
+      "prerelease": true,
+      "name": "0.117.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.12",
+      "date": "2026-03-24",
+      "prerelease": true,
+      "name": "0.117.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.11",
+      "date": "2026-03-24",
+      "prerelease": true,
+      "name": "0.117.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.19",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "0.117.0-alpha.19"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.18",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "0.117.0-alpha.18"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.17",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "0.117.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.16",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "0.117.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.15",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "0.117.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.117.0",
+      "date": "2026-03-26",
+      "prerelease": false,
+      "name": "0.117.0"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.25",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.24",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.23",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.22",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.22"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.21",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.21"
+    },
+    {
+      "tag": "rust-v0.117.0-alpha.20",
+      "date": "2026-03-26",
+      "prerelease": true,
+      "name": "0.117.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.118.0-alpha.3",
+      "date": "2026-03-27",
+      "prerelease": true,
+      "name": "0.118.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.118.0-alpha.2",
+      "date": "2026-03-27",
+      "prerelease": true,
+      "name": "0.118.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.118.0",
+      "date": "2026-03-31",
+      "prerelease": false,
+      "name": "0.118.0"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.1",
+      "date": "2026-03-31",
+      "prerelease": true,
+      "name": "0.119.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.118.0-alpha.5",
+      "date": "2026-03-31",
+      "prerelease": true,
+      "name": "0.118.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.118.0-alpha.4",
+      "date": "2026-03-31",
+      "prerelease": true,
+      "name": "0.118.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.2",
+      "date": "2026-04-01",
+      "prerelease": true,
+      "name": "0.119.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.5",
+      "date": "2026-04-02",
+      "prerelease": true,
+      "name": "0.119.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.4",
+      "date": "2026-04-02",
+      "prerelease": true,
+      "name": "0.119.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.3",
+      "date": "2026-04-02",
+      "prerelease": true,
+      "name": "0.119.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.8",
+      "date": "2026-04-03",
+      "prerelease": true,
+      "name": "0.119.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.7",
+      "date": "2026-04-03",
+      "prerelease": true,
+      "name": "0.119.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.6",
+      "date": "2026-04-03",
+      "prerelease": true,
+      "name": "0.119.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.9",
+      "date": "2026-04-04",
+      "prerelease": true,
+      "name": "0.119.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.11",
+      "date": "2026-04-04",
+      "prerelease": true,
+      "name": "0.119.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.10",
+      "date": "2026-04-04",
+      "prerelease": true,
+      "name": "0.119.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.12",
+      "date": "2026-04-06",
+      "prerelease": true,
+      "name": "0.119.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.17",
+      "date": "2026-04-07",
+      "prerelease": true,
+      "name": "0.119.0-alpha.17"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.16",
+      "date": "2026-04-07",
+      "prerelease": true,
+      "name": "0.119.0-alpha.16"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.15",
+      "date": "2026-04-07",
+      "prerelease": true,
+      "name": "0.119.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.14",
+      "date": "2026-04-07",
+      "prerelease": true,
+      "name": "0.119.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.13",
+      "date": "2026-04-07",
+      "prerelease": true,
+      "name": "0.119.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.24",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.24"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.23",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.23"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.22",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.22"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.21",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.21"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.20",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.20"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.19",
+      "date": "2026-04-08",
+      "prerelease": true,
+      "name": "0.119.0-alpha.19"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.29",
+      "date": "2026-04-09",
+      "prerelease": true,
+      "name": "0.119.0-alpha.29"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.28",
+      "date": "2026-04-09",
+      "prerelease": true,
+      "name": "0.119.0-alpha.28"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.27",
+      "date": "2026-04-09",
+      "prerelease": true,
+      "name": "0.119.0-alpha.27"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.26",
+      "date": "2026-04-09",
+      "prerelease": true,
+      "name": "0.119.0-alpha.26"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.25",
+      "date": "2026-04-09",
+      "prerelease": true,
+      "name": "0.119.0-alpha.25"
+    },
+    {
+      "tag": "rust-v0.119.0",
+      "date": "2026-04-10",
+      "prerelease": false,
+      "name": "0.119.0"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.33",
+      "date": "2026-04-10",
+      "prerelease": true,
+      "name": "0.119.0-alpha.33"
+    },
+    {
+      "tag": "rust-v0.119.0-alpha.32",
+      "date": "2026-04-10",
+      "prerelease": true,
+      "name": "0.119.0-alpha.32"
+    },
+    {
+      "tag": "rust-v0.120.0",
+      "date": "2026-04-11",
+      "prerelease": false,
+      "name": "0.120.0"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.2",
+      "date": "2026-04-11",
+      "prerelease": true,
+      "name": "0.121.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.1",
+      "date": "2026-04-11",
+      "prerelease": true,
+      "name": "0.121.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.120.0-alpha.3",
+      "date": "2026-04-11",
+      "prerelease": true,
+      "name": "0.120.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.6",
+      "date": "2026-04-13",
+      "prerelease": true,
+      "name": "0.121.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.4",
+      "date": "2026-04-13",
+      "prerelease": true,
+      "name": "0.121.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.9",
+      "date": "2026-04-14",
+      "prerelease": true,
+      "name": "0.121.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.8",
+      "date": "2026-04-14",
+      "prerelease": true,
+      "name": "0.121.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.10",
+      "date": "2026-04-14",
+      "prerelease": true,
+      "name": "0.121.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.121.0",
+      "date": "2026-04-15",
+      "prerelease": false,
+      "name": "0.121.0"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.1",
+      "date": "2026-04-15",
+      "prerelease": true,
+      "name": "0.122.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.14",
+      "date": "2026-04-15",
+      "prerelease": true,
+      "name": "0.121.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.13",
+      "date": "2026-04-15",
+      "prerelease": true,
+      "name": "0.121.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.12",
+      "date": "2026-04-15",
+      "prerelease": true,
+      "name": "0.121.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.121.0-alpha.11",
+      "date": "2026-04-15",
+      "prerelease": true,
+      "name": "0.121.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.5",
+      "date": "2026-04-16",
+      "prerelease": true,
+      "name": "0.122.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.3",
+      "date": "2026-04-16",
+      "prerelease": true,
+      "name": "0.122.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.9",
+      "date": "2026-04-17",
+      "prerelease": true,
+      "name": "0.122.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.8",
+      "date": "2026-04-17",
+      "prerelease": true,
+      "name": "0.122.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.7",
+      "date": "2026-04-17",
+      "prerelease": true,
+      "name": "0.122.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.6",
+      "date": "2026-04-17",
+      "prerelease": true,
+      "name": "0.122.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.10",
+      "date": "2026-04-18",
+      "prerelease": true,
+      "name": "0.122.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.12",
+      "date": "2026-04-19",
+      "prerelease": true,
+      "name": "0.122.0-alpha.12"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.11",
+      "date": "2026-04-19",
+      "prerelease": true,
+      "name": "0.122.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.122.0",
+      "date": "2026-04-20",
+      "prerelease": false,
+      "name": "0.122.0"
+    },
+    {
+      "tag": "rust-v0.122.0-alpha.13",
+      "date": "2026-04-20",
+      "prerelease": true,
+      "name": "0.122.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.7",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.6",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.5",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.5"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.4",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.3",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.2",
+      "date": "2026-04-21",
+      "prerelease": true,
+      "name": "0.123.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.9",
+      "date": "2026-04-22",
+      "prerelease": true,
+      "name": "0.123.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.8",
+      "date": "2026-04-22",
+      "prerelease": true,
+      "name": "0.123.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.123.0-alpha.10",
+      "date": "2026-04-22",
+      "prerelease": true,
+      "name": "0.123.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.124.0",
+      "date": "2026-04-23",
+      "prerelease": false,
+      "name": "0.124.0"
+    },
+    {
+      "tag": "rust-v0.123.0",
+      "date": "2026-04-23",
+      "prerelease": false,
+      "name": "0.123.0"
+    },
+    {
+      "tag": "rust-v0.124.0-alpha.3",
+      "date": "2026-04-23",
+      "prerelease": true,
+      "name": "0.124.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.124.0-alpha.2",
+      "date": "2026-04-23",
+      "prerelease": true,
+      "name": "0.124.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.124.0-alpha.1",
+      "date": "2026-04-23",
+      "prerelease": true,
+      "name": "0.124.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.125.0",
+      "date": "2026-04-24",
+      "prerelease": false,
+      "name": "0.125.0"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.1",
+      "date": "2026-04-24",
+      "prerelease": true,
+      "name": "0.126.0-alpha.1"
+    },
+    {
+      "tag": "rust-v0.125.0-alpha.3",
+      "date": "2026-04-24",
+      "prerelease": true,
+      "name": "0.125.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.125.0-alpha.2",
+      "date": "2026-04-24",
+      "prerelease": true,
+      "name": "0.125.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.2",
+      "date": "2026-04-25",
+      "prerelease": true,
+      "name": "0.126.0-alpha.2"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.3",
+      "date": "2026-04-26",
+      "prerelease": true,
+      "name": "0.126.0-alpha.3"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.8",
+      "date": "2026-04-27",
+      "prerelease": true,
+      "name": "0.126.0-alpha.8"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.7",
+      "date": "2026-04-27",
+      "prerelease": true,
+      "name": "0.126.0-alpha.7"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.6",
+      "date": "2026-04-27",
+      "prerelease": true,
+      "name": "0.126.0-alpha.6"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.4",
+      "date": "2026-04-27",
+      "prerelease": true,
+      "name": "0.126.0-alpha.4"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.9",
+      "date": "2026-04-28",
+      "prerelease": true,
+      "name": "0.126.0-alpha.9"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.11",
+      "date": "2026-04-28",
+      "prerelease": true,
+      "name": "0.126.0-alpha.11"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.10",
+      "date": "2026-04-28",
+      "prerelease": true,
+      "name": "0.126.0-alpha.10"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.15",
+      "date": "2026-04-29",
+      "prerelease": true,
+      "name": "0.126.0-alpha.15"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.14",
+      "date": "2026-04-29",
+      "prerelease": true,
+      "name": "0.126.0-alpha.14"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.13",
+      "date": "2026-04-29",
+      "prerelease": true,
+      "name": "0.126.0-alpha.13"
+    },
+    {
+      "tag": "rust-v0.126.0-alpha.12",
+      "date": "2026-04-29",
+      "prerelease": true,
+      "name": "0.126.0-alpha.12"
+    }
+  ]
+}

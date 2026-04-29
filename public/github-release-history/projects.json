@@ -1,0 +1,17 @@
+{
+  "projects": [
+    {
+      "repo": "anomalyco/opencode",
+      "file": "anomalyco-opencode.json",
+      "updated": "2026-04-29T21:22:36Z",
+      "total": 780
+    },
+    {
+      "repo": "openai/codex",
+      "file": "openai-codex.json",
+      "updated": "2026-04-29T21:22:09Z",
+      "total": 751
+    }
+  ],
+  "updated": "2026-04-29T21:22:36Z"
+}

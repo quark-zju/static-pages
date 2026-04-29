@@ -1,0 +1,4687 @@
+{
+  "repo": "anomalyco/opencode",
+  "updated": "2026-04-29T21:22:36Z",
+  "total": 780,
+  "releases": [
+    {
+      "tag": "v0.0.47",
+      "date": "2025-05-14",
+      "prerelease": false,
+      "name": "v0.0.47"
+    },
+    {
+      "tag": "0.0.47",
+      "date": "2025-05-14",
+      "prerelease": false,
+      "name": "0.0.47"
+    },
+    {
+      "tag": "0.0.45",
+      "date": "2025-05-14",
+      "prerelease": false,
+      "name": "0.0.45"
+    },
+    {
+      "tag": "v0.0.50",
+      "date": "2025-05-15",
+      "prerelease": false,
+      "name": "v0.0.50"
+    },
+    {
+      "tag": "v0.0.49",
+      "date": "2025-05-15",
+      "prerelease": false,
+      "name": "v0.0.49"
+    },
+    {
+      "tag": "v0.0.48",
+      "date": "2025-05-15",
+      "prerelease": false,
+      "name": "v0.0.48"
+    },
+    {
+      "tag": "v0.0.51",
+      "date": "2025-05-17",
+      "prerelease": false,
+      "name": "v0.0.51"
+    },
+    {
+      "tag": "v0.0.52",
+      "date": "2025-05-22",
+      "prerelease": false,
+      "name": "v0.0.52"
+    },
+    {
+      "tag": "v0.1.37",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.37"
+    },
+    {
+      "tag": "v0.1.36",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.36"
+    },
+    {
+      "tag": "v0.1.35",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.35"
+    },
+    {
+      "tag": "v0.1.34",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.34"
+    },
+    {
+      "tag": "v0.1.33",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.33"
+    },
+    {
+      "tag": "v0.1.32",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.32"
+    },
+    {
+      "tag": "v0.1.31",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.31"
+    },
+    {
+      "tag": "v0.1.30",
+      "date": "2025-06-13",
+      "prerelease": false,
+      "name": "v0.1.30"
+    },
+    {
+      "tag": "v0.1.44",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.44"
+    },
+    {
+      "tag": "v0.1.43",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.43"
+    },
+    {
+      "tag": "v0.1.42",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.42"
+    },
+    {
+      "tag": "v0.1.41",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.41"
+    },
+    {
+      "tag": "v0.1.40",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.40"
+    },
+    {
+      "tag": "v0.1.39",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.39"
+    },
+    {
+      "tag": "v0.1.38",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "v0.1.38"
+    },
+    {
+      "tag": "v0.1.52",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.52"
+    },
+    {
+      "tag": "v0.1.51",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.51"
+    },
+    {
+      "tag": "v0.1.50",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.50"
+    },
+    {
+      "tag": "v0.1.49",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.49"
+    },
+    {
+      "tag": "v0.1.48",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.48"
+    },
+    {
+      "tag": "v0.1.47",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.47"
+    },
+    {
+      "tag": "v0.1.46",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.46"
+    },
+    {
+      "tag": "v0.1.45",
+      "date": "2025-06-15",
+      "prerelease": false,
+      "name": "v0.1.45"
+    },
+    {
+      "tag": "v0.1.63",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.63"
+    },
+    {
+      "tag": "v0.1.62",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.62"
+    },
+    {
+      "tag": "v0.1.61",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.61"
+    },
+    {
+      "tag": "v0.1.60",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.60"
+    },
+    {
+      "tag": "v0.1.59",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.59"
+    },
+    {
+      "tag": "v0.1.58",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.58"
+    },
+    {
+      "tag": "v0.1.57",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.57"
+    },
+    {
+      "tag": "v0.1.56",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.56"
+    },
+    {
+      "tag": "v0.1.55",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.55"
+    },
+    {
+      "tag": "v0.1.54",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.54"
+    },
+    {
+      "tag": "v0.1.53",
+      "date": "2025-06-16",
+      "prerelease": false,
+      "name": "v0.1.53"
+    },
+    {
+      "tag": "v0.1.74",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.74"
+    },
+    {
+      "tag": "v0.1.73",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.73"
+    },
+    {
+      "tag": "v0.1.72",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.72"
+    },
+    {
+      "tag": "v0.1.71",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.71"
+    },
+    {
+      "tag": "v0.1.70",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.70"
+    },
+    {
+      "tag": "v0.1.69",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.69"
+    },
+    {
+      "tag": "v0.1.67",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.67"
+    },
+    {
+      "tag": "v0.1.66",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.66"
+    },
+    {
+      "tag": "v0.1.64",
+      "date": "2025-06-17",
+      "prerelease": false,
+      "name": "v0.1.64"
+    },
+    {
+      "tag": "v0.1.86",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.86"
+    },
+    {
+      "tag": "v0.1.84",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.84"
+    },
+    {
+      "tag": "v0.1.83",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.83"
+    },
+    {
+      "tag": "v0.1.82",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.82"
+    },
+    {
+      "tag": "v0.1.81",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.81"
+    },
+    {
+      "tag": "v0.1.80",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.80"
+    },
+    {
+      "tag": "v0.1.78",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.78"
+    },
+    {
+      "tag": "v0.1.77",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.77"
+    },
+    {
+      "tag": "v0.1.76",
+      "date": "2025-06-18",
+      "prerelease": false,
+      "name": "v0.1.76"
+    },
+    {
+      "tag": "v0.1.107",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.107"
+    },
+    {
+      "tag": "v0.1.106",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.106"
+    },
+    {
+      "tag": "v0.1.105",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.105"
+    },
+    {
+      "tag": "v0.1.104",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.104"
+    },
+    {
+      "tag": "v0.1.103",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.103"
+    },
+    {
+      "tag": "v0.1.101",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.101"
+    },
+    {
+      "tag": "v0.1.100",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.100"
+    },
+    {
+      "tag": "v0.1.99",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.99"
+    },
+    {
+      "tag": "v0.1.98",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.98"
+    },
+    {
+      "tag": "v0.1.97",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.97"
+    },
+    {
+      "tag": "v0.1.96",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.96"
+    },
+    {
+      "tag": "v0.1.95",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.95"
+    },
+    {
+      "tag": "v0.1.94",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.94"
+    },
+    {
+      "tag": "v0.1.93",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.93"
+    },
+    {
+      "tag": "v0.1.92",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.92"
+    },
+    {
+      "tag": "v0.1.91",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.91"
+    },
+    {
+      "tag": "v0.1.90",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.90"
+    },
+    {
+      "tag": "v0.1.89",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.89"
+    },
+    {
+      "tag": "v0.1.88",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.88"
+    },
+    {
+      "tag": "v0.1.87",
+      "date": "2025-06-19",
+      "prerelease": false,
+      "name": "v0.1.87"
+    },
+    {
+      "tag": "v0.1.115",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.115"
+    },
+    {
+      "tag": "v0.1.114",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.114"
+    },
+    {
+      "tag": "v0.1.113",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.113"
+    },
+    {
+      "tag": "v0.1.111",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.111"
+    },
+    {
+      "tag": "v0.1.110",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.110"
+    },
+    {
+      "tag": "v0.1.109",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.109"
+    },
+    {
+      "tag": "v0.1.108",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "v0.1.108"
+    },
+    {
+      "tag": "v0.1.117",
+      "date": "2025-06-21",
+      "prerelease": false,
+      "name": "v0.1.117"
+    },
+    {
+      "tag": "v0.1.116",
+      "date": "2025-06-21",
+      "prerelease": false,
+      "name": "v0.1.116"
+    },
+    {
+      "tag": "v0.1.120",
+      "date": "2025-06-22",
+      "prerelease": false,
+      "name": "v0.1.120"
+    },
+    {
+      "tag": "v0.1.119",
+      "date": "2025-06-22",
+      "prerelease": false,
+      "name": "v0.1.119"
+    },
+    {
+      "tag": "v0.1.118",
+      "date": "2025-06-22",
+      "prerelease": false,
+      "name": "v0.1.118"
+    },
+    {
+      "tag": "v0.1.124",
+      "date": "2025-06-23",
+      "prerelease": false,
+      "name": "v0.1.124"
+    },
+    {
+      "tag": "v0.1.123",
+      "date": "2025-06-23",
+      "prerelease": false,
+      "name": "v0.1.123"
+    },
+    {
+      "tag": "v0.1.122",
+      "date": "2025-06-23",
+      "prerelease": false,
+      "name": "v0.1.122"
+    },
+    {
+      "tag": "v0.1.121",
+      "date": "2025-06-23",
+      "prerelease": false,
+      "name": "v0.1.121"
+    },
+    {
+      "tag": "v0.1.130",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.130"
+    },
+    {
+      "tag": "v0.1.129",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.129"
+    },
+    {
+      "tag": "v0.1.128",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.128"
+    },
+    {
+      "tag": "v0.1.127",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.127"
+    },
+    {
+      "tag": "v0.1.126",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.126"
+    },
+    {
+      "tag": "v0.1.125",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.1.125"
+    },
+    {
+      "tag": "v0.1.139",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.139"
+    },
+    {
+      "tag": "v0.1.138",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.138"
+    },
+    {
+      "tag": "v0.1.137",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.137"
+    },
+    {
+      "tag": "v0.1.136",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.136"
+    },
+    {
+      "tag": "v0.1.135",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.135"
+    },
+    {
+      "tag": "v0.1.133",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.133"
+    },
+    {
+      "tag": "v0.1.132",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.132"
+    },
+    {
+      "tag": "v0.1.131",
+      "date": "2025-06-25",
+      "prerelease": false,
+      "name": "v0.1.131"
+    },
+    {
+      "tag": "v0.1.146",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.146"
+    },
+    {
+      "tag": "v0.1.145",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.145"
+    },
+    {
+      "tag": "v0.1.144",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.144"
+    },
+    {
+      "tag": "v0.1.143",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.143"
+    },
+    {
+      "tag": "v0.1.142",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.142"
+    },
+    {
+      "tag": "v0.1.141",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.141"
+    },
+    {
+      "tag": "v0.1.140",
+      "date": "2025-06-26",
+      "prerelease": false,
+      "name": "v0.1.140"
+    },
+    {
+      "tag": "v0.1.157",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.157"
+    },
+    {
+      "tag": "v0.1.156",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.156"
+    },
+    {
+      "tag": "v0.1.153",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.153"
+    },
+    {
+      "tag": "v0.1.152",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.152"
+    },
+    {
+      "tag": "v0.1.151",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.151"
+    },
+    {
+      "tag": "v0.1.150",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.150"
+    },
+    {
+      "tag": "v0.1.148",
+      "date": "2025-06-27",
+      "prerelease": false,
+      "name": "v0.1.148"
+    },
+    {
+      "tag": "v0.1.161",
+      "date": "2025-06-28",
+      "prerelease": false,
+      "name": "v0.1.161"
+    },
+    {
+      "tag": "v0.1.160",
+      "date": "2025-06-28",
+      "prerelease": false,
+      "name": "v0.1.160"
+    },
+    {
+      "tag": "v0.1.159",
+      "date": "2025-06-28",
+      "prerelease": false,
+      "name": "v0.1.159"
+    },
+    {
+      "tag": "v0.1.158",
+      "date": "2025-06-28",
+      "prerelease": false,
+      "name": "v0.1.158"
+    },
+    {
+      "tag": "v0.1.164",
+      "date": "2025-06-29",
+      "prerelease": false,
+      "name": "v0.1.164"
+    },
+    {
+      "tag": "v0.1.163",
+      "date": "2025-06-29",
+      "prerelease": false,
+      "name": "v0.1.163"
+    },
+    {
+      "tag": "v0.1.162",
+      "date": "2025-06-29",
+      "prerelease": false,
+      "name": "v0.1.162"
+    },
+    {
+      "tag": "v0.1.170",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.170"
+    },
+    {
+      "tag": "v0.1.169",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.169"
+    },
+    {
+      "tag": "v0.1.168",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.168"
+    },
+    {
+      "tag": "v0.1.167",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.167"
+    },
+    {
+      "tag": "v0.1.166",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.166"
+    },
+    {
+      "tag": "v0.1.165",
+      "date": "2025-06-30",
+      "prerelease": false,
+      "name": "v0.1.165"
+    },
+    {
+      "tag": "v0.1.173",
+      "date": "2025-07-01",
+      "prerelease": false,
+      "name": "v0.1.173"
+    },
+    {
+      "tag": "v0.1.172",
+      "date": "2025-07-01",
+      "prerelease": false,
+      "name": "v0.1.172"
+    },
+    {
+      "tag": "v0.1.171",
+      "date": "2025-07-01",
+      "prerelease": false,
+      "name": "v0.1.171"
+    },
+    {
+      "tag": "v0.1.177",
+      "date": "2025-07-02",
+      "prerelease": false,
+      "name": "v0.1.177"
+    },
+    {
+      "tag": "v0.1.176",
+      "date": "2025-07-02",
+      "prerelease": false,
+      "name": "v0.1.176"
+    },
+    {
+      "tag": "v0.1.175",
+      "date": "2025-07-02",
+      "prerelease": false,
+      "name": "v0.1.175"
+    },
+    {
+      "tag": "v0.1.174",
+      "date": "2025-07-02",
+      "prerelease": false,
+      "name": "v0.1.174"
+    },
+    {
+      "tag": "v0.1.187",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.187"
+    },
+    {
+      "tag": "v0.1.186",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.186"
+    },
+    {
+      "tag": "v0.1.185",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.185"
+    },
+    {
+      "tag": "v0.1.184",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.184"
+    },
+    {
+      "tag": "v0.1.183",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.183"
+    },
+    {
+      "tag": "v0.1.182",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.182"
+    },
+    {
+      "tag": "v0.1.181",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.181"
+    },
+    {
+      "tag": "v0.1.180",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.180"
+    },
+    {
+      "tag": "v0.1.179",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.179"
+    },
+    {
+      "tag": "v0.1.178",
+      "date": "2025-07-03",
+      "prerelease": false,
+      "name": "v0.1.178"
+    },
+    {
+      "tag": "v0.1.194",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.194"
+    },
+    {
+      "tag": "v0.1.193",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.193"
+    },
+    {
+      "tag": "v0.1.192",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.192"
+    },
+    {
+      "tag": "v0.1.190",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.190"
+    },
+    {
+      "tag": "v0.1.189",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.189"
+    },
+    {
+      "tag": "v0.1.188",
+      "date": "2025-07-04",
+      "prerelease": false,
+      "name": "v0.1.188"
+    },
+    {
+      "tag": "v0.2.4",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.2.4"
+    },
+    {
+      "tag": "v0.2.3",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.2.3"
+    },
+    {
+      "tag": "v0.2.2",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.2.2"
+    },
+    {
+      "tag": "v0.2.1",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.2.1"
+    },
+    {
+      "tag": "v0.2.0",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.2.0"
+    },
+    {
+      "tag": "v0.1.195",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "v0.1.195"
+    },
+    {
+      "tag": "v0.2.12",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.12"
+    },
+    {
+      "tag": "v0.2.11",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.11"
+    },
+    {
+      "tag": "v0.2.10",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.10"
+    },
+    {
+      "tag": "v0.2.9",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.9"
+    },
+    {
+      "tag": "v0.2.6",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.6"
+    },
+    {
+      "tag": "v0.2.5",
+      "date": "2025-07-08",
+      "prerelease": false,
+      "name": "v0.2.5"
+    },
+    {
+      "tag": "v0.2.15",
+      "date": "2025-07-09",
+      "prerelease": false,
+      "name": "v0.2.15"
+    },
+    {
+      "tag": "v0.2.14",
+      "date": "2025-07-09",
+      "prerelease": false,
+      "name": "v0.2.14"
+    },
+    {
+      "tag": "v0.2.13",
+      "date": "2025-07-09",
+      "prerelease": false,
+      "name": "v0.2.13"
+    },
+    {
+      "tag": "v0.2.27",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.27"
+    },
+    {
+      "tag": "v0.2.26",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.26"
+    },
+    {
+      "tag": "v0.2.25",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.25"
+    },
+    {
+      "tag": "v0.2.24",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.24"
+    },
+    {
+      "tag": "v0.2.23",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.23"
+    },
+    {
+      "tag": "v0.2.22",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.22"
+    },
+    {
+      "tag": "v0.2.21",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.21"
+    },
+    {
+      "tag": "v0.2.20",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.20"
+    },
+    {
+      "tag": "v0.2.19",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.19"
+    },
+    {
+      "tag": "v0.2.18",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.18"
+    },
+    {
+      "tag": "v0.2.17",
+      "date": "2025-07-10",
+      "prerelease": false,
+      "name": "v0.2.17"
+    },
+    {
+      "tag": "v0.2.30",
+      "date": "2025-07-11",
+      "prerelease": false,
+      "name": "v0.2.30"
+    },
+    {
+      "tag": "v0.2.28",
+      "date": "2025-07-11",
+      "prerelease": false,
+      "name": "v0.2.28"
+    },
+    {
+      "tag": "v0.2.33",
+      "date": "2025-07-12",
+      "prerelease": false,
+      "name": "v0.2.33"
+    },
+    {
+      "tag": "v0.2.31",
+      "date": "2025-07-12",
+      "prerelease": false,
+      "name": "v0.2.31"
+    },
+    {
+      "tag": "v0.3.5",
+      "date": "2025-07-14",
+      "prerelease": false,
+      "name": "v0.3.5"
+    },
+    {
+      "tag": "v0.3.4",
+      "date": "2025-07-14",
+      "prerelease": false,
+      "name": "v0.3.4"
+    },
+    {
+      "tag": "v0.3.3",
+      "date": "2025-07-14",
+      "prerelease": false,
+      "name": "v0.3.3"
+    },
+    {
+      "tag": "v0.3.2",
+      "date": "2025-07-14",
+      "prerelease": false,
+      "name": "v0.3.2"
+    },
+    {
+      "tag": "v0.3.11",
+      "date": "2025-07-15",
+      "prerelease": false,
+      "name": "v0.3.11"
+    },
+    {
+      "tag": "v0.3.10",
+      "date": "2025-07-15",
+      "prerelease": false,
+      "name": "v0.3.10"
+    },
+    {
+      "tag": "v0.3.9",
+      "date": "2025-07-15",
+      "prerelease": false,
+      "name": "v0.3.9"
+    },
+    {
+      "tag": "v0.3.8",
+      "date": "2025-07-15",
+      "prerelease": false,
+      "name": "v0.3.8"
+    },
+    {
+      "tag": "v0.3.7",
+      "date": "2025-07-15",
+      "prerelease": false,
+      "name": "v0.3.7"
+    },
+    {
+      "tag": "v0.3.17",
+      "date": "2025-07-16",
+      "prerelease": false,
+      "name": "v0.3.17"
+    },
+    {
+      "tag": "v0.3.16",
+      "date": "2025-07-16",
+      "prerelease": false,
+      "name": "v0.3.16"
+    },
+    {
+      "tag": "v0.3.15",
+      "date": "2025-07-16",
+      "prerelease": false,
+      "name": "v0.3.15"
+    },
+    {
+      "tag": "v0.3.13",
+      "date": "2025-07-16",
+      "prerelease": false,
+      "name": "v0.3.13"
+    },
+    {
+      "tag": "v0.3.12",
+      "date": "2025-07-16",
+      "prerelease": false,
+      "name": "v0.3.12"
+    },
+    {
+      "tag": "v0.3.19",
+      "date": "2025-07-17",
+      "prerelease": false,
+      "name": "v0.3.19"
+    },
+    {
+      "tag": "v0.3.18",
+      "date": "2025-07-17",
+      "prerelease": false,
+      "name": "v0.3.18"
+    },
+    {
+      "tag": "v0.3.22",
+      "date": "2025-07-18",
+      "prerelease": false,
+      "name": "v0.3.22"
+    },
+    {
+      "tag": "v0.3.21",
+      "date": "2025-07-18",
+      "prerelease": false,
+      "name": "v0.3.21"
+    },
+    {
+      "tag": "v0.3.20",
+      "date": "2025-07-18",
+      "prerelease": false,
+      "name": "v0.3.20"
+    },
+    {
+      "tag": "v0.3.40",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.40"
+    },
+    {
+      "tag": "v0.3.37",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.37"
+    },
+    {
+      "tag": "v0.3.36",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.36"
+    },
+    {
+      "tag": "v0.3.35",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.35"
+    },
+    {
+      "tag": "v0.3.34",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.34"
+    },
+    {
+      "tag": "v0.3.33",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.33"
+    },
+    {
+      "tag": "v0.3.32",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.32"
+    },
+    {
+      "tag": "v0.3.31",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.31"
+    },
+    {
+      "tag": "v0.3.30",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.30"
+    },
+    {
+      "tag": "v0.3.29",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.29"
+    },
+    {
+      "tag": "v0.3.27",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.27"
+    },
+    {
+      "tag": "v0.3.26",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.26"
+    },
+    {
+      "tag": "v0.3.25",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.25"
+    },
+    {
+      "tag": "v0.3.24",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.24"
+    },
+    {
+      "tag": "v0.3.23",
+      "date": "2025-07-19",
+      "prerelease": false,
+      "name": "v0.3.23"
+    },
+    {
+      "tag": "v0.3.46",
+      "date": "2025-07-20",
+      "prerelease": false,
+      "name": "v0.3.46"
+    },
+    {
+      "tag": "v0.3.45",
+      "date": "2025-07-20",
+      "prerelease": false,
+      "name": "v0.3.45"
+    },
+    {
+      "tag": "v0.3.44",
+      "date": "2025-07-20",
+      "prerelease": false,
+      "name": "v0.3.44"
+    },
+    {
+      "tag": "v0.3.43",
+      "date": "2025-07-20",
+      "prerelease": false,
+      "name": "v0.3.43"
+    },
+    {
+      "tag": "v0.3.41",
+      "date": "2025-07-20",
+      "prerelease": false,
+      "name": "v0.3.41"
+    },
+    {
+      "tag": "v0.3.54",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.54"
+    },
+    {
+      "tag": "v0.3.53",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.53"
+    },
+    {
+      "tag": "v0.3.52",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.52"
+    },
+    {
+      "tag": "v0.3.51",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.51"
+    },
+    {
+      "tag": "v0.3.50",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.50"
+    },
+    {
+      "tag": "v0.3.49",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.49"
+    },
+    {
+      "tag": "v0.3.48",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.48"
+    },
+    {
+      "tag": "v0.3.47",
+      "date": "2025-07-21",
+      "prerelease": false,
+      "name": "v0.3.47"
+    },
+    {
+      "tag": "v0.3.56",
+      "date": "2025-07-22",
+      "prerelease": false,
+      "name": "v0.3.56"
+    },
+    {
+      "tag": "v0.3.55",
+      "date": "2025-07-22",
+      "prerelease": false,
+      "name": "v0.3.55"
+    },
+    {
+      "tag": "v0.3.58",
+      "date": "2025-07-23",
+      "prerelease": false,
+      "name": "v0.3.58"
+    },
+    {
+      "tag": "v0.3.57",
+      "date": "2025-07-23",
+      "prerelease": false,
+      "name": "v0.3.57"
+    },
+    {
+      "tag": "v0.3.61",
+      "date": "2025-07-24",
+      "prerelease": false,
+      "name": "v0.3.61"
+    },
+    {
+      "tag": "v0.3.76",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.76"
+    },
+    {
+      "tag": "v0.3.75",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.75"
+    },
+    {
+      "tag": "v0.3.74",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.74"
+    },
+    {
+      "tag": "v0.3.73",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.73"
+    },
+    {
+      "tag": "v0.3.72",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.72"
+    },
+    {
+      "tag": "v0.3.71",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.71"
+    },
+    {
+      "tag": "v0.3.70",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.70"
+    },
+    {
+      "tag": "v0.3.69",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.69"
+    },
+    {
+      "tag": "v0.3.68",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.68"
+    },
+    {
+      "tag": "v0.3.67",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.67"
+    },
+    {
+      "tag": "v0.3.66",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.66"
+    },
+    {
+      "tag": "v0.3.65",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "v0.3.65"
+    },
+    {
+      "tag": "v0.3.78",
+      "date": "2025-07-26",
+      "prerelease": false,
+      "name": "v0.3.78"
+    },
+    {
+      "tag": "v0.3.77",
+      "date": "2025-07-26",
+      "prerelease": false,
+      "name": "v0.3.77"
+    },
+    {
+      "tag": "v0.3.79",
+      "date": "2025-07-27",
+      "prerelease": false,
+      "name": "v0.3.79"
+    },
+    {
+      "tag": "v0.3.80",
+      "date": "2025-07-28",
+      "prerelease": false,
+      "name": "v0.3.80"
+    },
+    {
+      "tag": "v0.3.83",
+      "date": "2025-07-29",
+      "prerelease": false,
+      "name": "v0.3.83"
+    },
+    {
+      "tag": "v0.3.82",
+      "date": "2025-07-29",
+      "prerelease": false,
+      "name": "v0.3.82"
+    },
+    {
+      "tag": "v0.3.81",
+      "date": "2025-07-29",
+      "prerelease": false,
+      "name": "v0.3.81"
+    },
+    {
+      "tag": "v0.3.86",
+      "date": "2025-07-30",
+      "prerelease": false,
+      "name": "v0.3.86"
+    },
+    {
+      "tag": "v0.3.85",
+      "date": "2025-07-30",
+      "prerelease": false,
+      "name": "v0.3.85"
+    },
+    {
+      "tag": "v0.3.84",
+      "date": "2025-07-30",
+      "prerelease": false,
+      "name": "v0.3.84"
+    },
+    {
+      "tag": "v0.3.105",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.105"
+    },
+    {
+      "tag": "v0.3.104",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.104"
+    },
+    {
+      "tag": "v0.3.103",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.103"
+    },
+    {
+      "tag": "v0.3.102",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.102"
+    },
+    {
+      "tag": "v0.3.101",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.101"
+    },
+    {
+      "tag": "v0.3.100",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.100"
+    },
+    {
+      "tag": "v0.3.93",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.93"
+    },
+    {
+      "tag": "v0.3.92",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.92"
+    },
+    {
+      "tag": "v0.3.90",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "v0.3.90"
+    },
+    {
+      "tag": "v0.3.112",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.112"
+    },
+    {
+      "tag": "v0.3.111",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.111"
+    },
+    {
+      "tag": "v0.3.110",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.110"
+    },
+    {
+      "tag": "v0.3.109",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.109"
+    },
+    {
+      "tag": "v0.3.108",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.108"
+    },
+    {
+      "tag": "v0.3.107",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.107"
+    },
+    {
+      "tag": "v0.3.106",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "v0.3.106"
+    },
+    {
+      "tag": "v0.3.113",
+      "date": "2025-08-02",
+      "prerelease": false,
+      "name": "v0.3.113"
+    },
+    {
+      "tag": "v0.3.126",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.126"
+    },
+    {
+      "tag": "v0.3.122",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.122"
+    },
+    {
+      "tag": "v0.3.121",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.121"
+    },
+    {
+      "tag": "v0.3.120",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.120"
+    },
+    {
+      "tag": "v0.3.119",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.119"
+    },
+    {
+      "tag": "v0.3.118",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.118"
+    },
+    {
+      "tag": "v0.3.117",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.117"
+    },
+    {
+      "tag": "v0.3.116",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.116"
+    },
+    {
+      "tag": "v0.3.115",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.115"
+    },
+    {
+      "tag": "v0.3.114",
+      "date": "2025-08-03",
+      "prerelease": false,
+      "name": "v0.3.114"
+    },
+    {
+      "tag": "v0.3.128",
+      "date": "2025-08-04",
+      "prerelease": false,
+      "name": "v0.3.128"
+    },
+    {
+      "tag": "v0.3.127",
+      "date": "2025-08-04",
+      "prerelease": false,
+      "name": "v0.3.127"
+    },
+    {
+      "tag": "v0.3.131",
+      "date": "2025-08-05",
+      "prerelease": false,
+      "name": "v0.3.131"
+    },
+    {
+      "tag": "v0.3.130",
+      "date": "2025-08-05",
+      "prerelease": false,
+      "name": "v0.3.130"
+    },
+    {
+      "tag": "v0.3.129",
+      "date": "2025-08-05",
+      "prerelease": false,
+      "name": "v0.3.129"
+    },
+    {
+      "tag": "v0.3.132",
+      "date": "2025-08-06",
+      "prerelease": false,
+      "name": "v0.3.132"
+    },
+    {
+      "tag": "v0.3.133",
+      "date": "2025-08-07",
+      "prerelease": false,
+      "name": "v0.3.133"
+    },
+    {
+      "tag": "v0.4.1",
+      "date": "2025-08-08",
+      "prerelease": false,
+      "name": "v0.4.1"
+    },
+    {
+      "tag": "v0.4.0",
+      "date": "2025-08-08",
+      "prerelease": false,
+      "name": "v0.4.0"
+    },
+    {
+      "tag": "v0.4.2",
+      "date": "2025-08-09",
+      "prerelease": false,
+      "name": "v0.4.2"
+    },
+    {
+      "tag": "v0.4.20",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.20"
+    },
+    {
+      "tag": "v0.4.19",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.19"
+    },
+    {
+      "tag": "v0.4.18",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.18"
+    },
+    {
+      "tag": "v0.4.17",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.17"
+    },
+    {
+      "tag": "v0.4.16",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.16"
+    },
+    {
+      "tag": "v0.4.15",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.15"
+    },
+    {
+      "tag": "v0.4.12",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.12"
+    },
+    {
+      "tag": "v0.4.11",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.11"
+    },
+    {
+      "tag": "v0.4.10",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.10"
+    },
+    {
+      "tag": "v0.4.6",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.6"
+    },
+    {
+      "tag": "v0.4.5",
+      "date": "2025-08-11",
+      "prerelease": false,
+      "name": "v0.4.5"
+    },
+    {
+      "tag": "v0.4.40",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.40"
+    },
+    {
+      "tag": "v0.4.37",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.37"
+    },
+    {
+      "tag": "v0.4.36",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.36"
+    },
+    {
+      "tag": "v0.4.34",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.34"
+    },
+    {
+      "tag": "v0.4.29",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.29"
+    },
+    {
+      "tag": "v0.4.28",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.28"
+    },
+    {
+      "tag": "v0.4.27",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.27"
+    },
+    {
+      "tag": "v0.4.26",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.26"
+    },
+    {
+      "tag": "v0.4.25",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.25"
+    },
+    {
+      "tag": "v0.4.24",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.24"
+    },
+    {
+      "tag": "v0.4.23",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.23"
+    },
+    {
+      "tag": "v0.4.22",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.22"
+    },
+    {
+      "tag": "v0.4.21",
+      "date": "2025-08-12",
+      "prerelease": false,
+      "name": "v0.4.21"
+    },
+    {
+      "tag": "v0.4.45",
+      "date": "2025-08-13",
+      "prerelease": false,
+      "name": "v0.4.45"
+    },
+    {
+      "tag": "v0.4.44",
+      "date": "2025-08-13",
+      "prerelease": false,
+      "name": "v0.4.44"
+    },
+    {
+      "tag": "v0.4.43",
+      "date": "2025-08-13",
+      "prerelease": false,
+      "name": "v0.4.43"
+    },
+    {
+      "tag": "v0.4.42",
+      "date": "2025-08-13",
+      "prerelease": false,
+      "name": "v0.4.42"
+    },
+    {
+      "tag": "v0.4.41",
+      "date": "2025-08-13",
+      "prerelease": false,
+      "name": "v0.4.41"
+    },
+    {
+      "tag": "v0.5.1",
+      "date": "2025-08-14",
+      "prerelease": false,
+      "name": "v0.5.1"
+    },
+    {
+      "tag": "v0.5.4",
+      "date": "2025-08-15",
+      "prerelease": false,
+      "name": "v0.5.4"
+    },
+    {
+      "tag": "v0.5.3",
+      "date": "2025-08-15",
+      "prerelease": false,
+      "name": "v0.5.3"
+    },
+    {
+      "tag": "v0.5.2",
+      "date": "2025-08-15",
+      "prerelease": false,
+      "name": "v0.5.2"
+    },
+    {
+      "tag": "v0.5.5",
+      "date": "2025-08-16",
+      "prerelease": false,
+      "name": "v0.5.5"
+    },
+    {
+      "tag": "v0.5.7",
+      "date": "2025-08-18",
+      "prerelease": false,
+      "name": "v0.5.7"
+    },
+    {
+      "tag": "v0.5.6",
+      "date": "2025-08-18",
+      "prerelease": false,
+      "name": "v0.5.6"
+    },
+    {
+      "tag": "v0.5.12",
+      "date": "2025-08-20",
+      "prerelease": false,
+      "name": "v0.5.12"
+    },
+    {
+      "tag": "v0.5.10",
+      "date": "2025-08-20",
+      "prerelease": false,
+      "name": "v0.5.10"
+    },
+    {
+      "tag": "v0.5.9",
+      "date": "2025-08-20",
+      "prerelease": false,
+      "name": "v0.5.9"
+    },
+    {
+      "tag": "v0.5.8",
+      "date": "2025-08-20",
+      "prerelease": false,
+      "name": "v0.5.8"
+    },
+    {
+      "tag": "v0.5.13",
+      "date": "2025-08-21",
+      "prerelease": false,
+      "name": "v0.5.13"
+    },
+    {
+      "tag": "v0.5.15",
+      "date": "2025-08-22",
+      "prerelease": false,
+      "name": "v0.5.15"
+    },
+    {
+      "tag": "v0.5.18",
+      "date": "2025-08-23",
+      "prerelease": false,
+      "name": "v0.5.18"
+    },
+    {
+      "tag": "v0.5.24",
+      "date": "2025-08-24",
+      "prerelease": false,
+      "name": "v0.5.24"
+    },
+    {
+      "tag": "v0.5.23",
+      "date": "2025-08-24",
+      "prerelease": false,
+      "name": "v0.5.23"
+    },
+    {
+      "tag": "v0.5.27",
+      "date": "2025-08-25",
+      "prerelease": false,
+      "name": "v0.5.27"
+    },
+    {
+      "tag": "v0.5.26",
+      "date": "2025-08-25",
+      "prerelease": false,
+      "name": "v0.5.26"
+    },
+    {
+      "tag": "v0.5.25",
+      "date": "2025-08-25",
+      "prerelease": false,
+      "name": "v0.5.25"
+    },
+    {
+      "tag": "v0.5.28",
+      "date": "2025-08-26",
+      "prerelease": false,
+      "name": "v0.5.28"
+    },
+    {
+      "tag": "v0.5.29",
+      "date": "2025-08-30",
+      "prerelease": false,
+      "name": "v0.5.29"
+    },
+    {
+      "tag": "v0.6.1",
+      "date": "2025-09-01",
+      "prerelease": false,
+      "name": "v0.6.1"
+    },
+    {
+      "tag": "v0.6.0",
+      "date": "2025-09-01",
+      "prerelease": false,
+      "name": "v0.6.0"
+    },
+    {
+      "tag": "v0.6.3",
+      "date": "2025-09-02",
+      "prerelease": false,
+      "name": "v0.6.3"
+    },
+    {
+      "tag": "v0.6.2",
+      "date": "2025-09-02",
+      "prerelease": false,
+      "name": "v0.6.2"
+    },
+    {
+      "tag": "v0.6.4",
+      "date": "2025-09-03",
+      "prerelease": false,
+      "name": "v0.6.4"
+    },
+    {
+      "tag": "v0.6.5",
+      "date": "2025-09-07",
+      "prerelease": false,
+      "name": "v0.6.5"
+    },
+    {
+      "tag": "v0.6.6",
+      "date": "2025-09-08",
+      "prerelease": false,
+      "name": "v0.6.6"
+    },
+    {
+      "tag": "v0.6.9",
+      "date": "2025-09-09",
+      "prerelease": false,
+      "name": "v0.6.9"
+    },
+    {
+      "tag": "v0.6.8",
+      "date": "2025-09-09",
+      "prerelease": false,
+      "name": "v0.6.8"
+    },
+    {
+      "tag": "v0.6.7",
+      "date": "2025-09-09",
+      "prerelease": false,
+      "name": "v0.6.7"
+    },
+    {
+      "tag": "v0.7.1",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "v0.7.1"
+    },
+    {
+      "tag": "v0.7.0",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "v0.7.0"
+    },
+    {
+      "tag": "v0.6.10",
+      "date": "2025-09-10",
+      "prerelease": false,
+      "name": "v0.6.10"
+    },
+    {
+      "tag": "v0.7.3",
+      "date": "2025-09-11",
+      "prerelease": false,
+      "name": "v0.7.3"
+    },
+    {
+      "tag": "v0.7.2",
+      "date": "2025-09-11",
+      "prerelease": false,
+      "name": "v0.7.2"
+    },
+    {
+      "tag": "v0.7.8",
+      "date": "2025-09-12",
+      "prerelease": false,
+      "name": "v0.7.8"
+    },
+    {
+      "tag": "v0.7.7",
+      "date": "2025-09-12",
+      "prerelease": false,
+      "name": "v0.7.7"
+    },
+    {
+      "tag": "v0.7.5",
+      "date": "2025-09-12",
+      "prerelease": false,
+      "name": "v0.7.5"
+    },
+    {
+      "tag": "v0.7.4",
+      "date": "2025-09-12",
+      "prerelease": false,
+      "name": "v0.7.4"
+    },
+    {
+      "tag": "v0.7.9",
+      "date": "2025-09-13",
+      "prerelease": false,
+      "name": "v0.7.9"
+    },
+    {
+      "tag": "v0.8.0",
+      "date": "2025-09-14",
+      "prerelease": false,
+      "name": "v0.8.0"
+    },
+    {
+      "tag": "v0.9.1",
+      "date": "2025-09-15",
+      "prerelease": false,
+      "name": "v0.9.1"
+    },
+    {
+      "tag": "v0.9.0",
+      "date": "2025-09-15",
+      "prerelease": false,
+      "name": "v0.9.0"
+    },
+    {
+      "tag": "v0.9.6",
+      "date": "2025-09-16",
+      "prerelease": false,
+      "name": "v0.9.6"
+    },
+    {
+      "tag": "v0.9.5",
+      "date": "2025-09-16",
+      "prerelease": false,
+      "name": "v0.9.5"
+    },
+    {
+      "tag": "v0.9.4",
+      "date": "2025-09-16",
+      "prerelease": false,
+      "name": "v0.9.4"
+    },
+    {
+      "tag": "v0.9.3",
+      "date": "2025-09-16",
+      "prerelease": false,
+      "name": "v0.9.3"
+    },
+    {
+      "tag": "v0.9.2",
+      "date": "2025-09-16",
+      "prerelease": false,
+      "name": "v0.9.2"
+    },
+    {
+      "tag": "v0.9.11",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "v0.9.11"
+    },
+    {
+      "tag": "v0.9.10",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "v0.9.10"
+    },
+    {
+      "tag": "v0.9.9",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "v0.9.9"
+    },
+    {
+      "tag": "v0.9.8",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "v0.9.8"
+    },
+    {
+      "tag": "v0.9.7",
+      "date": "2025-09-17",
+      "prerelease": false,
+      "name": "v0.9.7"
+    },
+    {
+      "tag": "v0.10.0",
+      "date": "2025-09-18",
+      "prerelease": false,
+      "name": "v0.10.0"
+    },
+    {
+      "tag": "v0.10.3",
+      "date": "2025-09-19",
+      "prerelease": false,
+      "name": "v0.10.3"
+    },
+    {
+      "tag": "v0.10.2",
+      "date": "2025-09-19",
+      "prerelease": false,
+      "name": "v0.10.2"
+    },
+    {
+      "tag": "v0.10.1",
+      "date": "2025-09-19",
+      "prerelease": false,
+      "name": "v0.10.1"
+    },
+    {
+      "tag": "v0.10.4",
+      "date": "2025-09-20",
+      "prerelease": false,
+      "name": "v0.10.4"
+    },
+    {
+      "tag": "v0.11.1",
+      "date": "2025-09-21",
+      "prerelease": false,
+      "name": "v0.11.1"
+    },
+    {
+      "tag": "v0.11.0",
+      "date": "2025-09-21",
+      "prerelease": false,
+      "name": "v0.11.0"
+    },
+    {
+      "tag": "v0.11.2",
+      "date": "2025-09-23",
+      "prerelease": false,
+      "name": "v0.11.2"
+    },
+    {
+      "tag": "v0.11.3",
+      "date": "2025-09-24",
+      "prerelease": false,
+      "name": "v0.11.3"
+    },
+    {
+      "tag": "v0.12.1",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.12.1"
+    },
+    {
+      "tag": "v0.12.0",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.12.0"
+    },
+    {
+      "tag": "v0.11.8",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.11.8"
+    },
+    {
+      "tag": "v0.11.7",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.11.7"
+    },
+    {
+      "tag": "v0.11.6",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.11.6"
+    },
+    {
+      "tag": "v0.11.5",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.11.5"
+    },
+    {
+      "tag": "v0.11.4",
+      "date": "2025-09-26",
+      "prerelease": false,
+      "name": "v0.11.4"
+    },
+    {
+      "tag": "v0.13.5",
+      "date": "2025-09-29",
+      "prerelease": false,
+      "name": "v0.13.5"
+    },
+    {
+      "tag": "v0.13.4",
+      "date": "2025-09-29",
+      "prerelease": false,
+      "name": "v0.13.4"
+    },
+    {
+      "tag": "v0.13.3",
+      "date": "2025-09-29",
+      "prerelease": false,
+      "name": "v0.13.3"
+    },
+    {
+      "tag": "v0.13.2",
+      "date": "2025-09-29",
+      "prerelease": false,
+      "name": "v0.13.2"
+    },
+    {
+      "tag": "v0.13.7",
+      "date": "2025-10-01",
+      "prerelease": false,
+      "name": "v0.13.7"
+    },
+    {
+      "tag": "v0.13.6",
+      "date": "2025-10-01",
+      "prerelease": false,
+      "name": "v0.13.6"
+    },
+    {
+      "tag": "v0.14.0",
+      "date": "2025-10-02",
+      "prerelease": false,
+      "name": "v0.14.0"
+    },
+    {
+      "tag": "v0.13.8",
+      "date": "2025-10-02",
+      "prerelease": false,
+      "name": "v0.13.8"
+    },
+    {
+      "tag": "v0.14.1",
+      "date": "2025-10-03",
+      "prerelease": false,
+      "name": "v0.14.1"
+    },
+    {
+      "tag": "v0.14.3",
+      "date": "2025-10-05",
+      "prerelease": false,
+      "name": "v0.14.3"
+    },
+    {
+      "tag": "v0.14.6",
+      "date": "2025-10-07",
+      "prerelease": false,
+      "name": "v0.14.6"
+    },
+    {
+      "tag": "v0.14.5",
+      "date": "2025-10-07",
+      "prerelease": false,
+      "name": "v0.14.5"
+    },
+    {
+      "tag": "v0.14.4",
+      "date": "2025-10-07",
+      "prerelease": false,
+      "name": "v0.14.4"
+    },
+    {
+      "tag": "v0.14.7",
+      "date": "2025-10-10",
+      "prerelease": false,
+      "name": "v0.14.7"
+    },
+    {
+      "tag": "v0.15.0",
+      "date": "2025-10-12",
+      "prerelease": false,
+      "name": "v0.15.0"
+    },
+    {
+      "tag": "v0.15.1",
+      "date": "2025-10-13",
+      "prerelease": false,
+      "name": "v0.15.1"
+    },
+    {
+      "tag": "v0.15.3",
+      "date": "2025-10-14",
+      "prerelease": false,
+      "name": "v0.15.3"
+    },
+    {
+      "tag": "v0.15.2",
+      "date": "2025-10-14",
+      "prerelease": false,
+      "name": "v0.15.2"
+    },
+    {
+      "tag": "v0.15.6",
+      "date": "2025-10-16",
+      "prerelease": false,
+      "name": "v0.15.6"
+    },
+    {
+      "tag": "v0.15.5",
+      "date": "2025-10-16",
+      "prerelease": false,
+      "name": "v0.15.5"
+    },
+    {
+      "tag": "v0.15.4",
+      "date": "2025-10-16",
+      "prerelease": false,
+      "name": "v0.15.4"
+    },
+    {
+      "tag": "v0.15.7",
+      "date": "2025-10-17",
+      "prerelease": false,
+      "name": "v0.15.7"
+    },
+    {
+      "tag": "v0.15.8",
+      "date": "2025-10-18",
+      "prerelease": false,
+      "name": "v0.15.8"
+    },
+    {
+      "tag": "v0.15.10",
+      "date": "2025-10-20",
+      "prerelease": false,
+      "name": "v0.15.10"
+    },
+    {
+      "tag": "v0.15.9",
+      "date": "2025-10-20",
+      "prerelease": false,
+      "name": "v0.15.9"
+    },
+    {
+      "tag": "v0.15.13",
+      "date": "2025-10-21",
+      "prerelease": false,
+      "name": "v0.15.13"
+    },
+    {
+      "tag": "v0.15.12",
+      "date": "2025-10-21",
+      "prerelease": false,
+      "name": "v0.15.12"
+    },
+    {
+      "tag": "v0.15.11",
+      "date": "2025-10-21",
+      "prerelease": false,
+      "name": "v0.15.11"
+    },
+    {
+      "tag": "v0.15.14",
+      "date": "2025-10-23",
+      "prerelease": false,
+      "name": "v0.15.14"
+    },
+    {
+      "tag": "v0.15.16",
+      "date": "2025-10-24",
+      "prerelease": false,
+      "name": "v0.15.16"
+    },
+    {
+      "tag": "v0.15.15",
+      "date": "2025-10-24",
+      "prerelease": false,
+      "name": "v0.15.15"
+    },
+    {
+      "tag": "v0.15.17",
+      "date": "2025-10-25",
+      "prerelease": false,
+      "name": "v0.15.17"
+    },
+    {
+      "tag": "v0.15.18",
+      "date": "2025-10-26",
+      "prerelease": false,
+      "name": "v0.15.18"
+    },
+    {
+      "tag": "v0.15.20",
+      "date": "2025-10-28",
+      "prerelease": false,
+      "name": "v0.15.20"
+    },
+    {
+      "tag": "v0.15.19",
+      "date": "2025-10-28",
+      "prerelease": false,
+      "name": "v0.15.19"
+    },
+    {
+      "tag": "v0.15.28",
+      "date": "2025-10-29",
+      "prerelease": false,
+      "name": "v0.15.28"
+    },
+    {
+      "tag": "v0.15.27",
+      "date": "2025-10-29",
+      "prerelease": false,
+      "name": "v0.15.27"
+    },
+    {
+      "tag": "v0.15.26",
+      "date": "2025-10-29",
+      "prerelease": false,
+      "name": "v0.15.26"
+    },
+    {
+      "tag": "v0.15.24",
+      "date": "2025-10-29",
+      "prerelease": false,
+      "name": "v0.15.24"
+    },
+    {
+      "tag": "v0.15.23",
+      "date": "2025-10-29",
+      "prerelease": false,
+      "name": "v0.15.23"
+    },
+    {
+      "tag": "v0.15.29",
+      "date": "2025-10-30",
+      "prerelease": false,
+      "name": "v0.15.29"
+    },
+    {
+      "tag": "v1.0.6",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.6"
+    },
+    {
+      "tag": "v1.0.5",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.5"
+    },
+    {
+      "tag": "v1.0.4",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.4"
+    },
+    {
+      "tag": "v1.0.3",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.3"
+    },
+    {
+      "tag": "v1.0.2",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.2"
+    },
+    {
+      "tag": "v1.0.1",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v1.0.0"
+    },
+    {
+      "tag": "v0.15.31",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v0.15.31"
+    },
+    {
+      "tag": "v0.15.30",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "v0.15.30"
+    },
+    {
+      "tag": "v1.0.10",
+      "date": "2025-11-01",
+      "prerelease": false,
+      "name": "v1.0.10"
+    },
+    {
+      "tag": "v1.0.9",
+      "date": "2025-11-01",
+      "prerelease": false,
+      "name": "v1.0.9"
+    },
+    {
+      "tag": "v1.0.8",
+      "date": "2025-11-01",
+      "prerelease": false,
+      "name": "v1.0.8"
+    },
+    {
+      "tag": "v1.0.7",
+      "date": "2025-11-01",
+      "prerelease": false,
+      "name": "v1.0.7"
+    },
+    {
+      "tag": "v1.0.13",
+      "date": "2025-11-02",
+      "prerelease": false,
+      "name": "v1.0.13"
+    },
+    {
+      "tag": "v1.0.12",
+      "date": "2025-11-02",
+      "prerelease": false,
+      "name": "v1.0.12"
+    },
+    {
+      "tag": "v1.0.11",
+      "date": "2025-11-02",
+      "prerelease": false,
+      "name": "v1.0.11"
+    },
+    {
+      "tag": "v1.0.18",
+      "date": "2025-11-03",
+      "prerelease": false,
+      "name": "v1.0.18"
+    },
+    {
+      "tag": "v1.0.17",
+      "date": "2025-11-03",
+      "prerelease": false,
+      "name": "v1.0.17"
+    },
+    {
+      "tag": "v1.0.16",
+      "date": "2025-11-03",
+      "prerelease": false,
+      "name": "v1.0.16"
+    },
+    {
+      "tag": "v1.0.15",
+      "date": "2025-11-03",
+      "prerelease": false,
+      "name": "v1.0.15"
+    },
+    {
+      "tag": "v1.0.23",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "v1.0.23"
+    },
+    {
+      "tag": "v1.0.22",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "v1.0.22"
+    },
+    {
+      "tag": "v1.0.21",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "v1.0.21"
+    },
+    {
+      "tag": "v1.0.20",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "v1.0.20"
+    },
+    {
+      "tag": "v1.0.19",
+      "date": "2025-11-04",
+      "prerelease": false,
+      "name": "v1.0.19"
+    },
+    {
+      "tag": "v1.0.30",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.30"
+    },
+    {
+      "tag": "v1.0.29",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.29"
+    },
+    {
+      "tag": "v1.0.28",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.28"
+    },
+    {
+      "tag": "v1.0.27",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.27"
+    },
+    {
+      "tag": "v1.0.26",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.26"
+    },
+    {
+      "tag": "v1.0.25",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.25"
+    },
+    {
+      "tag": "v1.0.24",
+      "date": "2025-11-05",
+      "prerelease": false,
+      "name": "v1.0.24"
+    },
+    {
+      "tag": "v1.0.37",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.37"
+    },
+    {
+      "tag": "v1.0.36",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.36"
+    },
+    {
+      "tag": "v1.0.35",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.35"
+    },
+    {
+      "tag": "v1.0.34",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.34"
+    },
+    {
+      "tag": "v1.0.33",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.33"
+    },
+    {
+      "tag": "v1.0.32",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.32"
+    },
+    {
+      "tag": "v1.0.31",
+      "date": "2025-11-06",
+      "prerelease": false,
+      "name": "v1.0.31"
+    },
+    {
+      "tag": "v1.0.44",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.44"
+    },
+    {
+      "tag": "v1.0.43",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.43"
+    },
+    {
+      "tag": "v1.0.41",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.41"
+    },
+    {
+      "tag": "v1.0.40",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.40"
+    },
+    {
+      "tag": "v1.0.39",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.39"
+    },
+    {
+      "tag": "v1.0.38",
+      "date": "2025-11-07",
+      "prerelease": false,
+      "name": "v1.0.38"
+    },
+    {
+      "tag": "v1.0.46",
+      "date": "2025-11-08",
+      "prerelease": false,
+      "name": "v1.0.46"
+    },
+    {
+      "tag": "v1.0.45",
+      "date": "2025-11-08",
+      "prerelease": false,
+      "name": "v1.0.45"
+    },
+    {
+      "tag": "v1.0.51",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "v1.0.51"
+    },
+    {
+      "tag": "v1.0.50",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "v1.0.50"
+    },
+    {
+      "tag": "v1.0.49",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "v1.0.49"
+    },
+    {
+      "tag": "v1.0.48",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "v1.0.48"
+    },
+    {
+      "tag": "v1.0.47",
+      "date": "2025-11-09",
+      "prerelease": false,
+      "name": "v1.0.47"
+    },
+    {
+      "tag": "v1.0.55",
+      "date": "2025-11-10",
+      "prerelease": false,
+      "name": "v1.0.55"
+    },
+    {
+      "tag": "v1.0.54",
+      "date": "2025-11-10",
+      "prerelease": false,
+      "name": "v1.0.54"
+    },
+    {
+      "tag": "v1.0.53",
+      "date": "2025-11-10",
+      "prerelease": false,
+      "name": "v1.0.53"
+    },
+    {
+      "tag": "v1.0.52",
+      "date": "2025-11-10",
+      "prerelease": false,
+      "name": "v1.0.52"
+    },
+    {
+      "tag": "v1.0.58",
+      "date": "2025-11-11",
+      "prerelease": false,
+      "name": "v1.0.58"
+    },
+    {
+      "tag": "v1.0.57",
+      "date": "2025-11-11",
+      "prerelease": false,
+      "name": "v1.0.57"
+    },
+    {
+      "tag": "v1.0.56",
+      "date": "2025-11-11",
+      "prerelease": false,
+      "name": "v1.0.56"
+    },
+    {
+      "tag": "v1.0.61",
+      "date": "2025-11-12",
+      "prerelease": false,
+      "name": "v1.0.61"
+    },
+    {
+      "tag": "v1.0.60",
+      "date": "2025-11-12",
+      "prerelease": false,
+      "name": "v1.0.60"
+    },
+    {
+      "tag": "v1.0.59",
+      "date": "2025-11-12",
+      "prerelease": false,
+      "name": "v1.0.59"
+    },
+    {
+      "tag": "v1.0.64",
+      "date": "2025-11-13",
+      "prerelease": false,
+      "name": "v1.0.64"
+    },
+    {
+      "tag": "v1.0.63",
+      "date": "2025-11-13",
+      "prerelease": false,
+      "name": "v1.0.63"
+    },
+    {
+      "tag": "v1.0.62",
+      "date": "2025-11-13",
+      "prerelease": false,
+      "name": "v1.0.62"
+    },
+    {
+      "tag": "v1.0.65",
+      "date": "2025-11-14",
+      "prerelease": false,
+      "name": "v1.0.65"
+    },
+    {
+      "tag": "v1.0.68",
+      "date": "2025-11-16",
+      "prerelease": false,
+      "name": "v1.0.68"
+    },
+    {
+      "tag": "v1.0.67",
+      "date": "2025-11-16",
+      "prerelease": false,
+      "name": "v1.0.67"
+    },
+    {
+      "tag": "v1.0.66",
+      "date": "2025-11-16",
+      "prerelease": false,
+      "name": "v1.0.66"
+    },
+    {
+      "tag": "v1.0.70",
+      "date": "2025-11-17",
+      "prerelease": false,
+      "name": "v1.0.70"
+    },
+    {
+      "tag": "v1.0.69",
+      "date": "2025-11-17",
+      "prerelease": false,
+      "name": "v1.0.69"
+    },
+    {
+      "tag": "v1.0.78",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.78"
+    },
+    {
+      "tag": "v1.0.77",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.77"
+    },
+    {
+      "tag": "v1.0.76",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.76"
+    },
+    {
+      "tag": "v1.0.75",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.75"
+    },
+    {
+      "tag": "v1.0.74",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.74"
+    },
+    {
+      "tag": "v1.0.73",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.73"
+    },
+    {
+      "tag": "v1.0.72",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.72"
+    },
+    {
+      "tag": "v1.0.71",
+      "date": "2025-11-18",
+      "prerelease": false,
+      "name": "v1.0.71"
+    },
+    {
+      "tag": "v1.0.82",
+      "date": "2025-11-20",
+      "prerelease": false,
+      "name": "v1.0.82"
+    },
+    {
+      "tag": "v1.0.81",
+      "date": "2025-11-20",
+      "prerelease": false,
+      "name": "v1.0.81"
+    },
+    {
+      "tag": "v1.0.80",
+      "date": "2025-11-20",
+      "prerelease": false,
+      "name": "v1.0.80"
+    },
+    {
+      "tag": "v1.0.79",
+      "date": "2025-11-20",
+      "prerelease": false,
+      "name": "v1.0.79"
+    },
+    {
+      "tag": "v1.0.88",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.88"
+    },
+    {
+      "tag": "v1.0.87",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.87"
+    },
+    {
+      "tag": "v1.0.86",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.86"
+    },
+    {
+      "tag": "v1.0.85",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.85"
+    },
+    {
+      "tag": "v1.0.84",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.84"
+    },
+    {
+      "tag": "v1.0.83",
+      "date": "2025-11-21",
+      "prerelease": false,
+      "name": "v1.0.83"
+    },
+    {
+      "tag": "v1.0.105",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.105"
+    },
+    {
+      "tag": "v1.0.104",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.104"
+    },
+    {
+      "tag": "v1.0.103",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.103"
+    },
+    {
+      "tag": "v1.0.102",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.102"
+    },
+    {
+      "tag": "v1.0.101",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.101"
+    },
+    {
+      "tag": "v1.0.100",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.100"
+    },
+    {
+      "tag": "v1.0.99",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.99"
+    },
+    {
+      "tag": "v1.0.98",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.98"
+    },
+    {
+      "tag": "v1.0.97",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.97"
+    },
+    {
+      "tag": "v1.0.96",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.96"
+    },
+    {
+      "tag": "v1.0.95",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.95"
+    },
+    {
+      "tag": "v1.0.93",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.93"
+    },
+    {
+      "tag": "v1.0.92",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.92"
+    },
+    {
+      "tag": "v1.0.91",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.91"
+    },
+    {
+      "tag": "v1.0.90",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.90"
+    },
+    {
+      "tag": "v1.0.89",
+      "date": "2025-11-22",
+      "prerelease": false,
+      "name": "v1.0.89"
+    },
+    {
+      "tag": "v1.0.106",
+      "date": "2025-11-23",
+      "prerelease": false,
+      "name": "v1.0.106"
+    },
+    {
+      "tag": "v1.0.109",
+      "date": "2025-11-24",
+      "prerelease": false,
+      "name": "v1.0.109"
+    },
+    {
+      "tag": "v1.0.108",
+      "date": "2025-11-24",
+      "prerelease": false,
+      "name": "v1.0.108"
+    },
+    {
+      "tag": "v1.0.107",
+      "date": "2025-11-24",
+      "prerelease": false,
+      "name": "v1.0.107"
+    },
+    {
+      "tag": "v1.0.112",
+      "date": "2025-11-25",
+      "prerelease": false,
+      "name": "v1.0.112"
+    },
+    {
+      "tag": "v1.0.111",
+      "date": "2025-11-25",
+      "prerelease": false,
+      "name": "v1.0.111"
+    },
+    {
+      "tag": "v1.0.110",
+      "date": "2025-11-25",
+      "prerelease": false,
+      "name": "v1.0.110"
+    },
+    {
+      "tag": "v1.0.115",
+      "date": "2025-11-26",
+      "prerelease": false,
+      "name": "v1.0.115"
+    },
+    {
+      "tag": "v1.0.114",
+      "date": "2025-11-26",
+      "prerelease": false,
+      "name": "v1.0.114"
+    },
+    {
+      "tag": "v1.0.113",
+      "date": "2025-11-26",
+      "prerelease": false,
+      "name": "v1.0.113"
+    },
+    {
+      "tag": "v1.0.119",
+      "date": "2025-11-27",
+      "prerelease": false,
+      "name": "v1.0.119"
+    },
+    {
+      "tag": "v1.0.118",
+      "date": "2025-11-27",
+      "prerelease": false,
+      "name": "v1.0.118"
+    },
+    {
+      "tag": "v1.0.117",
+      "date": "2025-11-27",
+      "prerelease": false,
+      "name": "v1.0.117"
+    },
+    {
+      "tag": "v1.0.116",
+      "date": "2025-11-27",
+      "prerelease": false,
+      "name": "v1.0.116"
+    },
+    {
+      "tag": "v1.0.121",
+      "date": "2025-11-29",
+      "prerelease": false,
+      "name": "v1.0.121"
+    },
+    {
+      "tag": "v1.0.120",
+      "date": "2025-11-29",
+      "prerelease": false,
+      "name": "v1.0.120"
+    },
+    {
+      "tag": "v1.0.122",
+      "date": "2025-11-30",
+      "prerelease": false,
+      "name": "v1.0.122"
+    },
+    {
+      "tag": "v1.0.126",
+      "date": "2025-12-01",
+      "prerelease": false,
+      "name": "v1.0.126"
+    },
+    {
+      "tag": "v1.0.125",
+      "date": "2025-12-01",
+      "prerelease": false,
+      "name": "v1.0.125"
+    },
+    {
+      "tag": "v1.0.124",
+      "date": "2025-12-01",
+      "prerelease": false,
+      "name": "v1.0.124"
+    },
+    {
+      "tag": "v1.0.123",
+      "date": "2025-12-01",
+      "prerelease": false,
+      "name": "v1.0.123"
+    },
+    {
+      "tag": "v1.0.128",
+      "date": "2025-12-02",
+      "prerelease": false,
+      "name": "v1.0.128"
+    },
+    {
+      "tag": "v1.0.127",
+      "date": "2025-12-02",
+      "prerelease": false,
+      "name": "v1.0.127"
+    },
+    {
+      "tag": "v1.0.129",
+      "date": "2025-12-03",
+      "prerelease": false,
+      "name": "v1.0.129"
+    },
+    {
+      "tag": "v1.0.133",
+      "date": "2025-12-04",
+      "prerelease": false,
+      "name": "v1.0.133"
+    },
+    {
+      "tag": "v1.0.132",
+      "date": "2025-12-04",
+      "prerelease": false,
+      "name": "v1.0.132"
+    },
+    {
+      "tag": "v1.0.131",
+      "date": "2025-12-04",
+      "prerelease": false,
+      "name": "v1.0.131"
+    },
+    {
+      "tag": "v1.0.130",
+      "date": "2025-12-04",
+      "prerelease": false,
+      "name": "v1.0.130"
+    },
+    {
+      "tag": "v1.0.134",
+      "date": "2025-12-05",
+      "prerelease": false,
+      "name": "v1.0.134"
+    },
+    {
+      "tag": "v1.0.138",
+      "date": "2025-12-09",
+      "prerelease": false,
+      "name": "v1.0.138"
+    },
+    {
+      "tag": "v1.0.137",
+      "date": "2025-12-09",
+      "prerelease": false,
+      "name": "v1.0.137"
+    },
+    {
+      "tag": "v1.0.143",
+      "date": "2025-12-10",
+      "prerelease": false,
+      "name": "v1.0.143"
+    },
+    {
+      "tag": "v1.0.142",
+      "date": "2025-12-10",
+      "prerelease": false,
+      "name": "v1.0.142"
+    },
+    {
+      "tag": "v1.0.141",
+      "date": "2025-12-10",
+      "prerelease": false,
+      "name": "v1.0.141"
+    },
+    {
+      "tag": "v1.0.150",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.150"
+    },
+    {
+      "tag": "v1.0.149",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.149"
+    },
+    {
+      "tag": "v1.0.148",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.148"
+    },
+    {
+      "tag": "v1.0.147",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.147"
+    },
+    {
+      "tag": "v1.0.146",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.146"
+    },
+    {
+      "tag": "v1.0.145",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.145"
+    },
+    {
+      "tag": "v1.0.144",
+      "date": "2025-12-11",
+      "prerelease": false,
+      "name": "v1.0.144"
+    },
+    {
+      "tag": "v1.0.152",
+      "date": "2025-12-12",
+      "prerelease": false,
+      "name": "v1.0.152"
+    },
+    {
+      "tag": "v1.0.151",
+      "date": "2025-12-12",
+      "prerelease": false,
+      "name": "v1.0.151"
+    },
+    {
+      "tag": "v1.0.153",
+      "date": "2025-12-14",
+      "prerelease": false,
+      "name": "v1.0.153"
+    },
+    {
+      "tag": "v1.0.160",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.160"
+    },
+    {
+      "tag": "v1.0.158",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.158"
+    },
+    {
+      "tag": "v1.0.157",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.157"
+    },
+    {
+      "tag": "v1.0.156",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.156"
+    },
+    {
+      "tag": "v1.0.155",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.155"
+    },
+    {
+      "tag": "v1.0.154",
+      "date": "2025-12-15",
+      "prerelease": false,
+      "name": "v1.0.154"
+    },
+    {
+      "tag": "v1.0.164",
+      "date": "2025-12-16",
+      "prerelease": false,
+      "name": "v1.0.164"
+    },
+    {
+      "tag": "v1.0.163",
+      "date": "2025-12-16",
+      "prerelease": false,
+      "name": "v1.0.163"
+    },
+    {
+      "tag": "v1.0.162",
+      "date": "2025-12-16",
+      "prerelease": false,
+      "name": "v1.0.162"
+    },
+    {
+      "tag": "v1.0.161",
+      "date": "2025-12-16",
+      "prerelease": false,
+      "name": "v1.0.161"
+    },
+    {
+      "tag": "v1.0.166",
+      "date": "2025-12-17",
+      "prerelease": false,
+      "name": "v1.0.166"
+    },
+    {
+      "tag": "v1.0.165",
+      "date": "2025-12-17",
+      "prerelease": false,
+      "name": "v1.0.165"
+    },
+    {
+      "tag": "v1.0.168",
+      "date": "2025-12-18",
+      "prerelease": false,
+      "name": "v1.0.168"
+    },
+    {
+      "tag": "v1.0.167",
+      "date": "2025-12-18",
+      "prerelease": false,
+      "name": "v1.0.167"
+    },
+    {
+      "tag": "v1.0.170",
+      "date": "2025-12-19",
+      "prerelease": false,
+      "name": "v1.0.170"
+    },
+    {
+      "tag": "v1.0.169",
+      "date": "2025-12-19",
+      "prerelease": false,
+      "name": "v1.0.169"
+    },
+    {
+      "tag": "v1.0.180",
+      "date": "2025-12-20",
+      "prerelease": false,
+      "name": "v1.0.180"
+    },
+    {
+      "tag": "v1.0.176",
+      "date": "2025-12-20",
+      "prerelease": false,
+      "name": "v1.0.176"
+    },
+    {
+      "tag": "v1.0.175",
+      "date": "2025-12-20",
+      "prerelease": false,
+      "name": "v1.0.175"
+    },
+    {
+      "tag": "v1.0.174",
+      "date": "2025-12-20",
+      "prerelease": false,
+      "name": "v1.0.174"
+    },
+    {
+      "tag": "v1.0.185",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "v1.0.185"
+    },
+    {
+      "tag": "v1.0.184",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "v1.0.184"
+    },
+    {
+      "tag": "v1.0.183",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "v1.0.183"
+    },
+    {
+      "tag": "v1.0.182",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "v1.0.182"
+    },
+    {
+      "tag": "v1.0.181",
+      "date": "2025-12-21",
+      "prerelease": false,
+      "name": "v1.0.181"
+    },
+    {
+      "tag": "v1.0.190",
+      "date": "2025-12-22",
+      "prerelease": false,
+      "name": "v1.0.190"
+    },
+    {
+      "tag": "v1.0.186",
+      "date": "2025-12-22",
+      "prerelease": false,
+      "name": "v1.0.186"
+    },
+    {
+      "tag": "v1.0.193",
+      "date": "2025-12-23",
+      "prerelease": false,
+      "name": "v1.0.193"
+    },
+    {
+      "tag": "v1.0.191",
+      "date": "2025-12-23",
+      "prerelease": false,
+      "name": "v1.0.191"
+    },
+    {
+      "tag": "v1.0.198",
+      "date": "2025-12-24",
+      "prerelease": false,
+      "name": "v1.0.198"
+    },
+    {
+      "tag": "v1.0.195",
+      "date": "2025-12-24",
+      "prerelease": false,
+      "name": "v1.0.195"
+    },
+    {
+      "tag": "v1.0.194",
+      "date": "2025-12-24",
+      "prerelease": false,
+      "name": "v1.0.194"
+    },
+    {
+      "tag": "v1.0.201",
+      "date": "2025-12-25",
+      "prerelease": false,
+      "name": "v1.0.201"
+    },
+    {
+      "tag": "v1.0.200",
+      "date": "2025-12-25",
+      "prerelease": false,
+      "name": "v1.0.200"
+    },
+    {
+      "tag": "v1.0.199",
+      "date": "2025-12-25",
+      "prerelease": false,
+      "name": "v1.0.199"
+    },
+    {
+      "tag": "v1.0.203",
+      "date": "2025-12-26",
+      "prerelease": false,
+      "name": "v1.0.203"
+    },
+    {
+      "tag": "v1.0.202",
+      "date": "2025-12-26",
+      "prerelease": false,
+      "name": "v1.0.202"
+    },
+    {
+      "tag": "v1.0.204",
+      "date": "2025-12-27",
+      "prerelease": false,
+      "name": "v1.0.204"
+    },
+    {
+      "tag": "v1.0.206",
+      "date": "2025-12-28",
+      "prerelease": false,
+      "name": "v1.0.206"
+    },
+    {
+      "tag": "v1.0.205",
+      "date": "2025-12-28",
+      "prerelease": false,
+      "name": "v1.0.205"
+    },
+    {
+      "tag": "v1.0.208",
+      "date": "2025-12-29",
+      "prerelease": false,
+      "name": "v1.0.208"
+    },
+    {
+      "tag": "v1.0.207",
+      "date": "2025-12-29",
+      "prerelease": false,
+      "name": "v1.0.207"
+    },
+    {
+      "tag": "v1.0.218",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.218"
+    },
+    {
+      "tag": "v1.0.217",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.217"
+    },
+    {
+      "tag": "v1.0.216",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.216"
+    },
+    {
+      "tag": "v1.0.215",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.215"
+    },
+    {
+      "tag": "v1.0.214",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.214"
+    },
+    {
+      "tag": "v1.0.213",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.213"
+    },
+    {
+      "tag": "v1.0.212",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.212"
+    },
+    {
+      "tag": "v1.0.211",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.211"
+    },
+    {
+      "tag": "v1.0.210",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.210"
+    },
+    {
+      "tag": "v1.0.209",
+      "date": "2025-12-30",
+      "prerelease": false,
+      "name": "v1.0.209"
+    },
+    {
+      "tag": "v1.0.221",
+      "date": "2025-12-31",
+      "prerelease": false,
+      "name": "v1.0.221"
+    },
+    {
+      "tag": "v1.0.220",
+      "date": "2025-12-31",
+      "prerelease": false,
+      "name": "v1.0.220"
+    },
+    {
+      "tag": "v1.0.219",
+      "date": "2025-12-31",
+      "prerelease": false,
+      "name": "v1.0.219"
+    },
+    {
+      "tag": "v1.0.223",
+      "date": "2026-01-01",
+      "prerelease": false,
+      "name": "v1.0.223"
+    },
+    {
+      "tag": "v1.0.222",
+      "date": "2026-01-01",
+      "prerelease": false,
+      "name": "v1.0.222"
+    },
+    {
+      "tag": "v1.1.1",
+      "date": "2026-01-04",
+      "prerelease": false,
+      "name": "v1.1.1"
+    },
+    {
+      "tag": "v1.1.3",
+      "date": "2026-01-05",
+      "prerelease": false,
+      "name": "v1.1.3"
+    },
+    {
+      "tag": "v1.1.2",
+      "date": "2026-01-05",
+      "prerelease": false,
+      "name": "v1.1.2"
+    },
+    {
+      "tag": "v1.1.4",
+      "date": "2026-01-06",
+      "prerelease": false,
+      "name": "v1.1.4"
+    },
+    {
+      "tag": "v1.1.6",
+      "date": "2026-01-07",
+      "prerelease": false,
+      "name": "v1.1.6"
+    },
+    {
+      "tag": "v1.1.7",
+      "date": "2026-01-08",
+      "prerelease": false,
+      "name": "v1.1.7"
+    },
+    {
+      "tag": "v1.1.10",
+      "date": "2026-01-09",
+      "prerelease": false,
+      "name": "v1.1.10"
+    },
+    {
+      "tag": "v1.1.8",
+      "date": "2026-01-09",
+      "prerelease": false,
+      "name": "v1.1.8"
+    },
+    {
+      "tag": "v1.1.12",
+      "date": "2026-01-10",
+      "prerelease": false,
+      "name": "v1.1.12"
+    },
+    {
+      "tag": "v1.1.11",
+      "date": "2026-01-10",
+      "prerelease": false,
+      "name": "v1.1.11"
+    },
+    {
+      "tag": "v1.1.13",
+      "date": "2026-01-11",
+      "prerelease": false,
+      "name": "v1.1.13"
+    },
+    {
+      "tag": "v1.1.15",
+      "date": "2026-01-12",
+      "prerelease": false,
+      "name": "v1.1.15"
+    },
+    {
+      "tag": "v1.1.14",
+      "date": "2026-01-12",
+      "prerelease": false,
+      "name": "v1.1.14"
+    },
+    {
+      "tag": "v1.1.18",
+      "date": "2026-01-13",
+      "prerelease": false,
+      "name": "v1.1.18"
+    },
+    {
+      "tag": "v1.1.17",
+      "date": "2026-01-13",
+      "prerelease": false,
+      "name": "v1.1.17"
+    },
+    {
+      "tag": "v1.1.16",
+      "date": "2026-01-13",
+      "prerelease": false,
+      "name": "v1.1.16"
+    },
+    {
+      "tag": "v1.1.20",
+      "date": "2026-01-14",
+      "prerelease": false,
+      "name": "v1.1.20"
+    },
+    {
+      "tag": "v1.1.19",
+      "date": "2026-01-14",
+      "prerelease": false,
+      "name": "v1.1.19"
+    },
+    {
+      "tag": "v1.1.23",
+      "date": "2026-01-15",
+      "prerelease": false,
+      "name": "v1.1.23"
+    },
+    {
+      "tag": "v1.1.21",
+      "date": "2026-01-15",
+      "prerelease": false,
+      "name": "v1.1.21"
+    },
+    {
+      "tag": "v1.1.25",
+      "date": "2026-01-16",
+      "prerelease": false,
+      "name": "v1.1.25"
+    },
+    {
+      "tag": "v1.1.24",
+      "date": "2026-01-16",
+      "prerelease": false,
+      "name": "v1.1.24"
+    },
+    {
+      "tag": "v1.1.26",
+      "date": "2026-01-19",
+      "prerelease": false,
+      "name": "v1.1.26"
+    },
+    {
+      "tag": "v1.1.28",
+      "date": "2026-01-20",
+      "prerelease": false,
+      "name": "v1.1.28"
+    },
+    {
+      "tag": "v1.1.27",
+      "date": "2026-01-20",
+      "prerelease": false,
+      "name": "v1.1.27"
+    },
+    {
+      "tag": "v1.1.30",
+      "date": "2026-01-21",
+      "prerelease": false,
+      "name": "v1.1.30"
+    },
+    {
+      "tag": "v1.1.29",
+      "date": "2026-01-21",
+      "prerelease": false,
+      "name": "v1.1.29"
+    },
+    {
+      "tag": "v1.1.32",
+      "date": "2026-01-22",
+      "prerelease": false,
+      "name": "v1.1.32"
+    },
+    {
+      "tag": "v1.1.31",
+      "date": "2026-01-22",
+      "prerelease": false,
+      "name": "v1.1.31"
+    },
+    {
+      "tag": "v1.1.34",
+      "date": "2026-01-23",
+      "prerelease": false,
+      "name": "v1.1.34"
+    },
+    {
+      "tag": "v1.1.33",
+      "date": "2026-01-23",
+      "prerelease": false,
+      "name": "v1.1.33"
+    },
+    {
+      "tag": "v1.1.36",
+      "date": "2026-01-25",
+      "prerelease": false,
+      "name": "v1.1.36"
+    },
+    {
+      "tag": "v1.1.35",
+      "date": "2026-01-25",
+      "prerelease": false,
+      "name": "v1.1.35"
+    },
+    {
+      "tag": "v1.1.40",
+      "date": "2026-01-28",
+      "prerelease": false,
+      "name": "v1.1.40"
+    },
+    {
+      "tag": "v1.1.39",
+      "date": "2026-01-28",
+      "prerelease": false,
+      "name": "v1.1.39"
+    },
+    {
+      "tag": "v1.1.38",
+      "date": "2026-01-28",
+      "prerelease": false,
+      "name": "v1.1.38"
+    },
+    {
+      "tag": "v1.1.37",
+      "date": "2026-01-28",
+      "prerelease": false,
+      "name": "v1.1.37"
+    },
+    {
+      "tag": "v1.1.42",
+      "date": "2026-01-29",
+      "prerelease": false,
+      "name": "v1.1.42"
+    },
+    {
+      "tag": "v1.1.41",
+      "date": "2026-01-29",
+      "prerelease": false,
+      "name": "v1.1.41"
+    },
+    {
+      "tag": "v1.1.47",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "v1.1.47"
+    },
+    {
+      "tag": "v1.1.46",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "v1.1.46"
+    },
+    {
+      "tag": "v1.1.45",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "v1.1.45"
+    },
+    {
+      "tag": "v1.1.44",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "v1.1.44"
+    },
+    {
+      "tag": "v1.1.43",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "v1.1.43"
+    },
+    {
+      "tag": "v1.1.48",
+      "date": "2026-01-31",
+      "prerelease": false,
+      "name": "v1.1.48"
+    },
+    {
+      "tag": "v1.1.49",
+      "date": "2026-02-03",
+      "prerelease": false,
+      "name": "v1.1.49"
+    },
+    {
+      "tag": "v1.1.51",
+      "date": "2026-02-04",
+      "prerelease": false,
+      "name": "v1.1.51"
+    },
+    {
+      "tag": "v1.1.50",
+      "date": "2026-02-04",
+      "prerelease": false,
+      "name": "v1.1.50"
+    },
+    {
+      "tag": "v1.1.53",
+      "date": "2026-02-05",
+      "prerelease": false,
+      "name": "v1.1.53"
+    },
+    {
+      "tag": "v1.1.52",
+      "date": "2026-02-05",
+      "prerelease": false,
+      "name": "v1.1.52"
+    },
+    {
+      "tag": "v1.1.56",
+      "date": "2026-02-10",
+      "prerelease": false,
+      "name": "v1.1.56"
+    },
+    {
+      "tag": "v1.1.55",
+      "date": "2026-02-10",
+      "prerelease": false,
+      "name": "v1.1.55"
+    },
+    {
+      "tag": "v1.1.54",
+      "date": "2026-02-10",
+      "prerelease": false,
+      "name": "v1.1.54"
+    },
+    {
+      "tag": "v1.1.59",
+      "date": "2026-02-11",
+      "prerelease": false,
+      "name": "v1.1.59"
+    },
+    {
+      "tag": "v1.1.58",
+      "date": "2026-02-11",
+      "prerelease": false,
+      "name": "v1.1.58"
+    },
+    {
+      "tag": "v1.1.57",
+      "date": "2026-02-11",
+      "prerelease": false,
+      "name": "v1.1.57"
+    },
+    {
+      "tag": "v1.1.64",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "v1.1.64"
+    },
+    {
+      "tag": "v1.1.63",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "v1.1.63"
+    },
+    {
+      "tag": "v1.1.62",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "v1.1.62"
+    },
+    {
+      "tag": "v1.1.61",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "v1.1.61"
+    },
+    {
+      "tag": "v1.1.60",
+      "date": "2026-02-12",
+      "prerelease": false,
+      "name": "v1.1.60"
+    },
+    {
+      "tag": "v1.1.65",
+      "date": "2026-02-13",
+      "prerelease": false,
+      "name": "v1.1.65"
+    },
+    {
+      "tag": "v1.2.2",
+      "date": "2026-02-14",
+      "prerelease": false,
+      "name": "v1.2.2"
+    },
+    {
+      "tag": "v1.2.1",
+      "date": "2026-02-14",
+      "prerelease": false,
+      "name": "v1.2.1"
+    },
+    {
+      "tag": "v1.2.0",
+      "date": "2026-02-14",
+      "prerelease": false,
+      "name": "v1.2.0"
+    },
+    {
+      "tag": "v1.2.5",
+      "date": "2026-02-15",
+      "prerelease": false,
+      "name": "v1.2.5"
+    },
+    {
+      "tag": "v1.2.4",
+      "date": "2026-02-15",
+      "prerelease": false,
+      "name": "v1.2.4"
+    },
+    {
+      "tag": "v1.2.3",
+      "date": "2026-02-15",
+      "prerelease": false,
+      "name": "v1.2.3"
+    },
+    {
+      "tag": "v1.2.6",
+      "date": "2026-02-16",
+      "prerelease": false,
+      "name": "v1.2.6"
+    },
+    {
+      "tag": "v1.2.8",
+      "date": "2026-02-19",
+      "prerelease": false,
+      "name": "v1.2.8"
+    },
+    {
+      "tag": "v1.2.7",
+      "date": "2026-02-19",
+      "prerelease": false,
+      "name": "v1.2.7"
+    },
+    {
+      "tag": "v1.2.10",
+      "date": "2026-02-20",
+      "prerelease": false,
+      "name": "v1.2.10"
+    },
+    {
+      "tag": "v1.2.9",
+      "date": "2026-02-20",
+      "prerelease": false,
+      "name": "v1.2.9"
+    },
+    {
+      "tag": "v1.2.11",
+      "date": "2026-02-24",
+      "prerelease": false,
+      "name": "v1.2.11"
+    },
+    {
+      "tag": "v1.2.14",
+      "date": "2026-02-25",
+      "prerelease": false,
+      "name": "v1.2.14"
+    },
+    {
+      "tag": "v1.2.13",
+      "date": "2026-02-25",
+      "prerelease": false,
+      "name": "v1.2.13"
+    },
+    {
+      "tag": "v1.2.12",
+      "date": "2026-02-25",
+      "prerelease": false,
+      "name": "v1.2.12"
+    },
+    {
+      "tag": "v1.2.15",
+      "date": "2026-02-26",
+      "prerelease": false,
+      "name": "v1.2.15"
+    },
+    {
+      "tag": "v1.2.16",
+      "date": "2026-03-03",
+      "prerelease": false,
+      "name": "v1.2.16"
+    },
+    {
+      "tag": "v1.2.17",
+      "date": "2026-03-04",
+      "prerelease": false,
+      "name": "v1.2.17"
+    },
+    {
+      "tag": "v1.2.18",
+      "date": "2026-03-05",
+      "prerelease": false,
+      "name": "v1.2.18"
+    },
+    {
+      "tag": "v1.2.20",
+      "date": "2026-03-06",
+      "prerelease": false,
+      "name": "v1.2.20"
+    },
+    {
+      "tag": "v1.2.19",
+      "date": "2026-03-06",
+      "prerelease": false,
+      "name": "v1.2.19"
+    },
+    {
+      "tag": "v1.2.21",
+      "date": "2026-03-07",
+      "prerelease": false,
+      "name": "v1.2.21"
+    },
+    {
+      "tag": "v1.2.22",
+      "date": "2026-03-08",
+      "prerelease": false,
+      "name": "v1.2.22"
+    },
+    {
+      "tag": "v1.2.24",
+      "date": "2026-03-09",
+      "prerelease": false,
+      "name": "v1.2.24"
+    },
+    {
+      "tag": "v1.2.23",
+      "date": "2026-03-09",
+      "prerelease": false,
+      "name": "v1.2.23"
+    },
+    {
+      "tag": "v1.2.25",
+      "date": "2026-03-12",
+      "prerelease": false,
+      "name": "v1.2.25"
+    },
+    {
+      "tag": "v1.2.26",
+      "date": "2026-03-13",
+      "prerelease": false,
+      "name": "v1.2.26"
+    },
+    {
+      "tag": "v1.2.27",
+      "date": "2026-03-16",
+      "prerelease": false,
+      "name": "v1.2.27"
+    },
+    {
+      "tag": "v1.3.0",
+      "date": "2026-03-22",
+      "prerelease": false,
+      "name": "v1.3.0"
+    },
+    {
+      "tag": "v1.3.2",
+      "date": "2026-03-24",
+      "prerelease": false,
+      "name": "v1.3.2"
+    },
+    {
+      "tag": "v1.3.1",
+      "date": "2026-03-24",
+      "prerelease": false,
+      "name": "v1.3.1"
+    },
+    {
+      "tag": "v1.3.3",
+      "date": "2026-03-26",
+      "prerelease": false,
+      "name": "v1.3.3"
+    },
+    {
+      "tag": "v1.3.6",
+      "date": "2026-03-29",
+      "prerelease": false,
+      "name": "v1.3.6"
+    },
+    {
+      "tag": "v1.3.5",
+      "date": "2026-03-29",
+      "prerelease": false,
+      "name": "v1.3.5"
+    },
+    {
+      "tag": "v1.3.4",
+      "date": "2026-03-29",
+      "prerelease": false,
+      "name": "v1.3.4"
+    },
+    {
+      "tag": "v1.3.9",
+      "date": "2026-03-30",
+      "prerelease": false,
+      "name": "v1.3.9"
+    },
+    {
+      "tag": "v1.3.8",
+      "date": "2026-03-30",
+      "prerelease": false,
+      "name": "v1.3.8"
+    },
+    {
+      "tag": "v1.3.7",
+      "date": "2026-03-30",
+      "prerelease": false,
+      "name": "v1.3.7"
+    },
+    {
+      "tag": "v1.3.12",
+      "date": "2026-03-31",
+      "prerelease": false,
+      "name": "v1.3.12"
+    },
+    {
+      "tag": "v1.3.11",
+      "date": "2026-03-31",
+      "prerelease": false,
+      "name": "v1.3.11"
+    },
+    {
+      "tag": "v1.3.10",
+      "date": "2026-03-31",
+      "prerelease": false,
+      "name": "v1.3.10"
+    },
+    {
+      "tag": "v1.3.13",
+      "date": "2026-04-01",
+      "prerelease": false,
+      "name": "v1.3.13"
+    },
+    {
+      "tag": "v1.3.15",
+      "date": "2026-04-04",
+      "prerelease": false,
+      "name": "v1.3.15"
+    },
+    {
+      "tag": "v1.3.14",
+      "date": "2026-04-04",
+      "prerelease": false,
+      "name": "v1.3.14"
+    },
+    {
+      "tag": "v1.3.17",
+      "date": "2026-04-06",
+      "prerelease": false,
+      "name": "v1.3.17"
+    },
+    {
+      "tag": "v1.3.16",
+      "date": "2026-04-06",
+      "prerelease": false,
+      "name": "v1.3.16"
+    },
+    {
+      "tag": "v1.4.0",
+      "date": "2026-04-08",
+      "prerelease": false,
+      "name": "v1.4.0"
+    },
+    {
+      "tag": "v1.4.2",
+      "date": "2026-04-09",
+      "prerelease": false,
+      "name": "v1.4.2"
+    },
+    {
+      "tag": "v1.4.1",
+      "date": "2026-04-09",
+      "prerelease": false,
+      "name": "v1.4.1"
+    },
+    {
+      "tag": "v1.4.3",
+      "date": "2026-04-10",
+      "prerelease": false,
+      "name": "v1.4.3"
+    },
+    {
+      "tag": "v1.4.6",
+      "date": "2026-04-15",
+      "prerelease": false,
+      "name": "v1.4.6"
+    },
+    {
+      "tag": "v1.4.5",
+      "date": "2026-04-15",
+      "prerelease": false,
+      "name": "v1.4.5"
+    },
+    {
+      "tag": "v1.4.4",
+      "date": "2026-04-15",
+      "prerelease": false,
+      "name": "v1.4.4"
+    },
+    {
+      "tag": "v1.4.7",
+      "date": "2026-04-16",
+      "prerelease": false,
+      "name": "v1.4.7"
+    },
+    {
+      "tag": "v1.4.10",
+      "date": "2026-04-17",
+      "prerelease": false,
+      "name": "v1.4.10"
+    },
+    {
+      "tag": "v1.4.9",
+      "date": "2026-04-17",
+      "prerelease": false,
+      "name": "v1.4.9"
+    },
+    {
+      "tag": "v1.4.8",
+      "date": "2026-04-17",
+      "prerelease": false,
+      "name": "v1.4.8"
+    },
+    {
+      "tag": "v1.4.11",
+      "date": "2026-04-18",
+      "prerelease": false,
+      "name": "v1.4.11"
+    },
+    {
+      "tag": "v1.14.18",
+      "date": "2026-04-19",
+      "prerelease": false,
+      "name": "v1.14.18"
+    },
+    {
+      "tag": "v1.14.17",
+      "date": "2026-04-19",
+      "prerelease": false,
+      "name": "v1.14.17"
+    },
+    {
+      "tag": "v1.14.19",
+      "date": "2026-04-20",
+      "prerelease": false,
+      "name": "v1.14.19"
+    },
+    {
+      "tag": "v1.14.20",
+      "date": "2026-04-21",
+      "prerelease": false,
+      "name": "v1.14.20"
+    },
+    {
+      "tag": "v1.14.22",
+      "date": "2026-04-23",
+      "prerelease": false,
+      "name": "v1.14.22"
+    },
+    {
+      "tag": "v1.14.21",
+      "date": "2026-04-23",
+      "prerelease": false,
+      "name": "v1.14.21"
+    },
+    {
+      "tag": "v1.14.24",
+      "date": "2026-04-24",
+      "prerelease": false,
+      "name": "v1.14.24"
+    },
+    {
+      "tag": "v1.14.23",
+      "date": "2026-04-24",
+      "prerelease": false,
+      "name": "v1.14.23"
+    },
+    {
+      "tag": "v1.14.25",
+      "date": "2026-04-25",
+      "prerelease": false,
+      "name": "v1.14.25"
+    },
+    {
+      "tag": "v1.14.26",
+      "date": "2026-04-26",
+      "prerelease": false,
+      "name": "v1.14.26"
+    },
+    {
+      "tag": "v1.14.28",
+      "date": "2026-04-27",
+      "prerelease": false,
+      "name": "v1.14.28"
+    },
+    {
+      "tag": "v1.14.27",
+      "date": "2026-04-27",
+      "prerelease": false,
+      "name": "v1.14.27"
+    },
+    {
+      "tag": "v1.14.29",
+      "date": "2026-04-28",
+      "prerelease": false,
+      "name": "v1.14.29"
+    }
+  ]
+}
