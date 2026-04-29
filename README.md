@@ -2,33 +2,24 @@ Static personal webpage assets hosting.
 
 Files under `public/` are deployed via GitHub Pages Actions.
 
-## Structure
+## Project structure
 
 ```
-public/                         # Deployed to GitHub Pages (domain: s.0x1e31.net)
-├── index.html                  # Project directory landing page
-├── model-price-table/          # Sub-project: interactive price comparison
-│   ├── index.html
-│   └── data.json
-├── github-release-history/     # Sub-project: release frequency timeline
-│   ├── index.html
-│   ├── projects.json           # Manifest of available repos
-│   └── *.json                  # Per-repo release data (fetched by script)
-
-scripts/                        # Data-fetching tools (NOT deployed)
-└── fetch_releases.py           # Downloads GitHub release history → JSON
+scripts/           scripts may be placed here (outside public/)
+public/
+  index.html       project directory landing page
+  <sub-project>/   each sub-project is a directory under public/
+    index.html     entry point; pure HTML + CSS + vanilla JS, no build tools
+    *.json         static data loaded at runtime (optional)
+    ...
 ```
 
 ## Adding a sub-project
 
-1. **Create** `public/<project-name>/index.html` — a self-contained static page (HTML + CSS + vanilla JS). No frameworks, no build tools.
-2. If the page needs **data**, put a `.json` file in the same directory and `fetch()` it at runtime.
-3. **Link** the project from `public/index.html` by adding a `.project-item` card.
-4. If data is sourced externally (e.g. an API), place the **fetch/generation script** in `scripts/` — outside `public/`.
-
-## Conventions
-
-- **No npm / bundlers / frameworks.** Pure HTML, CSS, vanilla JS. Keep each page self-contained.
-- **Scripts** are written in Python 3 (stdlib only). They read/write data into `public/`.
-- **Design** follows a GitHub-inspired look: CSS variables `--gh-*`, IBM Plex Sans + Noto Sans SC fonts, card-based layout with macOS-style topbar.
-- **Commits** are small and atomic: one logical change per commit. Use `feat:`, `refactor:`, `data:`, `chore:` prefixes.
+1. Create `public/<name>/` with an `index.html`.
+   - Use existing CSS-variable conventions (`--gh-*` tokens) from `public/index.html` for visual consistency.
+   - No frameworks, no bundlers — vanilla HTML/CSS/JS, `fetch` for data.
+2. Add a link card in `public/index.html` inside `.project-list` (copy the `.project-item` pattern).
+3. If the project needs data preprocessing, write a script in `scripts/` (Python recommended) that outputs JSON into the sub-project directory.
+   - Example: `python3 scripts/do_something.py <args> -o public/<name>/`
+4. Commit and push — the GitHub Actions workflow deploys `public/` automatically.
