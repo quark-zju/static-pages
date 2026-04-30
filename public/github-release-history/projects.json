@@ -35,7 +35,31 @@
       "file": "vadimdemedes-ink.json",
       "updated": "2026-04-30T00:44:50Z",
       "total": 74
+    },
+    {
+      "repo": "HKUDS/nanobot",
+      "file": "HKUDS-nanobot.json",
+      "updated": "2026-04-30T01:15:05Z",
+      "total": 15
+    },
+    {
+      "repo": "openclaw/openclaw",
+      "file": "openclaw-openclaw.json",
+      "updated": "2026-04-30T01:15:09Z",
+      "total": 120
+    },
+    {
+      "repo": "textualize/textual",
+      "file": "textualize-textual.json",
+      "updated": "2026-04-30T01:15:11Z",
+      "total": 219
+    },
+    {
+      "repo": "google-ai-edge/LiteRT-LM",
+      "file": "google-ai-edge-LiteRT-LM.json",
+      "updated": "2026-04-30T01:15:12Z",
+      "total": 18
     }
   ],
-  "updated": "2026-04-30T00:44:50Z"
+  "updated": "2026-04-30T01:15:12Z"
 }

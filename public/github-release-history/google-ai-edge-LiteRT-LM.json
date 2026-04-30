@@ -1,0 +1,115 @@
+{
+  "repo": "google-ai-edge/LiteRT-LM",
+  "updated": "2026-04-30T01:15:12Z",
+  "total": 18,
+  "releases": [
+    {
+      "tag": "v0.1.0-alpha",
+      "date": "2025-06-05",
+      "prerelease": true,
+      "name": "v0.1.0-alpha"
+    },
+    {
+      "tag": "v0.3.0",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "v0.3.0"
+    },
+    {
+      "tag": "v0.2.0",
+      "date": "2025-06-06",
+      "prerelease": true,
+      "name": "v0.2.0"
+    },
+    {
+      "tag": "v0.4.0",
+      "date": "2025-06-09",
+      "prerelease": true,
+      "name": "v0.4.0"
+    },
+    {
+      "tag": "v0.6.1",
+      "date": "2025-06-10",
+      "prerelease": false,
+      "name": "v0.6.1"
+    },
+    {
+      "tag": "v0.6.0",
+      "date": "2025-06-10",
+      "prerelease": true,
+      "name": "v0.6.0"
+    },
+    {
+      "tag": "v0.5.0",
+      "date": "2025-06-10",
+      "prerelease": true,
+      "name": "v0.5.0"
+    },
+    {
+      "tag": "v0.7.0",
+      "date": "2025-06-24",
+      "prerelease": false,
+      "name": "v0.7.0"
+    },
+    {
+      "tag": "v0.8.0",
+      "date": "2025-11-25",
+      "prerelease": false,
+      "name": "V0.8.0"
+    },
+    {
+      "tag": "v0.8.1",
+      "date": "2025-12-02",
+      "prerelease": false,
+      "name": "v0.8.1"
+    },
+    {
+      "tag": "v0.9.0-alpha",
+      "date": "2026-01-30",
+      "prerelease": true,
+      "name": "v0.9.0-alpha"
+    },
+    {
+      "tag": "v0.9.0-alpha02",
+      "date": "2026-02-12",
+      "prerelease": true,
+      "name": "v0.9.0-alpha02"
+    },
+    {
+      "tag": "v0.9.0-alpha03",
+      "date": "2026-03-06",
+      "prerelease": true,
+      "name": "v0.9.0-alpha03"
+    },
+    {
+      "tag": "v0.9.0-beta",
+      "date": "2026-03-13",
+      "prerelease": true,
+      "name": "v0.9.0-beta"
+    },
+    {
+      "tag": "v0.9.0-rc",
+      "date": "2026-03-25",
+      "prerelease": true,
+      "name": "v0.9.0-rc"
+    },
+    {
+      "tag": "v0.9.0",
+      "date": "2026-03-27",
+      "prerelease": false,
+      "name": "v0.9.0"
+    },
+    {
+      "tag": "v0.10.1",
+      "date": "2026-04-03",
+      "prerelease": false,
+      "name": "v0.10.1"
+    },
+    {
+      "tag": "v0.10.2",
+      "date": "2026-04-14",
+      "prerelease": false,
+      "name": "v0.10.2"
+    }
+  ]
+}

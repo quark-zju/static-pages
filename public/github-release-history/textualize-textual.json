@@ -1,0 +1,1321 @@
+{
+  "repo": "textualize/textual",
+  "updated": "2026-04-30T01:15:11Z",
+  "total": 219,
+  "releases": [
+    {
+      "tag": "v0.1.2",
+      "date": "2021-06-24",
+      "prerelease": false,
+      "name": "Smoooooth scrolling"
+    },
+    {
+      "tag": "v0.1.3",
+      "date": "2021-07-05",
+      "prerelease": false,
+      "name": "New Layout system"
+    },
+    {
+      "tag": "v0.1.10",
+      "date": "2021-08-25",
+      "prerelease": false,
+      "name": "v0.1.10"
+    },
+    {
+      "tag": "v0.1.11",
+      "date": "2021-09-12",
+      "prerelease": false,
+      "name": "v0.1.11"
+    },
+    {
+      "tag": "v0.1.13",
+      "date": "2022-01-01",
+      "prerelease": false,
+      "name": "v0.1.13"
+    },
+    {
+      "tag": "v0.1.14",
+      "date": "2022-01-09",
+      "prerelease": false,
+      "name": "Bumps Rich to 11.0.0"
+    },
+    {
+      "tag": "v0.1.15",
+      "date": "2022-01-31",
+      "prerelease": false,
+      "name": "Windows Support"
+    },
+    {
+      "tag": "v0.1.17",
+      "date": "2022-03-10",
+      "prerelease": false,
+      "name": "Bump Rich"
+    },
+    {
+      "tag": "v0.1.16",
+      "date": "2022-03-10",
+      "prerelease": false,
+      "name": "Fix escape key on Windows"
+    },
+    {
+      "tag": "v0.1.18",
+      "date": "2022-04-30",
+      "prerelease": false,
+      "name": "v0.1.18"
+    },
+    {
+      "tag": "v0.2.1",
+      "date": "2022-10-22",
+      "prerelease": false,
+      "name": "Just a metadata update"
+    },
+    {
+      "tag": "v0.2.0",
+      "date": "2022-10-22",
+      "prerelease": false,
+      "name": "The CSS Release"
+    },
+    {
+      "tag": "v0.3.0",
+      "date": "2022-10-31",
+      "prerelease": false,
+      "name": "Scarily good release with FR units"
+    },
+    {
+      "tag": "v0.4.0",
+      "date": "2022-11-08",
+      "prerelease": false,
+      "name": "Mounting excitement"
+    },
+    {
+      "tag": "v0.5.0",
+      "date": "2022-11-20",
+      "prerelease": false,
+      "name": "Lazy screens"
+    },
+    {
+      "tag": "v0.6.0",
+      "date": "2022-12-11",
+      "prerelease": false,
+      "name": "Treemendous Redux"
+    },
+    {
+      "tag": "v0.7.0",
+      "date": "2022-12-17",
+      "prerelease": false,
+      "name": "You are bound to like this release"
+    },
+    {
+      "tag": "v0.8.0",
+      "date": "2022-12-22",
+      "prerelease": false,
+      "name": "v0.8.0 with textual keys"
+    },
+    {
+      "tag": "v0.8.1",
+      "date": "2022-12-25",
+      "prerelease": false,
+      "name": "The Xmas release"
+    },
+    {
+      "tag": "v0.8.2",
+      "date": "2022-12-28",
+      "prerelease": false,
+      "name": "Fix for TextLog.clear"
+    },
+    {
+      "tag": "v0.9.1",
+      "date": "2022-12-30",
+      "prerelease": false,
+      "name": "The last release of the year, for real this time"
+    },
+    {
+      "tag": "v0.9.0",
+      "date": "2022-12-30",
+      "prerelease": false,
+      "name": "The performance release"
+    },
+    {
+      "tag": "v0.10.0",
+      "date": "2023-01-19",
+      "prerelease": false,
+      "name": "Cursor-tastic release"
+    },
+    {
+      "tag": "v0.10.1",
+      "date": "2023-01-20",
+      "prerelease": false,
+      "name": "Fixed `textual diagnose` on Python 3.7"
+    },
+    {
+      "tag": "v0.11.0",
+      "date": "2023-02-15",
+      "prerelease": false,
+      "name": "Getting down with Markdown"
+    },
+    {
+      "tag": "v0.11.1",
+      "date": "2023-02-17",
+      "prerelease": false,
+      "name": "Massive speed gains in the DataTable!"
+    },
+    {
+      "tag": "v0.12.0",
+      "date": "2023-02-24",
+      "prerelease": false,
+      "name": "New disabled property and compose method"
+    },
+    {
+      "tag": "v0.12.1",
+      "date": "2023-02-25",
+      "prerelease": false,
+      "name": "Fix for batch updates"
+    },
+    {
+      "tag": "v0.13.0",
+      "date": "2023-03-02",
+      "prerelease": false,
+      "name": "We're not superstitious!"
+    },
+    {
+      "tag": "v0.14.0",
+      "date": "2023-03-09",
+      "prerelease": false,
+      "name": "Shake up of posting messages"
+    },
+    {
+      "tag": "v0.15.0",
+      "date": "2023-03-13",
+      "prerelease": false,
+      "name": "The Tabs release"
+    },
+    {
+      "tag": "v0.15.1",
+      "date": "2023-03-14",
+      "prerelease": false,
+      "name": "Fix Tab import"
+    },
+    {
+      "tag": "v0.16.0",
+      "date": "2023-03-22",
+      "prerelease": false,
+      "name": "Tabbed content and border titles"
+    },
+    {
+      "tag": "v0.17.0",
+      "date": "2023-03-29",
+      "prerelease": false,
+      "name": "You can see right through us!"
+    },
+    {
+      "tag": "v0.17.1",
+      "date": "2023-03-30",
+      "prerelease": false,
+      "name": "Fixes WIndows cursor and ctrl+click freeze"
+    },
+    {
+      "tag": "v0.17.3",
+      "date": "2023-04-02",
+      "prerelease": false,
+      "name": "Bugfix for scrolling under dock"
+    },
+    {
+      "tag": "v0.17.2",
+      "date": "2023-04-02",
+      "prerelease": false,
+      "name": "Modal fixes"
+    },
+    {
+      "tag": "v0.18.0",
+      "date": "2023-04-04",
+      "prerelease": false,
+      "name": "New Worker API"
+    },
+    {
+      "tag": "v0.19.0",
+      "date": "2023-04-07",
+      "prerelease": false,
+      "name": "DataTable cursor and Directory filtering"
+    },
+    {
+      "tag": "v0.19.1",
+      "date": "2023-04-10",
+      "prerelease": false,
+      "name": "Fix for broken vw and vh units"
+    },
+    {
+      "tag": "v0.20.1",
+      "date": "2023-04-18",
+      "prerelease": false,
+      "name": "Fix for stuck tabs"
+    },
+    {
+      "tag": "v0.20.0",
+      "date": "2023-04-18",
+      "prerelease": false,
+      "name": "The remove row release"
+    },
+    {
+      "tag": "v0.21.0",
+      "date": "2023-04-26",
+      "prerelease": false,
+      "name": "Run Textual, Run"
+    },
+    {
+      "tag": "v0.22.0",
+      "date": "2023-04-27",
+      "prerelease": false,
+      "name": "Making good Progress!"
+    },
+    {
+      "tag": "v0.22.3",
+      "date": "2023-04-28",
+      "prerelease": false,
+      "name": "Fix run on Windows"
+    },
+    {
+      "tag": "v0.22.2",
+      "date": "2023-04-28",
+      "prerelease": false,
+      "name": "v0.22.2"
+    },
+    {
+      "tag": "v0.22.1",
+      "date": "2023-04-28",
+      "prerelease": false,
+      "name": "v0.22.1"
+    },
+    {
+      "tag": "v0.23.0",
+      "date": "2023-05-03",
+      "prerelease": false,
+      "name": "The On decorator"
+    },
+    {
+      "tag": "v0.24.1",
+      "date": "2023-05-08",
+      "prerelease": false,
+      "name": "Fixes an error in the code browser example"
+    },
+    {
+      "tag": "v0.24.0",
+      "date": "2023-05-08",
+      "prerelease": false,
+      "name": "The King of releases"
+    },
+    {
+      "tag": "v0.25.0",
+      "date": "2023-05-17",
+      "prerelease": false,
+      "name": "Focusing on fixes"
+    },
+    {
+      "tag": "v0.26.0",
+      "date": "2023-05-20",
+      "prerelease": false,
+      "name": "The Trogon release"
+    },
+    {
+      "tag": "v0.27.0",
+      "date": "2023-06-01",
+      "prerelease": false,
+      "name": "The sparkly release"
+    },
+    {
+      "tag": "v0.28.0",
+      "date": "2023-06-19",
+      "prerelease": false,
+      "name": "Who remembers Tab Clear ?"
+    },
+    {
+      "tag": "v0.28.1",
+      "date": "2023-06-20",
+      "prerelease": false,
+      "name": "Markdown fixes"
+    },
+    {
+      "tag": "v0.29.0",
+      "date": "2023-07-03",
+      "prerelease": false,
+      "name": "Refactored dev tools"
+    },
+    {
+      "tag": "v0.30.0",
+      "date": "2023-07-17",
+      "prerelease": false,
+      "name": "The Notification Release"
+    },
+    {
+      "tag": "v0.31.0",
+      "date": "2023-08-01",
+      "prerelease": false,
+      "name": "Worker update and more"
+    },
+    {
+      "tag": "v0.32.0",
+      "date": "2023-08-03",
+      "prerelease": false,
+      "name": "The Log release"
+    },
+    {
+      "tag": "v0.33.0",
+      "date": "2023-08-15",
+      "prerelease": false,
+      "name": "Digits Widget "
+    },
+    {
+      "tag": "v0.34.0",
+      "date": "2023-08-22",
+      "prerelease": false,
+      "name": "The hidden Tabs release"
+    },
+    {
+      "tag": "v0.35.0",
+      "date": "2023-08-26",
+      "prerelease": false,
+      "name": "Textual web driver"
+    },
+    {
+      "tag": "v0.35.1",
+      "date": "2023-08-27",
+      "prerelease": false,
+      "name": "v0.35.1"
+    },
+    {
+      "tag": "v0.36.0",
+      "date": "2023-09-05",
+      "prerelease": false,
+      "name": "The Rule release"
+    },
+    {
+      "tag": "v0.37.0",
+      "date": "2023-09-15",
+      "prerelease": false,
+      "name": "The Commanding release"
+    },
+    {
+      "tag": "v0.37.1",
+      "date": "2023-09-16",
+      "prerelease": false,
+      "name": "Whoah, time out!"
+    },
+    {
+      "tag": "v0.38.1",
+      "date": "2023-09-21",
+      "prerelease": false,
+      "name": "The hotfixed Textarea release"
+    },
+    {
+      "tag": "v0.38.0",
+      "date": "2023-09-21",
+      "prerelease": false,
+      "name": "The TextArea has landed release"
+    },
+    {
+      "tag": "v0.39.0",
+      "date": "2023-10-10",
+      "prerelease": false,
+      "name": "The invisible scrollbar release"
+    },
+    {
+      "tag": "v0.40.0",
+      "date": "2023-10-11",
+      "prerelease": false,
+      "name": "The loading release"
+    },
+    {
+      "tag": "v0.41.0",
+      "date": "2023-10-31",
+      "prerelease": false,
+      "name": "The scarily good release"
+    },
+    {
+      "tag": "v0.42.0",
+      "date": "2023-11-22",
+      "prerelease": false,
+      "name": "The Life Universe and Everything release!"
+    },
+    {
+      "tag": "v0.43.0",
+      "date": "2023-11-28",
+      "prerelease": false,
+      "name": "The Nothing to See Here Release"
+    },
+    {
+      "tag": "v0.43.2",
+      "date": "2023-11-29",
+      "prerelease": false,
+      "name": "The NoWidget fix release"
+    },
+    {
+      "tag": "v0.43.1",
+      "date": "2023-11-29",
+      "prerelease": false,
+      "name": "The fixed scrollbar release"
+    },
+    {
+      "tag": "v0.44.0",
+      "date": "2023-12-01",
+      "prerelease": false,
+      "name": "The so long 3.7 release"
+    },
+    {
+      "tag": "v0.44.1",
+      "date": "2023-12-04",
+      "prerelease": false,
+      "name": "The Buttery Release"
+    },
+    {
+      "tag": "v0.45.1",
+      "date": "2023-12-12",
+      "prerelease": false,
+      "name": "The styles should update on mount now release"
+    },
+    {
+      "tag": "v0.45.0",
+      "date": "2023-12-12",
+      "prerelease": false,
+      "name": "The speedy release"
+    },
+    {
+      "tag": "v0.46.0",
+      "date": "2023-12-17",
+      "prerelease": false,
+      "name": "The last release of `23 release"
+    },
+    {
+      "tag": "v0.47.0",
+      "date": "2024-01-04",
+      "prerelease": false,
+      "name": "The Nested Release"
+    },
+    {
+      "tag": "v0.47.1",
+      "date": "2024-01-05",
+      "prerelease": false,
+      "name": "The nested specificity fixed release"
+    },
+    {
+      "tag": "v0.48.1",
+      "date": "2024-02-01",
+      "prerelease": false,
+      "name": "The nevermore bug release"
+    },
+    {
+      "tag": "v0.48.0",
+      "date": "2024-02-01",
+      "prerelease": false,
+      "name": "The \"As of some one gently wrapping, wrapping at my chamber door\" release."
+    },
+    {
+      "tag": "v0.48.2",
+      "date": "2024-02-02",
+      "prerelease": false,
+      "name": "The \"truly your forgiveness I implore\" release."
+    },
+    {
+      "tag": "v0.49.0",
+      "date": "2024-02-07",
+      "prerelease": false,
+      "name": "The one release to bind them all release"
+    },
+    {
+      "tag": "v0.50.0",
+      "date": "2024-02-08",
+      "prerelease": false,
+      "name": "The half a century release"
+    },
+    {
+      "tag": "v0.50.1",
+      "date": "2024-02-09",
+      "prerelease": false,
+      "name": "The tiny tint release"
+    },
+    {
+      "tag": "v0.51.0",
+      "date": "2024-02-15",
+      "prerelease": false,
+      "name": "The American friends release"
+    },
+    {
+      "tag": "v0.52.0",
+      "date": "2024-02-19",
+      "prerelease": false,
+      "name": "The Envy release"
+    },
+    {
+      "tag": "v0.52.1",
+      "date": "2024-02-20",
+      "prerelease": false,
+      "name": "The sin tax release"
+    },
+    {
+      "tag": "v0.53.1",
+      "date": "2024-03-18",
+      "prerelease": false,
+      "name": "The focused hot-fix"
+    },
+    {
+      "tag": "v0.53.0",
+      "date": "2024-03-18",
+      "prerelease": false,
+      "name": "The focused release"
+    },
+    {
+      "tag": "v0.54.0",
+      "date": "2024-03-26",
+      "prerelease": false,
+      "name": "The progress release"
+    },
+    {
+      "tag": "v0.55.0",
+      "date": "2024-04-01",
+      "prerelease": false,
+      "name": "The not April Fool Release"
+    },
+    {
+      "tag": "v0.55.1",
+      "date": "2024-04-02",
+      "prerelease": false,
+      "name": "The Speedy Gonzales release"
+    },
+    {
+      "tag": "v0.56.0",
+      "date": "2024-04-06",
+      "prerelease": false,
+      "name": "The fixed inline release"
+    },
+    {
+      "tag": "v0.56.2",
+      "date": "2024-04-07",
+      "prerelease": false,
+      "name": "The inline mode is tricky release"
+    },
+    {
+      "tag": "v0.56.1",
+      "date": "2024-04-07",
+      "prerelease": false,
+      "name": "The flicker free inline release"
+    },
+    {
+      "tag": "v0.56.3",
+      "date": "2024-04-08",
+      "prerelease": false,
+      "name": "The Century release!"
+    },
+    {
+      "tag": "v0.56.4",
+      "date": "2024-04-09",
+      "prerelease": false,
+      "name": "Inline fix for some terminals"
+    },
+    {
+      "tag": "v0.57.0",
+      "date": "2024-04-19",
+      "prerelease": false,
+      "name": "The copy to clipboard release"
+    },
+    {
+      "tag": "v0.57.1",
+      "date": "2024-04-20",
+      "prerelease": false,
+      "name": "The flushed release"
+    },
+    {
+      "tag": "v0.58.0",
+      "date": "2024-04-25",
+      "prerelease": false,
+      "name": "The Signalled release"
+    },
+    {
+      "tag": "v0.58.1",
+      "date": "2024-05-01",
+      "prerelease": false,
+      "name": "The Mayday release!"
+    },
+    {
+      "tag": "v0.59.0",
+      "date": "2024-05-11",
+      "prerelease": false,
+      "name": "The message signal release"
+    },
+    {
+      "tag": "v0.60.0",
+      "date": "2024-05-14",
+      "prerelease": false,
+      "name": "The sweet sixty release"
+    },
+    {
+      "tag": "v0.60.1",
+      "date": "2024-05-15",
+      "prerelease": false,
+      "name": "The pointless dependency release"
+    },
+    {
+      "tag": "v0.61.0",
+      "date": "2024-05-18",
+      "prerelease": false,
+      "name": "The Dynamic Actions release"
+    },
+    {
+      "tag": "v0.61.1",
+      "date": "2024-05-19",
+      "prerelease": false,
+      "name": "The down in the gutter release"
+    },
+    {
+      "tag": "v0.62.0",
+      "date": "2024-05-20",
+      "prerelease": false,
+      "name": "The anchored release"
+    },
+    {
+      "tag": "v0.63.1",
+      "date": "2024-05-22",
+      "prerelease": false,
+      "name": "The double key fix release"
+    },
+    {
+      "tag": "v0.63.0",
+      "date": "2024-05-22",
+      "prerelease": false,
+      "name": "The new Footer release"
+    },
+    {
+      "tag": "v0.63.2",
+      "date": "2024-05-23",
+      "prerelease": false,
+      "name": "The Working on your Birthday release"
+    },
+    {
+      "tag": "v0.63.3",
+      "date": "2024-05-24",
+      "prerelease": false,
+      "name": "The best Footer forward release"
+    },
+    {
+      "tag": "v0.63.4",
+      "date": "2024-05-26",
+      "prerelease": false,
+      "name": "Hotfix for freeze issue"
+    },
+    {
+      "tag": "v0.63.5",
+      "date": "2024-05-28",
+      "prerelease": false,
+      "name": "The vanishing DataTable release"
+    },
+    {
+      "tag": "v0.63.6",
+      "date": "2024-05-29",
+      "prerelease": false,
+      "name": "The In a Bind Release"
+    },
+    {
+      "tag": "v0.64.0",
+      "date": "2024-06-03",
+      "prerelease": false,
+      "name": "The Nintendo Release"
+    },
+    {
+      "tag": "v0.65.1",
+      "date": "2024-06-05",
+      "prerelease": false,
+      "name": "The Matches and Dispatches Hotfix Release"
+    },
+    {
+      "tag": "v0.65.0",
+      "date": "2024-06-05",
+      "prerelease": false,
+      "name": "The Please don't Sue Us Ofek Release"
+    },
+    {
+      "tag": "v0.65.2",
+      "date": "2024-06-06",
+      "prerelease": false,
+      "name": "The Toast of the Town Release"
+    },
+    {
+      "tag": "v0.66.0",
+      "date": "2024-06-08",
+      "prerelease": false,
+      "name": "The Two Thirds of the Number of the Beast Release"
+    },
+    {
+      "tag": "v0.67.1",
+      "date": "2024-06-11",
+      "prerelease": false,
+      "name": "The Less Users Release"
+    },
+    {
+      "tag": "v0.67.0",
+      "date": "2024-06-11",
+      "prerelease": false,
+      "name": "The Trees and Keys Release"
+    },
+    {
+      "tag": "v0.68.0",
+      "date": "2024-06-14",
+      "prerelease": false,
+      "name": "The Concurrency is hard Release"
+    },
+    {
+      "tag": "v0.69.0",
+      "date": "2024-06-16",
+      "prerelease": false,
+      "name": "The \"I'm not going there\" Release"
+    },
+    {
+      "tag": "v0.70.0",
+      "date": "2024-06-19",
+      "prerelease": false,
+      "name": "The Buttoned Down Release"
+    },
+    {
+      "tag": "v0.71.1",
+      "date": "2024-06-29",
+      "prerelease": false,
+      "name": "The Working on my Break Release"
+    },
+    {
+      "tag": "v0.72.0",
+      "date": "2024-07-09",
+      "prerelease": false,
+      "name": "The Prune Release"
+    },
+    {
+      "tag": "v0.73.0",
+      "date": "2024-07-18",
+      "prerelease": false,
+      "name": "The Taste the Rainbow Release"
+    },
+    {
+      "tag": "v0.74.0",
+      "date": "2024-07-25",
+      "prerelease": false,
+      "name": "The Year Zero Release"
+    },
+    {
+      "tag": "v0.75.0",
+      "date": "2024-08-01",
+      "prerelease": false,
+      "name": "The 74-75 Release"
+    },
+    {
+      "tag": "v0.75.1",
+      "date": "2024-08-07",
+      "prerelease": false,
+      "name": "Hotfix for slow UI"
+    },
+    {
+      "tag": "v0.76.0",
+      "date": "2024-08-09",
+      "prerelease": false,
+      "name": "The Key Release"
+    },
+    {
+      "tag": "v0.77.0",
+      "date": "2024-08-22",
+      "prerelease": false,
+      "name": "The lucky number 77 release"
+    },
+    {
+      "tag": "v0.78.0",
+      "date": "2024-08-27",
+      "prerelease": false,
+      "name": "The Push it to the Max Release"
+    },
+    {
+      "tag": "v0.79.0",
+      "date": "2024-08-30",
+      "prerelease": false,
+      "name": "The Query faster Release"
+    },
+    {
+      "tag": "v0.79.1",
+      "date": "2024-08-31",
+      "prerelease": false,
+      "name": "The Wedding Anniversary Release"
+    },
+    {
+      "tag": "v0.80.0",
+      "date": "2024-09-23",
+      "prerelease": false,
+      "name": "The best decade release"
+    },
+    {
+      "tag": "v0.80.1",
+      "date": "2024-09-24",
+      "prerelease": false,
+      "name": "The Scanners release"
+    },
+    {
+      "tag": "v0.81.0",
+      "date": "2024-09-25",
+      "prerelease": false,
+      "name": "The glitch-free-tree release"
+    },
+    {
+      "tag": "v0.82.0",
+      "date": "2024-10-03",
+      "prerelease": false,
+      "name": "The Are you the Keymaster Release?"
+    },
+    {
+      "tag": "v0.83.0",
+      "date": "2024-10-10",
+      "prerelease": false,
+      "name": "The Enhanced AF Release"
+    },
+    {
+      "tag": "v0.84.0",
+      "date": "2024-10-22",
+      "prerelease": false,
+      "name": "The Who You Gonna Call Release"
+    },
+    {
+      "tag": "v0.85.0",
+      "date": "2024-10-25",
+      "prerelease": false,
+      "name": "The Freddy's Revenge Release"
+    },
+    {
+      "tag": "v0.85.1",
+      "date": "2024-10-26",
+      "prerelease": false,
+      "name": "The Freddy's hotfix Release"
+    },
+    {
+      "tag": "v0.85.2",
+      "date": "2024-11-02",
+      "prerelease": false,
+      "name": "The Focus, Will, Focus! Release"
+    },
+    {
+      "tag": "v0.86.1",
+      "date": "2024-11-16",
+      "prerelease": false,
+      "name": "The Quickening fix release"
+    },
+    {
+      "tag": "v0.86.0",
+      "date": "2024-11-16",
+      "prerelease": false,
+      "name": "The Quickening Release"
+    },
+    {
+      "tag": "v0.86.2",
+      "date": "2024-11-18",
+      "prerelease": false,
+      "name": "The Quickening fix part 2"
+    },
+    {
+      "tag": "v0.86.3",
+      "date": "2024-11-19",
+      "prerelease": false,
+      "name": "The Quickening tutorial update"
+    },
+    {
+      "tag": "v0.87.1",
+      "date": "2024-11-24",
+      "prerelease": false,
+      "name": "The Absolute hotfix"
+    },
+    {
+      "tag": "v0.87.0",
+      "date": "2024-11-24",
+      "prerelease": false,
+      "name": "The Absolute Unit of a Release"
+    },
+    {
+      "tag": "v0.88.0",
+      "date": "2024-11-29",
+      "prerelease": false,
+      "name": "The Yippee Ki‐Yay Release"
+    },
+    {
+      "tag": "v0.88.1",
+      "date": "2024-11-30",
+      "prerelease": false,
+      "name": "The make fists with your toes Release"
+    },
+    {
+      "tag": "v0.89.1",
+      "date": "2024-12-05",
+      "prerelease": false,
+      "name": "The wacky hotfix Release"
+    },
+    {
+      "tag": "v0.89.0",
+      "date": "2024-12-05",
+      "prerelease": false,
+      "name": "The so-long zero-ver Release"
+    },
+    {
+      "tag": "v1.0.0",
+      "date": "2024-12-12",
+      "prerelease": false,
+      "name": "There can be only One point Zero Release"
+    },
+    {
+      "tag": "v2.0.3",
+      "date": "2025-02-16",
+      "prerelease": false,
+      "name": "The last hot release of the day"
+    },
+    {
+      "tag": "v2.0.2",
+      "date": "2025-02-16",
+      "prerelease": false,
+      "name": "The refreshing hot-fix release"
+    },
+    {
+      "tag": "v2.0.1",
+      "date": "2025-02-16",
+      "prerelease": false,
+      "name": "The Escaped release"
+    },
+    {
+      "tag": "v2.0.0",
+      "date": "2025-02-16",
+      "prerelease": false,
+      "name": "The Smooooth release"
+    },
+    {
+      "tag": "v2.0.4",
+      "date": "2025-02-17",
+      "prerelease": false,
+      "name": "The criminally smooth hotfix release"
+    },
+    {
+      "tag": "v2.1.0",
+      "date": "2025-02-19",
+      "prerelease": false,
+      "name": "The pointed release"
+    },
+    {
+      "tag": "v2.1.1",
+      "date": "2025-02-22",
+      "prerelease": false,
+      "name": "The interrupted release"
+    },
+    {
+      "tag": "v2.1.2",
+      "date": "2025-02-26",
+      "prerelease": false,
+      "name": "The fuzzy release"
+    },
+    {
+      "tag": "v3.0.0",
+      "date": "2025-03-27",
+      "prerelease": false,
+      "name": "The Too Hot Release"
+    },
+    {
+      "tag": "v3.0.1",
+      "date": "2025-04-01",
+      "prerelease": false,
+      "name": "The Nobody's Fool Release"
+    },
+    {
+      "tag": "v3.1.0",
+      "date": "2025-04-12",
+      "prerelease": false,
+      "name": "The Dim the Lights Release"
+    },
+    {
+      "tag": "v3.1.1",
+      "date": "2025-04-22",
+      "prerelease": false,
+      "name": "The dim tinted release"
+    },
+    {
+      "tag": "v3.2.0",
+      "date": "2025-05-02",
+      "prerelease": false,
+      "name": "The compacted release"
+    },
+    {
+      "tag": "v3.3.0",
+      "date": "2025-06-01",
+      "prerelease": false,
+      "name": "The Community Supported Release"
+    },
+    {
+      "tag": "v3.4.0",
+      "date": "2025-06-14",
+      "prerelease": false,
+      "name": "The lenient release"
+    },
+    {
+      "tag": "v3.5.0",
+      "date": "2025-06-20",
+      "prerelease": false,
+      "name": "The faster startup release"
+    },
+    {
+      "tag": "v3.6.0",
+      "date": "2025-07-06",
+      "prerelease": false,
+      "name": "The belated birthday release"
+    },
+    {
+      "tag": "v3.7.0",
+      "date": "2025-07-07",
+      "prerelease": false,
+      "name": "The Lucky number Sevens release"
+    },
+    {
+      "tag": "v3.7.1",
+      "date": "2025-07-09",
+      "prerelease": false,
+      "name": "The Selective Release"
+    },
+    {
+      "tag": "v4.0.0",
+      "date": "2025-07-12",
+      "prerelease": false,
+      "name": "The Streaming Release"
+    },
+    {
+      "tag": "v5.0.1",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "The appended release"
+    },
+    {
+      "tag": "v5.0.0",
+      "date": "2025-07-25",
+      "prerelease": false,
+      "name": "The Tabled release."
+    },
+    {
+      "tag": "v5.1.1",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "The skinny release"
+    },
+    {
+      "tag": "v5.1.0",
+      "date": "2025-07-31",
+      "prerelease": false,
+      "name": "The empty inside release"
+    },
+    {
+      "tag": "v5.2.0",
+      "date": "2025-08-01",
+      "prerelease": false,
+      "name": "The Streamed Layout "
+    },
+    {
+      "tag": "v5.3.0",
+      "date": "2025-08-07",
+      "prerelease": false,
+      "name": "The Initialized Release"
+    },
+    {
+      "tag": "v6.0.0",
+      "date": "2025-08-31",
+      "prerelease": false,
+      "name": "The Anniversary Release"
+    },
+    {
+      "tag": "v6.1.0",
+      "date": "2025-09-02",
+      "prerelease": false,
+      "name": "The Flat release"
+    },
+    {
+      "tag": "v6.2.0",
+      "date": "2025-09-30",
+      "prerelease": false,
+      "name": "The Eager release"
+    },
+    {
+      "tag": "v6.2.1",
+      "date": "2025-10-01",
+      "prerelease": false,
+      "name": "The Copy release"
+    },
+    {
+      "tag": "v6.3.0",
+      "date": "2025-10-11",
+      "prerelease": false,
+      "name": "The Pithonic release"
+    },
+    {
+      "tag": "v6.4.0",
+      "date": "2025-10-22",
+      "prerelease": false,
+      "name": "The one word command release"
+    },
+    {
+      "tag": "v6.5.0",
+      "date": "2025-10-31",
+      "prerelease": false,
+      "name": "The Spooky Trap release 🎃"
+    },
+    {
+      "tag": "v6.6.0",
+      "date": "2025-11-10",
+      "prerelease": false,
+      "name": "The mark of the Best release"
+    },
+    {
+      "tag": "v6.7.0",
+      "date": "2025-11-29",
+      "prerelease": false,
+      "name": "The 6.7 - if you know, you know release"
+    },
+    {
+      "tag": "v6.7.1",
+      "date": "2025-12-01",
+      "prerelease": false,
+      "name": "The Fixed faster than superman on laundry day Release"
+    },
+    {
+      "tag": "v6.8.0",
+      "date": "2025-12-07",
+      "prerelease": false,
+      "name": "The grown up Release"
+    },
+    {
+      "tag": "v6.9.0",
+      "date": "2025-12-14",
+      "prerelease": false,
+      "name": "The arbitrary release"
+    },
+    {
+      "tag": "v6.10.0",
+      "date": "2025-12-16",
+      "prerelease": false,
+      "name": "The last before Toad release"
+    },
+    {
+      "tag": "v6.11.0",
+      "date": "2025-12-18",
+      "prerelease": false,
+      "name": "The Batrachian release"
+    },
+    {
+      "tag": "v6.12.0",
+      "date": "2026-01-02",
+      "prerelease": false,
+      "name": "The Smol Paws release"
+    },
+    {
+      "tag": "v7.0.0",
+      "date": "2026-01-03",
+      "prerelease": false,
+      "name": "The Atomic Release"
+    },
+    {
+      "tag": "v7.0.1",
+      "date": "2026-01-07",
+      "prerelease": false,
+      "name": "The Transition Speed Release"
+    },
+    {
+      "tag": "v7.0.3",
+      "date": "2026-01-09",
+      "prerelease": false,
+      "name": "The Good Night's Sleep Release"
+    },
+    {
+      "tag": "v7.0.2",
+      "date": "2026-01-09",
+      "prerelease": false,
+      "name": "The One Line Release"
+    },
+    {
+      "tag": "v7.1.0",
+      "date": "2026-01-10",
+      "prerelease": false,
+      "name": "The BLANK Release"
+    },
+    {
+      "tag": "v7.2.0",
+      "date": "2026-01-11",
+      "prerelease": false,
+      "name": "The Helping Release"
+    },
+    {
+      "tag": "v7.3.0",
+      "date": "2026-01-15",
+      "prerelease": false,
+      "name": "The Super release"
+    },
+    {
+      "tag": "v7.4.0",
+      "date": "2026-01-25",
+      "prerelease": false,
+      "name": "The Pointed Release"
+    },
+    {
+      "tag": "v7.5.0",
+      "date": "2026-01-30",
+      "prerelease": false,
+      "name": "The extended cursor release"
+    },
+    {
+      "tag": "v8.0.0",
+      "date": "2026-02-16",
+      "prerelease": false,
+      "name": "The BLANK to NULL release"
+    },
+    {
+      "tag": "v8.0.1",
+      "date": "2026-03-01",
+      "prerelease": false,
+      "name": "The Juicy Release"
+    },
+    {
+      "tag": "v8.0.2",
+      "date": "2026-03-03",
+      "prerelease": false,
+      "name": "The Direct Tree Release"
+    },
+    {
+      "tag": "v8.1.1",
+      "date": "2026-03-10",
+      "prerelease": false,
+      "name": "The Hotly Completed Release"
+    },
+    {
+      "tag": "v8.1.0",
+      "date": "2026-03-10",
+      "prerelease": false,
+      "name": "The Paused Released"
+    },
+    {
+      "tag": "v8.2.0",
+      "date": "2026-03-27",
+      "prerelease": false,
+      "name": "The Select Release"
+    },
+    {
+      "tag": "v8.2.1",
+      "date": "2026-03-29",
+      "prerelease": false,
+      "name": "The Hot Select Release"
+    },
+    {
+      "tag": "v8.2.2",
+      "date": "2026-04-03",
+      "prerelease": false,
+      "name": "The Faster Resize Release"
+    },
+    {
+      "tag": "v8.2.3",
+      "date": "2026-04-05",
+      "prerelease": false,
+      "name": "The snappier resize Release"
+    },
+    {
+      "tag": "v8.2.4",
+      "date": "2026-04-19",
+      "prerelease": false,
+      "name": "The small potatoes Release"
+    }
+  ]
+}
