@@ -59,7 +59,13 @@
       "file": "google-ai-edge-LiteRT-LM.json",
       "updated": "2026-04-30T01:15:12Z",
       "total": 18
+    },
+    {
+      "repo": "helix-editor/helix",
+      "file": "helix-editor-helix.json",
+      "updated": "2026-04-30T12:53:28Z",
+      "total": 30
     }
   ],
-  "updated": "2026-04-30T01:15:12Z"
+  "updated": "2026-04-30T12:53:28Z"
 }
