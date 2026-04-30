@@ -56,6 +56,16 @@
       "notes": "自动 cache（无 write 单独收费）"
     },
     {
+      "model": "GPT-5.4",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.50,
+        "cached_read": 0.25,
+        "cached_write": null,
+        "output": 15.00
+      },
+      "notes": "自动 cache（无 write 单独收费）"
+    },
+    {
       "model": "DeepSeek V4 Flash",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.14,
