@@ -56,12 +56,32 @@
       "notes": "自动 cache（无 write 单独收费）"
     },
     {
+      "model": "DeepSeek V4 Flash",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.14,
+        "cached_read": 0.0028,
+        "cached_write": null,
+        "output": 0.28
+      },
+      "notes": "自动 cache（无 write 单独收费）；按长期标价口径"
+    },
+    {
       "model": "DeepSeek V4 Pro",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.74,
         "cached_read": 0.0145,
         "cached_write": null,
         "output": 3.48
+      },
+      "notes": "自动 cache（无 write 单独收费）；按长期标价口径"
+    },
+    {
+      "model": "GPT-5.3-Codex",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.75,
+        "cached_read": 0.175,
+        "cached_write": null,
+        "output": 14.00
       },
       "notes": "自动 cache（无 write 单独收费）"
     },
