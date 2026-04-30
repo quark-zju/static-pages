@@ -59,7 +59,7 @@
       "model": "DeepSeek V4 Pro",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.74,
-        "cached_read": 0.145,
+        "cached_read": 0.0145,
         "cached_write": null,
         "output": 3.48
       },
