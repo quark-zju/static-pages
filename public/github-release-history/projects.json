@@ -11,7 +11,31 @@
       "file": "openai-codex.json",
       "updated": "2026-04-29T21:22:09Z",
       "total": 751
+    },
+    {
+      "repo": "junhoyeo/tokscale",
+      "file": "junhoyeo-tokscale.json",
+      "updated": "2026-04-30T00:44:43Z",
+      "total": 54
+    },
+    {
+      "repo": "danny-avila/LibreChat",
+      "file": "danny-avila-LibreChat.json",
+      "updated": "2026-04-30T00:44:46Z",
+      "total": 88
+    },
+    {
+      "repo": "open-webui/open-webui",
+      "file": "open-webui-open-webui.json",
+      "updated": "2026-04-30T00:44:49Z",
+      "total": 159
+    },
+    {
+      "repo": "vadimdemedes/ink",
+      "file": "vadimdemedes-ink.json",
+      "updated": "2026-04-30T00:44:50Z",
+      "total": 74
     }
   ],
-  "updated": "2026-04-29T21:22:36Z"
+  "updated": "2026-04-30T00:44:50Z"
 }

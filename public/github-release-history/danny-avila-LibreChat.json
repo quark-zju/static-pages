@@ -1,0 +1,535 @@
+{
+  "repo": "danny-avila/LibreChat",
+  "updated": "2026-04-30T00:44:46Z",
+  "total": 88,
+  "releases": [
+    {
+      "tag": "v0.0.1",
+      "date": "2023-03-07",
+      "prerelease": true,
+      "name": "v0.0.1"
+    },
+    {
+      "tag": "v0.0.2",
+      "date": "2023-03-10",
+      "prerelease": true,
+      "name": "v0.0.2"
+    },
+    {
+      "tag": "v0.0.3",
+      "date": "2023-03-15",
+      "prerelease": true,
+      "name": "v0.0.3"
+    },
+    {
+      "tag": "v0.0.4",
+      "date": "2023-03-16",
+      "prerelease": true,
+      "name": "v0.0.4"
+    },
+    {
+      "tag": "v0.0.5",
+      "date": "2023-03-17",
+      "prerelease": true,
+      "name": "v0.0.5"
+    },
+    {
+      "tag": "v0.1.0",
+      "date": "2023-03-23",
+      "prerelease": true,
+      "name": "v0.1.0"
+    },
+    {
+      "tag": "v0.0.6",
+      "date": "2023-03-23",
+      "prerelease": true,
+      "name": "v0.0.6"
+    },
+    {
+      "tag": "v0.1.1",
+      "date": "2023-03-25",
+      "prerelease": true,
+      "name": "v0.1.1"
+    },
+    {
+      "tag": "v0.2.0",
+      "date": "2023-03-29",
+      "prerelease": true,
+      "name": "v0.2.0"
+    },
+    {
+      "tag": "v0.3.0",
+      "date": "2023-04-05",
+      "prerelease": true,
+      "name": "v0.3.0"
+    },
+    {
+      "tag": "v0.3.3",
+      "date": "2023-04-21",
+      "prerelease": true,
+      "name": "v0.3.3"
+    },
+    {
+      "tag": "v0.4.0",
+      "date": "2023-05-07",
+      "prerelease": true,
+      "name": "v0.4.0"
+    },
+    {
+      "tag": "v0.4.1",
+      "date": "2023-05-09",
+      "prerelease": true,
+      "name": "v0.4.1"
+    },
+    {
+      "tag": "v0.4.2",
+      "date": "2023-05-11",
+      "prerelease": true,
+      "name": "v0.4.2"
+    },
+    {
+      "tag": "v0.4.3",
+      "date": "2023-05-13",
+      "prerelease": true,
+      "name": "v0.4.3"
+    },
+    {
+      "tag": "v0.4.4",
+      "date": "2023-05-15",
+      "prerelease": true,
+      "name": "v0.4.4"
+    },
+    {
+      "tag": "v0.4.5",
+      "date": "2023-05-16",
+      "prerelease": true,
+      "name": "v0.4.5"
+    },
+    {
+      "tag": "v0.4.6",
+      "date": "2023-05-19",
+      "prerelease": true,
+      "name": "v0.4.6"
+    },
+    {
+      "tag": "v0.4.7",
+      "date": "2023-05-26",
+      "prerelease": true,
+      "name": "v0.4.7"
+    },
+    {
+      "tag": "v0.4.8",
+      "date": "2023-06-05",
+      "prerelease": true,
+      "name": "v0.4.8"
+    },
+    {
+      "tag": "v0.5.0",
+      "date": "2023-06-10",
+      "prerelease": true,
+      "name": "v0.5.0"
+    },
+    {
+      "tag": "v0.5.1",
+      "date": "2023-06-17",
+      "prerelease": true,
+      "name": "v0.5.1"
+    },
+    {
+      "tag": "v0.5.2",
+      "date": "2023-06-27",
+      "prerelease": true,
+      "name": "v0.5.2"
+    },
+    {
+      "tag": "v0.5.3",
+      "date": "2023-07-07",
+      "prerelease": true,
+      "name": "v0.5.3"
+    },
+    {
+      "tag": "v0.5.4",
+      "date": "2023-07-14",
+      "prerelease": true,
+      "name": "v0.5.4"
+    },
+    {
+      "tag": "v0.5.5",
+      "date": "2023-07-16",
+      "prerelease": true,
+      "name": "v0.5.5"
+    },
+    {
+      "tag": "v0.5.6",
+      "date": "2023-07-28",
+      "prerelease": true,
+      "name": "v0.5.6"
+    },
+    {
+      "tag": "v0.5.7",
+      "date": "2023-08-09",
+      "prerelease": true,
+      "name": "v0.5.7"
+    },
+    {
+      "tag": "v0.5.8",
+      "date": "2023-08-28",
+      "prerelease": true,
+      "name": "v0.5.8"
+    },
+    {
+      "tag": "v0.5.9",
+      "date": "2023-09-18",
+      "prerelease": true,
+      "name": "v0.5.9"
+    },
+    {
+      "tag": "v0.6.0",
+      "date": "2023-10-22",
+      "prerelease": true,
+      "name": "v0.6.0"
+    },
+    {
+      "tag": "v0.6.1",
+      "date": "2023-11-16",
+      "prerelease": true,
+      "name": "v0.6.1"
+    },
+    {
+      "tag": "v0.6.5",
+      "date": "2023-12-19",
+      "prerelease": true,
+      "name": "v0.6.5"
+    },
+    {
+      "tag": "v0.6.6",
+      "date": "2024-01-19",
+      "prerelease": true,
+      "name": "v0.6.6"
+    },
+    {
+      "tag": "v0.6.9",
+      "date": "2024-02-13",
+      "prerelease": true,
+      "name": "v0.6.9"
+    },
+    {
+      "tag": "v0.6.10",
+      "date": "2024-02-16",
+      "prerelease": true,
+      "name": "v0.6.10"
+    },
+    {
+      "tag": "v0.7.0",
+      "date": "2024-04-01",
+      "prerelease": true,
+      "name": "v0.7.0"
+    },
+    {
+      "tag": "v0.7.1",
+      "date": "2024-04-24",
+      "prerelease": true,
+      "name": "v0.7.1"
+    },
+    {
+      "tag": "v0.7.2",
+      "date": "2024-05-11",
+      "prerelease": true,
+      "name": "v0.7.2"
+    },
+    {
+      "tag": "v0.7.3-rc",
+      "date": "2024-05-14",
+      "prerelease": true,
+      "name": "v0.7.3-rc"
+    },
+    {
+      "tag": "v0.7.3-rc2",
+      "date": "2024-06-01",
+      "prerelease": true,
+      "name": "v0.7.3-rc2"
+    },
+    {
+      "tag": "v0.7.3",
+      "date": "2024-06-15",
+      "prerelease": true,
+      "name": "v0.7.3"
+    },
+    {
+      "tag": "v0.7.4-rc1",
+      "date": "2024-06-17",
+      "prerelease": true,
+      "name": "v0.7.4-rc1"
+    },
+    {
+      "tag": "v0.7.4",
+      "date": "2024-08-10",
+      "prerelease": true,
+      "name": "v0.7.4"
+    },
+    {
+      "tag": "v0.7.5-rc1",
+      "date": "2024-08-27",
+      "prerelease": true,
+      "name": "v0.7.5-rc1"
+    },
+    {
+      "tag": "v0.7.5-rc2",
+      "date": "2024-09-10",
+      "prerelease": true,
+      "name": "v0.7.5-rc2"
+    },
+    {
+      "tag": "v0.7.5",
+      "date": "2024-10-25",
+      "prerelease": true,
+      "name": "v0.7.5"
+    },
+    {
+      "tag": "v0.7.6-rc1",
+      "date": "2024-12-07",
+      "prerelease": true,
+      "name": "v0.7.6-rc1"
+    },
+    {
+      "tag": "v0.7.6",
+      "date": "2024-12-20",
+      "prerelease": true,
+      "name": "v0.7.6"
+    },
+    {
+      "tag": "v0.7.7-rc1",
+      "date": "2025-02-11",
+      "prerelease": true,
+      "name": "v0.7.7-rc1"
+    },
+    {
+      "tag": "v0.7.7",
+      "date": "2025-03-06",
+      "prerelease": true,
+      "name": "v0.7.7"
+    },
+    {
+      "tag": "v0.7.8-rc1",
+      "date": "2025-04-30",
+      "prerelease": true,
+      "name": "v0.7.8-rc1"
+    },
+    {
+      "tag": "v0.7.8",
+      "date": "2025-05-08",
+      "prerelease": true,
+      "name": "v0.7.8"
+    },
+    {
+      "tag": "v0.7.9-rc1",
+      "date": "2025-07-02",
+      "prerelease": true,
+      "name": "v0.7.9-rc1"
+    },
+    {
+      "tag": "v0.7.9",
+      "date": "2025-07-24",
+      "prerelease": true,
+      "name": "v0.7.9"
+    },
+    {
+      "tag": "librechat-1.8.9",
+      "date": "2025-07-24",
+      "prerelease": true,
+      "name": "librechat-1.8.9"
+    },
+    {
+      "tag": "v0.8.0-rc1",
+      "date": "2025-08-04",
+      "prerelease": true,
+      "name": "v0.8.0-rc1"
+    },
+    {
+      "tag": "v0.8.0-rc2",
+      "date": "2025-08-12",
+      "prerelease": true,
+      "name": "v0.8.0-rc2"
+    },
+    {
+      "tag": "v0.8.0-rc3",
+      "date": "2025-08-25",
+      "prerelease": true,
+      "name": "v0.8.0-rc3"
+    },
+    {
+      "tag": "v0.8.0-rc4",
+      "date": "2025-09-12",
+      "prerelease": true,
+      "name": "v0.8.0-rc4"
+    },
+    {
+      "tag": "chart-1.9.0",
+      "date": "2025-09-12",
+      "prerelease": true,
+      "name": "chart-1.9.0"
+    },
+    {
+      "tag": "v0.8.0",
+      "date": "2025-10-02",
+      "prerelease": true,
+      "name": "v0.8.0"
+    },
+    {
+      "tag": "chart-1.9.1",
+      "date": "2025-10-02",
+      "prerelease": true,
+      "name": "chart-1.9.1"
+    },
+    {
+      "tag": "v0.8.1-rc1",
+      "date": "2025-10-30",
+      "prerelease": true,
+      "name": "v0.8.1-rc1"
+    },
+    {
+      "tag": "chart-1.9.2",
+      "date": "2025-10-30",
+      "prerelease": true,
+      "name": "chart-1.9.2"
+    },
+    {
+      "tag": "v0.8.1-rc2",
+      "date": "2025-11-26",
+      "prerelease": true,
+      "name": "v0.8.1-rc2"
+    },
+    {
+      "tag": "chart-1.9.3",
+      "date": "2025-11-26",
+      "prerelease": true,
+      "name": "chart-1.9.3"
+    },
+    {
+      "tag": "v0.8.1",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "v0.8.1"
+    },
+    {
+      "tag": "chart-1.9.4",
+      "date": "2025-12-11",
+      "prerelease": true,
+      "name": "chart-1.9.4"
+    },
+    {
+      "tag": "v0.8.2-rc1",
+      "date": "2025-12-17",
+      "prerelease": true,
+      "name": "v0.8.2-rc1"
+    },
+    {
+      "tag": "v0.8.2-rc2",
+      "date": "2026-01-07",
+      "prerelease": true,
+      "name": "v0.8.2-rc2"
+    },
+    {
+      "tag": "chart-1.9.5",
+      "date": "2026-01-07",
+      "prerelease": true,
+      "name": "chart-1.9.5"
+    },
+    {
+      "tag": "v0.8.2-rc3",
+      "date": "2026-01-18",
+      "prerelease": true,
+      "name": "v0.8.2-rc3"
+    },
+    {
+      "tag": "chart-1.9.6",
+      "date": "2026-01-18",
+      "prerelease": true,
+      "name": "chart-1.9.6"
+    },
+    {
+      "tag": "v0.8.2",
+      "date": "2026-01-28",
+      "prerelease": true,
+      "name": "v0.8.2"
+    },
+    {
+      "tag": "chart-1.9.7",
+      "date": "2026-01-28",
+      "prerelease": true,
+      "name": "chart-1.9.7"
+    },
+    {
+      "tag": "v0.8.3-rc1",
+      "date": "2026-02-19",
+      "prerelease": true,
+      "name": "v0.8.3-rc1"
+    },
+    {
+      "tag": "chart-1.9.8",
+      "date": "2026-02-19",
+      "prerelease": true,
+      "name": "chart-1.9.8"
+    },
+    {
+      "tag": "v0.8.3-rc2",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "v0.8.3-rc2"
+    },
+    {
+      "tag": "chart-1.9.9",
+      "date": "2026-03-04",
+      "prerelease": true,
+      "name": "chart-1.9.9"
+    },
+    {
+      "tag": "v0.8.3",
+      "date": "2026-03-09",
+      "prerelease": true,
+      "name": "v0.8.3"
+    },
+    {
+      "tag": "chart-2.0.0",
+      "date": "2026-03-09",
+      "prerelease": true,
+      "name": "chart-2.0.0"
+    },
+    {
+      "tag": "v0.8.4-rc1",
+      "date": "2026-03-17",
+      "prerelease": true,
+      "name": "v0.8.4-rc1"
+    },
+    {
+      "tag": "chart-2.0.1",
+      "date": "2026-03-17",
+      "prerelease": true,
+      "name": "chart-2.0.1"
+    },
+    {
+      "tag": "v0.8.4",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "v0.8.4"
+    },
+    {
+      "tag": "chart-2.0.2",
+      "date": "2026-03-20",
+      "prerelease": true,
+      "name": "chart-2.0.2"
+    },
+    {
+      "tag": "v0.8.5-rc1",
+      "date": "2026-04-10",
+      "prerelease": true,
+      "name": "v0.8.5-rc1"
+    },
+    {
+      "tag": "v0.8.5",
+      "date": "2026-04-22",
+      "prerelease": true,
+      "name": "v0.8.5"
+    }
+  ]
+}
