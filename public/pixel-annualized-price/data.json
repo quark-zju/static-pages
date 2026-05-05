@@ -1,0 +1,2345 @@
+{
+  "updated": "2026-05-05T19:15:45Z",
+  "models": [
+    {
+      "label": "Pixel 10a",
+      "slug": "pixel-10a",
+      "releaseDate": "2026-03-05",
+      "eol": "2033-03-01",
+      "totalDays": 2553,
+      "daysRemaining": 2492,
+      "hasPriceData": true,
+      "launchPrice": 499,
+      "launchAnnualizedPrice": 71.39,
+      "crntPrice": 449,
+      "crntAnnualizedPrice": 65.81,
+      "priceHistory": [
+        {
+          "date": "2026-02-20",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2566,
+          "annualizedPrice": 71.03
+        },
+        {
+          "date": "2026-02-27",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2559,
+          "annualizedPrice": 71.22
+        },
+        {
+          "date": "2026-03-09",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2549,
+          "annualizedPrice": 71.5
+        },
+        {
+          "date": "2026-03-26",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2532,
+          "annualizedPrice": 71.98
+        },
+        {
+          "date": "2026-03-30",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2528,
+          "annualizedPrice": 72.1
+        },
+        {
+          "date": "2026-04-13",
+          "price": 449,
+          "promotion": "",
+          "daysToEol": 2514,
+          "annualizedPrice": 65.23
+        },
+        {
+          "date": "2026-04-28",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2499,
+          "annualizedPrice": 72.93
+        },
+        {
+          "date": "2026-05-04",
+          "price": 449,
+          "promotion": "",
+          "daysToEol": 2493,
+          "annualizedPrice": 65.78
+        }
+      ]
+    },
+    {
+      "label": "Pixel 10",
+      "slug": "pixel-10",
+      "releaseDate": "2025-08-28",
+      "eol": "2032-08-01",
+      "totalDays": 2530,
+      "daysRemaining": 2280,
+      "hasPriceData": true,
+      "launchPrice": 599,
+      "launchAnnualizedPrice": 86.48,
+      "crntPrice": 599,
+      "crntAnnualizedPrice": 95.96,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 599,
+          "promotion": "5k Exchange Bonus & 7k Instant Cashback on HDFC Cards",
+          "daysToEol": 2461,
+          "annualizedPrice": 88.9
+        },
+        {
+          "date": "2025-11-09",
+          "price": 599,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2457,
+          "annualizedPrice": 89.05
+        },
+        {
+          "date": "2025-11-10",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2456,
+          "annualizedPrice": 118.83
+        },
+        {
+          "date": "2025-11-19",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2447,
+          "annualizedPrice": 119.26
+        },
+        {
+          "date": "2025-11-20",
+          "price": 599,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2446,
+          "annualizedPrice": 89.45
+        },
+        {
+          "date": "2025-12-06",
+          "price": 599,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2430,
+          "annualizedPrice": 90.03
+        },
+        {
+          "date": "2025-12-22",
+          "price": 599,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2414,
+          "annualizedPrice": 90.63
+        },
+        {
+          "date": "2025-12-23",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2413,
+          "annualizedPrice": 90.67
+        },
+        {
+          "date": "2025-12-24",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2412,
+          "annualizedPrice": 90.71
+        },
+        {
+          "date": "2025-12-25",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2411,
+          "annualizedPrice": 90.74
+        },
+        {
+          "date": "2025-12-27",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2409,
+          "annualizedPrice": 90.82
+        },
+        {
+          "date": "2025-12-28",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2408,
+          "annualizedPrice": 121.19
+        },
+        {
+          "date": "2026-01-01",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2404,
+          "annualizedPrice": 121.4
+        },
+        {
+          "date": "2026-01-03",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2402,
+          "annualizedPrice": 121.5
+        },
+        {
+          "date": "2026-01-07",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2398,
+          "annualizedPrice": 98.85
+        },
+        {
+          "date": "2026-01-10",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2395,
+          "annualizedPrice": 98.98
+        },
+        {
+          "date": "2026-01-15",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2390,
+          "annualizedPrice": 99.18
+        },
+        {
+          "date": "2026-01-18",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2387,
+          "annualizedPrice": 99.31
+        },
+        {
+          "date": "2026-01-22",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2383,
+          "annualizedPrice": 122.47
+        },
+        {
+          "date": "2026-01-27",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2378,
+          "annualizedPrice": 122.72
+        },
+        {
+          "date": "2026-02-01",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2373,
+          "annualizedPrice": 99.89
+        },
+        {
+          "date": "2026-02-04",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2370,
+          "annualizedPrice": 100.02
+        },
+        {
+          "date": "2026-02-08",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2366,
+          "annualizedPrice": 100.19
+        },
+        {
+          "date": "2026-02-12",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2362,
+          "annualizedPrice": 100.36
+        },
+        {
+          "date": "2026-02-16",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 100.53
+        },
+        {
+          "date": "2026-02-16",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 123.76
+        },
+        {
+          "date": "2026-02-18",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2356,
+          "annualizedPrice": 123.87
+        },
+        {
+          "date": "2026-02-20",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2354,
+          "annualizedPrice": 123.97
+        },
+        {
+          "date": "2026-02-27",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2347,
+          "annualizedPrice": 124.34
+        },
+        {
+          "date": "2026-03-09",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2337,
+          "annualizedPrice": 93.62
+        },
+        {
+          "date": "2026-03-26",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2320,
+          "annualizedPrice": 94.3
+        },
+        {
+          "date": "2026-03-30",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2316,
+          "annualizedPrice": 126.01
+        },
+        {
+          "date": "2026-04-13",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2302,
+          "annualizedPrice": 95.04
+        },
+        {
+          "date": "2026-04-28",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2287,
+          "annualizedPrice": 127.61
+        },
+        {
+          "date": "2026-05-04",
+          "price": 599,
+          "promotion": "",
+          "daysToEol": 2281,
+          "annualizedPrice": 95.92
+        }
+      ]
+    },
+    {
+      "label": "Pixel 10 Pro",
+      "slug": "pixel-10-pro",
+      "releaseDate": "2025-08-28",
+      "eol": "2032-08-01",
+      "totalDays": 2530,
+      "daysRemaining": 2280,
+      "hasPriceData": true,
+      "launchPrice": 749,
+      "launchAnnualizedPrice": 108.13,
+      "crntPrice": 749,
+      "crntAnnualizedPrice": 119.99,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 749,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2461,
+          "annualizedPrice": 111.16
+        },
+        {
+          "date": "2025-11-09",
+          "price": 749,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2457,
+          "annualizedPrice": 111.34
+        },
+        {
+          "date": "2025-11-10",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2456,
+          "annualizedPrice": 148.57
+        },
+        {
+          "date": "2025-11-19",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2447,
+          "annualizedPrice": 149.12
+        },
+        {
+          "date": "2025-11-20",
+          "price": 749,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2446,
+          "annualizedPrice": 111.84
+        },
+        {
+          "date": "2025-12-06",
+          "price": 749,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2430,
+          "annualizedPrice": 112.58
+        },
+        {
+          "date": "2025-12-22",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2414,
+          "annualizedPrice": 113.33
+        },
+        {
+          "date": "2025-12-23",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2413,
+          "annualizedPrice": 113.37
+        },
+        {
+          "date": "2025-12-24",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2412,
+          "annualizedPrice": 113.42
+        },
+        {
+          "date": "2025-12-25",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2411,
+          "annualizedPrice": 113.47
+        },
+        {
+          "date": "2025-12-27",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2409,
+          "annualizedPrice": 113.56
+        },
+        {
+          "date": "2025-12-28",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2408,
+          "annualizedPrice": 151.53
+        },
+        {
+          "date": "2026-01-01",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2404,
+          "annualizedPrice": 151.78
+        },
+        {
+          "date": "2026-01-03",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2402,
+          "annualizedPrice": 151.91
+        },
+        {
+          "date": "2026-01-07",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2398,
+          "annualizedPrice": 121.7
+        },
+        {
+          "date": "2026-01-10",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2395,
+          "annualizedPrice": 121.85
+        },
+        {
+          "date": "2026-01-15",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2390,
+          "annualizedPrice": 122.11
+        },
+        {
+          "date": "2026-01-18",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2387,
+          "annualizedPrice": 122.26
+        },
+        {
+          "date": "2026-01-22",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2383,
+          "annualizedPrice": 153.12
+        },
+        {
+          "date": "2026-01-27",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2378,
+          "annualizedPrice": 153.44
+        },
+        {
+          "date": "2026-02-01",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2373,
+          "annualizedPrice": 122.98
+        },
+        {
+          "date": "2026-02-04",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2370,
+          "annualizedPrice": 123.14
+        },
+        {
+          "date": "2026-02-08",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2366,
+          "annualizedPrice": 123.35
+        },
+        {
+          "date": "2026-02-12",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2362,
+          "annualizedPrice": 123.55
+        },
+        {
+          "date": "2026-02-16",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 123.76
+        },
+        {
+          "date": "2026-02-16",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 154.74
+        },
+        {
+          "date": "2026-02-18",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2356,
+          "annualizedPrice": 154.87
+        },
+        {
+          "date": "2026-02-20",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2354,
+          "annualizedPrice": 155.01
+        },
+        {
+          "date": "2026-02-27",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2347,
+          "annualizedPrice": 155.47
+        },
+        {
+          "date": "2026-03-09",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2337,
+          "annualizedPrice": 124.88
+        },
+        {
+          "date": "2026-03-26",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2320,
+          "annualizedPrice": 125.79
+        },
+        {
+          "date": "2026-03-30",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2316,
+          "annualizedPrice": 157.55
+        },
+        {
+          "date": "2026-04-13",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2302,
+          "annualizedPrice": 118.84
+        },
+        {
+          "date": "2026-04-28",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2287,
+          "annualizedPrice": 159.55
+        },
+        {
+          "date": "2026-05-04",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2281,
+          "annualizedPrice": 119.94
+        }
+      ]
+    },
+    {
+      "label": "Pixel 10 Pro XL",
+      "slug": "pixel-10-pro-xl",
+      "releaseDate": "2025-08-28",
+      "eol": "2032-08-01",
+      "totalDays": 2530,
+      "daysRemaining": 2280,
+      "hasPriceData": true,
+      "launchPrice": 899,
+      "launchAnnualizedPrice": 129.79,
+      "crntPrice": 749,
+      "crntAnnualizedPrice": 119.99,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 899,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2461,
+          "annualizedPrice": 133.43
+        },
+        {
+          "date": "2025-11-09",
+          "price": 899,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2457,
+          "annualizedPrice": 133.64
+        },
+        {
+          "date": "2025-11-10",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2456,
+          "annualizedPrice": 163.44
+        },
+        {
+          "date": "2025-11-19",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2447,
+          "annualizedPrice": 164.04
+        },
+        {
+          "date": "2025-11-20",
+          "price": 899,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2446,
+          "annualizedPrice": 134.24
+        },
+        {
+          "date": "2025-12-06",
+          "price": 899,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2430,
+          "annualizedPrice": 135.13
+        },
+        {
+          "date": "2025-12-27",
+          "price": 899,
+          "promotion": "",
+          "daysToEol": 2409,
+          "annualizedPrice": 136.31
+        },
+        {
+          "date": "2025-12-28",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2408,
+          "annualizedPrice": 181.87
+        },
+        {
+          "date": "2026-01-01",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2404,
+          "annualizedPrice": 182.17
+        },
+        {
+          "date": "2026-01-03",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2402,
+          "annualizedPrice": 182.32
+        },
+        {
+          "date": "2026-01-07",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2398,
+          "annualizedPrice": 144.55
+        },
+        {
+          "date": "2026-01-10",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2395,
+          "annualizedPrice": 144.73
+        },
+        {
+          "date": "2026-01-15",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2390,
+          "annualizedPrice": 145.03
+        },
+        {
+          "date": "2026-01-18",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2387,
+          "annualizedPrice": 145.21
+        },
+        {
+          "date": "2026-01-22",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2383,
+          "annualizedPrice": 183.77
+        },
+        {
+          "date": "2026-01-27",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2378,
+          "annualizedPrice": 184.16
+        },
+        {
+          "date": "2026-02-01",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2373,
+          "annualizedPrice": 184.55
+        },
+        {
+          "date": "2026-02-04",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2370,
+          "annualizedPrice": 146.25
+        },
+        {
+          "date": "2026-02-08",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2366,
+          "annualizedPrice": 146.5
+        },
+        {
+          "date": "2026-02-12",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2362,
+          "annualizedPrice": 146.75
+        },
+        {
+          "date": "2026-02-16",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 147.0
+        },
+        {
+          "date": "2026-02-16",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2358,
+          "annualizedPrice": 185.72
+        },
+        {
+          "date": "2026-02-18",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2356,
+          "annualizedPrice": 185.88
+        },
+        {
+          "date": "2026-02-20",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2354,
+          "annualizedPrice": 186.04
+        },
+        {
+          "date": "2026-02-27",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2347,
+          "annualizedPrice": 186.59
+        },
+        {
+          "date": "2026-03-09",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2337,
+          "annualizedPrice": 148.32
+        },
+        {
+          "date": "2026-03-26",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2320,
+          "annualizedPrice": 149.41
+        },
+        {
+          "date": "2026-03-30",
+          "price": 1199,
+          "promotion": "",
+          "daysToEol": 2316,
+          "annualizedPrice": 189.09
+        },
+        {
+          "date": "2026-04-13",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2302,
+          "annualizedPrice": 150.57
+        },
+        {
+          "date": "2026-04-28",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2287,
+          "annualizedPrice": 159.55
+        },
+        {
+          "date": "2026-05-04",
+          "price": 949,
+          "promotion": "",
+          "daysToEol": 2281,
+          "annualizedPrice": 151.96
+        }
+      ]
+    },
+    {
+      "label": "Pixel 9a",
+      "slug": "pixel-9a",
+      "releaseDate": "2025-04-10",
+      "eol": "2032-04-01",
+      "totalDays": 2548,
+      "daysRemaining": 2158,
+      "hasPriceData": true,
+      "launchPrice": 399,
+      "launchAnnualizedPrice": 57.2,
+      "crntPrice": 499,
+      "crntAnnualizedPrice": 84.46,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2339,
+          "annualizedPrice": 62.31
+        },
+        {
+          "date": "2025-11-09",
+          "price": 399,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2335,
+          "annualizedPrice": 62.41
+        },
+        {
+          "date": "2025-11-10",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2334,
+          "annualizedPrice": 78.09
+        },
+        {
+          "date": "2025-11-19",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2325,
+          "annualizedPrice": 78.39
+        },
+        {
+          "date": "2025-11-20",
+          "price": 399,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2324,
+          "annualizedPrice": 62.71
+        },
+        {
+          "date": "2025-12-01",
+          "price": 399,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2313,
+          "annualizedPrice": 63.01
+        },
+        {
+          "date": "2025-12-02",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2312,
+          "annualizedPrice": 78.83
+        },
+        {
+          "date": "2025-12-06",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2308,
+          "annualizedPrice": 78.97
+        },
+        {
+          "date": "2025-12-07",
+          "price": 399,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2307,
+          "annualizedPrice": 63.17
+        },
+        {
+          "date": "2025-12-22",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2292,
+          "annualizedPrice": 63.58
+        },
+        {
+          "date": "2025-12-23",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2291,
+          "annualizedPrice": 63.61
+        },
+        {
+          "date": "2025-12-24",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2290,
+          "annualizedPrice": 63.64
+        },
+        {
+          "date": "2025-12-25",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2289,
+          "annualizedPrice": 63.67
+        },
+        {
+          "date": "2025-12-27",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2287,
+          "annualizedPrice": 63.72
+        },
+        {
+          "date": "2025-12-28",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2286,
+          "annualizedPrice": 79.73
+        },
+        {
+          "date": "2026-01-01",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2282,
+          "annualizedPrice": 79.87
+        },
+        {
+          "date": "2026-01-03",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2280,
+          "annualizedPrice": 79.94
+        },
+        {
+          "date": "2026-01-07",
+          "price": 399,
+          "promotion": "New Year Deals",
+          "daysToEol": 2276,
+          "annualizedPrice": 64.03
+        },
+        {
+          "date": "2026-01-10",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2273,
+          "annualizedPrice": 64.12
+        },
+        {
+          "date": "2026-01-15",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2268,
+          "annualizedPrice": 64.26
+        },
+        {
+          "date": "2026-01-18",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2265,
+          "annualizedPrice": 64.34
+        },
+        {
+          "date": "2026-01-22",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2261,
+          "annualizedPrice": 64.46
+        },
+        {
+          "date": "2026-01-27",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2256,
+          "annualizedPrice": 64.6
+        },
+        {
+          "date": "2026-02-01",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2251,
+          "annualizedPrice": 64.74
+        },
+        {
+          "date": "2026-02-04",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2248,
+          "annualizedPrice": 64.83
+        },
+        {
+          "date": "2026-02-08",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2244,
+          "annualizedPrice": 64.94
+        },
+        {
+          "date": "2026-02-12",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2240,
+          "annualizedPrice": 65.06
+        },
+        {
+          "date": "2026-02-16",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2236,
+          "annualizedPrice": 65.18
+        },
+        {
+          "date": "2026-02-16",
+          "price": 399,
+          "promotion": "",
+          "daysToEol": 2236,
+          "annualizedPrice": 65.18
+        },
+        {
+          "date": "2026-02-18",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2234,
+          "annualizedPrice": 81.58
+        },
+        {
+          "date": "2026-02-20",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2232,
+          "annualizedPrice": 81.66
+        },
+        {
+          "date": "2026-02-27",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2225,
+          "annualizedPrice": 81.91
+        },
+        {
+          "date": "2026-03-09",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2215,
+          "annualizedPrice": 82.28
+        },
+        {
+          "date": "2026-03-26",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2198,
+          "annualizedPrice": 82.92
+        },
+        {
+          "date": "2026-03-30",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2194,
+          "annualizedPrice": 83.07
+        },
+        {
+          "date": "2026-04-13",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2180,
+          "annualizedPrice": 83.61
+        },
+        {
+          "date": "2026-04-28",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2165,
+          "annualizedPrice": 84.18
+        },
+        {
+          "date": "2026-05-04",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2159,
+          "annualizedPrice": 84.42
+        }
+      ]
+    },
+    {
+      "label": "Pixel 9 Pro",
+      "slug": "pixel-9-pro",
+      "releaseDate": "2024-09-04",
+      "eol": "2031-09-01",
+      "totalDays": 2553,
+      "daysRemaining": 1945,
+      "hasPriceData": true,
+      "launchPrice": 999,
+      "launchAnnualizedPrice": 142.92,
+      "crntPrice": 999,
+      "crntAnnualizedPrice": 187.6,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2126,
+          "annualizedPrice": 171.63
+        },
+        {
+          "date": "2025-11-19",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2112,
+          "annualizedPrice": 172.77
+        },
+        {
+          "date": "2025-11-20",
+          "price": 649,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2111,
+          "annualizedPrice": 112.29
+        },
+        {
+          "date": "2025-12-01",
+          "price": 649,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2100,
+          "annualizedPrice": 112.88
+        },
+        {
+          "date": "2025-12-02",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2099,
+          "annualizedPrice": 173.84
+        },
+        {
+          "date": "2025-12-06",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2095,
+          "annualizedPrice": 174.17
+        },
+        {
+          "date": "2025-12-07",
+          "price": 649,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2094,
+          "annualizedPrice": 113.2
+        },
+        {
+          "date": "2025-12-22",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2079,
+          "annualizedPrice": 114.02
+        },
+        {
+          "date": "2025-12-23",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2078,
+          "annualizedPrice": 114.07
+        },
+        {
+          "date": "2025-12-24",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2077,
+          "annualizedPrice": 114.13
+        },
+        {
+          "date": "2025-12-25",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2076,
+          "annualizedPrice": 114.18
+        },
+        {
+          "date": "2025-12-27",
+          "price": 649,
+          "promotion": "",
+          "daysToEol": 2074,
+          "annualizedPrice": 114.29
+        },
+        {
+          "date": "2025-12-28",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2073,
+          "annualizedPrice": 176.02
+        },
+        {
+          "date": "2026-01-01",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2069,
+          "annualizedPrice": 176.36
+        },
+        {
+          "date": "2026-01-03",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2067,
+          "annualizedPrice": 176.53
+        },
+        {
+          "date": "2026-01-07",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2063,
+          "annualizedPrice": 176.87
+        },
+        {
+          "date": "2026-01-10",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2060,
+          "annualizedPrice": 177.13
+        },
+        {
+          "date": "2026-01-15",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2055,
+          "annualizedPrice": 177.56
+        },
+        {
+          "date": "2026-01-18",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2052,
+          "annualizedPrice": 177.82
+        },
+        {
+          "date": "2026-01-22",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2048,
+          "annualizedPrice": 178.17
+        },
+        {
+          "date": "2026-01-27",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2043,
+          "annualizedPrice": 178.6
+        },
+        {
+          "date": "2026-02-01",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2038,
+          "annualizedPrice": 179.04
+        },
+        {
+          "date": "2026-02-04",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2035,
+          "annualizedPrice": 179.3
+        },
+        {
+          "date": "2026-02-08",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2031,
+          "annualizedPrice": 179.66
+        },
+        {
+          "date": "2026-02-12",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2027,
+          "annualizedPrice": 180.01
+        },
+        {
+          "date": "2026-02-16",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2023,
+          "annualizedPrice": 180.37
+        },
+        {
+          "date": "2026-02-16",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2023,
+          "annualizedPrice": 180.37
+        },
+        {
+          "date": "2026-02-18",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2021,
+          "annualizedPrice": 180.55
+        },
+        {
+          "date": "2026-02-20",
+          "price": 999,
+          "promotion": "",
+          "daysToEol": 2019,
+          "annualizedPrice": 180.73
+        }
+      ]
+    },
+    {
+      "label": "Pixel 9 Pro Fold",
+      "slug": "pixel-10-pro-fold",
+      "releaseDate": "2024-09-04",
+      "eol": "2031-09-01",
+      "totalDays": 2553,
+      "daysRemaining": 1945,
+      "hasPriceData": true,
+      "launchPrice": 1499,
+      "launchAnnualizedPrice": 214.46,
+      "crntPrice": 1499,
+      "crntAnnualizedPrice": 281.5,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 1499,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2126,
+          "annualizedPrice": 257.53
+        },
+        {
+          "date": "2025-11-09",
+          "price": 1499,
+          "promotion": "Early Black Friday Deals",
+          "daysToEol": 2122,
+          "annualizedPrice": 258.02
+        },
+        {
+          "date": "2025-11-10",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2121,
+          "annualizedPrice": 309.8
+        },
+        {
+          "date": "2025-11-19",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2112,
+          "annualizedPrice": 311.12
+        },
+        {
+          "date": "2025-11-20",
+          "price": 1499,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2111,
+          "annualizedPrice": 259.36
+        },
+        {
+          "date": "2025-12-06",
+          "price": 1499,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2095,
+          "annualizedPrice": 261.34
+        },
+        {
+          "date": "2025-12-22",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2079,
+          "annualizedPrice": 263.35
+        },
+        {
+          "date": "2025-12-23",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2078,
+          "annualizedPrice": 263.48
+        },
+        {
+          "date": "2025-12-24",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2077,
+          "annualizedPrice": 263.61
+        },
+        {
+          "date": "2025-12-25",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2076,
+          "annualizedPrice": 263.73
+        },
+        {
+          "date": "2025-12-27",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2074,
+          "annualizedPrice": 263.99
+        },
+        {
+          "date": "2025-12-28",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2073,
+          "annualizedPrice": 316.97
+        },
+        {
+          "date": "2026-01-01",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2069,
+          "annualizedPrice": 317.59
+        },
+        {
+          "date": "2026-01-03",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2067,
+          "annualizedPrice": 317.89
+        },
+        {
+          "date": "2026-01-07",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2063,
+          "annualizedPrice": 265.39
+        },
+        {
+          "date": "2026-01-10",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2060,
+          "annualizedPrice": 265.78
+        },
+        {
+          "date": "2026-01-15",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2055,
+          "annualizedPrice": 266.43
+        },
+        {
+          "date": "2026-01-18",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2052,
+          "annualizedPrice": 266.82
+        },
+        {
+          "date": "2026-01-22",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2048,
+          "annualizedPrice": 320.84
+        },
+        {
+          "date": "2026-01-27",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2043,
+          "annualizedPrice": 321.63
+        },
+        {
+          "date": "2026-02-01",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2038,
+          "annualizedPrice": 268.65
+        },
+        {
+          "date": "2026-02-04",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2035,
+          "annualizedPrice": 269.05
+        },
+        {
+          "date": "2026-02-08",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2031,
+          "annualizedPrice": 269.58
+        },
+        {
+          "date": "2026-02-12",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2027,
+          "annualizedPrice": 270.11
+        },
+        {
+          "date": "2026-02-16",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2023,
+          "annualizedPrice": 270.64
+        },
+        {
+          "date": "2026-02-16",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2023,
+          "annualizedPrice": 324.81
+        },
+        {
+          "date": "2026-02-18",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2021,
+          "annualizedPrice": 325.13
+        },
+        {
+          "date": "2026-02-20",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2019,
+          "annualizedPrice": 325.45
+        },
+        {
+          "date": "2026-02-27",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 2012,
+          "annualizedPrice": 326.58
+        },
+        {
+          "date": "2026-03-09",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 2002,
+          "annualizedPrice": 273.48
+        },
+        {
+          "date": "2026-03-26",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 1985,
+          "annualizedPrice": 275.82
+        },
+        {
+          "date": "2026-03-30",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 1981,
+          "annualizedPrice": 331.69
+        },
+        {
+          "date": "2026-04-13",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 1967,
+          "annualizedPrice": 278.35
+        },
+        {
+          "date": "2026-04-28",
+          "price": 1799,
+          "promotion": "",
+          "daysToEol": 1952,
+          "annualizedPrice": 336.62
+        },
+        {
+          "date": "2026-05-04",
+          "price": 1499,
+          "promotion": "",
+          "daysToEol": 1946,
+          "annualizedPrice": 281.35
+        }
+      ]
+    },
+    {
+      "label": "Pixel 9",
+      "slug": "pixel-9",
+      "releaseDate": "2024-08-22",
+      "eol": "2031-08-01",
+      "totalDays": 2535,
+      "daysRemaining": 1914,
+      "hasPriceData": true,
+      "launchPrice": 799,
+      "launchAnnualizedPrice": 115.12,
+      "crntPrice": 799,
+      "crntAnnualizedPrice": 152.47,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2095,
+          "annualizedPrice": 139.3
+        },
+        {
+          "date": "2025-11-19",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2081,
+          "annualizedPrice": 140.24
+        },
+        {
+          "date": "2025-11-20",
+          "price": 499,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2080,
+          "annualizedPrice": 87.62
+        },
+        {
+          "date": "2025-12-01",
+          "price": 499,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2069,
+          "annualizedPrice": 88.09
+        },
+        {
+          "date": "2025-12-02",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2068,
+          "annualizedPrice": 141.12
+        },
+        {
+          "date": "2025-12-06",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2064,
+          "annualizedPrice": 141.39
+        },
+        {
+          "date": "2025-12-07",
+          "price": 499,
+          "promotion": "Holiday Deals + Pixel Watch & Case Bundle Included",
+          "daysToEol": 2063,
+          "annualizedPrice": 88.35
+        },
+        {
+          "date": "2025-12-22",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2048,
+          "annualizedPrice": 88.99
+        },
+        {
+          "date": "2025-12-23",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2047,
+          "annualizedPrice": 89.04
+        },
+        {
+          "date": "2025-12-24",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2046,
+          "annualizedPrice": 89.08
+        },
+        {
+          "date": "2025-12-25",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2045,
+          "annualizedPrice": 89.12
+        },
+        {
+          "date": "2025-12-27",
+          "price": 499,
+          "promotion": "",
+          "daysToEol": 2043,
+          "annualizedPrice": 89.21
+        },
+        {
+          "date": "2025-12-28",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2042,
+          "annualizedPrice": 142.92
+        },
+        {
+          "date": "2026-01-01",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2038,
+          "annualizedPrice": 143.2
+        },
+        {
+          "date": "2026-01-03",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2036,
+          "annualizedPrice": 143.34
+        },
+        {
+          "date": "2026-01-07",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2032,
+          "annualizedPrice": 143.62
+        },
+        {
+          "date": "2026-01-10",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2029,
+          "annualizedPrice": 143.83
+        },
+        {
+          "date": "2026-01-15",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2024,
+          "annualizedPrice": 144.19
+        },
+        {
+          "date": "2026-01-18",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2021,
+          "annualizedPrice": 144.4
+        },
+        {
+          "date": "2026-01-22",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2017,
+          "annualizedPrice": 144.69
+        },
+        {
+          "date": "2026-01-27",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2012,
+          "annualizedPrice": 145.05
+        },
+        {
+          "date": "2026-02-01",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2007,
+          "annualizedPrice": 145.41
+        },
+        {
+          "date": "2026-02-04",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2004,
+          "annualizedPrice": 145.63
+        },
+        {
+          "date": "2026-02-08",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 2000,
+          "annualizedPrice": 145.92
+        },
+        {
+          "date": "2026-02-12",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 1996,
+          "annualizedPrice": 146.21
+        },
+        {
+          "date": "2026-02-16",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 1992,
+          "annualizedPrice": 146.5
+        },
+        {
+          "date": "2026-02-16",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 1992,
+          "annualizedPrice": 146.5
+        },
+        {
+          "date": "2026-02-18",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 1990,
+          "annualizedPrice": 146.65
+        },
+        {
+          "date": "2026-02-20",
+          "price": 799,
+          "promotion": "",
+          "daysToEol": 1988,
+          "annualizedPrice": 146.8
+        }
+      ]
+    },
+    {
+      "label": "Pixel 9 Pro XL",
+      "slug": "pixel-9-pro-xl",
+      "releaseDate": "2024-08-22",
+      "eol": "2031-08-01",
+      "totalDays": 2535,
+      "daysRemaining": 1914,
+      "hasPriceData": true,
+      "launchPrice": 1099,
+      "launchAnnualizedPrice": 158.35,
+      "crntPrice": 1099,
+      "crntAnnualizedPrice": 209.72,
+      "priceHistory": [
+        {
+          "date": "2025-11-05",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2095,
+          "annualizedPrice": 191.6
+        },
+        {
+          "date": "2025-11-19",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2081,
+          "annualizedPrice": 192.89
+        },
+        {
+          "date": "2025-11-20",
+          "price": 749,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2080,
+          "annualizedPrice": 131.53
+        },
+        {
+          "date": "2025-12-01",
+          "price": 749,
+          "promotion": "Black Friday Deals",
+          "daysToEol": 2069,
+          "annualizedPrice": 132.22
+        },
+        {
+          "date": "2025-12-02",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2068,
+          "annualizedPrice": 194.11
+        },
+        {
+          "date": "2025-12-06",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2064,
+          "annualizedPrice": 194.48
+        },
+        {
+          "date": "2025-12-07",
+          "price": 749,
+          "promotion": "Holiday Deals",
+          "daysToEol": 2063,
+          "annualizedPrice": 132.61
+        },
+        {
+          "date": "2025-12-27",
+          "price": 749,
+          "promotion": "",
+          "daysToEol": 2043,
+          "annualizedPrice": 133.91
+        },
+        {
+          "date": "2025-12-28",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2042,
+          "annualizedPrice": 196.58
+        },
+        {
+          "date": "2026-01-01",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2038,
+          "annualizedPrice": 196.96
+        },
+        {
+          "date": "2026-01-03",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2036,
+          "annualizedPrice": 197.16
+        },
+        {
+          "date": "2026-01-07",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2032,
+          "annualizedPrice": 197.54
+        },
+        {
+          "date": "2026-01-10",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2029,
+          "annualizedPrice": 197.84
+        },
+        {
+          "date": "2026-01-15",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2024,
+          "annualizedPrice": 198.32
+        },
+        {
+          "date": "2026-01-18",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2021,
+          "annualizedPrice": 198.62
+        },
+        {
+          "date": "2026-01-22",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2017,
+          "annualizedPrice": 199.01
+        },
+        {
+          "date": "2026-01-27",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2012,
+          "annualizedPrice": 199.51
+        },
+        {
+          "date": "2026-02-01",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2007,
+          "annualizedPrice": 200.0
+        },
+        {
+          "date": "2026-02-04",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2004,
+          "annualizedPrice": 200.3
+        },
+        {
+          "date": "2026-02-08",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 2000,
+          "annualizedPrice": 200.7
+        },
+        {
+          "date": "2026-02-12",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 1996,
+          "annualizedPrice": 201.11
+        },
+        {
+          "date": "2026-02-16",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 1992,
+          "annualizedPrice": 201.51
+        },
+        {
+          "date": "2026-02-16",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 1992,
+          "annualizedPrice": 201.51
+        },
+        {
+          "date": "2026-02-18",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 1990,
+          "annualizedPrice": 201.71
+        },
+        {
+          "date": "2026-02-20",
+          "price": 1099,
+          "promotion": "",
+          "daysToEol": 1988,
+          "annualizedPrice": 201.92
+        }
+      ]
+    },
+    {
+      "label": "Pixel 8a",
+      "slug": "pixel-8a",
+      "releaseDate": "2024-05-14",
+      "eol": "2031-05-01",
+      "totalDays": 2543,
+      "daysRemaining": 1822,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 8 Pro",
+      "slug": "pixel-8pro",
+      "releaseDate": "2023-10-04",
+      "eol": "2030-10-01",
+      "totalDays": 2554,
+      "daysRemaining": 1610,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 8",
+      "slug": "pixel-8",
+      "releaseDate": "2023-10-04",
+      "eol": "2030-10-01",
+      "totalDays": 2554,
+      "daysRemaining": 1610,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel Fold",
+      "slug": "pixel-fold",
+      "releaseDate": "2023-06-28",
+      "eol": "2028-06-01",
+      "totalDays": 1800,
+      "daysRemaining": 758,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel Tablet",
+      "slug": "pixel-tablet",
+      "releaseDate": "2023-06-20",
+      "eol": "2028-06-01",
+      "totalDays": 1808,
+      "daysRemaining": 758,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 7a",
+      "slug": "pixel-7a",
+      "releaseDate": "2023-05-10",
+      "eol": "2028-05-01",
+      "totalDays": 1818,
+      "daysRemaining": 727,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 7 Pro",
+      "slug": "pixel-7pro",
+      "releaseDate": "2022-10-13",
+      "eol": "2027-10-01",
+      "totalDays": 1814,
+      "daysRemaining": 514,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 7",
+      "slug": "pixel-7",
+      "releaseDate": "2022-10-13",
+      "eol": "2027-10-01",
+      "totalDays": 1814,
+      "daysRemaining": 514,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 6a",
+      "slug": "pixel-6a",
+      "releaseDate": "2022-07-28",
+      "eol": "2027-07-01",
+      "totalDays": 1799,
+      "daysRemaining": 422,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 6 Pro",
+      "slug": "pixel-6pro",
+      "releaseDate": "2021-10-28",
+      "eol": "2026-10-01",
+      "totalDays": 1799,
+      "daysRemaining": 149,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 6",
+      "slug": "pixel-6",
+      "releaseDate": "2021-10-28",
+      "eol": "2026-10-01",
+      "totalDays": 1799,
+      "daysRemaining": 149,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 5a",
+      "slug": "pixel-5a",
+      "releaseDate": "2021-08-26",
+      "eol": "2024-08-01",
+      "totalDays": 1071,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 4a (5G)",
+      "slug": "pixel-4a-5g",
+      "releaseDate": "2020-11-05",
+      "eol": "2023-11-05",
+      "totalDays": 1095,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 5",
+      "slug": "pixel-5",
+      "releaseDate": "2020-10-15",
+      "eol": "2023-11-05",
+      "totalDays": 1116,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 4a",
+      "slug": "pixel-4a",
+      "releaseDate": "2020-08-20",
+      "eol": "2023-08-05",
+      "totalDays": 1080,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 4 XL",
+      "slug": "pixel-4xl",
+      "releaseDate": "2019-10-24",
+      "eol": "2022-10-05",
+      "totalDays": 1077,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 4",
+      "slug": "pixel-4",
+      "releaseDate": "2019-10-24",
+      "eol": "2022-10-05",
+      "totalDays": 1077,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 3a XL",
+      "slug": "pixel-3axl",
+      "releaseDate": "2019-05-15",
+      "eol": "2022-05-05",
+      "totalDays": 1086,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 3a",
+      "slug": "pixel-3a",
+      "releaseDate": "2019-05-15",
+      "eol": "2022-05-05",
+      "totalDays": 1086,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 3 XL",
+      "slug": "pixel-3xl",
+      "releaseDate": "2018-10-18",
+      "eol": "2021-10-05",
+      "totalDays": 1083,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 3",
+      "slug": "pixel-3",
+      "releaseDate": "2018-10-18",
+      "eol": "2021-10-05",
+      "totalDays": 1083,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 2 XL",
+      "slug": "pixel-2xl",
+      "releaseDate": "2017-10-17",
+      "eol": "2020-10-05",
+      "totalDays": 1084,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel 2",
+      "slug": "pixel-2",
+      "releaseDate": "2017-10-17",
+      "eol": "2020-10-05",
+      "totalDays": 1084,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel XL",
+      "slug": "pixel-1xl",
+      "releaseDate": "2016-10-20",
+      "eol": "2019-10-06",
+      "totalDays": 1081,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    },
+    {
+      "label": "Pixel",
+      "slug": "pixel-1",
+      "releaseDate": "2016-10-20",
+      "eol": "2019-10-06",
+      "totalDays": 1081,
+      "daysRemaining": 1,
+      "hasPriceData": false,
+      "launchPrice": null,
+      "launchAnnualizedPrice": null,
+      "crntPrice": null,
+      "crntAnnualizedPrice": null,
+      "priceHistory": []
+    }
+  ]
+}
