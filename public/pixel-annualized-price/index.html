@@ -102,7 +102,7 @@
   <section class="content">
     <h1>Pixel 年度化价格时间线</h1>
     <p class="subtitle">
-      年化价格 = 某时刻价格 &times; 365.25 &div; 当时距 EOL 天数（年化 $/yr）。<br>
+      年化价格 = 某时刻价格 &times; 365.25 &div; max(当时距 EOL 天数, 365.25)（年化 $/yr）。<br>
       起始 = 最早有价格数据的日期；结束 = 所有型号 EOL 的最晚日期。
       灰色斜纹区段为无实际价格记录的推算区间。
     </p>
@@ -110,7 +110,7 @@
     <div class="controls-row" id="controlsRow">
       <label class="toggle-label">
         <input type="checkbox" id="showPrice">
-        同时显示总价（实线，右轴 $）
+        同时显示总价（虚线，右轴 $）
       </label>
     </div>
 
@@ -190,26 +190,33 @@
     const points = [];
 
     const msDay = 86400000;
+    const minDays = 365.25;
     const firstDataDate = new Date(hist[0].date);
     const lastDataDate = new Date(hist[hist.length - 1].date);
 
+    function annualizedAt(price, whenDate) {
+      const rawDays = (eol - whenDate) / msDay;
+      const daysToEol = Math.max(minDays, rawDays);
+      return Math.round(price * 365.25 / daysToEol * 100) / 100;
+    }
+
     // Synthetic point at release date (use first known price)
     if (release < firstDataDate) {
-      const days = Math.max(1, Math.round((eol - release) / msDay));
       points.push({
         date: model.releaseDate,
         price: hist[0].price,
-        annualizedPrice: Math.round(hist[0].price * 365.25 / days * 100) / 100,
+        annualizedPrice: annualizedAt(hist[0].price, release),
         synth: true
       });
     }
 
     // Actual data points
     hist.forEach(h => {
+      const d = new Date(h.date);
       points.push({
         date: h.date,
         price: h.price,
-        annualizedPrice: h.annualizedPrice,
+        annualizedPrice: annualizedAt(h.price, d),
         synth: false
       });
     });
@@ -217,19 +224,16 @@
     // Synthetic point(s) extending to EOL using current price
     const crntPrice = model.crntPrice || hist[hist.length - 1].price;
     if (eol > lastDataDate) {
-      // Add one point at eol
-      const days = Math.max(1, Math.round((eol - lastDataDate) / msDay));
       // Compute annualized at a few steps to show the curve
       const steps = 3;
       for (let s = 1; s <= steps; s++) {
         const frac = s / steps;
         const ms = lastDataDate.getTime() + (eol.getTime() - lastDataDate.getTime()) * frac;
         const d = new Date(ms);
-        const daysToEol = Math.max(1, Math.round((eol - d) / msDay));
         points.push({
           date: d.toISOString().slice(0, 10),
           price: crntPrice,
-          annualizedPrice: Math.round(crntPrice * 365.25 / daysToEol * 100) / 100,
+          annualizedPrice: annualizedAt(crntPrice, d),
           synth: true
         });
       }
@@ -260,6 +264,7 @@
 
     // Compute global ranges
     let allDates = [];
+    let allActualDates = [];
     let allAnnual = [];
     let allPrices = [];
 
@@ -267,6 +272,7 @@
       rendered[m.slug].forEach(h => {
         const d = new Date(h.date);
         allDates.push(d);
+        if (!h.synth) allActualDates.push(d);
         allAnnual.push(h.annualizedPrice);
         allPrices.push(h.price);
       });
@@ -274,7 +280,7 @@
 
     // X-axis: start from earliest data point, end at latest eol
     const eolDates = priceModels.map(m => new Date(m.eol));
-    const minDate = new Date(Math.min(...allDates));
+    const minDate = new Date(Math.min(...allActualDates));
     const maxDate = new Date(Math.max(...eolDates));
     const tRangeMs = maxDate - minDate || 1;
 
