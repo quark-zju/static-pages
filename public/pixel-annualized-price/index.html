@@ -397,7 +397,7 @@
           if (seg.length < 2) return;
           seg.forEach((pt, i) => {
             const cx = x(new Date(pt.date));
-            const cy = yFunc(pt.price !== undefined ? pt.price : pt.annualizedPrice);
+            const cy = yFunc(pt);
             d += (i === 0 ? "M" : "L") + cx.toFixed(1) + "," + cy.toFixed(1);
           });
         });
@@ -410,7 +410,7 @@
           // Include single points as zero-length dashes (just dots)
           seg.forEach((pt, i) => {
             const cx = x(new Date(pt.date));
-            const cy = yFunc(pt.price !== undefined ? pt.price : pt.annualizedPrice);
+            const cy = yFunc(pt);
             d += (i === 0 ? "M" : "L") + cx.toFixed(1) + "," + cy.toFixed(1);
           });
         });
