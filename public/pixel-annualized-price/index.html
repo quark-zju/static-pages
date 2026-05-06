@@ -83,8 +83,28 @@
     }
 
     .chart-svg-wrap { width: 100%; margin-top: 8px; }
+    .chart-svg-wrap { position: relative; }
     .chart-svg-wrap svg { width: 100%; height: auto; display: block; }
     .chart-svg-wrap text { font-family: inherit; }
+    .chart-tooltip {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+      min-width: 220px;
+      max-width: 320px;
+      background: rgba(36, 41, 47, 0.96);
+      color: #f6f8fa;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      display: none;
+      white-space: normal;
+    }
+    .chart-tooltip strong { color: #ffffff; }
+    .chart-tooltip .muted { color: #c9d1d9; }
     .no-data { text-align: center; padding: 48px; color: var(--gh-muted); }
 
     @media (max-width: 640px) { .content { padding: 18px 12px; } }
@@ -116,6 +136,7 @@
 
     <div class="model-legend" id="modelLegend"></div>
     <div class="chart-svg-wrap" id="chartWrap"></div>
+    <div class="chart-tooltip" id="chartTooltip"></div>
   </section>
 </main>
 
@@ -123,6 +144,7 @@
 (function() {
   const LEGEND = document.getElementById("modelLegend");
   const CHART_WRAP = document.getElementById("chartWrap");
+  const CHART_TOOLTIP = document.getElementById("chartTooltip");
   const UPDATED_EL = document.getElementById("updated");
   const SHOW_PRICE_CB = document.getElementById("showPrice");
 
@@ -434,6 +456,18 @@
         const cx = x(new Date(pt.date));
         const cy = yAnnual(pt.annualizedPrice);
         svg += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="2.5" fill="' + c + '"/>';
+        const d = new Date(pt.date);
+        const eolDate = new Date(m.eol);
+        const releaseDate = new Date(m.releaseDate);
+        const daysToEol = Math.max(0, Math.round((eolDate - d) / 86400000));
+        const daysFromRelease = Math.max(0, Math.round((d - releaseDate) / 86400000));
+        svg += '<circle class="data-point-hit" cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="8" fill="transparent" ' +
+          'data-model="' + escapeAttr(m.label) + '" ' +
+          'data-date="' + pt.date + '" ' +
+          'data-price="' + pt.price + '" ' +
+          'data-annual="' + pt.annualizedPrice + '" ' +
+          'data-days-eol="' + daysToEol + '" ' +
+          'data-days-release="' + daysFromRelease + '"/>';
       });
 
       // Price line (only if checkbox enabled)
@@ -472,6 +506,62 @@
 
     svg += '</svg>';
     CHART_WRAP.innerHTML = svg;
+    bindTooltip();
+  }
+
+  function bindTooltip() {
+    const points = CHART_WRAP.querySelectorAll('.data-point-hit');
+    points.forEach(el => {
+      el.addEventListener('mouseenter', onPointEnter);
+      el.addEventListener('mousemove', onPointMove);
+      el.addEventListener('mouseleave', onPointLeave);
+    });
+  }
+
+  function onPointEnter(e) {
+    const t = e.currentTarget.dataset;
+    CHART_TOOLTIP.innerHTML =
+      '<div><strong>' + t.model + '</strong> <span class="muted">' + t.date + '</span></div>' +
+      '<div>总价: <strong>$' + Number(t.price).toFixed(2) + '</strong></div>' +
+      '<div>年化: <strong>$' + Number(t.annual).toFixed(2) + '/yr</strong></div>' +
+      '<div>EOL 剩余: <strong>' + formatDays(Number(t.daysEol)) + '</strong></div>' +
+      '<div class="muted">距发售: ' + formatDays(Number(t.daysRelease)) + '</div>';
+    CHART_TOOLTIP.style.display = 'block';
+    onPointMove(e);
+  }
+
+  function onPointMove(e) {
+    const wrapRect = CHART_WRAP.getBoundingClientRect();
+    const tooltipRect = CHART_TOOLTIP.getBoundingClientRect();
+    let x = e.clientX - wrapRect.left + 14;
+    let y = e.clientY - wrapRect.top + 14;
+    if (x + tooltipRect.width > wrapRect.width - 8) x = e.clientX - wrapRect.left - tooltipRect.width - 14;
+    if (y + tooltipRect.height > wrapRect.height - 8) y = e.clientY - wrapRect.top - tooltipRect.height - 14;
+    CHART_TOOLTIP.style.left = x + 'px';
+    CHART_TOOLTIP.style.top = y + 'px';
+  }
+
+  function onPointLeave() {
+    CHART_TOOLTIP.style.display = 'none';
+  }
+
+  function formatDays(days) {
+    const y = Math.floor(days / 365);
+    const m = Math.floor((days % 365) / 30);
+    const d = Math.floor((days % 365) % 30);
+    const parts = [];
+    if (y > 0) parts.push(y + '年');
+    if (m > 0) parts.push(m + '月');
+    if (d > 0 || parts.length === 0) parts.push(d + '天');
+    return parts.join(' ');
+  }
+
+  function escapeAttr(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
   }
 
   init();
