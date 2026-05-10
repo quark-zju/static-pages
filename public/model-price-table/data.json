@@ -86,6 +86,36 @@
       "notes": "自动 cache（无 write 单独收费）；按长期标价口径"
     },
     {
+      "model": "Kimi K2.6",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.95,
+        "cached_read": 0.16,
+        "cached_write": null,
+        "output": 4.00
+      },
+      "notes": "自动 context caching（无 write 单独收费）"
+    },
+    {
+      "model": "MiMo-V2.5 Pro (<=256K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.05,
+        "cached_read": 0.21,
+        "cached_write": null,
+        "output": 3.15
+      },
+      "notes": "自动 cache；按输入 <=256K 档"
+    },
+    {
+      "model": "MiMo-V2.5 Pro (256K-1M)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.10,
+        "cached_read": 0.42,
+        "cached_write": null,
+        "output": 6.30
+      },
+      "notes": "自动 cache；按输入 256K-1M 档"
+    },
+    {
       "model": "GPT-5.3-Codex",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.75,
