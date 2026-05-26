@@ -106,24 +106,14 @@
       "notes": "自动 context caching（无 write 单独收费）"
     },
     {
-      "model": "MiMo-V2.5 Pro (<=256K)",
+      "model": "MiMo-V2.5 Pro",
       "unit_price_usd_per_1m_tokens": {
-        "input": 1.05,
-        "cached_read": 0.21,
+        "input": 0.435,
+        "cached_read": 0.0036,
         "cached_write": null,
-        "output": 3.15
+        "output": 0.87
       },
-      "notes": "自动 cache；按输入 <=256K 档"
-    },
-    {
-      "model": "MiMo-V2.5 Pro (256K-1M)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 2.10,
-        "cached_read": 0.42,
-        "cached_write": null,
-        "output": 6.30
-      },
-      "notes": "自动 cache；按输入 256K-1M 档"
+      "notes": "自动 cache（无 write 单独收费）；按 2026-05-27 官宣永久降价口径（不再区分输入长度）"
     },
     {
       "model": "GPT-5.3-Codex",
