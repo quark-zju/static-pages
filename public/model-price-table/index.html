@@ -64,6 +64,23 @@
       align-items: end;
     }
 
+    .view-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-left: 4px;
+    }
+
+    .view-controls label {
+      font-size: 13px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+
     .usage-field {
       display: flex;
       flex-direction: column;
@@ -218,6 +235,10 @@
           <label for="usage-output">Output (million tokens)</label>
           <input id="usage-output" type="number" min="0" step="0.1">
         </div>
+        <div class="view-controls">
+          <label><input id="toggle-est-breakdown" type="checkbox">显示各项估价</label>
+          <label><input id="toggle-notes" type="checkbox">显示备注</label>
+        </div>
       </div>
     </div>
     <div class="table-wrap">
@@ -225,9 +246,9 @@
         <thead>
           <tr class="group">
             <th class="model" rowspan="2">Model</th>
-            <th colspan="4">Unit Price (USD / 1M Tokens)</th>
-            <th colspan="5">Estimated Cost (USD)</th>
-            <th class="notes" rowspan="2">Notes</th>
+            <th data-group="unit" colspan="4">Unit Price (USD / 1M Tokens)</th>
+            <th data-group="estimated" colspan="1">Estimated Cost (USD)</th>
+            <th class="notes" data-group="notes" rowspan="2">Notes</th>
           </tr>
           <tr id="header-row"></tr>
         </thead>
@@ -254,12 +275,35 @@
       sortDir: 'asc',
       data: [],
       rawModels: [],
+      showNotes: false,
+      showEstBreakdown: false,
       usage: {
         input: 0,
         cached_read: 0,
         output: 0
       }
     };
+
+    function getVisibleHeaderColumns() {
+      const cols = [
+        { key: 'unit.input', label: 'Input' },
+        { key: 'unit.cached_read', label: 'Cached Read' },
+        { key: 'unit.cached_write', label: 'Cached Write' },
+        { key: 'unit.output', label: 'Output' }
+      ];
+
+      if (state.showEstBreakdown) {
+        cols.push(
+          { key: 'est.input', label: 'Est. Input' },
+          { key: 'est.cached_read', label: 'Est. Cached Read' },
+          { key: 'est.cached_write', label: 'Est. Cached Write' },
+          { key: 'est.output', label: 'Est. Output' }
+        );
+      }
+
+      cols.push({ key: 'est.total', label: 'Est. Total' });
+      return cols;
+    }
 
     function formatNumber(value) {
       if (value === null || value === undefined || Number.isNaN(value)) {
@@ -362,8 +406,9 @@
 
     function renderHeader() {
       const headerRow = document.getElementById('header-row');
+      const visibleColumns = getVisibleHeaderColumns();
       const cols = [
-        ...HEADER_COLUMNS,
+        ...visibleColumns,
         { key: 'model', label: 'Model' },
         { key: 'notes', label: 'Notes' }
       ];
@@ -371,7 +416,7 @@
       const byKey = new Map(cols.map((c) => [c.key, c]));
 
       headerRow.innerHTML = [
-        ...HEADER_COLUMNS.map((col) => {
+        ...visibleColumns.map((col) => {
           const active = state.sortKey === col.key;
           const arrow = active ? (state.sortDir === 'asc' ? '▲' : '▼') : '↕';
           return `<th class="sortable ${active ? 'active' : ''}" data-sort="${col.key}">${col.label}<span class="arrow">${arrow}</span></th>`;
@@ -380,9 +425,16 @@
 
       const staticModel = document.querySelector('thead tr.group th.model');
       const staticNotes = document.querySelector('thead tr.group th.notes');
+      const unitGroup = document.querySelector('thead tr.group th[data-group="unit"]');
+      const estGroup = document.querySelector('thead tr.group th[data-group="estimated"]');
 
       const modelCol = byKey.get('model');
       const notesCol = byKey.get('notes');
+
+      const estSubColumnCount = state.showEstBreakdown ? 5 : 1;
+      unitGroup.setAttribute('colspan', '4');
+      estGroup.setAttribute('colspan', String(estSubColumnCount));
+      staticNotes.style.display = state.showNotes ? '' : 'none';
 
       const updateCell = (th, col) => {
         const active = state.sortKey === col.key;
@@ -398,7 +450,9 @@
       };
 
       updateCell(staticModel, modelCol);
-      updateCell(staticNotes, notesCol);
+      if (state.showNotes) {
+        updateCell(staticNotes, notesCol);
+      }
 
       document.querySelectorAll('th.sortable').forEach((th) => {
         th.addEventListener('click', () => {
@@ -422,6 +476,19 @@
       const sorted = sortRows(state.data);
 
       tbody.innerHTML = sorted.map((row) => {
+        const estCells = state.showEstBreakdown
+          ? `
+            <td>${formatValue(row.est.input)}</td>
+            <td>${formatValue(row.est.cached_read)}</td>
+            <td>${formatValue(row.est.cached_write)}</td>
+            <td>${formatValue(row.est.output)}</td>
+          `
+          : '';
+
+        const notesCell = state.showNotes
+          ? `<td class="notes">${formatValue(row.notes, true)}</td>`
+          : '';
+
         return `
           <tr>
             <td class="model">${formatValue(row.model, true)}</td>
@@ -429,12 +496,9 @@
             <td>${formatValue(row.unit.cached_read)}</td>
             <td>${formatValue(row.unit.cached_write)}</td>
             <td>${formatValue(row.unit.output)}</td>
-            <td>${formatValue(row.est.input)}</td>
-            <td>${formatValue(row.est.cached_read)}</td>
-            <td>${formatValue(row.est.cached_write)}</td>
-            <td>${formatValue(row.est.output)}</td>
+            ${estCells}
             <td>${formatValue(row.est.total)}</td>
-            <td class="notes">${formatValue(row.notes, true)}</td>
+            ${notesCell}
           </tr>
         `;
       }).join('');
@@ -480,6 +544,22 @@
           state.usage[key] = Number.isFinite(value) && value >= 0 ? value : 0;
           recalculateRows();
         });
+      });
+
+      const toggleNotes = document.getElementById('toggle-notes');
+      const toggleEstBreakdown = document.getElementById('toggle-est-breakdown');
+
+      toggleNotes.checked = state.showNotes;
+      toggleEstBreakdown.checked = state.showEstBreakdown;
+
+      toggleNotes.addEventListener('change', () => {
+        state.showNotes = toggleNotes.checked;
+        renderTable();
+      });
+
+      toggleEstBreakdown.addEventListener('change', () => {
+        state.showEstBreakdown = toggleEstBreakdown.checked;
+        renderTable();
       });
     }
 
