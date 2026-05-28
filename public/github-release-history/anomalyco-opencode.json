@@ -1,7 +1,7 @@
 {
   "repo": "anomalyco/opencode",
-  "updated": "2026-04-29T21:22:36Z",
-  "total": 780,
+  "updated": "2026-05-28T08:40:26Z",
+  "total": 812,
   "releases": [
     {
       "tag": "v0.0.47",
@@ -4682,6 +4682,198 @@
       "date": "2026-04-28",
       "prerelease": false,
       "name": "v1.14.29"
+    },
+    {
+      "tag": "v1.14.30",
+      "date": "2026-04-29",
+      "prerelease": false,
+      "name": "v1.14.30"
+    },
+    {
+      "tag": "v1.14.31",
+      "date": "2026-05-01",
+      "prerelease": false,
+      "name": "v1.14.31"
+    },
+    {
+      "tag": "v1.14.33",
+      "date": "2026-05-02",
+      "prerelease": false,
+      "name": "v1.14.33"
+    },
+    {
+      "tag": "v1.14.32",
+      "date": "2026-05-02",
+      "prerelease": false,
+      "name": "v1.14.32"
+    },
+    {
+      "tag": "v1.14.34",
+      "date": "2026-05-04",
+      "prerelease": false,
+      "name": "v1.14.34"
+    },
+    {
+      "tag": "v1.14.39",
+      "date": "2026-05-05",
+      "prerelease": false,
+      "name": "v1.14.39"
+    },
+    {
+      "tag": "v1.14.38",
+      "date": "2026-05-05",
+      "prerelease": false,
+      "name": "v1.14.38"
+    },
+    {
+      "tag": "v1.14.37",
+      "date": "2026-05-05",
+      "prerelease": false,
+      "name": "v1.14.37"
+    },
+    {
+      "tag": "v1.14.35",
+      "date": "2026-05-05",
+      "prerelease": false,
+      "name": "v1.14.35"
+    },
+    {
+      "tag": "v1.14.41",
+      "date": "2026-05-07",
+      "prerelease": false,
+      "name": "v1.14.41"
+    },
+    {
+      "tag": "v1.14.40",
+      "date": "2026-05-07",
+      "prerelease": false,
+      "name": "v1.14.40"
+    },
+    {
+      "tag": "v1.14.44",
+      "date": "2026-05-09",
+      "prerelease": false,
+      "name": "v1.14.44"
+    },
+    {
+      "tag": "v1.14.43",
+      "date": "2026-05-09",
+      "prerelease": false,
+      "name": "v1.14.43"
+    },
+    {
+      "tag": "v1.14.42",
+      "date": "2026-05-09",
+      "prerelease": false,
+      "name": "v1.14.42"
+    },
+    {
+      "tag": "v1.14.46",
+      "date": "2026-05-10",
+      "prerelease": false,
+      "name": "v1.14.46"
+    },
+    {
+      "tag": "v1.14.45",
+      "date": "2026-05-10",
+      "prerelease": false,
+      "name": "v1.14.45"
+    },
+    {
+      "tag": "v1.14.48",
+      "date": "2026-05-11",
+      "prerelease": false,
+      "name": "v1.14.48"
+    },
+    {
+      "tag": "v1.14.47",
+      "date": "2026-05-11",
+      "prerelease": false,
+      "name": "v1.14.47"
+    },
+    {
+      "tag": "v1.14.49",
+      "date": "2026-05-13",
+      "prerelease": false,
+      "name": "v1.14.49"
+    },
+    {
+      "tag": "v1.14.50",
+      "date": "2026-05-14",
+      "prerelease": false,
+      "name": "v1.14.50"
+    },
+    {
+      "tag": "v1.15.0",
+      "date": "2026-05-15",
+      "prerelease": false,
+      "name": "v1.15.0"
+    },
+    {
+      "tag": "v1.14.51",
+      "date": "2026-05-15",
+      "prerelease": false,
+      "name": "v1.14.51"
+    },
+    {
+      "tag": "v1.15.3",
+      "date": "2026-05-16",
+      "prerelease": false,
+      "name": "v1.15.3"
+    },
+    {
+      "tag": "v1.15.2",
+      "date": "2026-05-16",
+      "prerelease": false,
+      "name": "v1.15.2"
+    },
+    {
+      "tag": "v1.15.1",
+      "date": "2026-05-16",
+      "prerelease": false,
+      "name": "v1.15.1"
+    },
+    {
+      "tag": "v1.15.4",
+      "date": "2026-05-17",
+      "prerelease": false,
+      "name": "v1.15.4"
+    },
+    {
+      "tag": "v1.15.5",
+      "date": "2026-05-18",
+      "prerelease": false,
+      "name": "v1.15.5"
+    },
+    {
+      "tag": "v1.15.6",
+      "date": "2026-05-20",
+      "prerelease": false,
+      "name": "v1.15.6"
+    },
+    {
+      "tag": "v1.15.7",
+      "date": "2026-05-21",
+      "prerelease": false,
+      "name": "v1.15.7"
+    },
+    {
+      "tag": "v1.15.9",
+      "date": "2026-05-22",
+      "prerelease": false,
+      "name": "v1.15.9"
+    },
+    {
+      "tag": "v1.15.10",
+      "date": "2026-05-23",
+      "prerelease": false,
+      "name": "v1.15.10"
+    },
+    {
+      "tag": "v1.15.11",
+      "date": "2026-05-27",
+      "prerelease": false,
+      "name": "v1.15.11"
     }
   ]
 }

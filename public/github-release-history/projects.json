@@ -3,62 +3,62 @@
     {
       "repo": "anomalyco/opencode",
       "file": "anomalyco-opencode.json",
-      "updated": "2026-04-29T21:22:36Z",
-      "total": 780
+      "updated": "2026-05-28T08:40:26Z",
+      "total": 812
     },
     {
       "repo": "openai/codex",
       "file": "openai-codex.json",
-      "updated": "2026-04-29T21:22:09Z",
-      "total": 751
+      "updated": "2026-05-28T08:40:33Z",
+      "total": 802
     },
     {
       "repo": "junhoyeo/tokscale",
       "file": "junhoyeo-tokscale.json",
-      "updated": "2026-04-30T00:44:43Z",
-      "total": 54
+      "updated": "2026-05-28T08:40:35Z",
+      "total": 58
     },
     {
       "repo": "danny-avila/LibreChat",
       "file": "danny-avila-LibreChat.json",
-      "updated": "2026-04-30T00:44:46Z",
-      "total": 88
+      "updated": "2026-05-28T08:40:37Z",
+      "total": 90
     },
     {
       "repo": "open-webui/open-webui",
       "file": "open-webui-open-webui.json",
-      "updated": "2026-04-30T00:44:49Z",
-      "total": 159
+      "updated": "2026-05-28T08:40:38Z",
+      "total": 162
     },
     {
       "repo": "vadimdemedes/ink",
       "file": "vadimdemedes-ink.json",
-      "updated": "2026-04-30T00:44:50Z",
-      "total": 74
+      "updated": "2026-05-28T08:40:40Z",
+      "total": 77
     },
     {
       "repo": "HKUDS/nanobot",
       "file": "HKUDS-nanobot.json",
-      "updated": "2026-04-30T01:15:05Z",
-      "total": 15
+      "updated": "2026-05-28T08:40:41Z",
+      "total": 16
     },
     {
       "repo": "openclaw/openclaw",
       "file": "openclaw-openclaw.json",
-      "updated": "2026-04-30T01:15:09Z",
-      "total": 120
+      "updated": "2026-05-28T08:40:44Z",
+      "total": 181
     },
     {
       "repo": "textualize/textual",
       "file": "textualize-textual.json",
-      "updated": "2026-04-30T01:15:11Z",
-      "total": 219
+      "updated": "2026-05-28T08:40:46Z",
+      "total": 222
     },
     {
       "repo": "google-ai-edge/LiteRT-LM",
       "file": "google-ai-edge-LiteRT-LM.json",
-      "updated": "2026-04-30T01:15:12Z",
-      "total": 18
+      "updated": "2026-05-28T08:40:47Z",
+      "total": 21
     },
     {
       "repo": "helix-editor/helix",
@@ -67,5 +67,5 @@
       "total": 30
     }
   ],
-  "updated": "2026-04-30T12:53:28Z"
+  "updated": "2026-05-28T08:40:47Z"
 }

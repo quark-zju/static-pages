@@ -1,7 +1,7 @@
 {
   "repo": "textualize/textual",
-  "updated": "2026-04-30T01:15:11Z",
-  "total": 219,
+  "updated": "2026-05-28T08:40:46Z",
+  "total": 222,
   "releases": [
     {
       "tag": "v0.1.2",
@@ -1316,6 +1316,24 @@
       "date": "2026-04-19",
       "prerelease": false,
       "name": "The small potatoes Release"
+    },
+    {
+      "tag": "v8.2.5",
+      "date": "2026-04-30",
+      "prerelease": false,
+      "name": "The Antsy Release"
+    },
+    {
+      "tag": "v8.2.6",
+      "date": "2026-05-13",
+      "prerelease": false,
+      "name": "The more selective release"
+    },
+    {
+      "tag": "v8.2.7",
+      "date": "2026-05-19",
+      "prerelease": false,
+      "name": "The more Kitty Release"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "repo": "vadimdemedes/ink",
-  "updated": "2026-04-30T00:44:50Z",
-  "total": 74,
+  "updated": "2026-05-28T08:40:40Z",
+  "total": 77,
   "releases": [
     {
       "tag": "v0.2.0",
@@ -446,6 +446,24 @@
       "date": "2026-04-17",
       "prerelease": false,
       "name": "v7.0.1"
+    },
+    {
+      "tag": "v7.0.2",
+      "date": "2026-05-05",
+      "prerelease": false,
+      "name": "v7.0.2"
+    },
+    {
+      "tag": "v7.0.3",
+      "date": "2026-05-13",
+      "prerelease": false,
+      "name": "v7.0.3"
+    },
+    {
+      "tag": "v7.0.4",
+      "date": "2026-05-24",
+      "prerelease": false,
+      "name": "v7.0.4"
     }
   ]
 }

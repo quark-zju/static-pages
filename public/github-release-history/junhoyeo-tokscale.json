@@ -1,7 +1,7 @@
 {
   "repo": "junhoyeo/tokscale",
-  "updated": "2026-04-30T00:44:43Z",
-  "total": 54,
+  "updated": "2026-05-28T08:40:35Z",
+  "total": 58,
   "releases": [
     {
       "tag": "v1.0.14",
@@ -326,6 +326,30 @@
       "date": "2026-04-21",
       "prerelease": false,
       "name": "v2.0.27"
+    },
+    {
+      "tag": "v2.1.0",
+      "date": "2026-05-01",
+      "prerelease": false,
+      "name": "v2.1.0"
+    },
+    {
+      "tag": "v2.1.1",
+      "date": "2026-05-10",
+      "prerelease": false,
+      "name": "v2.1.1"
+    },
+    {
+      "tag": "v2.1.3",
+      "date": "2026-05-18",
+      "prerelease": false,
+      "name": "v2.1.3"
+    },
+    {
+      "tag": "v2.1.2",
+      "date": "2026-05-18",
+      "prerelease": false,
+      "name": "v2.1.2"
     }
   ]
 }

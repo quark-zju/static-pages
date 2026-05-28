@@ -1,7 +1,7 @@
 {
   "repo": "open-webui/open-webui",
-  "updated": "2026-04-30T00:44:49Z",
-  "total": 159,
+  "updated": "2026-05-28T08:40:38Z",
+  "total": 162,
   "releases": [
     {
       "tag": "v0.1.102",
@@ -956,6 +956,24 @@
       "date": "2026-04-24",
       "prerelease": false,
       "name": "v0.9.2"
+    },
+    {
+      "tag": "v0.9.4",
+      "date": "2026-05-09",
+      "prerelease": false,
+      "name": "v0.9.4"
+    },
+    {
+      "tag": "v0.9.3",
+      "date": "2026-05-09",
+      "prerelease": false,
+      "name": "v0.9.3"
+    },
+    {
+      "tag": "v0.9.5",
+      "date": "2026-05-10",
+      "prerelease": false,
+      "name": "v0.9.5"
     }
   ]
 }

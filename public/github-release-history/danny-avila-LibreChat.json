@@ -1,7 +1,7 @@
 {
   "repo": "danny-avila/LibreChat",
-  "updated": "2026-04-30T00:44:46Z",
-  "total": 88,
+  "updated": "2026-05-28T08:40:37Z",
+  "total": 90,
   "releases": [
     {
       "tag": "v0.0.1",
@@ -530,6 +530,18 @@
       "date": "2026-04-22",
       "prerelease": true,
       "name": "v0.8.5"
+    },
+    {
+      "tag": "v0.8.6-rc1",
+      "date": "2026-05-13",
+      "prerelease": true,
+      "name": "v0.8.6-rc1"
+    },
+    {
+      "tag": "chart-2.0.3",
+      "date": "2026-05-13",
+      "prerelease": true,
+      "name": "chart-2.0.3"
     }
   ]
 }
