@@ -16,6 +16,26 @@
       "notes": "显式 cache write 收费"
     },
     {
+      "model": "MiniMax-M3 (<=512K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.60,
+        "cached_read": 0.12,
+        "cached_write": null,
+        "output": 2.40
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；按输入 <=512K 档"
+    },
+    {
+      "model": "MiniMax-M3 (>512K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.20,
+        "cached_read": 0.24,
+        "cached_write": null,
+        "output": 4.80
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；按输入 >512K 档"
+    },
+    {
       "model": "Gemini 3 Flash Preview",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.50,
