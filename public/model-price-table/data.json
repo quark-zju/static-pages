@@ -56,6 +56,16 @@
       "notes": "有额外 cache storage（未计入）"
     },
     {
+      "model": "Gemini 3.5 Pro",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.70,
+        "cached_read": 0.27,
+        "cached_write": null,
+        "output": 16.20
+      },
+      "notes": "有额外 cache storage（未计入）"
+    },
+    {
       "model": "Qwen 3.6 Plus (<=256K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.276,
