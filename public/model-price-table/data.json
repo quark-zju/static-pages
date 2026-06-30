@@ -126,6 +126,16 @@
       "notes": "自动 cache（无 write 单独收费）；按官方永久价格（原价 1/4）"
     },
     {
+      "model": "LongCat-2.0",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.30,
+        "cached_read": 0.006,
+        "cached_write": null,
+        "output": 1.20
+      },
+      "notes": "自动 cache（无 write 单独收费）；按官方 API Pay-As-You-Go 限时折扣价，原价 input 0.75 / cached 0.015 / output 2.95"
+    },
+    {
       "model": "Kimi K2.6",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.95,
