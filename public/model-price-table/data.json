@@ -66,6 +66,16 @@
       "notes": "有额外 cache storage（未计入）"
     },
     {
+      "model": "GLM-5.2",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.40,
+        "cached_read": 0.26,
+        "cached_write": null,
+        "output": 4.40
+      },
+      "notes": "自动 context caching（无 write 单独收费）；cache storage 限时免费（未计入）"
+    },
+    {
       "model": "Qwen 3.6 Plus (<=256K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.276,
