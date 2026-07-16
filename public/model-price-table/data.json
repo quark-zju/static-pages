@@ -76,6 +76,36 @@
       "notes": "自动 context caching（无 write 单独收费）；cache storage 限时免费（未计入）"
     },
     {
+      "model": "Muse Spark 1.1",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.25,
+        "cached_read": 0.15,
+        "cached_write": null,
+        "output": 4.25
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；Meta Model API 公开预览价"
+    },
+    {
+      "model": "Grok 4.5 (<200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.00,
+        "cached_read": 0.50,
+        "cached_write": null,
+        "output": 6.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；按 prompt <200K 档"
+    },
+    {
+      "model": "Grok 4.5 (>=200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 4.00,
+        "cached_read": 1.00,
+        "cached_write": null,
+        "output": 12.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费"
+    },
+    {
       "model": "Qwen 3.6 Plus (<=256K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.276,
