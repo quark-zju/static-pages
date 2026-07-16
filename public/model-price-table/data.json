@@ -287,6 +287,19 @@
         "output": 25.00
       },
       "notes": "显式 cache write；成本非常敏感"
+    },
+    {
+      "model": "Claude Opus 4.8",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 5.00,
+        "cached_read": 0.50,
+        "cached_write": {
+          "5min": 6.25,
+          "1hour": 10.00
+        },
+        "output": 25.00
+      },
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价"
     }
   ]
 }
