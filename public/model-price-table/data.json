@@ -300,6 +300,19 @@
         "output": 25.00
       },
       "notes": "显式 cache write；完整 1M 上下文无长上下文附加价"
+    },
+    {
+      "model": "Claude Fable 5",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 10.00,
+        "cached_read": 1.00,
+        "cached_write": {
+          "5min": 12.50,
+          "1hour": 20.00
+        },
+        "output": 50.00
+      },
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价"
     }
   ]
 }
