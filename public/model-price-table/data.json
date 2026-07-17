@@ -186,6 +186,16 @@
       "notes": "自动 context caching（无 write 单独收费）"
     },
     {
+      "model": "Kimi K3",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 3.00,
+        "cached_read": 0.30,
+        "cached_write": null,
+        "output": 15.00
+      },
+      "notes": "自动 context caching（无 write 单独收费）；完整 1M 上下文统一计价"
+    },
+    {
       "model": "MiMo-V2.5 Pro",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.435,
