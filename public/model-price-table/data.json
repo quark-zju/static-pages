@@ -96,6 +96,16 @@
       "notes": "自动 prompt caching（无 write 单独收费）；Meta Model API 公开预览价"
     },
     {
+      "model": "Muse Spark 1.2 Contributor",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.10,
+        "cached_read": 0.002,
+        "cached_write": null,
+        "output": 0.20
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；使用此档位即允许 Meta 使用 prompts 和 completions 改进其产品"
+    },
+    {
       "model": "Grok 4.5 (<200K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 2.00,
