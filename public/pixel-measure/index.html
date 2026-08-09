@@ -87,6 +87,40 @@
       flex: 1 1 220px;
       border: 1px dashed var(--gh-border);
     }
+    .key-picker {
+      display: flex;
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid var(--gh-border);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .key-picker label { color: var(--gh-muted); font-size: 13px; }
+    .key-picker input {
+      flex: 1 1 280px;
+      min-width: 0;
+      padding: 9px 10px;
+      border: 1px solid #8c959f;
+      border-radius: 6px;
+      font: inherit;
+    }
+    .key-picker button {
+      padding: 9px 14px;
+      border: 0;
+      border-radius: 6px;
+      color: #fff;
+      background: var(--gh-blue);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .key-picker button:hover { background: #0860ca; }
+    .key-status { flex-basis: 100%; min-height: 1.2em; color: var(--gh-muted); font-size: 12px; }
+    .key-status.error { color: var(--gh-red); }
     .stats { flex: 2 1 480px; }
     .file-input-label {
       display: block;
@@ -203,6 +237,12 @@
           <input id="file-input" type="file" accept="image/png,.png">
           <label class="file-input-label" for="file-input">选择 PNG 图片</label>
         </div>
+        <div class="key-picker">
+          <label for="key-input">或使用内置图片</label>
+          <input id="key-input" type="password" autocomplete="off" placeholder="输入 AES_KEY_BASE64">
+          <button id="load-encrypted" type="button">解密载入</button>
+          <div id="key-status" class="key-status" role="status"></div>
+        </div>
         <div class="stats">
           <div class="info-display">
             <div class="info-box">宽度<div id="horizontal-length" class="info-value">0 px</div></div>
@@ -234,6 +274,9 @@
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d", { willReadFrequently: true });
       const fileInput = document.getElementById("file-input");
+      const keyInput = document.getElementById("key-input");
+      const loadEncryptedButton = document.getElementById("load-encrypted");
+      const keyStatus = document.getElementById("key-status");
       const scaleInput = document.getElementById("scale-value");
       const emptyState = document.getElementById("empty-state");
       const horizontalDisplay = document.getElementById("horizontal-length");
@@ -301,23 +344,69 @@
         ctx.fillRect(0, 0, 1, 1);
       }
 
+      function finishImageLoad(image) {
+        originalWidth = image.width;
+        originalHeight = image.height;
+        canvas.width = originalWidth;
+        canvas.height = originalHeight;
+        ctx.drawImage(image, 0, 0);
+        imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
+        emptyState.hidden = true;
+      }
+
+      function loadImageSource(source, revoke = false) {
+        const image = new Image();
+        image.onload = () => {
+          finishImageLoad(image);
+          if (revoke) URL.revokeObjectURL(source);
+        };
+        image.onerror = () => {
+          if (revoke) URL.revokeObjectURL(source);
+        };
+        image.src = source;
+      }
+
       function loadImage(file) {
         if (!file || file.type !== "image/png") return;
         const reader = new FileReader();
         reader.onload = event => {
-          const image = new Image();
-          image.onload = () => {
-            originalWidth = image.width;
-            originalHeight = image.height;
-            canvas.width = originalWidth;
-            canvas.height = originalHeight;
-            ctx.drawImage(image, 0, 0);
-            imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
-            emptyState.hidden = true;
-          };
-          image.src = event.target.result;
+          loadImageSource(event.target.result);
         };
         reader.readAsDataURL(file);
+      }
+
+      function decodeBase64(value) {
+        const normalized = value.replace(/\s/g, "");
+        if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw new Error("Base64 密钥格式不正确");
+        const binary = atob(normalized);
+        return Uint8Array.from(binary, character => character.charCodeAt(0));
+      }
+
+      async function loadEncryptedImage() {
+        keyStatus.className = "key-status";
+        keyStatus.textContent = "正在解密…";
+        try {
+          const keyBytes = decodeBase64(keyInput.value);
+          if (keyBytes.length !== 32) throw new Error("AES-256 密钥必须是 32 字节");
+          const encrypted = new Uint8Array(await (await fetch("floor-plan.enc", { cache: "no-store" })).arrayBuffer());
+          if (encrypted.length < 12 + 16) throw new Error("加密文件格式不正确");
+          const iv = encrypted.slice(0, 12);
+          const authTag = encrypted.slice(-16);
+          const ciphertext = encrypted.slice(12, -16);
+          const key = await crypto.subtle.importKey("raw", keyBytes, { name: "AES-GCM" }, false, ["decrypt"]);
+          const plaintext = await crypto.subtle.decrypt(
+            { name: "AES-GCM", iv },
+            key,
+            new Uint8Array([...ciphertext, ...authTag])
+          );
+          const source = URL.createObjectURL(new Blob([plaintext], { type: "image/png" }));
+          loadImageSource(source, true);
+          keyStatus.textContent = "已成功解密载入";
+          keyInput.value = "";
+        } catch (error) {
+          keyStatus.className = "key-status error";
+          keyStatus.textContent = "解密失败：请检查密钥或加密文件";
+        }
       }
 
       function showMeasurement(event, horizontal, vertical, x, y) {
@@ -369,6 +458,7 @@
       });
 
       fileInput.addEventListener("change", event => loadImage(event.target.files[0]));
+      loadEncryptedButton.addEventListener("click", loadEncryptedImage);
       scaleInput.addEventListener("change", event => {
         scaleValue = parseScale(event.target.value);
         scaleInput.value = scaleValue;
