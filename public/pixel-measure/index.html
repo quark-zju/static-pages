@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floor Plan Measure Tool</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap");
+
+    :root {
+      --gh-bg: #f6f8fa;
+      --gh-surface: #ffffff;
+      --gh-border: #d0d7de;
+      --gh-text: #24292f;
+      --gh-muted: #57606a;
+      --gh-blue: #0969da;
+      --gh-red: #cf222e;
+      --gh-shadow: 0 10px 30px rgba(31, 35, 40, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px;
+      font-family: "IBM Plex Sans", "Noto Sans SC", sans-serif;
+      color: var(--gh-text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(9, 105, 218, 0.08) 0%, rgba(9, 105, 218, 0) 45%),
+        radial-gradient(circle at 100% 100%, rgba(45, 164, 78, 0.08) 0%, rgba(45, 164, 78, 0) 40%),
+        var(--gh-bg);
+    }
+
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--gh-surface);
+      border: 1px solid var(--gh-border);
+      border-radius: 14px;
+      box-shadow: var(--gh-shadow);
+    }
+
+    .topbar {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--gh-border);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .topbar-dots { display: flex; gap: 8px; }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid rgba(31, 35, 40, 0.2);
+      border-radius: 999px;
+      background: #f0f3f6;
+    }
+    .back-link { color: var(--gh-blue); font-size: 13px; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    .content { padding: 28px; }
+    header { padding-bottom: 20px; border-bottom: 1px solid var(--gh-border); text-align: center; }
+    h1 { margin: 0; font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.02em; }
+    .description {
+      max-width: 720px;
+      margin: 10px auto 0;
+      color: var(--gh-muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .file-picker, .stats {
+      padding: 16px;
+      border-radius: 10px;
+      background: #f6f8fa;
+    }
+    .file-picker {
+      flex: 1 1 220px;
+      border: 1px dashed var(--gh-border);
+    }
+    .stats { flex: 2 1 480px; }
+    .file-input-label {
+      display: block;
+      padding: 12px 20px;
+      border-radius: 6px;
+      color: #fff;
+      background: var(--gh-text);
+      text-align: center;
+      cursor: pointer;
+      transition: background 120ms ease, transform 120ms ease;
+    }
+    .file-input-label:hover { background: #424a53; transform: translateY(-1px); }
+    #file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+    #file-input:focus-visible + .file-input-label { outline: 3px solid rgba(9, 105, 218, 0.35); outline-offset: 2px; }
+
+    .info-display { display: flex; flex-wrap: wrap; gap: 10px; }
+    .info-box {
+      flex: 1 1 130px;
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--gh-muted);
+      text-align: center;
+      font-size: 13px;
+    }
+    .info-value {
+      width: 100%;
+      margin-top: 5px;
+      border: 0;
+      color: var(--gh-text);
+      background: transparent;
+      font-family: inherit;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+    .info-value[type="number"] { border: 1px solid #8c959f; border-radius: 4px; background: #fff; }
+
+    .canvas-container {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      border: 1px solid var(--gh-border);
+      border-radius: 8px;
+      background: #fff;
+    }
+    canvas { display: block; max-width: 100%; margin: 0 auto; cursor: crosshair; }
+    .empty-state {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      color: #8c959f;
+      font-size: 17px;
+      pointer-events: none;
+    }
+
+    .measurement-panel, .coordinate-display {
+      position: fixed;
+      z-index: 10;
+      display: none;
+      pointer-events: none;
+      color: #fff;
+      background: rgba(36, 41, 47, 0.94);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .measurement-panel { min-width: 190px; padding: 10px 14px; border-radius: 8px; font-size: 12px; line-height: 1.6; }
+    .measurement-panel strong { color: #fff; }
+    .measurement-value { font-weight: 700; color: #79c0ff; }
+    .measurement-value.horizontal { color: #ff7b72; }
+    .coordinate-display { padding: 6px 9px; border-radius: 6px; font-size: 12px; }
+
+    .instructions {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--gh-blue);
+      border-radius: 6px;
+      background: #f6f8fa;
+      color: var(--gh-muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .instructions strong { color: var(--gh-text); }
+    .instructions p { margin: 0; }
+
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .content { padding: 20px 14px; }
+      .controls { margin: 16px 0; }
+      .info-value { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar" aria-hidden="true">
+      <div class="topbar-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <a class="back-link" href="../">返回项目导航</a>
+    </header>
+
+    <section class="content">
+      <header>
+        <h1>平面图测量工具</h1>
+        <p class="description">上传黑白 PNG 平面图，将鼠标移到图像上，即可扫描当前位置在横向和纵向的连续同色区域。</p>
+      </header>
+
+      <div class="controls">
+        <div class="file-picker">
+          <input id="file-input" type="file" accept="image/png,.png">
+          <label class="file-input-label" for="file-input">选择 PNG 图片</label>
+        </div>
+        <div class="stats">
+          <div class="info-display">
+            <div class="info-box">宽度<div id="horizontal-length" class="info-value">0 px</div></div>
+            <div class="info-box">高度<div id="vertical-length" class="info-value">0 px</div></div>
+            <label class="info-box">比例（1 米 = ? 像素）<input id="scale-value" class="info-value" type="number" min="0.01" step="0.1" inputmode="decimal" aria-label="比例，1米对应的像素数"></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="canvas" aria-label="待测量的平面图"></canvas>
+        <div id="empty-state" class="empty-state">请先上传平面图 PNG 文件</div>
+      </div>
+
+      <aside class="instructions">
+        <p><strong>使用提示：</strong>当前像素会作为颜色基准，容差为 30。横向红线、纵向蓝线分别表示连续同色区域；比例值默认为 <strong>211.1</strong>，会保存在当前浏览器中。</p>
+      </aside>
+    </section>
+  </main>
+
+  <div id="measurement-panel" class="measurement-panel" aria-live="polite">
+    <div>宽度：<span id="panel-horizontal" class="measurement-value horizontal">0 px</span></div>
+    <div>高度：<span id="panel-vertical" class="measurement-value">0 px</span></div>
+  </div>
+  <div id="coordinate-display" class="coordinate-display">(0, 0)</div>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      const fileInput = document.getElementById("file-input");
+      const scaleInput = document.getElementById("scale-value");
+      const emptyState = document.getElementById("empty-state");
+      const horizontalDisplay = document.getElementById("horizontal-length");
+      const verticalDisplay = document.getElementById("vertical-length");
+      const panelHorizontal = document.getElementById("panel-horizontal");
+      const panelVertical = document.getElementById("panel-vertical");
+      const measurementPanel = document.getElementById("measurement-panel");
+      const coordinateDisplay = document.getElementById("coordinate-display");
+      const DEFAULT_SCALE = 211.1;
+      const COLOR_TOLERANCE = 30;
+
+      let imageData = null;
+      let originalWidth = 0;
+      let originalHeight = 0;
+      let scaleValue = parseScale(localStorage.getItem("pixel-measure-scale"));
+      scaleInput.value = scaleValue;
+
+      function parseScale(value) {
+        const parsed = Number.parseFloat(value);
+        return Number.isFinite(parsed) && parsed > 0.01 ? parsed : DEFAULT_SCALE;
+      }
+
+      function metersToFeet(meters) {
+        const totalInches = meters * 39.3701;
+        const feet = Math.floor(totalInches / 12);
+        const inches = Math.round(totalInches % 12);
+        return inches < 0.5 ? `${feet}'` : `${feet}'${inches}"`;
+      }
+
+      function colorsMatch(a, b) {
+        return Math.abs(a[0] - b[0]) <= COLOR_TOLERANCE &&
+          Math.abs(a[1] - b[1]) <= COLOR_TOLERANCE &&
+          Math.abs(a[2] - b[2]) <= COLOR_TOLERANCE &&
+          Math.abs(a[3] - b[3]) <= COLOR_TOLERANCE;
+      }
+
+      function pixelColor(x, y) {
+        if (x < 0 || x >= originalWidth || y < 0 || y >= originalHeight) return [0, 0, 0, 0];
+        const index = (y * originalWidth + x) * 4;
+        return [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], imageData.data[index + 3]];
+      }
+
+      function scanHorizontal(x, y) {
+        const base = pixelColor(x, y);
+        let left = x;
+        let right = x;
+        while (left >= 0 && colorsMatch(pixelColor(left, y), base)) left--;
+        while (right < originalWidth && colorsMatch(pixelColor(right, y), base)) right++;
+        return { start: Math.max(left + 1, 0), end: Math.min(right - 1, originalWidth - 1), length: right - left - 1 };
+      }
+
+      function scanVertical(x, y) {
+        const base = pixelColor(x, y);
+        let top = y;
+        let bottom = y;
+        while (top >= 0 && colorsMatch(pixelColor(x, top), base)) top--;
+        while (bottom < originalHeight && colorsMatch(pixelColor(x, bottom), base)) bottom++;
+        return { start: Math.max(top + 1, 0), end: Math.min(bottom - 1, originalHeight - 1), length: bottom - top - 1 };
+      }
+
+      function drawPlaceholder() {
+        canvas.width = 1;
+        canvas.height = 1;
+        ctx.fillStyle = "#eee";
+        ctx.fillRect(0, 0, 1, 1);
+      }
+
+      function loadImage(file) {
+        if (!file || file.type !== "image/png") return;
+        const reader = new FileReader();
+        reader.onload = event => {
+          const image = new Image();
+          image.onload = () => {
+            originalWidth = image.width;
+            originalHeight = image.height;
+            canvas.width = originalWidth;
+            canvas.height = originalHeight;
+            ctx.drawImage(image, 0, 0);
+            imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
+            emptyState.hidden = true;
+          };
+          image.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function showMeasurement(event, horizontal, vertical, x, y) {
+        const hMeters = horizontal.length / scaleValue;
+        const vMeters = vertical.length / scaleValue;
+        const hText = `${horizontal.length} px = ${hMeters.toFixed(2)} m = ${metersToFeet(hMeters)}`;
+        const vText = `${vertical.length} px = ${vMeters.toFixed(2)} m = ${metersToFeet(vMeters)}`;
+        horizontalDisplay.textContent = `${horizontal.length} px`;
+        verticalDisplay.textContent = `${vertical.length} px`;
+        panelHorizontal.textContent = hText;
+        panelVertical.textContent = vText;
+        measurementPanel.style.display = "block";
+        measurementPanel.style.left = `${event.clientX + 15}px`;
+        measurementPanel.style.top = `${Math.max(8, event.clientY - 100)}px`;
+        coordinateDisplay.textContent = `(${x}, ${y})`;
+        coordinateDisplay.style.display = "block";
+        coordinateDisplay.style.left = `${event.clientX + 15}px`;
+        coordinateDisplay.style.top = `${event.clientY + 15}px`;
+      }
+
+      canvas.addEventListener("mousemove", event => {
+        if (!imageData) return;
+        const rect = canvas.getBoundingClientRect();
+        const currentScale = originalWidth / rect.width;
+        const x = Math.max(0, Math.min(Math.floor((event.clientX - rect.left) * currentScale), originalWidth - 1));
+        const y = Math.max(0, Math.min(Math.floor((event.clientY - rect.top) * currentScale), originalHeight - 1));
+        const horizontal = scanHorizontal(x, y);
+        const vertical = scanVertical(x, y);
+        showMeasurement(event, horizontal, vertical, x, y);
+        ctx.putImageData(imageData, 0, 0);
+        const lineWidth = Math.max(3, currentScale) * 3;
+        ctx.lineWidth = lineWidth;
+        ctx.strokeStyle = "rgba(255, 50, 50, 0.8)";
+        ctx.beginPath();
+        ctx.moveTo(horizontal.start, y);
+        ctx.lineTo(horizontal.end, y);
+        ctx.stroke();
+        ctx.strokeStyle = "rgba(50, 150, 255, 0.8)";
+        ctx.beginPath();
+        ctx.moveTo(x, vertical.start);
+        ctx.lineTo(x, vertical.end);
+        ctx.stroke();
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        measurementPanel.style.display = "none";
+        coordinateDisplay.style.display = "none";
+        if (imageData) ctx.putImageData(imageData, 0, 0);
+      });
+
+      fileInput.addEventListener("change", event => loadImage(event.target.files[0]));
+      scaleInput.addEventListener("change", event => {
+        scaleValue = parseScale(event.target.value);
+        scaleInput.value = scaleValue;
+        localStorage.setItem("pixel-measure-scale", scaleValue);
+      });
+      window.addEventListener("resize", () => { if (imageData) ctx.putImageData(imageData, 0, 0); });
+
+      drawPlaceholder();
+    })();
+  </script>
+</body>
+</html>
