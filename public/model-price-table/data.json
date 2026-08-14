@@ -168,22 +168,22 @@
     {
       "model": "DeepSeek V4 Flash",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.14,
-        "cached_read": 0.0028,
+        "input": 0.22,
+        "cached_read": 0.007,
         "cached_write": null,
-        "output": 0.28
+        "output": 0.66
       },
-      "notes": "自动 cache（无 write 单独收费）；按长期标价口径"
+      "notes": "自动 cache（无 write 单独收费）；2026-08-16 起按官方 off-peak 价格，peak 时段价格为两倍"
     },
     {
       "model": "DeepSeek V4 Pro",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.435,
-        "cached_read": 0.003625,
+        "input": 0.66,
+        "cached_read": 0.022,
         "cached_write": null,
-        "output": 0.87
+        "output": 1.98
       },
-      "notes": "自动 cache（无 write 单独收费）；按官方永久价格（原价 1/4）"
+      "notes": "自动 cache（无 write 单独收费）；2026-08-16 起按官方 off-peak 价格，peak 时段价格为两倍"
     },
     {
       "model": "LongCat-2.0",
