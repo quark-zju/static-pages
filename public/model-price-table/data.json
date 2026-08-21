@@ -126,6 +126,26 @@
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费"
     },
     {
+      "model": "Grok 4.6 (<200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.00,
+        "cached_read": 0.50,
+        "cached_write": null,
+        "output": 6.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；按 prompt <200K 档；官方 API 价格"
+    },
+    {
+      "model": "Grok 4.6 (>=200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 4.00,
+        "cached_read": 1.00,
+        "cached_write": null,
+        "output": 12.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
+    },
+    {
       "model": "Qwen 3.6 Plus (<=256K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.276,
@@ -330,6 +350,19 @@
         "output": 25.00
       },
       "notes": "显式 cache write；完整 1M 上下文无长上下文附加价"
+    },
+    {
+      "model": "Claude Opus 5",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 5.00,
+        "cached_read": 0.50,
+        "cached_write": {
+          "5min": 6.25,
+          "1hour": 10.00
+        },
+        "output": 25.00
+      },
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；官方标准价格"
     },
     {
       "model": "Claude Fable 5",
