@@ -1,4 +1,8 @@
 import { analyzePieceState } from "./piece-state.mjs";
+import {
+  deriveWingPositionGauge,
+  matchWingVisualAssignments,
+} from "./wing-state.mjs";
 
 const BASE_ALGORITHM = Object.freeze(
   "U R U' 2R U R' U' 2R'".split(" "),
@@ -32,23 +36,6 @@ function cycleFromPermutation(permutation) {
   const b = permutation[a];
   const c = permutation[b];
   return permutation[c] === a ? canonicalCycle([a, b, c]) : null;
-}
-
-function permutationParity(permutation) {
-  const visited = new Set();
-  let transpositions = 0;
-  for (let start = 0; start < permutation.length; start += 1) {
-    if (visited.has(start)) continue;
-    let length = 0;
-    let current = start;
-    while (!visited.has(current)) {
-      visited.add(current);
-      length += 1;
-      current = permutation[current];
-    }
-    transpositions += Math.max(0, length - 1);
-  }
-  return transpositions % 2;
 }
 
 function decomposeIntoThreeCycles(permutation) {
@@ -180,61 +167,46 @@ export function createTwentyFourWingSolver(model) {
     return [...entry.setup, ...BASE_ALGORITHM, ...invertAlgorithm(entry.setup)];
   }
 
-  function relativePairings(fromDecoded, toDecoded) {
-    const fromGroups = Map.groupBy(fromDecoded.positions, (position) => position.signature);
-    const toGroups = Map.groupBy(toDecoded.positions, (position) => position.signature);
-    if (fromGroups.size !== toGroups.size) throw new Error("wing 起点与目标 piece 库存不同");
-    return [...fromGroups.entries()].map(([signature, fromPositions]) => {
-      const toPositions = toGroups.get(signature);
-      if (!toPositions || fromPositions.length !== 2 || toPositions.length !== 2) {
-        throw new Error(`wing signature ${signature} 不是一对可交换 piece`);
-      }
-      return {
-        sources: fromPositions.map((position) => orbit.pieceIndices.indexOf(position.pieceIndex)),
-        targets: toPositions.map((position) => orbit.pieceIndices.indexOf(position.pieceIndex)),
-      };
-    });
-  }
+  const positionGauge = deriveWingPositionGauge(model, orbit.id);
 
   return Object.freeze({
     orbitId: orbit.id,
     databaseSize: database.size,
-    pairingChoiceCount: 2 ** 12,
+    assignmentMethod: "handedness-matching",
+    positionGauge,
     localToFullCube: true,
     solve(fromColors, toColors) {
       const fromDecoded = decodedOrbit(model, orbit, fromColors);
       const toDecoded = decodedOrbit(model, orbit, toColors);
-      const pairings = relativePairings(fromDecoded, toDecoded);
+      const assignment = matchWingVisualAssignments(
+        model,
+        orbit.id,
+        positionGauge,
+        fromDecoded,
+        toDecoded,
+      );
+      if (assignment.parity !== 0) {
+        throw new Error(
+          "24-wing handedness-compatible physical assignment 是奇置换；当前 local primitive 仅覆盖 A24",
+        );
+      }
       const fromLocalColors = orbit.stickerIndices.map((index) => fromColors[index]);
       const toLocalColors = orbit.stickerIndices.map((index) => toColors[index]);
-      let selected = null;
-
-      for (let mask = 0; mask < 2 ** pairings.length; mask += 1) {
-        const relative = Array(24);
-        pairings.forEach(({ sources, targets }, group) => {
-          const swap = (mask >> group) & 1;
-          relative[sources[0]] = targets[swap];
-          relative[sources[1]] = targets[1 - swap];
-        });
-        if (permutationParity(relative) !== 0) continue;
-        const triples = decomposeIntoThreeCycles(relative);
-        let action = Array.from({ length: 48 }, (_unused, index) => index);
-        const entries = [];
-        for (const cycle of triples) {
-          const entry = database.get(canonicalCycle(cycle).join(","));
-          if (!entry) throw new Error("找不到目标 wing 3-cycle");
-          action = compose(action, entry.action);
-          entries.push(entry);
-        }
-        if (applyLocalPermutation(fromLocalColors, action)
-          .every((color, index) => color === toLocalColors[index])) {
-          selected = { mask, triples, entries };
-          break;
-        }
+      const triples = decomposeIntoThreeCycles(assignment.relative);
+      let action = Array.from({ length: 48 }, (_unused, index) => index);
+      const entries = [];
+      for (const cycle of triples) {
+        const entry = database.get(canonicalCycle(cycle).join(","));
+        if (!entry) throw new Error("找不到目标 wing 3-cycle");
+        action = compose(action, entry.action);
+        entries.push(entry);
       }
-      if (!selected) throw new Error("目标 24-wing 贴纸状态不在局部偶置换子群中");
+      if (!applyLocalPermutation(fromLocalColors, action)
+        .every((color, index) => color === toLocalColors[index])) {
+        throw new Error("24-wing handedness matching 与完整 sticker action 不一致");
+      }
 
-      const tokens = simplifyTokens(selected.entries.flatMap(formulaForEntry));
+      const tokens = simplifyTokens(entries.flatMap(formulaForEntry));
       const result = model.applyAlgorithm(fromColors, tokens);
       if (!orbit.stickerIndices.every((index) => result[index] === toColors[index])) {
         throw new Error("生成公式未达到目标 24-wing 状态");
@@ -244,8 +216,10 @@ export function createTwentyFourWingSolver(model) {
         throw new Error("24-wing 公式意外影响其他 orbit");
       }
       return Object.freeze({
-        pairingMask: selected.mask,
-        triples: Object.freeze(selected.triples.map((cycle) => Object.freeze(cycle))),
+        assignmentParity: assignment.parity,
+        forcedPairCount: assignment.forcedPairCount,
+        freePairCount: assignment.freePairCount,
+        triples: Object.freeze(triples.map((cycle) => Object.freeze(cycle))),
         tokens: Object.freeze(tokens),
         formula: tokens.join(" "),
         effects: Object.freeze(effects),
