@@ -58,6 +58,11 @@ edge and center orbits, and its returned `effects` field records that fact.
 The oriented 3-cycle database and its rank-eleven flip basis operate on this
 12-piece-plus-orientation representation.
 
+The first-version solver implements the full `A_12` permutation projection and
+the rank-eleven even-flip space. An odd requested permutation is reported as an
+unsupported subgroup, not as proof that the complete visual target is
+unreachable or that a parity coordinator is necessarily required.
+
 ### Twenty-four-piece wing orbit
 
 - Twenty-four distinct physical wing identities and twenty-four physical
@@ -71,6 +76,9 @@ The oriented 3-cycle database and its rank-eleven flip basis operate on this
 - A same-colored pair consists of two opposite-handed physical wings. Matching
   a visual target must preserve handedness; unordered color equality alone is
   insufficient.
+- Visual legality is checked by comparing the gauge-corrected handedness
+  inventory for every color signature. This is a physical-assignment check,
+  not a 24-bit edge-orientation sum.
 - Permutation parity always means parity of the permutation of these twenty-four
   distinct physical identities/positions. It is not parity from a
   twelve-piece-plus-orientation representation.
@@ -82,9 +90,12 @@ physical 3-cycle:
 2 * C(24, 3) = 4048
 ```
 
-Consequently their position-permutation projection generates `A_24`. This
-does not by itself prove that the complete wing-local group contains no odd
-primitive.
+Consequently their position-permutation projection generates `A_24`. On the
+4x4x4, a separately certified odd primitive is made wing-local by repairing its
+even center permutation. Therefore the implemented 4x4x4 wing solver covers
+`S_24`. The first-version 5x5x5 solver deliberately remains restricted to
+`A_24`; rejection of an odd assignment there is an implementation boundary,
+not a reachability verdict.
 
 ### Twenty-four-piece center orbit
 
@@ -107,6 +118,30 @@ scheduled for later stages and must return the full list of collateral effects.
 Failure of a local solver means only that the requested physical assignment is
 outside the subgroup currently implemented by that solver. It does not prove
 that the visual target is globally unreachable.
+
+## Certified parity relations
+
+The relations below are the exact `GF(2)` nullspaces of the physical piece
+parities induced by every modeled quarter-turn generator. Deterministic random
+full-sticker property tests additionally guard their implementation.
+
+For the current 4x4x4 model:
+
+```text
+parity(center-0[24]) = parity(corner-0[8])
+parity(edge-0[24 wing]) is independent
+```
+
+For the current all-slices 5x5x5 model, an independent basis is:
+
+```text
+parity(center-1[24]) xor parity(corner-0[8]) = 0
+parity(center-0[6]) xor parity(center-1[24]) xor parity(edge-0[12]) = 0
+parity(center-1[24]) xor parity(center-2[24]) xor parity(edge-1[24 wing]) = 0
+```
+
+These 5x5x5 relations must be regenerated if the move set is changed to fixed
+centers.
 
 ## Reachability diagnostics
 
