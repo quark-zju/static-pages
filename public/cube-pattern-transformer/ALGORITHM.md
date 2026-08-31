@@ -148,6 +148,40 @@ These produce structured `RestrictedPatternSolveError` codes such as
 `unsupported-fixed-center-target` and `unsupported-orbit-subgroup`. They never
 claim that the complete target is mathematically unreachable.
 
+## Partial visual targets and wildcards
+
+`solvePattern(fromColors, targetPattern)` accepts `null` or `"?"` at target
+stickers. Wildcards exist only in the visual constraint layer and are never
+added to `CubeModel.colors`, physical identities, move permutations, or parity
+coordinates. The source state must remain fully specified.
+
+To avoid ambiguous half-pieces, every multi-sticker piece follows one rule:
+
+```text
+corner: all three stickers concrete, or all three wildcard
+edge/wing: both stickers concrete, or both wildcard
+center: its single sticker may independently be wildcard
+```
+
+Immediately before each stage, the target compiler matches distinct physical
+identities to target positions. Candidate edges encode the exact target sticker
+colors plus the position-dependent corner/edge orientation or wing handedness.
+The selected perfect matching must satisfy:
+
+- every concrete sticker constraint;
+- a bijection of physical identities;
+- zero corner twist or middle-edge flip sum;
+- even relative permutation for an `A_12` or `A_24` stage.
+
+Candidates that keep the current piece in place are preferred, so a completely
+wildcard orbit requires no moves. Because parity is part of assignment rather
+than a post-hoc rejection, two unconstrained 5x5x5 wings can turn some otherwise
+odd requests into an even target supported by the first-version `A_24` solver.
+
+The pipeline stores the selected concrete `resolvedTarget`, replays the complete
+formula to it, and separately verifies that every non-wildcard input sticker was
+satisfied.
+
 ## Certified parity relations
 
 The relations below are the exact `GF(2)` nullspaces of the physical piece
