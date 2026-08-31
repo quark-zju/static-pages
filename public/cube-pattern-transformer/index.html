@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在浏览器中计算 NxNxN 魔方两个公式图案之间的可靠变换。">
+  <title>Cube Pattern Transformer</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+
+    :root {
+      --gh-bg: #f6f8fa;
+      --gh-surface: #ffffff;
+      --gh-subtle: #f6f8fa;
+      --gh-border: #d0d7de;
+      --gh-border-strong: #afb8c1;
+      --gh-text: #24292f;
+      --gh-muted: #57606a;
+      --gh-blue: #0969da;
+      --gh-blue-hover: #0860ca;
+      --gh-green: #1a7f37;
+      --gh-green-bg: #dafbe1;
+      --gh-red: #cf222e;
+      --gh-red-bg: #ffebe9;
+      --gh-yellow-bg: #fff8c5;
+      --gh-shadow: 0 10px 30px rgba(31, 35, 40, 0.08);
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--gh-text);
+      background:
+        radial-gradient(circle at 0 0, rgba(9, 105, 218, 0.07), transparent 32rem),
+        var(--gh-bg);
+      font-family: "IBM Plex Sans", "Noto Sans SC", sans-serif;
+    }
+
+    button, select, textarea { font: inherit; }
+    button, select { cursor: pointer; }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .cube-mark {
+      display: grid;
+      grid-template-columns: repeat(2, 9px);
+      gap: 2px;
+      padding: 6px;
+      background: #24292f;
+      border-radius: 7px;
+      box-shadow: 0 2px 8px rgba(31, 35, 40, 0.18);
+    }
+
+    .cube-mark i { width: 9px; height: 9px; border-radius: 2px; }
+    .cube-mark i:nth-child(1) { background: #ffdf5d; }
+    .cube-mark i:nth-child(2) { background: #54aeff; }
+    .cube-mark i:nth-child(3) { background: #57ab5a; }
+    .cube-mark i:nth-child(4) { background: #f47067; }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(18px, 3vw, 24px);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand small { display: block; margin-top: 2px; color: var(--gh-muted); font-size: 12px; }
+
+    .back-link { color: var(--gh-blue); font-size: 14px; text-decoration: none; white-space: nowrap; }
+    .back-link:hover { text-decoration: underline; }
+
+    .workspace {
+      overflow: hidden;
+      background: var(--gh-surface);
+      border: 1px solid var(--gh-border);
+      border-radius: 14px;
+      box-shadow: var(--gh-shadow);
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 16px;
+      background: linear-gradient(#fff, #f8fafc);
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .toolbar-group { display: flex; align-items: center; gap: 8px; }
+    .toolbar label { color: var(--gh-muted); font-size: 13px; font-weight: 600; }
+
+    select, .button {
+      min-height: 34px;
+      border: 1px solid var(--gh-border-strong);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--gh-text);
+      padding: 5px 11px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
+    }
+
+    .button:hover, select:hover { background: #f3f4f6; }
+    .button:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid rgba(9, 105, 218, 0.35);
+      outline-offset: 2px;
+    }
+
+    .button.primary { color: #fff; border-color: rgba(27, 31, 36, 0.15); background: var(--gh-green); }
+    .button.primary:hover { background: #2c974b; }
+
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+      padding: 20px;
+      gap: 14px;
+    }
+
+    .pattern-card {
+      min-width: 0;
+      border: 1px solid var(--gh-border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--gh-border);
+      background: var(--gh-subtle);
+    }
+
+    .card-heading h2 { margin: 0; font-size: 15px; }
+    .card-heading span { color: var(--gh-muted); font-size: 12px; }
+
+    twisty-player {
+      display: block;
+      width: 100%;
+      height: 270px;
+      background: #fff;
+    }
+
+    .input-wrap { padding: 12px; border-top: 1px solid var(--gh-border); }
+
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 92px;
+      resize: vertical;
+      border: 1px solid var(--gh-border);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--gh-text);
+      padding: 10px 11px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    textarea[aria-invalid="true"] { border-color: var(--gh-red); background: var(--gh-red-bg); }
+    .field-note { min-height: 18px; margin: 7px 1px 0; color: var(--gh-muted); font-size: 12px; }
+    .field-note.error { color: var(--gh-red); }
+
+    .swap-column { display: grid; place-items: center; }
+    .swap-button { width: 38px; padding: 5px; font-size: 18px; }
+
+    .result-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
+      border-top: 1px solid var(--gh-border);
+    }
+
+    .result-copy { min-width: 0; padding: 20px; }
+    .section-label {
+      margin: 0 0 8px;
+      color: var(--gh-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .result-copy h2 { margin: 0; font-size: 20px; }
+    .result-copy > p { margin: 7px 0 15px; color: var(--gh-muted); font-size: 13px; line-height: 1.6; }
+
+    .output-row { display: flex; gap: 8px; align-items: stretch; }
+    .output {
+      flex: 1;
+      min-width: 0;
+      min-height: 54px;
+      margin: 0;
+      padding: 13px;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--gh-border);
+      border-radius: 7px;
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .status {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 7px;
+      background: var(--gh-green-bg);
+      color: #116329;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .status::before { content: "✓"; font-weight: 800; }
+    .status.error { background: var(--gh-red-bg); color: var(--gh-red); }
+    .status.error::before { content: "!"; }
+
+    .journey {
+      border-left: 1px solid var(--gh-border);
+      background: #fbfcfd;
+      padding: 20px;
+    }
+
+    .journey twisty-player { height: 210px; border: 1px solid var(--gh-border); border-radius: 8px; }
+    .journey p { margin: 9px 0 0; color: var(--gh-muted); font-size: 12px; line-height: 1.55; }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .note-card {
+      padding: 16px;
+      border: 1px solid var(--gh-border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .note-card h3 { margin: 0 0 7px; font-size: 14px; }
+    .note-card p { margin: 0; color: var(--gh-muted); font-size: 12px; line-height: 1.65; }
+    code { font-family: var(--mono); font-size: 0.92em; }
+
+    .roadmap { border-left: 3px solid #bf8700; background: var(--gh-yellow-bg); }
+
+    @media (max-width: 820px) {
+      .pattern-grid { grid-template-columns: 1fr; }
+      .swap-column { height: 36px; }
+      .swap-button { transform: rotate(90deg); }
+      .result-section { grid-template-columns: 1fr; }
+      .journey { border-left: 0; border-top: 1px solid var(--gh-border); }
+      .notes { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 16px, 1180px); margin-top: 12px; }
+      .brand small { display: none; }
+      .pattern-grid, .result-copy, .journey { padding: 12px; }
+      twisty-player { height: 230px; }
+      .output-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div>
+          <h1>Cube Pattern Transformer</h1>
+          <small>从一个公式图案，可靠地走到另一个公式图案</small>
+        </div>
+      </div>
+      <a class="back-link" href="../">← 项目导航</a>
+    </header>
+
+    <section class="workspace" aria-label="魔方图案变换工作区">
+      <div class="toolbar">
+        <div class="toolbar-group">
+          <label for="cube-size">魔方阶数</label>
+          <select id="cube-size">
+            <option value="2x2x2">2 × 2 × 2</option>
+            <option value="3x3x3">3 × 3 × 3</option>
+            <option value="4x4x4">4 × 4 × 4</option>
+            <option value="5x5x5" selected>5 × 5 × 5</option>
+            <option value="6x6x6">6 × 6 × 6</option>
+            <option value="7x7x7">7 × 7 × 7</option>
+          </select>
+        </div>
+        <div class="toolbar-group">
+          <label for="example-select">示例</label>
+          <select id="example-select">
+            <option value="checkerboard">棋盘格 → 六面回字</option>
+            <option value="superflip">已还原 → Superflip（3×3）</option>
+            <option value="custom">自定义</option>
+          </select>
+          <button class="button primary" id="calculate" type="button">计算变换</button>
+        </div>
+      </div>
+
+      <div class="pattern-grid">
+        <article class="pattern-card">
+          <div class="card-heading"><h2>起点图案</h2><span>从还原态生成</span></div>
+          <twisty-player id="from-player" puzzle="5x5x5" alg="R2 L2 U2 D2 F2 B2" background="none" control-panel="none" hint-facelets="none"></twisty-player>
+          <div class="input-wrap">
+            <textarea id="from-alg" aria-label="起点图案公式" spellcheck="false">R2 L2 U2 D2 F2 B2</textarea>
+            <p class="field-note" id="from-note">支持 SiGN / WCA 记号、括号、交换子与共轭。</p>
+          </div>
+        </article>
+
+        <div class="swap-column">
+          <button class="button swap-button" id="swap" type="button" title="交换起点和终点" aria-label="交换起点和终点">⇄</button>
+        </div>
+
+        <article class="pattern-card">
+          <div class="card-heading"><h2>终点图案</h2><span>从还原态生成</span></div>
+          <twisty-player id="to-player" puzzle="5x5x5" alg="2R2 2L2 2U2 2D2 2F2 2B2" background="none" control-panel="none" hint-facelets="none"></twisty-player>
+          <div class="input-wrap">
+            <textarea id="to-alg" aria-label="终点图案公式" spellcheck="false">2R2 2L2 2U2 2D2 2F2 2B2</textarea>
+            <p class="field-note" id="to-note">宽转可写作 <code>Rw</code> 或带层编号的 <code>2R</code>。</p>
+          </div>
+        </article>
+      </div>
+
+      <section class="result-section" aria-live="polite">
+        <div class="result-copy">
+          <p class="section-label">Transformation</p>
+          <h2>变换公式</h2>
+          <p>先撤销起点公式，再执行终点公式。相邻的同轴转动会由 cubing.js 做安全消去，但这不是全局最短解。</p>
+          <div class="output-row">
+            <pre class="output" id="result-alg">B2 F2 D2 U2 L2 R2 2R2 2L2 2U2 2D2 2F2 2B2</pre>
+            <button class="button" id="copy" type="button">复制</button>
+          </div>
+          <div class="status" id="status">公式已生成；右侧播放器从起点出发并执行该变换。</div>
+        </div>
+        <aside class="journey">
+          <p class="section-label">Verification</p>
+          <twisty-player id="journey-player" puzzle="5x5x5" experimental-setup-alg="R2 L2 U2 D2 F2 B2" alg="B2 F2 D2 U2 L2 R2 2R2 2L2 2U2 2D2 2F2 2B2" background="none" hint-facelets="none"></twisty-player>
+          <p>拖动查看，或播放完整变换。动画的第一帧是起点图案，最后一帧应与终点图案一致。</p>
+        </aside>
+      </section>
+    </section>
+
+    <section class="notes" aria-label="实现说明">
+      <article class="note-card">
+        <h3>这一版已经可靠的部分</h3>
+        <p>输入是“从还原态生成图案”的公式。结果严格按 <code>inverse(start) + target</code> 构造，所以不依赖搜索也能保证到达。</p>
+      </article>
+      <article class="note-card">
+        <h3>Orbit 应该放在哪里</h3>
+        <p>大魔方可按角块、不同深度的翼棱与中心坐标类建模。它适合做分阶段启发式和剪枝表；各 orbit 仍受同一步法与 parity 耦合。</p>
+      </article>
+      <article class="note-card roadmap">
+        <h3>下一阶段：真正的图案搜索</h3>
+        <p>加入贴纸编辑器与合法性检查，把相对状态交给 twsearch/WASM；先求 3×3 和单 orbit，再逐步扩展到完整 NxNxN。</p>
+      </article>
+    </section>
+  </main>
+
+  <script type="module">
+    import { Alg } from "https://cdn.cubing.net/v0/js/cubing/alg";
+    import "https://cdn.cubing.net/v0/js/cubing/twisty";
+
+    const elements = {
+      cubeSize: document.querySelector("#cube-size"),
+      example: document.querySelector("#example-select"),
+      fromAlg: document.querySelector("#from-alg"),
+      toAlg: document.querySelector("#to-alg"),
+      fromNote: document.querySelector("#from-note"),
+      toNote: document.querySelector("#to-note"),
+      fromPlayer: document.querySelector("#from-player"),
+      toPlayer: document.querySelector("#to-player"),
+      journeyPlayer: document.querySelector("#journey-player"),
+      result: document.querySelector("#result-alg"),
+      status: document.querySelector("#status"),
+      calculate: document.querySelector("#calculate"),
+      swap: document.querySelector("#swap"),
+      copy: document.querySelector("#copy"),
+    };
+
+    const defaults = {
+      fromNote: elements.fromNote.innerHTML,
+      toNote: elements.toNote.innerHTML,
+    };
+
+    const examples = {
+      checkerboard: {
+        puzzle: "5x5x5",
+        from: "R2 L2 U2 D2 F2 B2",
+        to: "2R2 2L2 2U2 2D2 2F2 2B2",
+      },
+      superflip: {
+        puzzle: "3x3x3",
+        from: "",
+        to: "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
+      },
+    };
+
+    function parseField(field, note, fallbackNote) {
+      try {
+        const alg = Alg.fromString(field.value.trim());
+        field.setAttribute("aria-invalid", "false");
+        note.classList.remove("error");
+        note.innerHTML = fallbackNote;
+        return alg;
+      } catch (error) {
+        field.setAttribute("aria-invalid", "true");
+        note.classList.add("error");
+        note.textContent = `无法解析：${error.message}`;
+        throw error;
+      }
+    }
+
+    function updatePlayers() {
+      const puzzle = elements.cubeSize.value;
+      elements.fromPlayer.puzzle = puzzle;
+      elements.toPlayer.puzzle = puzzle;
+      elements.journeyPlayer.puzzle = puzzle;
+      elements.fromPlayer.alg = elements.fromAlg.value.trim();
+      elements.toPlayer.alg = elements.toAlg.value.trim();
+    }
+
+    function calculate() {
+      updatePlayers();
+
+      try {
+        const from = parseField(elements.fromAlg, elements.fromNote, defaults.fromNote);
+        const to = parseField(elements.toAlg, elements.toNote, defaults.toNote);
+        const transformation = from.invert().concat(to).experimentalSimplify({ cancel: true });
+        const output = transformation.toString() || "（无需转动：两个图案相同）";
+
+        elements.result.textContent = output;
+        elements.journeyPlayer.experimentalSetupAlg = from;
+        elements.journeyPlayer.alg = transformation;
+        elements.status.classList.remove("error");
+        elements.status.textContent = "公式已生成；右侧播放器从起点出发并执行该变换。";
+      } catch (error) {
+        elements.result.textContent = "请先修正上方公式";
+        elements.status.classList.add("error");
+        elements.status.textContent = "至少有一个公式无法解析，尚未生成变换。";
+      }
+    }
+
+    function debounce(callback, delay = 220) {
+      let timer;
+      return () => {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(callback, delay);
+      };
+    }
+
+    elements.calculate.addEventListener("click", calculate);
+    elements.cubeSize.addEventListener("change", () => {
+      elements.example.value = "custom";
+      calculate();
+    });
+
+    const calculateSoon = debounce(() => {
+      elements.example.value = "custom";
+      calculate();
+    });
+    elements.fromAlg.addEventListener("input", calculateSoon);
+    elements.toAlg.addEventListener("input", calculateSoon);
+
+    elements.example.addEventListener("change", () => {
+      const example = examples[elements.example.value];
+      if (!example) return;
+      elements.cubeSize.value = example.puzzle;
+      elements.fromAlg.value = example.from;
+      elements.toAlg.value = example.to;
+      calculate();
+    });
+
+    elements.swap.addEventListener("click", () => {
+      const previousFrom = elements.fromAlg.value;
+      elements.fromAlg.value = elements.toAlg.value;
+      elements.toAlg.value = previousFrom;
+      elements.example.value = "custom";
+      calculate();
+    });
+
+    elements.copy.addEventListener("click", async () => {
+      const value = elements.result.textContent;
+      if (!value || value.startsWith("请") || value.startsWith("（")) return;
+      await navigator.clipboard.writeText(value);
+      elements.copy.textContent = "已复制";
+      window.setTimeout(() => { elements.copy.textContent = "复制"; }, 1200);
+    });
+
+    calculate();
+  </script>
+</body>
+</html>
