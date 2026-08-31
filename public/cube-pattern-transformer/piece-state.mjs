@@ -24,7 +24,7 @@ function permutationsOfThree(values) {
   ];
 }
 
-function orderedStickerIndices(model, piece) {
+export function orderedPieceStickerIndices(model, piece) {
   if (piece.kind !== "corner") return [...piece.stickerIndices];
   return permutationsOfThree(piece.stickerIndices)
     .find((indices) => determinant(indices.map((index) => model.stickers[index].normal)) === 1);
@@ -152,14 +152,14 @@ export function analyzePieceState(model, state) {
   const orbits = model.pieceOrbits.map((orbit) => {
     const expectedEntries = orbit.pieceIndices.map((pieceIndex) => {
       const piece = model.pieces[pieceIndex];
-      const stickerIndices = orderedStickerIndices(model, piece);
+      const stickerIndices = orderedPieceStickerIndices(model, piece);
       const colors = stickerIndices.map((index) => model.solvedColors[index]);
       return { pieceIndex, stickerIndices, colors, signature: signature(colors) };
     });
     const candidatesBySignature = Map.groupBy(expectedEntries, (entry) => entry.signature);
     const positions = orbit.pieceIndices.map((pieceIndex) => {
       const piece = model.pieces[pieceIndex];
-      const stickerIndices = orderedStickerIndices(model, piece);
+      const stickerIndices = orderedPieceStickerIndices(model, piece);
       const colors = stickerIndices.map((index) => state[index]);
       const pieceSignature = signature(colors);
       const candidates = candidatesBySignature.get(pieceSignature) ?? [];
