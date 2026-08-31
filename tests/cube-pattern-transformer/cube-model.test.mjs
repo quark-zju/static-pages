@@ -68,6 +68,30 @@ test("every move keeps each piece inside its derived orbit", () => {
   }
 });
 
+test("orbit projections retain orientation and remain bijective", () => {
+  for (const size of SIZES) {
+    const model = createCubeModel(size);
+    const algorithm = size === 2 ? "R U F2" : `R U 2F' ${size}L2 D`;
+    for (const orbit of model.pieceOrbits) {
+      const permutation = model.orbitPermutation(orbit.id, algorithm);
+      assert.equal(permutation.length, orbit.stickerIndices.length);
+      assert.equal(new Set(permutation).size, permutation.length);
+    }
+  }
+});
+
+test("the 4x4 center commutator is proven local against the full cube", () => {
+  const model = createCubeModel(4);
+  const commutator = "F' 2L 2F' 2L' F 2L 2F 2L'";
+
+  assert.deepEqual(model.algorithmOrbitEffects(commutator), [
+    { orbitId: "center-0", kind: "center", movedStickerCount: 3 },
+  ]);
+  assert.equal(model.isOrbitLocalAlgorithm("center-0", commutator), true);
+  assert.equal(model.isOrbitLocalAlgorithm("edge-0", commutator), false);
+  assert.throws(() => model.orbitPermutation("missing", "R"), /未知的块 orbit/);
+});
+
 test("every supported single-layer move is a sticker bijection", () => {
   for (const size of SIZES) {
     const model = createCubeModel(size);
