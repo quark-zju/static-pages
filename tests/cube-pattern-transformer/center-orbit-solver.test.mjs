@@ -59,6 +59,42 @@ test("solved center patterns require no moves", () => {
   assert.deepEqual(solution.effects, []);
 });
 
+test("distinct physical center permutations solve exactly and locally", () => {
+  const permutation = Array.from({ length: 24 }, (_unused, index) => index);
+  for (const [first, second, third] of [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [9, 10, 11],
+  ]) {
+    permutation[first] = second;
+    permutation[second] = third;
+    permutation[third] = first;
+  }
+
+  for (const size of [4, 5]) {
+    const model = createCubeModel(size);
+    for (const orbit of centerOrbits(model)) {
+      const solver = createTwentyFourCenterSolver(model, orbit.id);
+      const solution = solver.solvePhysicalPermutation(permutation);
+
+      assert.deepEqual(model.orbitPermutation(orbit.id, solution.tokens), permutation);
+      assert.deepEqual(solution.permutation, permutation);
+      assert.deepEqual(solution.effects.map((effect) => effect.orbitId), [orbit.id]);
+    }
+  }
+});
+
+test("invalid and odd physical center permutations are rejected", () => {
+  const model = createCubeModel(4);
+  const solver = createTwentyFourCenterSolver(model);
+  assert.throws(() => solver.solvePhysicalPermutation([0]), /必须是 0..23 的双射/);
+
+  const odd = Array.from({ length: 24 }, (_unused, index) => index);
+  [odd[0], odd[1]] = [odd[1], odd[0]];
+  assert.throws(() => solver.solvePhysicalPermutation(odd), /奇置换/);
+});
+
 test("arbitrary source-target center colors solve independently on 4x4x4 and 5x5x5", () => {
   for (const size of [4, 5]) {
     const model = createCubeModel(size);
