@@ -43,6 +43,23 @@ function countBySignature(entries) {
   return counts;
 }
 
+function permutationParity(permutation) {
+  const visited = new Set();
+  let transpositions = 0;
+  for (let start = 0; start < permutation.length; start += 1) {
+    if (visited.has(start)) continue;
+    let length = 0;
+    let current = start;
+    while (!visited.has(current)) {
+      visited.add(current);
+      length += 1;
+      current = permutation[current];
+    }
+    transpositions += Math.max(0, length - 1);
+  }
+  return transpositions % 2;
+}
+
 function inventoryErrors(orbitId, expectedEntries, actualEntries) {
   const expected = countBySignature(expectedEntries);
   const actual = countBySignature(actualEntries);
@@ -133,11 +150,31 @@ export function analyzePieceState(model, state) {
         });
       }
     }
+    if (orbit.kind === "edge" && orbitErrors.length === 0) {
+      const orientationSum = positions.reduce(
+        (sum, position) => sum + position.candidates[0].orientation,
+        0,
+      );
+      if (orientationSum % 2 !== 0) {
+        orbitErrors.push({
+          code: "edge-orientation-sum",
+          orbitId: orbit.id,
+          remainder: orientationSum % 2,
+        });
+      }
+    }
+    const localPieceIndex = new Map(
+      orbit.pieceIndices.map((pieceIndex, local) => [pieceIndex, local]),
+    );
+    const uniquePermutation = positions.every((position) => position.candidates.length === 1)
+      ? positions.map((position) => localPieceIndex.get(position.candidates[0].pieceIndex))
+      : null;
     errors.push(...orbitErrors);
     return Object.freeze({
       id: orbit.id,
       kind: orbit.kind,
       valid: orbitErrors.length === 0,
+      permutationParity: uniquePermutation ? permutationParity(uniquePermutation) : null,
       positions: Object.freeze(positions),
       errors: Object.freeze(orbitErrors),
     });
