@@ -68,6 +68,52 @@ test("the restricted pipeline solves nontrivial arbitrary source-target patterns
   }
 });
 
+test("certified 2x2x2 through 4x4x4 domains solve deterministic legal properties", () => {
+  let seed = 0x51a9e;
+  const random = () => {
+    seed = ((1664525 * seed) + 1013904223) >>> 0;
+    return seed;
+  };
+
+  for (const size of [2, 3, 4]) {
+    const model = createCubeModel(size);
+    const solver = createRestrictedPatternSolver(model);
+    const depths = size === 3
+      ? [1, 3]
+      : Array.from({ length: size }, (_unused, index) => index + 1);
+    const moves = ["U", "R", "F", "D", "L", "B"].flatMap((face) => (
+      depths.flatMap((depth) => ["", "'", "2"].map((suffix) => (
+        `${depth === 1 ? "" : depth}${face}${suffix}`
+      )))
+    ));
+    const randomAlgorithm = () => (
+      Array.from({ length: 8 }, () => moves[random() % moves.length])
+    );
+
+    for (let sample = 0; sample < 8; sample += 1) {
+      const from = model.applyAlgorithm(model.solvedColors, randomAlgorithm());
+      const to = model.applyAlgorithm(model.solvedColors, randomAlgorithm());
+      const solution = solver.solve(from, to);
+      assert.deepEqual(model.applyAlgorithm(from, solution.tokens), to);
+    }
+  }
+});
+
+test("the end-to-end 4x4x4 pipeline crosses the odd wing coset locally", () => {
+  const model = createCubeModel(4);
+  const wing = model.pieceOrbits.find((orbit) => (
+    orbit.kind === "edge" && orbit.pieceIndices.length === 24
+  ));
+  const from = projectedPattern(model, wing, "2U' R B2 2F D2 L' U F");
+  const to = projectedPattern(model, wing, "F 2R2 U' 2F' B R2 D L2");
+  const solution = createRestrictedPatternSolver(model).solve(from, to);
+
+  assert.deepEqual(model.applyAlgorithm(from, solution.tokens), to);
+  const wingStage = solution.stages.find((stage) => stage.id === "wings");
+  assert.ok(wingStage.tokens.length > 100);
+  assert.deepEqual(wingStage.effects.map((effect) => effect.orbitId), [wing.id]);
+});
+
 test("odd 5x5x5 wing targets return a scoped subgroup limitation", () => {
   const model = createCubeModel(5);
   const wing = model.pieceOrbits.find((orbit) => (
