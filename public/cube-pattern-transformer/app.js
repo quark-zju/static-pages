@@ -42,6 +42,7 @@ const elements = {
 let model;
 let solver;
 let fixedStickerSet = new Set();
+let pieceBySticker = [];
 let states = { from: [], to: [] };
 let stateFormulas = { from: "", to: "" };
 let editMode = "swap";
@@ -55,17 +56,38 @@ function setBusy(busy) {
   elements.size.disabled = busy;
 }
 
-function quickValidation(colors) {
+function quickValidation(colors, stateName) {
   if (!model || colors.length !== model.stickers.length) return { valid: false, invalid: [] };
   const counts = Object.fromEntries(model.colors.map((color) => [color, 0]));
+  let wildcardCount = 0;
   for (const color of colors) {
+    if (color === null) {
+      wildcardCount += 1;
+      continue;
+    }
     if (!(color in counts)) return { valid: false, invalid: [color] };
     counts[color] += 1;
   }
   const expected = model.size ** 2;
+  if (stateName === "source" && wildcardCount > 0) {
+    return { valid: false, invalid: [], wildcardCount, reason: "source-wildcard" };
+  }
+  const partialPiece = model.pieces.find((piece) => {
+    if (piece.stickerIndices.length === 1) return false;
+    const pieceWildcards = piece.stickerIndices.filter((index) => colors[index] === null).length;
+    return pieceWildcards > 0 && pieceWildcards < piece.stickerIndices.length;
+  });
+  if (partialPiece) {
+    return { valid: false, invalid: [], wildcardCount, reason: "partial-piece" };
+  }
   return {
-    valid: model.colors.every((color) => counts[color] === expected),
-    invalid: model.colors.filter((color) => counts[color] !== expected),
+    valid: model.colors.every((color) => (
+      wildcardCount > 0 ? counts[color] <= expected : counts[color] === expected
+    )),
+    invalid: model.colors.filter((color) => (
+      wildcardCount > 0 ? counts[color] > expected : counts[color] !== expected
+    )),
+    wildcardCount,
   };
 }
 
@@ -100,13 +122,19 @@ function createNet(container, stateName) {
 
 function renderPalette() {
   elements.palette.replaceChildren();
-  model.colors.forEach((color) => {
+  [...model.colors, null].forEach((color) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = `palette-button ${editMode === "paint" && selectedColor === color ? "selected" : ""}`;
-    button.style.background = COLOR_CSS[color];
-    button.title = `${COLOR_NAMES[color]}色：点击后进入涂色模式`;
-    button.setAttribute("aria-label", `选择${COLOR_NAMES[color]}色`);
+    button.className = `palette-button ${color === null ? "wildcard" : ""} ${editMode === "paint" && selectedColor === color ? "selected" : ""}`;
+    if (color === null) {
+      button.textContent = "?";
+      button.title = "不关心这块最终是什么颜色（仅目标）";
+      button.setAttribute("aria-label", "选择 wildcard");
+    } else {
+      button.style.background = COLOR_CSS[color];
+      button.title = `${COLOR_NAMES[color]}色：点击后进入涂色模式`;
+      button.setAttribute("aria-label", `选择${COLOR_NAMES[color]}色`);
+    }
     button.addEventListener("click", () => {
       editMode = "paint";
       selectedColor = color;
@@ -123,16 +151,27 @@ function renderNet(container, stateName) {
     const index = Number(button.dataset.index);
     const color = states[stateName][index];
     const fixed = fixedStickerSet.has(index);
-    button.style.setProperty("--sticker-color", COLOR_CSS[color]);
-    button.title = `${COLOR_NAMES[color] ?? color}色${fixed ? "（第一版固定）" : ""}`;
+    button.style.setProperty("--sticker-color", COLOR_CSS[color] ?? "transparent");
+    button.classList.toggle("wildcard", color === null);
+    button.title = color === null
+      ? "wildcard：不约束这块的最终颜色"
+      : `${COLOR_NAMES[color] ?? color}色${fixed ? "（第一版固定）" : ""}`;
     button.classList.toggle("pending", pendingSticker?.stateName === stateName && pendingSticker?.index === index);
   });
-  const validation = quickValidation(states[stateName]);
+  const validation = quickValidation(states[stateName], stateName === "from" ? "source" : "target");
   const validationElement = stateName === "from" ? elements.fromValid : elements.toValid;
   validationElement.className = validation.valid ? "count-ok" : "count-bad";
-  validationElement.textContent = validation.valid
-    ? `颜色总数正确（每色 ${model.size ** 2} 枚）`
-    : `${validation.invalid.map((color) => COLOR_NAMES[color] ?? color).join("、")}色数量错误`;
+  if (validation.valid && validation.wildcardCount > 0) {
+    validationElement.textContent = `${validation.wildcardCount} 枚 ?，其余颜色约束可补全`;
+  } else if (validation.valid) {
+    validationElement.textContent = `颜色总数正确（每色 ${model.size ** 2} 枚）`;
+  } else if (validation.reason === "partial-piece") {
+    validationElement.textContent = "corner/edge/wing 必须整块设为 ?";
+  } else if (validation.reason === "source-wildcard") {
+    validationElement.textContent = "起点不能包含 ?";
+  } else {
+    validationElement.textContent = `${validation.invalid.map((color) => COLOR_NAMES[color] ?? color).join("、")}色数量错误`;
+  }
 }
 
 function renderAll() {
@@ -164,13 +203,35 @@ function handleStickerClick(event) {
   const index = Number(button.dataset.index);
   const stateName = button.dataset.state;
   if (editMode === "paint") {
-    states[stateName][index] = selectedColor;
+    if (selectedColor === null && stateName === "from") {
+      elements.status.className = "status error";
+      elements.status.textContent = "wildcard 只允许用于目标图案；起点必须是完整 physical state。";
+      return;
+    }
+    if (selectedColor === null) {
+      const piece = pieceBySticker[index];
+      for (const stickerIndex of piece.stickerIndices) states[stateName][stickerIndex] = null;
+    } else {
+      states[stateName][index] = selectedColor;
+    }
   } else if (!pendingSticker || pendingSticker.stateName !== stateName) {
+    if (states[stateName][index] === null) {
+      elements.status.className = "status error";
+      elements.status.textContent = "wildcard piece 不能逐贴纸交换；请先用颜色工具补全该块。";
+      return;
+    }
     pendingSticker = { stateName, index };
     renderAll();
     return;
   } else {
     const firstIndex = pendingSticker.index;
+    if (states[stateName][index] === null || states[stateName][firstIndex] === null) {
+      pendingSticker = null;
+      elements.status.className = "status error";
+      elements.status.textContent = "wildcard piece 不能逐贴纸交换；请先用颜色工具补全该块。";
+      renderAll();
+      return;
+    }
     [states[stateName][firstIndex], states[stateName][index]] = [states[stateName][index], states[stateName][firstIndex]];
     pendingSticker = null;
   }
@@ -184,6 +245,8 @@ function errorMessage(error) {
   if (error.code === "invalid-target-state") return "目标贴纸不能组成合法的 physical pieces。";
   if (error.code === "unsupported-fixed-center-target") return "第一版不处理奇数阶固定中心换色；请保持六个中心贴纸不变。";
   if (error.code === "unsupported-orbit-subgroup") return `${error.stage} 超出当前第一版支持的局部子群；目标未被判定为不可达。`;
+  if (error.code === "invalid-pattern-wildcard") return "corner、edge 和 wing 必须整块设为 wildcard；center 可以单贴纸设为 ?。";
+  if (error.code === "no-pattern-assignment") return `${error.stage} 找不到满足颜色、orientation 和 parity 的 wildcard assignment。`;
   return `${error.code}：${error.message}`;
 }
 
@@ -206,11 +269,14 @@ async function solveAndRender() {
   elements.status.textContent = "正在构造并重放完整公式…";
   await new Promise((resolve) => window.requestAnimationFrame(resolve));
   try {
-    const solution = solver.solve(states.from, states.to);
+    const wildcardCount = states.to.filter((color) => color === null).length;
+    const solution = wildcardCount > 0
+      ? solver.solvePattern(states.from, states.to)
+      : solver.solve(states.from, states.to);
     lastFormula = solution.formula;
     elements.output.textContent = solution.formula || "（无需转动：起点与目标相同）";
     elements.status.className = "status success";
-    elements.status.textContent = `已验证全部 ${model.stickers.length} 枚贴纸。${stageSummary(solution)}`;
+    elements.status.textContent = `已验证全部 ${model.stickers.length} 枚贴纸。${wildcardCount > 0 ? `已解析 ${wildcardCount} 枚 wildcard；` : ""}${stageSummary(solution)}`;
     elements.stageCount.textContent = String(solution.stages.filter((stage) => stage.tokens.length > 0).length);
     elements.moveCount.textContent = String(solution.tokens.length);
     elements.verifiedCount.textContent = `${model.stickers.length}/${model.stickers.length}`;
@@ -255,6 +321,10 @@ async function initializeSize(size) {
   try {
     model = createCubeModel(size);
     solver = createRestrictedPatternSolver(model);
+    pieceBySticker = Array(model.stickers.length);
+    model.pieces.forEach((piece) => {
+      piece.stickerIndices.forEach((index) => { pieceBySticker[index] = piece; });
+    });
     const fixedOrbitIds = new Set(solver.capabilities.fixedVisualOrbits);
     fixedStickerSet = new Set(model.pieceOrbits
       .filter((orbit) => fixedOrbitIds.has(orbit.id))
@@ -297,6 +367,11 @@ elements.reset.addEventListener("click", () => {
   renderAll();
 });
 elements.swapStates.addEventListener("click", () => {
+  if (states.to.some((color) => color === null)) {
+    elements.status.className = "status error";
+    elements.status.textContent = "目标含 wildcard 时不能与起点交换，因为 source 必须是完整状态。";
+    return;
+  }
   [states.from, states.to] = [states.to, states.from];
   [stateFormulas.from, stateFormulas.to] = [stateFormulas.to, stateFormulas.from];
   pendingSticker = null;
