@@ -3,524 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="在浏览器中计算 NxNxN 魔方两个公式图案之间的可靠变换。">
-  <title>Cube Pattern Transformer</title>
+  <meta name="description" content="使用只影响中心 orbit 的 3-cycle 交换子，在浏览器中求解 4×4 魔方中心图案。">
+  <title>4×4 Center Orbit Solver</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
-
     :root {
-      --gh-bg: #f6f8fa;
-      --gh-surface: #ffffff;
-      --gh-subtle: #f6f8fa;
-      --gh-border: #d0d7de;
-      --gh-border-strong: #afb8c1;
-      --gh-text: #24292f;
-      --gh-muted: #57606a;
-      --gh-blue: #0969da;
-      --gh-blue-hover: #0860ca;
-      --gh-green: #1a7f37;
-      --gh-green-bg: #dafbe1;
-      --gh-red: #cf222e;
-      --gh-red-bg: #ffebe9;
-      --gh-yellow-bg: #fff8c5;
-      --gh-shadow: 0 10px 30px rgba(31, 35, 40, 0.08);
-      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+      --bg:#f6f8fa; --surface:#fff; --subtle:#f6f8fa; --border:#d0d7de; --border-strong:#afb8c1;
+      --text:#24292f; --muted:#57606a; --blue:#0969da; --green:#1a7f37; --green-bg:#dafbe1;
+      --red:#cf222e; --red-bg:#ffebe9; --yellow-bg:#fff8c5; --shadow:0 10px 30px rgba(31,35,40,.08);
+      --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+      --white:#f4f5f7; --red-sticker:#e5534b; --green-sticker:#2da44e; --yellow:#f4c430; --orange:#f0883e; --blue-sticker:#218bff;
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--gh-text);
-      background:
-        radial-gradient(circle at 0 0, rgba(9, 105, 218, 0.07), transparent 32rem),
-        var(--gh-bg);
-      font-family: "IBM Plex Sans", "Noto Sans SC", sans-serif;
-    }
-
-    button, select, textarea { font: inherit; }
-    button, select { cursor: pointer; }
-
-    .shell {
-      width: min(1180px, calc(100% - 32px));
-      margin: 24px auto 48px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .cube-mark {
-      display: grid;
-      grid-template-columns: repeat(2, 9px);
-      gap: 2px;
-      padding: 6px;
-      background: #24292f;
-      border-radius: 7px;
-      box-shadow: 0 2px 8px rgba(31, 35, 40, 0.18);
-    }
-
-    .cube-mark i { width: 9px; height: 9px; border-radius: 2px; }
-    .cube-mark i:nth-child(1) { background: #ffdf5d; }
-    .cube-mark i:nth-child(2) { background: #54aeff; }
-    .cube-mark i:nth-child(3) { background: #57ab5a; }
-    .cube-mark i:nth-child(4) { background: #f47067; }
-
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(18px, 3vw, 24px);
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand small { display: block; margin-top: 2px; color: var(--gh-muted); font-size: 12px; }
-
-    .back-link { color: var(--gh-blue); font-size: 14px; text-decoration: none; white-space: nowrap; }
-    .back-link:hover { text-decoration: underline; }
-
-    .workspace {
-      overflow: hidden;
-      background: var(--gh-surface);
-      border: 1px solid var(--gh-border);
-      border-radius: 14px;
-      box-shadow: var(--gh-shadow);
-    }
-
-    .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 12px 16px;
-      background: linear-gradient(#fff, #f8fafc);
-      border-bottom: 1px solid var(--gh-border);
-    }
-
-    .toolbar-group { display: flex; align-items: center; gap: 8px; }
-    .toolbar label { color: var(--gh-muted); font-size: 13px; font-weight: 600; }
-
-    select, .button {
-      min-height: 34px;
-      border: 1px solid var(--gh-border-strong);
-      border-radius: 7px;
-      background: #fff;
-      color: var(--gh-text);
-      padding: 5px 11px;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
-    }
-
-    .button:hover, select:hover { background: #f3f4f6; }
-    .button:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 2px solid rgba(9, 105, 218, 0.35);
-      outline-offset: 2px;
-    }
-
-    .button.primary { color: #fff; border-color: rgba(27, 31, 36, 0.15); background: var(--gh-green); }
-    .button.primary:hover { background: #2c974b; }
-
-    .pattern-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
-      padding: 20px;
-      gap: 14px;
-    }
-
-    .pattern-card {
-      min-width: 0;
-      border: 1px solid var(--gh-border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .card-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--gh-border);
-      background: var(--gh-subtle);
-    }
-
-    .card-heading h2 { margin: 0; font-size: 15px; }
-    .card-heading span { color: var(--gh-muted); font-size: 12px; }
-
-    twisty-player {
-      display: block;
-      width: 100%;
-      height: 270px;
-      background: #fff;
-    }
-
-    .input-wrap { padding: 12px; border-top: 1px solid var(--gh-border); }
-
-    textarea {
-      display: block;
-      width: 100%;
-      min-height: 92px;
-      resize: vertical;
-      border: 1px solid var(--gh-border);
-      border-radius: 7px;
-      background: #fff;
-      color: var(--gh-text);
-      padding: 10px 11px;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    textarea[aria-invalid="true"] { border-color: var(--gh-red); background: var(--gh-red-bg); }
-    .field-note { min-height: 18px; margin: 7px 1px 0; color: var(--gh-muted); font-size: 12px; }
-    .field-note.error { color: var(--gh-red); }
-
-    .swap-column { display: grid; place-items: center; }
-    .swap-button { width: 38px; padding: 5px; font-size: 18px; }
-
-    .result-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
-      border-top: 1px solid var(--gh-border);
-    }
-
-    .result-copy { min-width: 0; padding: 20px; }
-    .section-label {
-      margin: 0 0 8px;
-      color: var(--gh-muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .result-copy h2 { margin: 0; font-size: 20px; }
-    .result-copy > p { margin: 7px 0 15px; color: var(--gh-muted); font-size: 13px; line-height: 1.6; }
-
-    .output-row { display: flex; gap: 8px; align-items: stretch; }
-    .output {
-      flex: 1;
-      min-width: 0;
-      min-height: 54px;
-      margin: 0;
-      padding: 13px;
-      overflow-wrap: anywhere;
-      border: 1px solid var(--gh-border);
-      border-radius: 7px;
-      background: #0d1117;
-      color: #e6edf3;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .status {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 7px;
-      background: var(--gh-green-bg);
-      color: #116329;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .status::before { content: "✓"; font-weight: 800; }
-    .status.error { background: var(--gh-red-bg); color: var(--gh-red); }
-    .status.error::before { content: "!"; }
-
-    .journey {
-      border-left: 1px solid var(--gh-border);
-      background: #fbfcfd;
-      padding: 20px;
-    }
-
-    .journey twisty-player { height: 210px; border: 1px solid var(--gh-border); border-radius: 8px; }
-    .journey p { margin: 9px 0 0; color: var(--gh-muted); font-size: 12px; line-height: 1.55; }
-
-    .notes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .note-card {
-      padding: 16px;
-      border: 1px solid var(--gh-border);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.72);
-    }
-
-    .note-card h3 { margin: 0 0 7px; font-size: 14px; }
-    .note-card p { margin: 0; color: var(--gh-muted); font-size: 12px; line-height: 1.65; }
-    code { font-family: var(--mono); font-size: 0.92em; }
-
-    .roadmap { border-left: 3px solid #bf8700; background: var(--gh-yellow-bg); }
-
-    @media (max-width: 820px) {
-      .pattern-grid { grid-template-columns: 1fr; }
-      .swap-column { height: 36px; }
-      .swap-button { transform: rotate(90deg); }
-      .result-section { grid-template-columns: 1fr; }
-      .journey { border-left: 0; border-top: 1px solid var(--gh-border); }
-      .notes { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 520px) {
-      .shell { width: min(100% - 16px, 1180px); margin-top: 12px; }
-      .brand small { display: none; }
-      .pattern-grid, .result-copy, .journey { padding: 12px; }
-      twisty-player { height: 230px; }
-      .output-row { flex-direction: column; }
-    }
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 0 0,rgba(9,105,218,.07),transparent 34rem),var(--bg);font-family:"IBM Plex Sans","Noto Sans SC",sans-serif}
+    button{font:inherit;cursor:pointer} code,pre{font-family:var(--mono)}
+    .shell{width:min(1180px,calc(100% - 32px));margin:24px auto 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .cube-mark{display:grid;grid-template-columns:repeat(2,9px);gap:2px;padding:6px;background:#24292f;border-radius:7px}.cube-mark i{width:9px;height:9px;border-radius:2px}.cube-mark i:nth-child(1){background:var(--yellow)}.cube-mark i:nth-child(2){background:var(--blue-sticker)}.cube-mark i:nth-child(3){background:var(--green-sticker)}.cube-mark i:nth-child(4){background:var(--red-sticker)}
+    h1{margin:0;font-size:clamp(19px,3vw,25px);letter-spacing:-.02em}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:12px}.back-link{color:var(--blue);font-size:14px;text-decoration:none;white-space:nowrap}.back-link:hover{text-decoration:underline}
+    .panel{overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}.toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:12px 16px;background:linear-gradient(#fff,#f8fafc);border-bottom:1px solid var(--border)}.toolbar-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+    .scope{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}.badge{padding:3px 8px;border:1px solid #b6d7a8;border-radius:999px;background:var(--green-bg);color:#116329;font-size:12px;font-weight:700}
+    .button{min-height:34px;border:1px solid var(--border-strong);border-radius:7px;background:#fff;color:var(--text);padding:5px 11px;font-size:13px;font-weight:600;box-shadow:0 1px 0 rgba(31,35,40,.04)}.button:hover{background:#f3f4f6}.button.primary{color:#fff;border-color:rgba(27,31,36,.15);background:var(--green)}.button.primary:hover{background:#2c974b}.button.active{color:#fff;border-color:var(--blue);background:var(--blue)}
+    .button:focus-visible,.sticker:focus-visible,.palette-button:focus-visible{outline:2px solid rgba(9,105,218,.45);outline-offset:2px}.editor-help{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border)}.editor-help p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.palette{display:flex;align-items:center;gap:6px}.palette-button{width:27px;height:27px;padding:0;border:2px solid #fff;border-radius:6px;box-shadow:0 0 0 1px var(--border-strong)}.palette-button.selected{box-shadow:0 0 0 2px var(--text);transform:scale(1.06)}
+    .editors{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);gap:12px;padding:18px}.editor-card{min-width:0;border:1px solid var(--border);border-radius:10px;background:var(--subtle);overflow:hidden}.editor-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border-bottom:1px solid var(--border);background:#fff}.editor-heading h2{margin:0;font-size:15px}.editor-heading span{color:var(--muted);font-size:12px}.net-wrap{padding:18px 12px;overflow-x:auto}
+    .cube-net{--face-size:clamp(78px,10.5vw,116px);display:grid;grid-template-columns:repeat(4,var(--face-size));grid-template-rows:repeat(3,var(--face-size));grid-template-areas:". U . ." "L F R B" ". D . .";gap:5px;width:max-content;margin:auto}.face{position:relative;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:2px;padding:3px;border-radius:5px;background:#24292f;box-shadow:0 2px 7px rgba(31,35,40,.15)}.face[data-face=U]{grid-area:U}.face[data-face=R]{grid-area:R}.face[data-face=F]{grid-area:F}.face[data-face=D]{grid-area:D}.face[data-face=L]{grid-area:L}.face[data-face=B]{grid-area:B}.face-label{position:absolute;top:4px;left:6px;z-index:2;color:rgba(0,0,0,.55);font-family:var(--mono);font-size:10px;font-weight:700;pointer-events:none}
+    .sticker{min-width:0;min-height:0;padding:0;border:0;border-radius:2px;background:var(--sticker-color);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.sticker.locked{cursor:default;filter:saturate(.8) brightness(.97)}.sticker.editable{position:relative}.sticker.editable:hover{z-index:1;box-shadow:inset 0 0 0 2px rgba(255,255,255,.85),0 0 0 2px var(--blue)}.sticker.pending{z-index:1;box-shadow:inset 0 0 0 2px #fff,0 0 0 3px #24292f}.editor-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-top:1px solid var(--border);background:#fff;color:var(--muted);font-size:12px}.count-ok{color:var(--green);font-weight:700}.count-bad{color:var(--red);font-weight:700}.swap-column{display:grid;place-items:center}.swap-button{width:38px;padding:5px;font-size:18px}
+    .result{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);border-top:1px solid var(--border)}.result-main{min-width:0;padding:20px}.section-label{margin:0 0 7px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.result h2{margin:0;font-size:20px}.result-description{margin:7px 0 14px;color:var(--muted);font-size:13px;line-height:1.6}.output-row{display:flex;gap:8px;align-items:stretch}.output{flex:1;min-width:0;min-height:76px;max-height:200px;margin:0;padding:13px;overflow:auto;overflow-wrap:anywhere;white-space:pre-wrap;border:1px solid var(--border);border-radius:7px;background:#0d1117;color:#e6edf3;font-size:12px;line-height:1.6}
+    .status{display:flex;align-items:flex-start;gap:8px;margin-top:11px;padding:10px 12px;border-radius:7px;background:var(--yellow-bg);color:#6f5300;font-size:13px;line-height:1.5}.status:before{content:"○";font-weight:800}.status.success{background:var(--green-bg);color:#116329}.status.success:before{content:"✓"}.status.error{background:var(--red-bg);color:var(--red)}.status.error:before{content:"!"}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.metric{padding:9px 10px;border:1px solid var(--border);border-radius:7px;background:var(--subtle)}.metric strong{display:block;font-family:var(--mono);font-size:16px}.metric span{display:block;margin-top:2px;color:var(--muted);font-size:11px}
+    .verification{padding:20px;border-left:1px solid var(--border);background:#fbfcfd}twisty-player{display:block;width:100%;height:230px;border:1px solid var(--border);border-radius:8px;background:#fff}.verification p{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.55}.explanation{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.note-card{padding:16px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.76)}.note-card h3{margin:0 0 7px;font-size:14px}.note-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}.note-card.accent{border-left:3px solid var(--blue)}
+    @media(max-width:900px){.editors{grid-template-columns:1fr}.swap-column{height:32px}.swap-button{transform:rotate(90deg)}.result{grid-template-columns:1fr}.verification{border-left:0;border-top:1px solid var(--border)}.explanation{grid-template-columns:1fr}}@media(max-width:540px){.shell{width:min(100% - 14px,1180px);margin-top:10px}.brand small{display:none}.editor-help,.editors,.result-main,.verification{padding-left:11px;padding-right:11px}.cube-net{--face-size:77px}.output-row{flex-direction:column}.metrics{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand">
-        <span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        <div>
-          <h1>Cube Pattern Transformer</h1>
-          <small>从一个公式图案，可靠地走到另一个公式图案</small>
-        </div>
-      </div>
+      <div class="brand"><span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><h1>4×4 Center Orbit Solver</h1><small>贴纸输入 · 局部 3-cycle · 完整状态验证</small></div></div>
       <a class="back-link" href="../">← 项目导航</a>
     </header>
-
-    <section class="workspace" aria-label="魔方图案变换工作区">
+    <section class="panel" aria-label="4×4 中心 orbit 求解器">
       <div class="toolbar">
-        <div class="toolbar-group">
-          <label for="cube-size">魔方阶数</label>
-          <select id="cube-size">
-            <option value="2x2x2">2 × 2 × 2</option>
-            <option value="3x3x3">3 × 3 × 3</option>
-            <option value="4x4x4">4 × 4 × 4</option>
-            <option value="5x5x5" selected>5 × 5 × 5</option>
-            <option value="6x6x6">6 × 6 × 6</option>
-            <option value="7x7x7">7 × 7 × 7</option>
-          </select>
-        </div>
-        <div class="toolbar-group">
-          <label for="example-select">示例</label>
-          <select id="example-select">
-            <option value="checkerboard">棋盘格 → 六面回字</option>
-            <option value="superflip">已还原 → Superflip（3×3）</option>
-            <option value="custom">自定义</option>
-          </select>
-          <button class="button primary" id="calculate" type="button">计算变换</button>
-        </div>
+        <div class="scope"><span class="badge">可用原型</span><span>当前范围：4×4 的 24 个中心贴纸</span></div>
+        <div class="toolbar-group"><button class="button" id="example" type="button">载入示例</button><button class="button" id="reset" type="button">全部还原</button><button class="button primary" id="solve" type="button">求解图案</button></div>
       </div>
-
-      <div class="pattern-grid">
-        <article class="pattern-card">
-          <div class="card-heading"><h2>起点图案</h2><span>从还原态生成</span></div>
-          <twisty-player id="from-player" puzzle="5x5x5" alg="R2 L2 U2 D2 F2 B2" background="none" control-panel="none" hint-facelets="none"></twisty-player>
-          <div class="input-wrap">
-            <textarea id="from-alg" aria-label="起点图案公式" spellcheck="false">R2 L2 U2 D2 F2 B2</textarea>
-            <p class="field-note" id="from-note">支持 SiGN / WCA 记号、括号、交换子与共轭。</p>
-          </div>
-        </article>
-
-        <div class="swap-column">
-          <button class="button swap-button" id="swap" type="button" title="交换起点和终点" aria-label="交换起点和终点">⇄</button>
-        </div>
-
-        <article class="pattern-card">
-          <div class="card-heading"><h2>终点图案</h2><span>从还原态生成</span></div>
-          <twisty-player id="to-player" puzzle="5x5x5" alg="2R2 2L2 2U2 2D2 2F2 2B2" background="none" control-panel="none" hint-facelets="none"></twisty-player>
-          <div class="input-wrap">
-            <textarea id="to-alg" aria-label="终点图案公式" spellcheck="false">2R2 2L2 2U2 2D2 2F2 2B2</textarea>
-            <p class="field-note" id="to-note">宽转可写作 <code>Rw</code> 或带层编号的 <code>2R</code>。</p>
-          </div>
-        </article>
+      <div class="editor-help">
+        <p><strong>编辑方式：</strong>默认交换两个中心贴纸，可保持颜色数量合法；也可以选择颜色后直接涂色。</p>
+        <div class="toolbar-group"><button class="button active" id="swap-mode" type="button">交换贴纸</button><div class="palette" id="palette" aria-label="贴纸颜色"></div></div>
       </div>
-
-      <section class="result-section" aria-live="polite">
-        <div class="result-copy">
-          <p class="section-label">Transformation</p>
-          <h2>变换公式</h2>
-          <p>先撤销起点公式，再执行终点公式。相邻的同轴转动会由 cubing.js 做安全消去，但这不是全局最短解。</p>
-          <div class="output-row">
-            <pre class="output" id="result-alg">B2 F2 D2 U2 L2 R2 2R2 2L2 2U2 2D2 2F2 2B2</pre>
-            <button class="button" id="copy" type="button">复制</button>
-          </div>
-          <div class="status" id="status">公式已生成；右侧播放器从起点出发并执行该变换。</div>
+      <div class="editors">
+        <article class="editor-card"><div class="editor-heading"><h2>起点图案</h2><span>中心可编辑 · 外圈锁定</span></div><div class="net-wrap"><div class="cube-net" id="from-net" aria-label="起点魔方展开图"></div></div><div class="editor-footer"><span>24 个中心贴纸</span><span id="from-valid" class="count-ok">颜色数量正确</span></div></article>
+        <div class="swap-column"><button class="button swap-button" id="swap-states" type="button" title="交换起点和终点" aria-label="交换起点和终点">⇄</button></div>
+        <article class="editor-card"><div class="editor-heading"><h2>终点图案</h2><span>中心可编辑 · 外圈锁定</span></div><div class="net-wrap"><div class="cube-net" id="to-net" aria-label="终点魔方展开图"></div></div><div class="editor-footer"><span>24 个中心贴纸</span><span id="to-valid" class="count-ok">颜色数量正确</span></div></article>
+      </div>
+      <section class="result" aria-live="polite">
+        <div class="result-main">
+          <p class="section-label">Orbit-local solution</p><h2>中心 orbit 解法</h2>
+          <p class="result-description">把相对置换分解成 3-cycles；每个 cycle 都展开为一个 Niklas 交换子的共轭，因此不会改变角块或翼棱。</p>
+          <div class="output-row"><pre class="output" id="output">编辑贴纸后点击“求解图案”</pre><button class="button" id="copy" type="button">复制公式</button></div>
+          <div class="status" id="status">局部交换子数据库将在浏览器中生成。</div>
+          <div class="metrics"><div class="metric"><strong id="cycle-count">—</strong><span>3-cycles</span></div><div class="metric"><strong id="move-count">—</strong><span>转动数</span></div><div class="metric"><strong id="fixed-count">—</strong><span>始终锁定的非中心贴纸</span></div></div>
         </div>
-        <aside class="journey">
-          <p class="section-label">Verification</p>
-          <twisty-player id="journey-player" puzzle="5x5x5" experimental-setup-alg="R2 L2 U2 D2 F2 B2" alg="B2 F2 D2 U2 L2 R2 2R2 2L2 2U2 2D2 2F2 2B2" background="none" hint-facelets="none"></twisty-player>
-          <p>拖动查看，或播放完整变换。动画的第一帧是起点图案，最后一帧应与终点图案一致。</p>
-        </aside>
+        <aside class="verification"><p class="section-label">Full-cube verification</p><twisty-player id="player" puzzle="4x4x4" background="none" hint-facelets="none" control-panel="bottom-row"></twisty-player><p>播放器从你输入的起点开始。生成结果同时经过 96 贴纸模拟验证，而不只检查目标中心 orbit。</p></aside>
       </section>
     </section>
-
-    <section class="notes" aria-label="实现说明">
-      <article class="note-card">
-        <h3>这一版已经可靠的部分</h3>
-        <p>输入是“从还原态生成图案”的公式。结果严格按 <code>inverse(start) + target</code> 构造，所以不依赖搜索也能保证到达。</p>
-      </article>
-      <article class="note-card">
-        <h3>Orbit 应该放在哪里</h3>
-        <p>大魔方可按角块、不同深度的翼棱与中心坐标类建模。它适合做分阶段启发式和剪枝表；各 orbit 仍受同一步法与 parity 耦合。</p>
-      </article>
-      <article class="note-card roadmap">
-        <h3>下一阶段：真正的图案搜索</h3>
-        <p>加入贴纸编辑器与合法性检查，把相对状态交给 twsearch/WASM；先求 3×3 和单 orbit，再逐步扩展到完整 NxNxN。</p>
-      </article>
+    <section class="explanation" aria-label="算法说明">
+      <article class="note-card"><h3>严格的局部作用</h3><p>基础交换子在完整 4×4 状态上只循环 3 个中心贴纸。通过共轭可以覆盖同一 orbit 的全部 4048 个有向 3-cycle。</p></article>
+      <article class="note-card"><h3>同色中心不可区分</h3><p>每种颜色的四个中心可以重新指派 identity，因此总能选择一个偶置换，再完全分解为 3-cycles。</p></article>
+      <article class="note-card accent"><h3>下一步</h3><p>加入翼棱、角块、orientation 和 parity 宏；twips 可用于在宏动作空间里优化 cycle 分解和最终公式长度。</p></article>
     </section>
   </main>
-
-  <script type="module">
-    import { Alg } from "https://cdn.cubing.net/v0/js/cubing/alg";
-    import "https://cdn.cubing.net/v0/js/cubing/twisty";
-
-    const elements = {
-      cubeSize: document.querySelector("#cube-size"),
-      example: document.querySelector("#example-select"),
-      fromAlg: document.querySelector("#from-alg"),
-      toAlg: document.querySelector("#to-alg"),
-      fromNote: document.querySelector("#from-note"),
-      toNote: document.querySelector("#to-note"),
-      fromPlayer: document.querySelector("#from-player"),
-      toPlayer: document.querySelector("#to-player"),
-      journeyPlayer: document.querySelector("#journey-player"),
-      result: document.querySelector("#result-alg"),
-      status: document.querySelector("#status"),
-      calculate: document.querySelector("#calculate"),
-      swap: document.querySelector("#swap"),
-      copy: document.querySelector("#copy"),
-    };
-
-    const defaults = {
-      fromNote: elements.fromNote.innerHTML,
-      toNote: elements.toNote.innerHTML,
-    };
-
-    const examples = {
-      checkerboard: {
-        puzzle: "5x5x5",
-        from: "R2 L2 U2 D2 F2 B2",
-        to: "2R2 2L2 2U2 2D2 2F2 2B2",
-      },
-      superflip: {
-        puzzle: "3x3x3",
-        from: "",
-        to: "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
-      },
-    };
-
-    function parseField(field, note, fallbackNote) {
-      try {
-        const alg = Alg.fromString(field.value.trim());
-        field.setAttribute("aria-invalid", "false");
-        note.classList.remove("error");
-        note.innerHTML = fallbackNote;
-        return alg;
-      } catch (error) {
-        field.setAttribute("aria-invalid", "true");
-        note.classList.add("error");
-        note.textContent = `无法解析：${error.message}`;
-        throw error;
-      }
-    }
-
-    function updatePlayers() {
-      const puzzle = elements.cubeSize.value;
-      elements.fromPlayer.puzzle = puzzle;
-      elements.toPlayer.puzzle = puzzle;
-      elements.journeyPlayer.puzzle = puzzle;
-      elements.fromPlayer.alg = elements.fromAlg.value.trim();
-      elements.toPlayer.alg = elements.toAlg.value.trim();
-    }
-
-    function calculate() {
-      updatePlayers();
-
-      try {
-        const from = parseField(elements.fromAlg, elements.fromNote, defaults.fromNote);
-        const to = parseField(elements.toAlg, elements.toNote, defaults.toNote);
-        const transformation = from.invert().concat(to).experimentalSimplify({ cancel: true });
-        const output = transformation.toString() || "（无需转动：两个图案相同）";
-
-        elements.result.textContent = output;
-        elements.journeyPlayer.experimentalSetupAlg = from;
-        elements.journeyPlayer.alg = transformation;
-        elements.status.classList.remove("error");
-        elements.status.textContent = "公式已生成；右侧播放器从起点出发并执行该变换。";
-      } catch (error) {
-        elements.result.textContent = "请先修正上方公式";
-        elements.status.classList.add("error");
-        elements.status.textContent = "至少有一个公式无法解析，尚未生成变换。";
-      }
-    }
-
-    function debounce(callback, delay = 220) {
-      let timer;
-      return () => {
-        window.clearTimeout(timer);
-        timer = window.setTimeout(callback, delay);
-      };
-    }
-
-    elements.calculate.addEventListener("click", calculate);
-    elements.cubeSize.addEventListener("change", () => {
-      elements.example.value = "custom";
-      calculate();
-    });
-
-    const calculateSoon = debounce(() => {
-      elements.example.value = "custom";
-      calculate();
-    });
-    elements.fromAlg.addEventListener("input", calculateSoon);
-    elements.toAlg.addEventListener("input", calculateSoon);
-
-    elements.example.addEventListener("change", () => {
-      const example = examples[elements.example.value];
-      if (!example) return;
-      elements.cubeSize.value = example.puzzle;
-      elements.fromAlg.value = example.from;
-      elements.toAlg.value = example.to;
-      calculate();
-    });
-
-    elements.swap.addEventListener("click", () => {
-      const previousFrom = elements.fromAlg.value;
-      elements.fromAlg.value = elements.toAlg.value;
-      elements.toAlg.value = previousFrom;
-      elements.example.value = "custom";
-      calculate();
-    });
-
-    elements.copy.addEventListener("click", async () => {
-      const value = elements.result.textContent;
-      if (!value || value.startsWith("请") || value.startsWith("（")) return;
-      await navigator.clipboard.writeText(value);
-      elements.copy.textContent = "已复制";
-      window.setTimeout(() => { elements.copy.textContent = "复制"; }, 1200);
-    });
-
-    calculate();
-  </script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>
