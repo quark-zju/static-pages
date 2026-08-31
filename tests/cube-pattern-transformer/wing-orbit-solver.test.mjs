@@ -93,7 +93,7 @@ test("an impossible single flipped wing is rejected before decomposition", () =>
 
   assert.throws(
     () => solver.solve(state, model.solvedColors),
-    /edge-orientation-sum/,
+    /wing-handedness-inventory/,
   );
 });
 

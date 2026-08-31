@@ -1,3 +1,5 @@
+import { deriveWingPositionGauge } from "./wing-state.mjs";
+
 function signature(values) {
   return [...values].sort().join("|");
 }
@@ -79,6 +81,54 @@ function inventoryErrors(orbitId, expectedEntries, actualEntries) {
   });
 }
 
+function wingHandednessErrors(model, orbit, expectedEntries, positions) {
+  const gauge = deriveWingPositionGauge(model, orbit.id);
+  const localPosition = new Map(
+    orbit.pieceIndices.map((pieceIndex, local) => [pieceIndex, local]),
+  );
+  const expectedGroups = Map.groupBy(expectedEntries, (entry) => entry.signature);
+  const actualGroups = Map.groupBy(positions, (position) => position.signature);
+  const errors = [];
+
+  for (const [pieceSignature, expected] of expectedGroups) {
+    const actual = actualGroups.get(pieceSignature) ?? [];
+    const expectedCounts = [0, 0];
+    const actualCounts = [0, 0];
+    for (const entry of expected) {
+      expectedCounts[gauge[localPosition.get(entry.pieceIndex)]] += 1;
+    }
+    let ambiguous = false;
+    for (const position of actual) {
+      const orientations = new Set(
+        position.candidates.map((candidate) => candidate.orientation),
+      );
+      if (orientations.size !== 1 || orientations.has(null)) {
+        ambiguous = true;
+        break;
+      }
+      const local = localPosition.get(position.pieceIndex);
+      actualCounts[[...orientations][0] ^ gauge[local]] += 1;
+    }
+    if (ambiguous) {
+      errors.push({
+        code: "wing-orientation-ambiguous",
+        orbitId: orbit.id,
+        signature: pieceSignature,
+      });
+    } else if (actualCounts[0] !== expectedCounts[0]
+        || actualCounts[1] !== expectedCounts[1]) {
+      errors.push({
+        code: "wing-handedness-inventory",
+        orbitId: orbit.id,
+        signature: pieceSignature,
+        expected: expectedCounts,
+        actual: actualCounts,
+      });
+    }
+  }
+  return errors;
+}
+
 function validateStateShape(model, state) {
   if (!Array.isArray(state) || state.length !== model.stickers.length) {
     return [{
@@ -150,7 +200,8 @@ export function analyzePieceState(model, state) {
         });
       }
     }
-    if (orbit.kind === "edge" && orbitErrors.length === 0) {
+    if (orbit.kind === "edge" && orbit.pieceIndices.length === 12
+        && orbitErrors.length === 0) {
       const orientationSum = positions.reduce(
         (sum, position) => sum + position.candidates[0].orientation,
         0,
@@ -162,6 +213,10 @@ export function analyzePieceState(model, state) {
           remainder: orientationSum % 2,
         });
       }
+    }
+    if (orbit.kind === "edge" && orbit.pieceIndices.length === 24
+        && orbitErrors.length === 0) {
+      orbitErrors.push(...wingHandednessErrors(model, orbit, expectedEntries, positions));
     }
     const localPieceIndex = new Map(
       orbit.pieceIndices.map((pieceIndex, local) => [pieceIndex, local]),

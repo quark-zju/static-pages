@@ -56,17 +56,46 @@ test("a mirrored corner sticker order is rejected", () => {
   assert.ok(analysis.errors.some((error) => error.code === "mirrored-piece"));
 });
 
-test("a single flipped edge violates its orbit orientation sum", () => {
-  for (const size of [3, 4, 5]) {
+test("a single flipped middle edge violates its orientation sum", () => {
+  for (const size of [3, 5]) {
     const model = createCubeModel(size);
     const state = [...model.solvedColors];
-    const edge = model.pieces.find((piece) => piece.kind === "edge");
+    const orbit = model.pieceOrbits.find((candidate) => (
+      candidate.kind === "edge" && candidate.pieceIndices.length === 12
+    ));
+    const edge = model.pieces[orbit.pieceIndices[0]];
     const [first, second] = edge.stickerIndices;
     [state[first], state[second]] = [state[second], state[first]];
 
     const analysis = analyzePieceState(model, state);
     assert.equal(analysis.valid, false);
     assert.ok(analysis.errors.some((error) => error.code === "edge-orientation-sum"));
+  }
+});
+
+test("a single flipped wing has no valid physical handedness assignment", () => {
+  for (const size of [4, 5]) {
+    const model = createCubeModel(size);
+    const state = [...model.solvedColors];
+    const orbit = model.pieceOrbits.find((candidate) => (
+      candidate.kind === "edge" && candidate.pieceIndices.length === 24
+    ));
+    const wing = model.pieces[orbit.pieceIndices[0]];
+    const [first, second] = wing.stickerIndices;
+    [state[first], state[second]] = [state[second], state[first]];
+
+    const analysis = analyzePieceState(model, state);
+    assert.equal(analysis.valid, false);
+    assert.deepEqual(
+      analysis.errors.find((error) => error.code === "wing-handedness-inventory"),
+      {
+        code: "wing-handedness-inventory",
+        orbitId: orbit.id,
+        signature: "blue|white",
+        expected: [1, 1],
+        actual: [0, 2],
+      },
+    );
   }
 });
 
