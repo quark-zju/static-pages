@@ -136,7 +136,7 @@ function buildCycleDatabase() {
       const nextCycle = canonicalCycle(cycle.map((index) => inverseMove[index]));
       const key = nextCycle.join(",");
       if (!database.has(key)) {
-        database.set(key, [...setup, token]);
+        database.set(key, [token, ...setup]);
         queue.push(nextCycle);
       }
     }
