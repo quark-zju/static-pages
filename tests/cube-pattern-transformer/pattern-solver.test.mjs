@@ -68,6 +68,41 @@ test("the restricted pipeline solves nontrivial arbitrary source-target patterns
   }
 });
 
+test("partial target patterns resolve wildcards and replay from the exact source", () => {
+  for (const size of [2, 3, 4, 5]) {
+    const model = createCubeModel(size);
+    const solver = createRestrictedPatternSolver(model);
+    const from = model.applyAlgorithm(model.solvedColors, "R U F");
+    const exactTarget = model.applyAlgorithm(model.solvedColors, TARGET_ALGORITHMS[size]);
+    const pattern = [...exactTarget];
+    for (const orbit of model.pieceOrbits) {
+      if (solver.capabilities.fixedVisualOrbits.includes(orbit.id)) continue;
+      const piece = model.pieces[orbit.pieceIndices[0]];
+      for (const stickerIndex of piece.stickerIndices) pattern[stickerIndex] = null;
+    }
+    const solution = solver.solvePattern(from, pattern);
+    const actual = model.applyAlgorithm(from, solution.tokens);
+
+    assert.deepEqual(actual, solution.resolvedTarget);
+    assert.ok(pattern.every((constraint, index) => (
+      constraint === null || actual[index] === constraint
+    )));
+    assert.equal(solution.wildcardCount, pattern.filter((value) => value === null).length);
+    assert.ok(solution.stages.every((stage) => stage.targetAssignment !== null));
+  }
+});
+
+test("an all-wildcard pattern keeps the source unchanged", () => {
+  const model = createCubeModel(4);
+  const solver = createRestrictedPatternSolver(model);
+  const from = model.applyAlgorithm(model.solvedColors, "R U 2F L' B");
+  const solution = solver.solvePattern(from, Array(model.stickers.length).fill("?"));
+
+  assert.deepEqual(solution.resolvedTarget, from);
+  assert.deepEqual(solution.tokens, []);
+  assert.equal(solution.wildcardCount, model.stickers.length);
+});
+
 test("certified 2x2x2 through 4x4x4 domains solve deterministic legal properties", () => {
   let seed = 0x51a9e;
   const random = () => {
@@ -129,6 +164,41 @@ test("odd 5x5x5 wing targets return a scoped subgroup limitation", () => {
       && error.code === "unsupported-orbit-subgroup"
       && error.stage === "wings"
       && error.cause?.message.includes("不表示目标不可达")
+    ),
+  );
+
+  const partialTarget = [...to];
+  for (const pieceIndex of wing.pieceIndices.slice(0, 2)) {
+    for (const stickerIndex of model.pieces[pieceIndex].stickerIndices) {
+      partialTarget[stickerIndex] = "?";
+    }
+  }
+  const wildcardSolution = createRestrictedPatternSolver(model)
+    .solvePattern(from, partialTarget);
+  const actual = model.applyAlgorithm(from, wildcardSolution.tokens);
+  assert.deepEqual(actual, wildcardSolution.resolvedTarget);
+  assert.ok(partialTarget.every((constraint, index) => (
+    constraint === "?" || actual[index] === constraint
+  )));
+  assert.equal(
+    wildcardSolution.stages.find((stage) => stage.id === "wings")
+      .targetAssignment.permutationParity,
+    0,
+  );
+});
+
+test("a partial wildcard on a multi-sticker piece is rejected structurally", () => {
+  const model = createCubeModel(4);
+  const pattern = [...model.solvedColors];
+  const corner = model.pieces.find((piece) => piece.kind === "corner");
+  pattern[corner.stickerIndices[0]] = null;
+
+  assert.throws(
+    () => createRestrictedPatternSolver(model).solvePattern(model.solvedColors, pattern),
+    (error) => (
+      error instanceof RestrictedPatternSolveError
+      && error.code === "invalid-pattern-wildcard"
+      && error.stage === "corners"
     ),
   );
 });

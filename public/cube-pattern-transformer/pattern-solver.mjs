@@ -2,6 +2,11 @@ import { createTwentyFourCenterSolver } from "./center-orbit-solver.mjs";
 import { createCornerOrbitSolver } from "./corner-solver.mjs";
 import { createTwelveEdgePermutationSolver } from "./edge-permutation-solver.mjs";
 import { analyzePieceState } from "./piece-state.mjs";
+import {
+  compileOrbitTarget,
+  normalizeTargetPattern,
+  PatternTargetError,
+} from "./pattern-target.mjs";
 import { createTwentyFourWingSolver } from "./wing-orbit-solver.mjs";
 
 export class RestrictedPatternSolveError extends Error {
@@ -116,6 +121,97 @@ export function createRestrictedPatternSolver(model) {
   ));
   const capabilities = capabilitySummary(model, stages, fixedVisualOrbits);
 
+  function executePipeline(fromColors, resolvedTarget, resolveStageTarget, extras = {}) {
+    let current = [...fromColors];
+    const tokens = [];
+    const reports = [];
+    const lockedOrbitIds = new Set();
+    for (const stage of stages) {
+      let targetInfo;
+      try {
+        targetInfo = resolveStageTarget(stage, current);
+      } catch (error) {
+        if (!(error instanceof PatternTargetError)) throw error;
+        throw new RestrictedPatternSolveError(
+          error.code === "partial-piece-wildcard"
+            ? "invalid-pattern-wildcard"
+            : "no-pattern-assignment",
+          `${stage.id} 无法把 wildcard constraints 编译为 physical target`,
+          {
+            stage: stage.id,
+            details: error.details,
+            cause: error,
+          },
+        );
+      }
+      const stageTarget = targetInfo.targetColors;
+      for (const index of stage.orbit.stickerIndices) {
+        resolvedTarget[index] = stageTarget[index];
+      }
+      let result;
+      try {
+        result = stage.solver.solve(current, stageTarget);
+      } catch (error) {
+        if (!isRestrictedSubgroupFailure(error)) throw error;
+        throw new RestrictedPatternSolveError(
+          "unsupported-orbit-subgroup",
+          `${stage.id} 超出第一版已认证 subgroup`,
+          {
+            stage: stage.id,
+            details: { orbitId: stage.orbit.id },
+            cause: error,
+          },
+        );
+      }
+      current = model.applyAlgorithm(current, result.tokens);
+      tokens.push(...result.tokens);
+      lockedOrbitIds.add(stage.orbit.id);
+      for (const orbitId of lockedOrbitIds) {
+        const orbit = orbitById.get(orbitId);
+        if (!orbitEqual(orbit, current, resolvedTarget)) {
+          throw new RestrictedPatternSolveError(
+            "solved-orbit-regression",
+            `${stage.id} 扰乱了已经完成的 ${orbit.id}`,
+            { stage: stage.id, details: { orbitId: orbit.id } },
+          );
+        }
+      }
+      reports.push(Object.freeze({
+        id: stage.id,
+        kind: stage.kind,
+        orbitId: stage.orbit.id,
+        tokens: result.tokens,
+        formula: result.formula,
+        effects: result.effects,
+        targetAssignment: targetInfo.assignment ?? null,
+      }));
+    }
+
+    if (!current.every((color, index) => color === resolvedTarget[index])) {
+      throw new RestrictedPatternSolveError(
+        "final-sticker-verification",
+        "受限 stage pipeline 完成后仍有未解决贴纸",
+      );
+    }
+    const verified = model.applyAlgorithm(fromColors, tokens);
+    if (!verified.every((color, index) => color === resolvedTarget[index])) {
+      throw new RestrictedPatternSolveError(
+        "full-cube-replay-mismatch",
+        "完整公式从 source 重放后没有达到 resolved target",
+      );
+    }
+
+    return Object.freeze({
+      tokens: Object.freeze(tokens),
+      formula: tokens.join(" "),
+      stages: Object.freeze(reports),
+      effects: Object.freeze(model.algorithmOrbitEffects(tokens)),
+      resolvedTarget: Object.freeze([...resolvedTarget]),
+      capabilities,
+      ...extras,
+    });
+  }
+
   return Object.freeze({
     capabilities,
     solve(fromColors, toColors) {
@@ -130,71 +226,64 @@ export function createRestrictedPatternSolver(model) {
           );
         }
       }
-
-      let current = [...fromColors];
-      const tokens = [];
-      const reports = [];
-      const lockedOrbitIds = new Set();
-      for (const stage of stages) {
-        let result;
-        try {
-          result = stage.solver.solve(current, toColors);
-        } catch (error) {
-          if (!isRestrictedSubgroupFailure(error)) throw error;
-          throw new RestrictedPatternSolveError(
-            "unsupported-orbit-subgroup",
-            `${stage.id} 超出第一版已认证 subgroup`,
-            {
-              stage: stage.id,
-              details: { orbitId: stage.orbit.id },
-              cause: error,
-            },
-          );
-        }
-        current = model.applyAlgorithm(current, result.tokens);
-        tokens.push(...result.tokens);
-        lockedOrbitIds.add(stage.orbit.id);
-        for (const orbitId of lockedOrbitIds) {
-          const orbit = orbitById.get(orbitId);
-          if (!orbitEqual(orbit, current, toColors)) {
+      return executePipeline(
+        fromColors,
+        [...toColors],
+        () => ({ targetColors: toColors }),
+      );
+    },
+    solvePattern(fromColors, rawPattern) {
+      validateEndpoint(model, fromColors, "source");
+      let pattern;
+      try {
+        pattern = normalizeTargetPattern(model, rawPattern);
+      } catch (error) {
+        if (!(error instanceof PatternTargetError)) throw error;
+        throw new RestrictedPatternSolveError(
+          "invalid-target-pattern",
+          error.message,
+          { details: error.details, cause: error },
+        );
+      }
+      const resolvedTarget = [...fromColors];
+      for (const orbit of fixedVisualOrbits) {
+        for (const index of orbit.stickerIndices) {
+          if (pattern[index] !== null && pattern[index] !== fromColors[index]) {
             throw new RestrictedPatternSolveError(
-              "solved-orbit-regression",
-              `${stage.id} 扰乱了已经完成的 ${orbit.id}`,
-              { stage: stage.id, details: { orbitId: orbit.id } },
+              "unsupported-fixed-center-target",
+              `${orbit.id} 超出第一版 fixed-center visual target 限制`,
+              { details: { orbitId: orbit.id, stickerIndex: index } },
             );
           }
         }
-        reports.push(Object.freeze({
-          id: stage.id,
-          kind: stage.kind,
-          orbitId: stage.orbit.id,
-          tokens: result.tokens,
-          formula: result.formula,
-          effects: result.effects,
-        }));
       }
-
-      if (!current.every((color, index) => color === toColors[index])) {
+      const wildcardCount = pattern.filter((value) => value === null).length;
+      const result = executePipeline(
+        fromColors,
+        resolvedTarget,
+        (stage, current) => {
+          const requiresEvenPermutation = ["A12", "A24"]
+            .includes(stage.solver.physicalPermutationGroup);
+          const assignment = compileOrbitTarget(
+            model,
+            stage.orbit.id,
+            current,
+            pattern,
+            { permutationParity: requiresEvenPermutation ? 0 : null },
+          );
+          return { targetColors: assignment.targetColors, assignment };
+        },
+        { wildcardCount },
+      );
+      if (!pattern.every((constraint, index) => (
+        constraint === null || result.resolvedTarget[index] === constraint
+      ))) {
         throw new RestrictedPatternSolveError(
-          "final-sticker-verification",
-          "受限 stage pipeline 完成后仍有未解决贴纸",
+          "resolved-target-constraint-mismatch",
+          "resolved target 没有满足全部非 wildcard 贴纸约束",
         );
       }
-      const verified = model.applyAlgorithm(fromColors, tokens);
-      if (!verified.every((color, index) => color === toColors[index])) {
-        throw new RestrictedPatternSolveError(
-          "full-cube-replay-mismatch",
-          "完整公式从 source 重放后没有达到 target",
-        );
-      }
-
-      return Object.freeze({
-        tokens: Object.freeze(tokens),
-        formula: tokens.join(" "),
-        stages: Object.freeze(reports),
-        effects: Object.freeze(model.algorithmOrbitEffects(tokens)),
-        capabilities,
-      });
+      return result;
     },
   });
 }
