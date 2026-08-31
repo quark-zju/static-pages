@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="使用只影响中心 orbit 的 3-cycle 交换子，在浏览器中求解 4×4 魔方中心图案。">
-  <title>4×4 Center Orbit Solver</title>
+  <meta name="description" content="在浏览器中把 2×2×2 到 5×5×5 魔方图案按 piece orbit 分阶段求解。">
+  <title>N×N Cube Pattern Solver</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
     :root {
@@ -15,16 +15,16 @@
       --white:#f4f5f7; --red-sticker:#e5534b; --green-sticker:#2da44e; --yellow:#f4c430; --orange:#f0883e; --blue-sticker:#218bff;
     }
     *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 0 0,rgba(9,105,218,.07),transparent 34rem),var(--bg);font-family:"IBM Plex Sans","Noto Sans SC",sans-serif}
-    button{font:inherit;cursor:pointer} code,pre{font-family:var(--mono)}
+    button,select{font:inherit}button{cursor:pointer} code,pre{font-family:var(--mono)}
     .shell{width:min(1180px,calc(100% - 32px));margin:24px auto 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px;min-width:0}
     .cube-mark{display:grid;grid-template-columns:repeat(2,9px);gap:2px;padding:6px;background:#24292f;border-radius:7px}.cube-mark i{width:9px;height:9px;border-radius:2px}.cube-mark i:nth-child(1){background:var(--yellow)}.cube-mark i:nth-child(2){background:var(--blue-sticker)}.cube-mark i:nth-child(3){background:var(--green-sticker)}.cube-mark i:nth-child(4){background:var(--red-sticker)}
     h1{margin:0;font-size:clamp(19px,3vw,25px);letter-spacing:-.02em}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:12px}.back-link{color:var(--blue);font-size:14px;text-decoration:none;white-space:nowrap}.back-link:hover{text-decoration:underline}
     .panel{overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}.toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:12px 16px;background:linear-gradient(#fff,#f8fafc);border-bottom:1px solid var(--border)}.toolbar-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-    .scope{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}.badge{padding:3px 8px;border:1px solid #b6d7a8;border-radius:999px;background:var(--green-bg);color:#116329;font-size:12px;font-weight:700}
+    .scope{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:13px}.badge{padding:3px 8px;border:1px solid #b6d7a8;border-radius:999px;background:var(--green-bg);color:#116329;font-size:12px;font-weight:700}.size-select{height:34px;padding:4px 28px 4px 9px;border:1px solid var(--border-strong);border-radius:7px;background:#fff;color:var(--text);font-weight:600}
     .button{min-height:34px;border:1px solid var(--border-strong);border-radius:7px;background:#fff;color:var(--text);padding:5px 11px;font-size:13px;font-weight:600;box-shadow:0 1px 0 rgba(31,35,40,.04)}.button:hover{background:#f3f4f6}.button.primary{color:#fff;border-color:rgba(27,31,36,.15);background:var(--green)}.button.primary:hover{background:#2c974b}.button.active{color:#fff;border-color:var(--blue);background:var(--blue)}
     .button:focus-visible,.sticker:focus-visible,.palette-button:focus-visible{outline:2px solid rgba(9,105,218,.45);outline-offset:2px}.editor-help{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border)}.editor-help p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.palette{display:flex;align-items:center;gap:6px}.palette-button{width:27px;height:27px;padding:0;border:2px solid #fff;border-radius:6px;box-shadow:0 0 0 1px var(--border-strong)}.palette-button.selected{box-shadow:0 0 0 2px var(--text);transform:scale(1.06)}
     .editors{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);gap:12px;padding:18px}.editor-card{min-width:0;border:1px solid var(--border);border-radius:10px;background:var(--subtle);overflow:hidden}.editor-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border-bottom:1px solid var(--border);background:#fff}.editor-heading h2{margin:0;font-size:15px}.editor-heading span{color:var(--muted);font-size:12px}.net-wrap{padding:18px 12px;overflow-x:auto}
-    .cube-net{--face-size:clamp(78px,10.5vw,116px);display:grid;grid-template-columns:repeat(4,var(--face-size));grid-template-rows:repeat(3,var(--face-size));grid-template-areas:". U . ." "L F R B" ". D . .";gap:5px;width:max-content;margin:auto}.face{position:relative;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:2px;padding:3px;border-radius:5px;background:#24292f;box-shadow:0 2px 7px rgba(31,35,40,.15)}.face[data-face=U]{grid-area:U}.face[data-face=R]{grid-area:R}.face[data-face=F]{grid-area:F}.face[data-face=D]{grid-area:D}.face[data-face=L]{grid-area:L}.face[data-face=B]{grid-area:B}.face-label{position:absolute;top:4px;left:6px;z-index:2;color:rgba(0,0,0,.55);font-family:var(--mono);font-size:10px;font-weight:700;pointer-events:none}
+    .cube-net{--face-size:clamp(78px,10.5vw,116px);--cube-size:4;display:grid;grid-template-columns:repeat(4,var(--face-size));grid-template-rows:repeat(3,var(--face-size));grid-template-areas:". U . ." "L F R B" ". D . .";gap:5px;width:max-content;margin:auto}.face{position:relative;display:grid;grid-template-columns:repeat(var(--cube-size),1fr);grid-template-rows:repeat(var(--cube-size),1fr);gap:2px;padding:3px;border-radius:5px;background:#24292f;box-shadow:0 2px 7px rgba(31,35,40,.15)}.face[data-face=U]{grid-area:U}.face[data-face=R]{grid-area:R}.face[data-face=F]{grid-area:F}.face[data-face=D]{grid-area:D}.face[data-face=L]{grid-area:L}.face[data-face=B]{grid-area:B}.face-label{position:absolute;top:4px;left:6px;z-index:2;color:rgba(0,0,0,.55);font-family:var(--mono);font-size:10px;font-weight:700;pointer-events:none}
     .sticker{min-width:0;min-height:0;padding:0;border:0;border-radius:2px;background:var(--sticker-color);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.sticker.locked{cursor:default;filter:saturate(.8) brightness(.97)}.sticker.editable{position:relative}.sticker.editable:hover{z-index:1;box-shadow:inset 0 0 0 2px rgba(255,255,255,.85),0 0 0 2px var(--blue)}.sticker.pending{z-index:1;box-shadow:inset 0 0 0 2px #fff,0 0 0 3px #24292f}.editor-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-top:1px solid var(--border);background:#fff;color:var(--muted);font-size:12px}.count-ok{color:var(--green);font-weight:700}.count-bad{color:var(--red);font-weight:700}.swap-column{display:grid;place-items:center}.swap-button{width:38px;padding:5px;font-size:18px}
     .result{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);border-top:1px solid var(--border)}.result-main{min-width:0;padding:20px}.section-label{margin:0 0 7px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.result h2{margin:0;font-size:20px}.result-description{margin:7px 0 14px;color:var(--muted);font-size:13px;line-height:1.6}.output-row{display:flex;gap:8px;align-items:stretch}.output{flex:1;min-width:0;min-height:76px;max-height:200px;margin:0;padding:13px;overflow:auto;overflow-wrap:anywhere;white-space:pre-wrap;border:1px solid var(--border);border-radius:7px;background:#0d1117;color:#e6edf3;font-size:12px;line-height:1.6}
     .status{display:flex;align-items:flex-start;gap:8px;margin-top:11px;padding:10px 12px;border-radius:7px;background:var(--yellow-bg);color:#6f5300;font-size:13px;line-height:1.5}.status:before{content:"○";font-weight:800}.status.success{background:var(--green-bg);color:#116329}.status.success:before{content:"✓"}.status.error{background:var(--red-bg);color:var(--red)}.status.error:before{content:"!"}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.metric{padding:9px 10px;border:1px solid var(--border);border-radius:7px;background:var(--subtle)}.metric strong{display:block;font-family:var(--mono);font-size:16px}.metric span{display:block;margin-top:2px;color:var(--muted);font-size:11px}
@@ -35,38 +35,38 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand"><span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><h1>4×4 Center Orbit Solver</h1><small>贴纸输入 · 局部 3-cycle · 完整状态验证</small></div></div>
+      <div class="brand"><span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><h1>N×N Cube Pattern Solver</h1><small>2–5 阶 · piece orbit stage pipeline · 完整状态验证</small></div></div>
       <a class="back-link" href="../">← 项目导航</a>
     </header>
-    <section class="panel" aria-label="4×4 中心 orbit 求解器">
+    <section class="panel" aria-label="2 到 5 阶魔方图案求解器">
       <div class="toolbar">
-        <div class="scope"><span class="badge">可用原型</span><span>当前范围：4×4 的 24 个中心贴纸</span></div>
+        <div class="scope"><span class="badge">受限第一版</span><label for="cube-size">阶数</label><select class="size-select" id="cube-size"><option value="2">2×2×2</option><option value="3">3×3×3</option><option value="4" selected>4×4×4</option><option value="5">5×5×5</option></select><span id="scope-text">正在读取后端能力…</span></div>
         <div class="toolbar-group"><button class="button" id="example" type="button">载入示例</button><button class="button" id="reset" type="button">全部还原</button><button class="button primary" id="solve" type="button">求解图案</button></div>
       </div>
       <div class="editor-help">
-        <p><strong>编辑方式：</strong>默认交换两个中心贴纸，可保持颜色数量合法；也可以选择颜色后直接涂色。</p>
+        <p><strong>编辑方式：</strong>默认交换同一状态中的两枚贴纸以保持颜色总数；也可选色涂画。奇数阶六个固定中心在第一版中锁定。</p>
         <div class="toolbar-group"><button class="button active" id="swap-mode" type="button">交换贴纸</button><div class="palette" id="palette" aria-label="贴纸颜色"></div></div>
       </div>
       <div class="editors">
-        <article class="editor-card"><div class="editor-heading"><h2>起点图案</h2><span>中心可编辑 · 外圈锁定</span></div><div class="net-wrap"><div class="cube-net" id="from-net" aria-label="起点魔方展开图"></div></div><div class="editor-footer"><span>24 个中心贴纸</span><span id="from-valid" class="count-ok">颜色数量正确</span></div></article>
+        <article class="editor-card"><div class="editor-heading"><h2>起点图案</h2><span id="from-meta">正在初始化</span></div><div class="net-wrap"><div class="cube-net" id="from-net" aria-label="起点魔方展开图"></div></div><div class="editor-footer"><span>physical piece 输入</span><span id="from-valid" class="count-ok">颜色数量正确</span></div></article>
         <div class="swap-column"><button class="button swap-button" id="swap-states" type="button" title="交换起点和终点" aria-label="交换起点和终点">⇄</button></div>
-        <article class="editor-card"><div class="editor-heading"><h2>终点图案</h2><span>中心可编辑 · 外圈锁定</span></div><div class="net-wrap"><div class="cube-net" id="to-net" aria-label="终点魔方展开图"></div></div><div class="editor-footer"><span>24 个中心贴纸</span><span id="to-valid" class="count-ok">颜色数量正确</span></div></article>
+        <article class="editor-card"><div class="editor-heading"><h2>终点图案</h2><span id="to-meta">正在初始化</span></div><div class="net-wrap"><div class="cube-net" id="to-net" aria-label="终点魔方展开图"></div></div><div class="editor-footer"><span>visual target assignment</span><span id="to-valid" class="count-ok">颜色数量正确</span></div></article>
       </div>
       <section class="result" aria-live="polite">
         <div class="result-main">
-          <p class="section-label">Orbit-local solution</p><h2>中心 orbit 解法</h2>
-          <p class="result-description">把相对置换分解成 3-cycles；每个 cycle 都展开为一个 Niklas 交换子的共轭，因此不会改变角块或翼棱。</p>
+          <p class="section-label">Restricted deterministic solution</p><h2>分 orbit 完整公式</h2>
+          <p class="result-description">先解 stage orbit，再用已认证的局部 3-cycle、orientation basis 与 4×4 odd-wing primitive 锁定后续 orbit；5×5 odd subgroup 暂不协调。</p>
           <div class="output-row"><pre class="output" id="output">编辑贴纸后点击“求解图案”</pre><button class="button" id="copy" type="button">复制公式</button></div>
-          <div class="status" id="status">局部交换子数据库将在浏览器中生成。</div>
-          <div class="metrics"><div class="metric"><strong id="cycle-count">—</strong><span>3-cycles</span></div><div class="metric"><strong id="move-count">—</strong><span>转动数</span></div><div class="metric"><strong id="fixed-count">—</strong><span>始终锁定的非中心贴纸</span></div></div>
+          <div class="status" id="status">orbit 数据库将在浏览器中生成。</div>
+          <div class="metrics"><div class="metric"><strong id="stage-count">—</strong><span>实际执行 stages</span></div><div class="metric"><strong id="move-count">—</strong><span>转动数</span></div><div class="metric"><strong id="verified-count">—</strong><span>完整贴纸验证</span></div></div>
         </div>
-        <aside class="verification"><p class="section-label">Full-cube verification</p><twisty-player id="player" puzzle="4x4x4" background="none" hint-facelets="none" control-panel="bottom-row"></twisty-player><p>播放器从你输入的起点开始。生成结果同时经过 96 贴纸模拟验证，而不只检查目标中心 orbit。</p></aside>
+        <aside class="verification"><p class="section-label">Full-cube replay</p><twisty-player id="player" puzzle="4x4x4" background="none" hint-facelets="none" control-panel="bottom-row"></twisty-player><p>公式先由完整 CubeModel 从起点重放并逐贴纸比较。若手工起点本身超出第一版 solved→source 能力，公式仍会验证，但播放器不加载该 setup。</p></aside>
       </section>
     </section>
     <section class="explanation" aria-label="算法说明">
-      <article class="note-card"><h3>严格的局部作用</h3><p>基础交换子在完整 4×4 状态上只循环 3 个中心贴纸。通过共轭可以覆盖同一 orbit 的全部 4048 个有向 3-cycle。</p></article>
-      <article class="note-card"><h3>同色中心不可区分</h3><p>每种颜色的四个中心可以重新指派 identity，因此总能选择一个偶置换，再完全分解为 3-cycles。</p></article>
-      <article class="note-card accent"><h3>下一步</h3><p>加入翼棱、角块、orientation 和 parity 宏；twips 可用于在宏动作空间里优化 cycle 分解和最终公式长度。</p></article>
+      <article class="note-card"><h3>Physical / visual 分层</h3><p>底层始终保留不同 physical identities；只有读取同色中心或 wing 目标时才进行 matching，不把视觉不可区分性混进群表示。</p></article>
+      <article class="note-card"><h3>已认证的局部群</h3><p>24-center 覆盖 A24；4×4 wing 覆盖 S24；5×5 第一版 wing 保持 A24、middle edge 保持 A12，超界只报告限制。</p></article>
+      <article class="note-card accent"><h3>完整 CubeModel oracle</h3><p>每个 stage 都检查已锁定 orbit，最终公式从原始起点重放。内部 cycle bookkeeping 不能代替完整贴纸结果。</p></article>
     </section>
   </main>
   <script type="module" src="./app.js"></script>
