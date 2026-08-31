@@ -25,6 +25,49 @@ test("models 2x2x2 through 5x5x5 surface geometry", () => {
   }
 });
 
+test("piece orbits match the 2x2x2 through 5x5x5 decomposition", () => {
+  const expected = {
+    2: { corner: [8] },
+    3: { center: [6], corner: [8], edge: [12] },
+    4: { center: [24], corner: [8], edge: [24] },
+    5: { center: [6, 24, 24], corner: [8], edge: [12, 24] },
+  };
+
+  for (const size of SIZES) {
+    const model = createCubeModel(size);
+    const actual = Object.groupBy(model.pieceOrbits, (orbit) => orbit.kind);
+    const actualSizes = Object.fromEntries(
+      Object.entries(actual).map(([kind, orbits]) => [
+        kind,
+        orbits.map((orbit) => orbit.pieceIndices.length).sort((a, b) => a - b),
+      ]),
+    );
+    const memberships = model.pieceOrbits.flatMap((orbit) => orbit.pieceIndices);
+
+    assert.deepEqual(actualSizes, expected[size]);
+    assert.deepEqual([...memberships].sort((a, b) => a - b), model.pieces.map((_piece, index) => index));
+    assert.equal(new Set(memberships).size, model.pieces.length);
+  }
+});
+
+test("every move keeps each piece inside its derived orbit", () => {
+  for (const size of SIZES) {
+    const model = createCubeModel(size);
+    const pieceIndex = new Map(model.pieces.map((piece, index) => [piece.key, index]));
+    for (const face of FACES) {
+      for (let depth = 1; depth <= size; depth += 1) {
+        const token = `${depth === 1 ? "" : depth}${face}`;
+        const permutation = model.movePermutation(token);
+        model.pieces.forEach((piece, sourceIndex) => {
+          const destinationSticker = model.stickers[permutation[piece.stickerIndices[0]]];
+          const destinationIndex = pieceIndex.get(destinationSticker.position.join(","));
+          assert.equal(model.orbitByPieceIndex[destinationIndex], model.orbitByPieceIndex[sourceIndex]);
+        });
+      }
+    }
+  }
+});
+
 test("every supported single-layer move is a sticker bijection", () => {
   for (const size of SIZES) {
     const model = createCubeModel(size);
