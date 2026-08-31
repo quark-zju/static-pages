@@ -1,4 +1,5 @@
 import { analyzePieceState } from "./piece-state.mjs";
+import { createFourByFourOddWingPrimitive } from "./four-by-four-wing-parity.mjs";
 import {
   deriveWingPositionGauge,
   matchWingVisualAssignments,
@@ -173,24 +174,44 @@ export function createTwentyFourWingSolver(model) {
     orbitId: orbit.id,
     databaseSize: database.size,
     assignmentMethod: "handedness-matching",
+    physicalPermutationGroup: model.size === 4 ? "S24" : "A24",
+    oddAssignmentsSupported: model.size === 4,
     positionGauge,
     localToFullCube: true,
     solve(fromColors, toColors) {
       const fromDecoded = decodedOrbit(model, orbit, fromColors);
       const toDecoded = decodedOrbit(model, orbit, toColors);
-      const assignment = matchWingVisualAssignments(
+      const initialAssignment = matchWingVisualAssignments(
         model,
         orbit.id,
         positionGauge,
         fromDecoded,
         toDecoded,
       );
-      if (assignment.parity !== 0) {
-        throw new Error(
-          "24-wing handedness-compatible physical assignment 是奇置换；当前 local primitive 仅覆盖 A24",
+      let workingFromColors = fromColors;
+      let oddPrimitive = null;
+      let assignment = initialAssignment;
+      if (initialAssignment.parity !== 0) {
+        if (model.size !== 4) {
+          throw new Error(
+            "5x5x5 odd 24-wing assignment 超出第一版 A24 local solver 限制；这不表示目标不可达",
+          );
+        }
+        oddPrimitive = createFourByFourOddWingPrimitive(model);
+        workingFromColors = model.applyAlgorithm(fromColors, oddPrimitive.tokens);
+        const workingDecoded = decodedOrbit(model, orbit, workingFromColors);
+        assignment = matchWingVisualAssignments(
+          model,
+          orbit.id,
+          positionGauge,
+          workingDecoded,
+          toDecoded,
         );
+        if (assignment.parity !== 0) {
+          throw new Error("4x4x4 odd wing primitive 没有把剩余目标归一化到 A24");
+        }
       }
-      const fromLocalColors = orbit.stickerIndices.map((index) => fromColors[index]);
+      const fromLocalColors = orbit.stickerIndices.map((index) => workingFromColors[index]);
       const toLocalColors = orbit.stickerIndices.map((index) => toColors[index]);
       const triples = decomposeIntoThreeCycles(assignment.relative);
       let action = Array.from({ length: 48 }, (_unused, index) => index);
@@ -206,7 +227,10 @@ export function createTwentyFourWingSolver(model) {
         throw new Error("24-wing handedness matching 与完整 sticker action 不一致");
       }
 
-      const tokens = simplifyTokens(entries.flatMap(formulaForEntry));
+      const tokens = simplifyTokens([
+        ...(oddPrimitive?.tokens ?? []),
+        ...entries.flatMap(formulaForEntry),
+      ]);
       const result = model.applyAlgorithm(fromColors, tokens);
       if (!orbit.stickerIndices.every((index) => result[index] === toColors[index])) {
         throw new Error("生成公式未达到目标 24-wing 状态");
@@ -216,9 +240,11 @@ export function createTwentyFourWingSolver(model) {
         throw new Error("24-wing 公式意外影响其他 orbit");
       }
       return Object.freeze({
-        assignmentParity: assignment.parity,
-        forcedPairCount: assignment.forcedPairCount,
-        freePairCount: assignment.freePairCount,
+        assignmentParity: initialAssignment.parity,
+        normalizedAssignmentParity: assignment.parity,
+        forcedPairCount: initialAssignment.forcedPairCount,
+        freePairCount: initialAssignment.freePairCount,
+        usedOddPrimitive: oddPrimitive !== null,
         triples: Object.freeze(triples.map((cycle) => Object.freeze(cycle))),
         tokens: Object.freeze(tokens),
         formula: tokens.join(" "),

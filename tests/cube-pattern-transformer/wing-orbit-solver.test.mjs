@@ -38,11 +38,13 @@ const fixtures = [4, 5].map((size) => {
   };
 });
 
-test("24-wing databases cover every directed local 3-cycle", () => {
-  for (const { orbit, solver } of fixtures) {
+test("24-wing databases expose their certified physical permutation groups", () => {
+  for (const { size, orbit, solver } of fixtures) {
     assert.equal(solver.orbitId, orbit.id);
     assert.equal(solver.databaseSize, 4048);
     assert.equal(solver.assignmentMethod, "handedness-matching");
+    assert.equal(solver.physicalPermutationGroup, size === 4 ? "S24" : "A24");
+    assert.equal(solver.oddAssignmentsSupported, size === 4);
     assert.equal(solver.positionGauge.length, 24);
     assert.equal(solver.localToFullCube, true);
   }
@@ -74,6 +76,8 @@ test("source-target patterns in the local wing subgroup solve on 4x4x4 and 5x5x5
       assert.deepEqual(actual, to);
       assert.ok(solution.triples.length > 0);
       assert.equal(solution.assignmentParity, 0);
+      assert.equal(solution.normalizedAssignmentParity, 0);
+      assert.equal(solution.usedOddPrimitive, false);
       assert.equal(solution.forcedPairCount + solution.freePairCount, 12);
       assert.deepEqual(solution.effects.map((effect) => effect.orbitId), [orbit.id]);
     }
@@ -93,13 +97,26 @@ test("an impossible single flipped wing is rejected before decomposition", () =>
   );
 });
 
-test("a different wing coset reports an odd handedness-compatible assignment", () => {
-  for (const { model, orbit, solver } of fixtures) {
-    const [from, to] = OTHER_COSET_PATTERNS
-      .map((algorithm) => projectedPattern(model, orbit, algorithm));
-    assert.throws(
-      () => solver.solve(from, to),
-      /physical assignment 是奇置换.*仅覆盖 A24/,
-    );
-  }
+test("4x4x4 odd assignments solve through the certified wing-local primitive", () => {
+  const { model, orbit, solver } = fixtures[0];
+  const [from, to] = OTHER_COSET_PATTERNS
+    .map((algorithm) => projectedPattern(model, orbit, algorithm));
+  const solution = solver.solve(from, to);
+
+  assert.deepEqual(model.applyAlgorithm(from, solution.tokens), to);
+  assert.equal(solution.assignmentParity, 1);
+  assert.equal(solution.normalizedAssignmentParity, 0);
+  assert.equal(solution.usedOddPrimitive, true);
+  assert.deepEqual(solution.effects.map((effect) => effect.orbitId), [orbit.id]);
+});
+
+test("5x5x5 odd assignments remain an explicit first-version limitation", () => {
+  const { model, orbit, solver } = fixtures[1];
+  const [from, to] = OTHER_COSET_PATTERNS
+    .map((algorithm) => projectedPattern(model, orbit, algorithm));
+
+  assert.throws(
+    () => solver.solve(from, to),
+    /超出第一版 A24 local solver 限制.*不表示目标不可达/,
+  );
 });
