@@ -56,6 +56,34 @@ test("a mirrored corner sticker order is rejected", () => {
   assert.ok(analysis.errors.some((error) => error.code === "mirrored-piece"));
 });
 
+test("a single flipped edge violates its orbit orientation sum", () => {
+  for (const size of [3, 4, 5]) {
+    const model = createCubeModel(size);
+    const state = [...model.solvedColors];
+    const edge = model.pieces.find((piece) => piece.kind === "edge");
+    const [first, second] = edge.stickerIndices;
+    [state[first], state[second]] = [state[second], state[first]];
+
+    const analysis = analyzePieceState(model, state);
+    assert.equal(analysis.valid, false);
+    assert.ok(analysis.errors.some((error) => error.code === "edge-orientation-sum"));
+  }
+});
+
+test("unique-piece orbits expose observable permutation parity", () => {
+  const model3 = createCubeModel(3);
+  const state3 = model3.applyAlgorithm(model3.solvedColors, "R U F");
+  const analysis3 = analyzePieceState(model3, state3);
+  assert.equal(analysis3.orbits.find((orbit) => orbit.kind === "corner").permutationParity, 1);
+  assert.equal(analysis3.orbits.find((orbit) => orbit.kind === "edge").permutationParity, 1);
+
+  const model5 = createCubeModel(5);
+  const analysis5 = analyzePieceState(model5, model5.solvedColors);
+  const edgeOrbits = analysis5.orbits.filter((orbit) => orbit.kind === "edge");
+  assert.equal(edgeOrbits.find((orbit) => orbit.positions.length === 12).permutationParity, 0);
+  assert.equal(edgeOrbits.find((orbit) => orbit.positions.length === 24).permutationParity, null);
+});
+
 test("missing pieces and unknown colors produce structured errors", () => {
   const model = createCubeModel(5);
   const missingPiece = [...model.solvedColors];
