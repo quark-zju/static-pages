@@ -119,6 +119,35 @@ Failure of a local solver means only that the requested physical assignment is
 outside the subgroup currently implemented by that solver. It does not prove
 that the visual target is globally unreachable.
 
+## Restricted end-to-end pipeline
+
+`createRestrictedPatternSolver(model)` is the backend-first composition of the
+certified solvers. It deliberately has no parity coordinator or raw-move search.
+Its stage order is:
+
+```text
+2x2x2: corners
+3x3x3: corners -> middle edges
+4x4x4: corners -> wings -> center-0
+5x5x5: corners -> middle edges -> wings -> center-1 -> center-2
+```
+
+After every stage, all completed orbit stickers are compared with the target.
+The concatenated result is finally replayed from the original source through
+the full sticker model. A later stage changing a locked orbit is an
+implementation error, not a solver limitation.
+
+The first version has explicit boundaries:
+
+- odd-cube six-center visual stickers must already match because whole-cube
+  rotations and fixed-center frame semantics are not yet modeled;
+- the 5x5x5 middle-edge projection is restricted to `A_12`;
+- the 5x5x5 wing projection is restricted to `A_24`.
+
+These produce structured `RestrictedPatternSolveError` codes such as
+`unsupported-fixed-center-target` and `unsupported-orbit-subgroup`. They never
+claim that the complete target is mathematically unreachable.
+
 ## Certified parity relations
 
 The relations below are the exact `GF(2)` nullspaces of the physical piece
