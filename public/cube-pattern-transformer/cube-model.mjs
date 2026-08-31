@@ -100,6 +100,7 @@ export function createCubeModel(size) {
     kind: pieceKind(stickerIndices.length),
     stickerIndices: Object.freeze(stickerIndices),
   }));
+  const pieceIndex = new Map(pieces.map((piece, index) => [piece.key, index]));
   const solvedColors = stickers.map((sticker) => FACE_COLORS[sticker.face]);
   const moveCache = new Map();
   const identityPermutation = () => stickers.map((_sticker, index) => index);
@@ -178,6 +179,77 @@ export function createCubeModel(size) {
     return tokenize(algorithm).reverse().map(invertToken);
   }
 
+  function derivePieceOrbits() {
+    const parent = pieces.map((_piece, index) => index);
+
+    function find(index) {
+      let root = index;
+      while (parent[root] !== root) root = parent[root];
+      while (parent[index] !== index) {
+        const next = parent[index];
+        parent[index] = root;
+        index = next;
+      }
+      return root;
+    }
+
+    function union(first, second) {
+      const firstRoot = find(first);
+      const secondRoot = find(second);
+      if (firstRoot !== secondRoot) parent[secondRoot] = firstRoot;
+    }
+
+    const generators = FACES_FOR_ORBITS.flatMap((face) => (
+      Array.from({ length: size }, (_unused, index) => `${index === 0 ? "" : index + 1}${face}`)
+    ));
+    for (const token of generators) {
+      const permutation = movePermutation(token);
+      pieces.forEach((piece, sourceIndex) => {
+        const destinationSticker = stickers[permutation[piece.stickerIndices[0]]];
+        const destinationIndex = pieceIndex.get(destinationSticker.position.join(","));
+        if (destinationIndex === undefined || pieces[destinationIndex].kind !== piece.kind) {
+          throw new Error(`转动 ${token} 产生了无效块位置`);
+        }
+        union(sourceIndex, destinationIndex);
+      });
+    }
+
+    const groups = new Map();
+    pieces.forEach((_piece, index) => {
+      const root = find(index);
+      if (!groups.has(root)) groups.set(root, []);
+      groups.get(root).push(index);
+    });
+    const counters = { corner: 0, edge: 0, center: 0 };
+    return [...groups.values()]
+      .sort((first, second) => {
+        const firstKind = pieces[first[0]].kind;
+        const secondKind = pieces[second[0]].kind;
+        return firstKind.localeCompare(secondKind)
+          || first.length - second.length
+          || pieces[first[0]].key.localeCompare(pieces[second[0]].key);
+      })
+      .map((pieceIndices) => {
+        const kind = pieces[pieceIndices[0]].kind;
+        const ordinal = counters[kind];
+        counters[kind] += 1;
+        return Object.freeze({
+          id: `${kind}-${ordinal}`,
+          kind,
+          pieceIndices: Object.freeze(pieceIndices),
+          pieceKeys: Object.freeze(pieceIndices.map((index) => pieces[index].key)),
+          stickerIndices: Object.freeze(pieceIndices.flatMap((index) => pieces[index].stickerIndices)),
+        });
+      });
+  }
+
+  const FACES_FOR_ORBITS = ["U", "R", "F"];
+  const pieceOrbits = derivePieceOrbits();
+  const orbitByPieceIndex = Array(pieces.length);
+  pieceOrbits.forEach((orbit) => {
+    orbit.pieceIndices.forEach((index) => { orbitByPieceIndex[index] = orbit.id; });
+  });
+
   return Object.freeze({
     size,
     faceOrder: FACE_ORDER,
@@ -185,6 +257,8 @@ export function createCubeModel(size) {
     colors: COLORS,
     stickers: Object.freeze(stickers),
     pieces: Object.freeze(pieces),
+    pieceOrbits: Object.freeze(pieceOrbits),
+    orbitByPieceIndex: Object.freeze(orbitByPieceIndex),
     solvedColors: Object.freeze(solvedColors),
     movePermutation,
     algorithmPermutation,
