@@ -170,10 +170,42 @@ export function createTwentyFourCenterSolver(model, orbitId) {
     return [...setup, ...base, ...invertAlgorithm(setup)];
   }
 
+  function solvePhysicalPermutation(permutation) {
+    if (!Array.isArray(permutation)
+        || permutation.length !== 24
+        || permutation.some((destination) => (
+          !Number.isInteger(destination) || destination < 0 || destination >= 24
+        ))
+        || new Set(permutation).size !== 24) {
+      throw new Error(`${orbit.id} physical permutation 必须是 0..23 的双射`);
+    }
+    if (permutationParity(permutation) !== 0) {
+      throw new Error(`${orbit.id} physical permutation 是奇置换，无法由 local 3-cycle 生成`);
+    }
+    const triples = decomposeIntoThreeCycles(permutation);
+    const tokens = simplifyTokens(triples.flatMap(formulaForCycle));
+    const actual = model.orbitPermutation(orbit.id, tokens);
+    if (actual.some((destination, source) => destination !== permutation[source])) {
+      throw new Error(`${orbit.id} physical permutation 公式验证失败`);
+    }
+    const effects = model.algorithmOrbitEffects(tokens);
+    if (effects.some((effect) => effect.orbitId !== orbit.id)) {
+      throw new Error(`${orbit.id} physical permutation 公式意外影响其他 orbit`);
+    }
+    return Object.freeze({
+      permutation: Object.freeze([...permutation]),
+      triples: Object.freeze(triples.map((cycle) => Object.freeze(cycle))),
+      tokens: Object.freeze(tokens),
+      formula: tokens.join(" "),
+      effects: Object.freeze(effects),
+    });
+  }
+
   return Object.freeze({
     orbitId: orbit.id,
     databaseSize: database.size,
     localToFullCube: true,
+    solvePhysicalPermutation,
     solve(fromColors, toColors) {
       if (!Array.isArray(fromColors) || fromColors.length !== model.stickers.length
           || !Array.isArray(toColors) || toColors.length !== model.stickers.length) {
@@ -211,21 +243,16 @@ export function createTwentyFourCenterSolver(model, orbitId) {
         [relative[first], relative[second]] = [relative[second], relative[first]];
       }
 
-      const triples = decomposeIntoThreeCycles(relative);
-      const tokens = simplifyTokens(triples.flatMap(formulaForCycle));
-      const result = model.applyAlgorithm(fromColors, tokens);
+      const physical = solvePhysicalPermutation(relative);
+      const result = model.applyAlgorithm(fromColors, physical.tokens);
       if (!orbit.stickerIndices.every((index) => result[index] === toColors[index])) {
         throw new Error(`生成公式未达到目标 ${orbit.id} 中心状态`);
       }
-      const effects = model.algorithmOrbitEffects(tokens);
-      if (effects.some((effect) => effect.orbitId !== orbit.id)) {
-        throw new Error(`${orbit.id} 中心公式意外影响其他 orbit`);
-      }
       return Object.freeze({
-        triples: Object.freeze(triples.map((cycle) => Object.freeze(cycle))),
-        tokens: Object.freeze(tokens),
-        formula: tokens.join(" "),
-        effects: Object.freeze(effects),
+        triples: physical.triples,
+        tokens: physical.tokens,
+        formula: physical.formula,
+        effects: physical.effects,
       });
     },
   });
