@@ -42,7 +42,8 @@ test("24-wing databases cover every directed local 3-cycle", () => {
   for (const { orbit, solver } of fixtures) {
     assert.equal(solver.orbitId, orbit.id);
     assert.equal(solver.databaseSize, 4048);
-    assert.equal(solver.pairingChoiceCount, 4096);
+    assert.equal(solver.assignmentMethod, "handedness-matching");
+    assert.equal(solver.positionGauge.length, 24);
     assert.equal(solver.localToFullCube, true);
   }
 });
@@ -72,7 +73,8 @@ test("source-target patterns in the local wing subgroup solve on 4x4x4 and 5x5x5
 
       assert.deepEqual(actual, to);
       assert.ok(solution.triples.length > 0);
-      assert.ok(solution.pairingMask >= 0 && solution.pairingMask < 4096);
+      assert.equal(solution.assignmentParity, 0);
+      assert.equal(solution.forcedPairCount + solution.freePairCount, 12);
       assert.deepEqual(solution.effects.map((effect) => effect.orbitId), [orbit.id]);
     }
   }
@@ -91,13 +93,13 @@ test("an impossible single flipped wing is rejected before decomposition", () =>
   );
 });
 
-test("a different wing parity coset requests cross-orbit coordination", () => {
+test("a different wing coset reports an odd handedness-compatible assignment", () => {
   for (const { model, orbit, solver } of fixtures) {
     const [from, to] = OTHER_COSET_PATTERNS
       .map((algorithm) => projectedPattern(model, orbit, algorithm));
     assert.throws(
       () => solver.solve(from, to),
-      /不在局部偶置换子群中/,
+      /physical assignment 是奇置换.*仅覆盖 A24/,
     );
   }
 });
