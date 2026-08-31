@@ -246,9 +246,46 @@ export function createCubeModel(size) {
   const FACES_FOR_ORBITS = ["U", "R", "F"];
   const pieceOrbits = derivePieceOrbits();
   const orbitByPieceIndex = Array(pieces.length);
+  const orbitById = new Map(pieceOrbits.map((orbit) => [orbit.id, orbit]));
   pieceOrbits.forEach((orbit) => {
     orbit.pieceIndices.forEach((index) => { orbitByPieceIndex[index] = orbit.id; });
   });
+
+  function requireOrbit(orbitId) {
+    const orbit = orbitById.get(orbitId);
+    if (!orbit) throw new Error(`未知的块 orbit：${orbitId}`);
+    return orbit;
+  }
+
+  function orbitPermutation(orbitId, algorithm) {
+    const orbit = requireOrbit(orbitId);
+    const globalPermutation = algorithmPermutation(algorithm);
+    const localIndex = new Map(orbit.stickerIndices.map((index, local) => [index, local]));
+    return orbit.stickerIndices.map((index) => {
+      const destination = localIndex.get(globalPermutation[index]);
+      if (destination === undefined) {
+        throw new Error(`公式把贴纸移出了 ${orbitId}`);
+      }
+      return destination;
+    });
+  }
+
+  function algorithmOrbitEffects(algorithm) {
+    const permutation = algorithmPermutation(algorithm);
+    return pieceOrbits.flatMap((orbit) => {
+      const movedStickerCount = orbit.stickerIndices
+        .filter((index) => permutation[index] !== index)
+        .length;
+      return movedStickerCount === 0
+        ? []
+        : [Object.freeze({ orbitId: orbit.id, kind: orbit.kind, movedStickerCount })];
+    });
+  }
+
+  function isOrbitLocalAlgorithm(orbitId, algorithm) {
+    requireOrbit(orbitId);
+    return algorithmOrbitEffects(algorithm).every((effect) => effect.orbitId === orbitId);
+  }
 
   return Object.freeze({
     size,
@@ -262,6 +299,9 @@ export function createCubeModel(size) {
     solvedColors: Object.freeze(solvedColors),
     movePermutation,
     algorithmPermutation,
+    orbitPermutation,
+    algorithmOrbitEffects,
+    isOrbitLocalAlgorithm,
     applyPermutation,
     applyAlgorithm,
     invertAlgorithm,
