@@ -80,7 +80,7 @@ function decomposeIntoThreeCycles(permutation) {
     if (cycle.length % 2 === 0) transpositions.push([cycle[0], cycle.at(-1)]);
   }
   if (transpositions.length % 2 !== 0) {
-    throw new Error("12-edge 相对置换是奇置换，需要跨 orbit parity 协调");
+    throw new Error("12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达");
   }
   for (let index = 0; index < transpositions.length; index += 2) {
     const [a, b] = transpositions[index];
@@ -299,6 +299,8 @@ export function createTwelveEdgePermutationSolver(model) {
     actionDatabaseSize: database.size,
     flipBasisRank,
     supportsOrientationChanges: true,
+    physicalPermutationGroup: "A12",
+    oddAssignmentsSupported: false,
     localToFullCube: model.isOrbitLocalAlgorithm(orbit.id, BASE_ALGORITHM),
     solve(fromColors, toColors) {
       const from = decodeOrbit(model, orbit, fromColors);
@@ -308,7 +310,7 @@ export function createTwelveEdgePermutationSolver(model) {
       const relative = from.permutation.map((identity) => targetPositionByIdentity[identity]);
 
       if (permutationParity(relative) !== 0) {
-        throw new Error("12-edge 相对置换是奇置换，需要跨 orbit parity 协调");
+        throw new Error("12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达");
       }
       const triples = decomposeIntoThreeCycles(relative);
       const permutationTokens = triples.flatMap(formulaForCycle);

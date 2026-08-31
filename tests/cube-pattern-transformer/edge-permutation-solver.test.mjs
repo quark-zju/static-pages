@@ -28,6 +28,8 @@ test("12-edge permutation database covers every directed 3-cycle", () => {
   assert.equal(solver3.actionDatabaseSize, 1760);
   assert.equal(solver3.flipBasisRank, 11);
   assert.equal(solver3.supportsOrientationChanges, true);
+  assert.equal(solver3.physicalPermutationGroup, "A12");
+  assert.equal(solver3.oddAssignmentsSupported, false);
   assert.equal(solver3.localToFullCube, true);
   assert.equal(solver5.databaseSize, 440);
   assert.equal(solver5.localToFullCube, false);
@@ -72,7 +74,7 @@ test("even custom 12-edge permutations solve on 3x3x3 and 5x5x5", () => {
   }
 });
 
-test("even edge flips solve while odd permutations request parity coordination", () => {
+test("even edge flips solve while odd permutations report the A12 boundary", () => {
   const model = createCubeModel(3);
   const solver = createTwelveEdgePermutationSolver(model);
   const orbit = twelveEdgeOrbit(model);
@@ -99,6 +101,6 @@ test("even edge flips solve while odd permutations request parity coordination",
   }
   assert.throws(
     () => solver.solve(odd, model.solvedColors),
-    /奇置换，需要跨 orbit parity 协调/,
+    /超出当前 A12 primitive 限制.*不表示目标不可达/,
   );
 });
