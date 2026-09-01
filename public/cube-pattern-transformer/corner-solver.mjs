@@ -213,6 +213,7 @@ export function createCornerOrbitSolver(model, options = {}) {
 
   return Object.freeze({
     orbitId: cornerOrbit.id,
+    localToFullCube: model.pieceOrbits.length === 1,
     moveCount: MOVE_TOKENS.length,
     permutationStateCount: PERMUTATION_COUNT,
     orientationStateCount: ORIENTATION_COUNT,

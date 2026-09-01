@@ -114,6 +114,14 @@ preserve every derived orbit as a set.
 
 A stage solver only promises to reach its target orbit. It may disturb orbits
 scheduled for later stages and must return the full list of collateral effects.
+`localToFullCube` records whether a solver has a full-cube locality guarantee;
+each stage result also exposes `collateralEffects` separately from its complete
+effect list.
+
+In particular, the 5x5x5 middle-edge base 3-cycle is not orbit-local. It moves
+the target middle edges together with wings and both movable center orbits. The
+pipeline intentionally schedules those affected orbits later. Final full-cube
+replay verifies the composition; it does not repair collateral effects.
 
 Failure of a local solver means only that the requested physical assignment is
 outside the subgroup currently implemented by that solver. It does not prove

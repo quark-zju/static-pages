@@ -259,7 +259,12 @@ function showError(error) {
 
 function stageSummary(solution) {
   const active = solution.stages.filter((stage) => stage.tokens.length > 0);
-  return active.length === 0 ? "无需执行任何 stage" : active.map((stage) => `${stage.id}(${stage.tokens.length})`).join(" → ");
+  return active.length === 0 ? "无需执行任何 stage" : active.map((stage) => {
+    const collateral = stage.collateralEffects.length > 0
+      ? `；暂时扰动 ${stage.collateralEffects.map((effect) => effect.orbitId).join(", ")}`
+      : "";
+    return `${stage.id}(${stage.tokens.length}${collateral})`;
+  }).join(" → ");
 }
 
 async function solveAndRender() {
@@ -310,7 +315,13 @@ function capabilityText() {
   const boundary = model.size === 5
     ? " · 第一版限制：middle-edge A12、wing A24、固定中心锁定"
     : model.size === 3 ? " · 第一版限制：固定中心锁定" : "";
-  return `${model.size}×${model.size}×${model.size} · ${groups.join(" · ") || "corner stage"}${boundary}`;
+  const staged = solver.capabilities.stages
+    .filter((stage) => !stage.localToFullCube)
+    .map((stage) => stage.id);
+  const stageNotice = staged.length > 0
+    ? ` · stage 可暂时扰动后续 orbit：${staged.join(", ")}`
+    : "";
+  return `${model.size}×${model.size}×${model.size} · ${groups.join(" · ") || "corner stage"}${boundary}${stageNotice}`;
 }
 
 async function initializeSize(size) {

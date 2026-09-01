@@ -98,11 +98,13 @@ function capabilitySummary(model, stages, fixedVisualOrbits) {
       kind: stage.kind,
       orbitId: stage.orbit.id,
       physicalPermutationGroup: stage.solver.physicalPermutationGroup ?? null,
+      localToFullCube: stage.solver.localToFullCube,
     }))),
     fixedVisualOrbits: Object.freeze(fixedVisualOrbits.map((orbit) => orbit.id)),
     limitations: Object.freeze([
       ...(model.size === 5 ? [
         "5x5x5 middle-edge permutation is restricted to A12",
+        "5x5x5 middle-edge is a stage solver that may disturb later wing and center orbits",
         "5x5x5 wing permutation is restricted to A24",
       ] : []),
       ...(fixedVisualOrbits.length > 0 ? [
@@ -183,6 +185,9 @@ export function createRestrictedPatternSolver(model) {
         tokens: result.tokens,
         formula: result.formula,
         effects: result.effects,
+        collateralEffects: Object.freeze(result.effects.filter((effect) => (
+          effect.orbitId !== stage.orbit.id
+        ))),
         targetAssignment: targetInfo.assignment ?? null,
       }));
     }

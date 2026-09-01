@@ -47,7 +47,14 @@ test("restricted capabilities expose the exact 2x2x2 through 5x5x5 stage order",
       capabilities.fixedVisualOrbits,
       size % 2 === 1 ? ["center-0"] : [],
     );
+    assert.ok(capabilities.stages.every((stage) => (
+      typeof stage.localToFullCube === "boolean"
+    )));
   }
+  const five = createRestrictedPatternSolver(createCubeModel(5)).capabilities;
+  assert.equal(five.stages.find((stage) => stage.id === "middle-edges").localToFullCube, false);
+  assert.equal(five.stages.find((stage) => stage.id === "wings").localToFullCube, true);
+  assert.ok(five.limitations.some((limitation) => limitation.includes("stage solver")));
 });
 
 test("the restricted pipeline solves nontrivial arbitrary source-target patterns on every size", () => {
@@ -65,6 +72,9 @@ test("the restricted pipeline solves nontrivial arbitrary source-target patterns
       solver.capabilities.stages.map((stage) => stage.id),
     );
     assert.ok(solution.stages.some((stage) => stage.tokens.length > 0));
+    assert.ok(solution.stages.every((stage) => stage.collateralEffects.every((effect) => (
+      effect.orbitId !== stage.orbitId
+    ))));
   }
 });
 
