@@ -4,6 +4,9 @@ This directory contains a backend-first solver for visual sticker patterns on
 2x2x2 through 5x5x5 cubes. The full sticker permutation produced by
 `CubeModel` is the final correctness oracle.
 
+Move tokens follow the standard Singmaster convention: an unprimed face or
+face-relative inner-layer turn is clockwise when viewed directly at that face.
+
 ## Physical and visual layers
 
 The group layer always keeps physical identities distinct:

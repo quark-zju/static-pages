@@ -8,13 +8,13 @@ import {
   matchWingVisualAssignments,
 } from "../../public/cube-pattern-transformer/wing-state.mjs";
 
-const WING_CYCLE = "U R U' 2R U R' U' 2R'";
+const WING_CYCLE = "U' R' U 2R' U' R U 2R";
 const PATTERNS = [
   "",
   WING_CYCLE,
   `F ${WING_CYCLE} F' R ${WING_CYCLE} R'`,
-  "2U' R B2 2F D2 L' U F",
-  "F 2R2 U' 2F' B R2 D L2",
+  "2U R' B2 2F D2 L U' F",
+  "F 2R2 U 2F' B R2 D' L2",
 ];
 
 function wingOrbit(model) {

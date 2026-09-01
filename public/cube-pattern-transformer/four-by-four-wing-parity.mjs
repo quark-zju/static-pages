@@ -1,7 +1,7 @@
 import { createTwentyFourCenterSolver } from "./center-orbit-solver.mjs";
 
 const ODD_WING_CANDIDATE = Object.freeze(
-  "2R2 B2 U2 2L U2 2R' U2 2R U2 F2 2R F2 2L' B2 2R2".split(" "),
+  "2R2 B2 U2 2L' U2 2R U2 2R' U2 F2 2R' F2 2L B2 2R2".split(" "),
 );
 
 function inversePermutation(permutation) {

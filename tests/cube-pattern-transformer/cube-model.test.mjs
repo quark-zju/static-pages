@@ -5,6 +5,14 @@ import { createCubeModel } from "../../public/cube-pattern-transformer/cube-mode
 
 const SIZES = [2, 3, 4, 5];
 const FACES = ["U", "R", "F", "D", "L", "B"];
+const CLOCKWISE_ADJACENT_FACE = Object.freeze({
+  U: ["F", "L"],
+  D: ["F", "R"],
+  R: ["U", "B"],
+  L: ["U", "F"],
+  F: ["U", "R"],
+  B: ["U", "L"],
+});
 
 function labeledState(model) {
   return model.stickers.map((_sticker, index) => index);
@@ -68,6 +76,27 @@ test("every move keeps each piece inside its derived orbit", () => {
   }
 });
 
+test("face turns follow the standard clockwise Singmaster convention", () => {
+  const model = createCubeModel(5);
+  for (const [face, [sourceFace, destinationFace]] of Object.entries(CLOCKWISE_ADJACENT_FACE)) {
+    for (const depth of [1, 2]) {
+      const token = `${depth === 1 ? "" : depth}${face}`;
+      const permutation = model.movePermutation(token);
+      const axis = face === "U" || face === "D" ? 1 : face === "R" || face === "L" ? 0 : 2;
+      const layer = ["D", "L", "B"].includes(face) ? depth - 1 : model.size - depth;
+      const source = model.stickers.findIndex((sticker) => (
+        sticker.face === sourceFace && sticker.position[axis] === layer
+      ));
+      assert.notEqual(source, -1, `${token} 缺少 ${sourceFace} strip 测试贴纸`);
+      assert.equal(
+        model.stickers[permutation[source]].face,
+        destinationFace,
+        `${token} 应把 ${sourceFace} strip 转到 ${destinationFace}`,
+      );
+    }
+  }
+});
+
 test("orbit projections retain orientation and remain bijective", () => {
   for (const size of SIZES) {
     const model = createCubeModel(size);
@@ -82,7 +111,7 @@ test("orbit projections retain orientation and remain bijective", () => {
 
 test("the 4x4 center commutator is proven local against the full cube", () => {
   const model = createCubeModel(4);
-  const commutator = "F' 2L 2F' 2L' F 2L 2F 2L'";
+  const commutator = "F' 2L' 2F' 2L F 2L' 2F 2L";
 
   assert.deepEqual(model.algorithmOrbitEffects(commutator), [
     { orbitId: "center-0", kind: "center", movedStickerCount: 3 },

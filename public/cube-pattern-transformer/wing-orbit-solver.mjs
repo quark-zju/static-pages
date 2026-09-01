@@ -10,7 +10,7 @@ import {
 } from "./wing-state.mjs";
 
 const BASE_ALGORITHM = Object.freeze(
-  "U R U' 2R U R' U' 2R'".split(" "),
+  "U' R' U 2R' U' R U 2R".split(" "),
 );
 
 function invertToken(token) {

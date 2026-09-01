@@ -8,15 +8,15 @@ import {
   UNSUPPORTED_ORBIT_SUBGROUP,
 } from "../../public/cube-pattern-transformer/orbit-solver-error.mjs";
 
-const WING_CYCLE = "U R U' 2R U R' U' 2R'";
+const WING_CYCLE = "U' R' U 2R' U' R U 2R";
 const PATTERNS = [
   WING_CYCLE,
   `F ${WING_CYCLE} F' R ${WING_CYCLE} R'`,
   `U2 ${WING_CYCLE} U2 B' ${WING_CYCLE} B`,
 ];
 const OTHER_COSET_PATTERNS = [
-  "2U' R B2 2F D2 L' U F",
-  "F 2R2 U' 2F' B R2 D L2",
+  "2U R' B2 2F D2 L U' F",
+  "F 2R2 U 2F' B R2 D' L2",
 ];
 
 function wingOrbit(model) {

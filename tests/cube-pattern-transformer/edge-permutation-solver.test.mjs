@@ -8,7 +8,7 @@ import {
   UNSUPPORTED_ORBIT_SUBGROUP,
 } from "../../public/cube-pattern-transformer/orbit-solver-error.mjs";
 
-const UA = "R U' R U R U R U' R' U' R2";
+const UA = "R' U R' U' R' U' R' U R U R2";
 const PATTERNS = [
   UA,
   `F ${UA} F' R ${UA} R'`,

@@ -4,8 +4,8 @@ import test from "node:test";
 import { createCubeModel } from "../../public/cube-pattern-transformer/cube-model.mjs";
 import { analyzePieceState } from "../../public/cube-pattern-transformer/piece-state.mjs";
 
-const CASE_A = "2U' R B2 2F D2 L' U F";
-const CASE_B = "F 2R2 U' 2F' B R2 D L2";
+const CASE_A = "2U R' B2 2F D2 L U' F";
+const CASE_B = "F 2R2 U 2F' B R2 D' L2";
 
 function piecePermutation(model, orbit, algorithm) {
   const stickerAction = model.orbitPermutation(orbit.id, algorithm);

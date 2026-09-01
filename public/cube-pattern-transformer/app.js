@@ -14,15 +14,15 @@ const COLOR_CSS = {
 const COLOR_NAMES = { white: "白", red: "红", green: "绿", yellow: "黄", orange: "橙", blue: "蓝" };
 const EXAMPLES = {
   2: { from: "R U", to: "F R" },
-  3: { from: "R U F", to: "R U' R U R U R U' R' U' R2" },
-  4: { from: "R U F", to: "U R U' 2R U R' U' 2R' F' 2L 2F' 2L' F 2L 2F 2L'" },
+  3: { from: "R U F", to: "R' U R' U' R' U' R' U R U R2" },
+  4: { from: "R U F", to: "U' R' U 2R' U' R U 2R F' 2L' 2F' 2L F 2L' 2F 2L" },
   5: {
     from: "R U F",
     to: [
-      "R U' R U R U R U' R' U' R2",
-      "U R U' 2R U R' U' 2R'",
-      "F' 2L 2F' 2L' F 2L 2F 2L'",
-      "F' 2L 3F' 2L' F 2L 3F 2L'",
+      "R' U R' U' R' U' R' U R U R2",
+      "U' R' U 2R' U' R U 2R",
+      "F' 2L' 2F' 2L F 2L' 2F 2L",
+      "F' 2L' 3F' 2L F 2L' 3F 2L",
     ].join(" "),
   },
 };

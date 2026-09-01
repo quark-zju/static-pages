@@ -80,13 +80,13 @@ function simplifyTokens(tokens) {
 function baseAlgorithm(firstDepth, secondDepth) {
   return [
     "F'",
-    `${firstDepth}L`,
+    `${firstDepth}L'`,
     `${secondDepth}F'`,
-    `${firstDepth}L'`,
-    "F",
     `${firstDepth}L`,
-    `${secondDepth}F`,
+    "F",
     `${firstDepth}L'`,
+    `${secondDepth}F`,
+    `${firstDepth}L`,
   ];
 }
 

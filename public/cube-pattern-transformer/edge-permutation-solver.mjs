@@ -5,7 +5,7 @@ import {
 } from "./orbit-solver-error.mjs";
 
 const BASE_ALGORITHM = Object.freeze(
-  "R U' R U R U R U' R' U' R2".split(" "),
+  "R' U R' U' R' U' R' U R U R2".split(" "),
 );
 const SETUP_MOVES = Object.freeze(
   ["U", "R", "F", "D", "L", "B"].flatMap((face) => [face, `${face}'`, `${face}2`]),

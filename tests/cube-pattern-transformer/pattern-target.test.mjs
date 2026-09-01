@@ -74,8 +74,8 @@ test("two wildcard wings can normalize a known odd 5x5x5 assignment into A24", (
   const wing = model.pieceOrbits.find((orbit) => (
     orbit.kind === "edge" && orbit.pieceIndices.length === 24
   ));
-  const from = projectedPattern(model, wing, "2U' R B2 2F D2 L' U F");
-  const exactTarget = projectedPattern(model, wing, "F 2R2 U' 2F' B R2 D L2");
+  const from = projectedPattern(model, wing, "2U R' B2 2F D2 L U' F");
+  const exactTarget = projectedPattern(model, wing, "F 2R2 U 2F' B R2 D' L2");
 
   assert.throws(
     () => compileOrbitTarget(model, wing.id, from, exactTarget, { permutationParity: 0 }),
@@ -104,7 +104,7 @@ test("two wildcard wings can normalize a known odd 5x5x5 assignment into A24", (
 test("individual center stickers may be wildcard constraints", () => {
   const model = createCubeModel(4);
   const center = model.pieceOrbits.find((orbit) => orbit.kind === "center");
-  const exact = projectedPattern(model, center, "F' 2L 2F' 2L' F 2L 2F 2L'");
+  const exact = projectedPattern(model, center, "F' 2L' 2F' 2L F 2L' 2F 2L");
   const partial = [...exact];
   partial[center.stickerIndices[0]] = null;
   const compiled = compileOrbitTarget(model, center.id, model.solvedColors, partial, {

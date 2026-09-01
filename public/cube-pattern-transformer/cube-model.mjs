@@ -59,10 +59,10 @@ export function createCubeModel(size) {
   const max = size - 1;
   const center = max / 2;
   const faceMoves = {
-    U: ["y", max, 1],
-    D: ["y", 0, -1],
-    R: ["x", max, 1],
-    L: ["x", 0, -1],
+    U: ["y", max, -1],
+    D: ["y", 0, 1],
+    R: ["x", max, -1],
+    L: ["x", 0, 1],
     F: ["z", max, -1],
     B: ["z", 0, 1],
   };

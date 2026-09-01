@@ -7,10 +7,10 @@ import {
   RestrictedPatternSolveError,
 } from "../../public/cube-pattern-transformer/pattern-solver.mjs";
 
-const EDGE_CYCLE = "R U' R U R U R U' R' U' R2";
-const WING_CYCLE = "U R U' 2R U R' U' 2R'";
-const CENTER_FIRST = "F' 2L 2F' 2L' F 2L 2F 2L'";
-const CENTER_SECOND = "F' 2L 3F' 2L' F 2L 3F 2L'";
+const EDGE_CYCLE = "R' U R' U' R' U' R' U R U R2";
+const WING_CYCLE = "U' R' U 2R' U' R U 2R";
+const CENTER_FIRST = "F' 2L' 2F' 2L F 2L' 2F 2L";
+const CENTER_SECOND = "F' 2L' 3F' 2L F 2L' 3F 2L";
 const TARGET_ALGORITHMS = {
   2: "L D B",
   3: EDGE_CYCLE,
@@ -149,8 +149,8 @@ test("the end-to-end 4x4x4 pipeline crosses the odd wing coset locally", () => {
   const wing = model.pieceOrbits.find((orbit) => (
     orbit.kind === "edge" && orbit.pieceIndices.length === 24
   ));
-  const from = projectedPattern(model, wing, "2U' R B2 2F D2 L' U F");
-  const to = projectedPattern(model, wing, "F 2R2 U' 2F' B R2 D L2");
+  const from = projectedPattern(model, wing, "2U R' B2 2F D2 L U' F");
+  const to = projectedPattern(model, wing, "F 2R2 U 2F' B R2 D' L2");
   const solution = createRestrictedPatternSolver(model).solve(from, to);
 
   assert.deepEqual(model.applyAlgorithm(from, solution.tokens), to);
@@ -164,8 +164,8 @@ test("odd 5x5x5 wing targets return a scoped subgroup limitation", () => {
   const wing = model.pieceOrbits.find((orbit) => (
     orbit.kind === "edge" && orbit.pieceIndices.length === 24
   ));
-  const from = projectedPattern(model, wing, "2U' R B2 2F D2 L' U F");
-  const to = projectedPattern(model, wing, "F 2R2 U' 2F' B R2 D L2");
+  const from = projectedPattern(model, wing, "2U R' B2 2F D2 L U' F");
+  const to = projectedPattern(model, wing, "F 2R2 U 2F' B R2 D' L2");
 
   assert.throws(
     () => createRestrictedPatternSolver(model).solve(from, to),
