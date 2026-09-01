@@ -3,6 +3,10 @@ import test from "node:test";
 
 import { createCubeModel } from "../../public/cube-pattern-transformer/cube-model.mjs";
 import { createTwentyFourWingSolver } from "../../public/cube-pattern-transformer/wing-orbit-solver.mjs";
+import {
+  OrbitSolverError,
+  UNSUPPORTED_ORBIT_SUBGROUP,
+} from "../../public/cube-pattern-transformer/orbit-solver-error.mjs";
 
 const WING_CYCLE = "U R U' 2R U R' U' 2R'";
 const PATTERNS = [
@@ -117,6 +121,11 @@ test("5x5x5 odd assignments remain an explicit first-version limitation", () => 
 
   assert.throws(
     () => solver.solve(from, to),
-    /超出第一版 A24 local solver 限制.*不表示目标不可达/,
+    (error) => (
+      error instanceof OrbitSolverError
+      && error.code === UNSUPPORTED_ORBIT_SUBGROUP
+      && error.details.implementedGroup === "A24"
+      && error.details.requestedParity === 1
+    ),
   );
 });

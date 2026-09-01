@@ -3,6 +3,10 @@ import test from "node:test";
 
 import { createCubeModel } from "../../public/cube-pattern-transformer/cube-model.mjs";
 import { createTwelveEdgePermutationSolver } from "../../public/cube-pattern-transformer/edge-permutation-solver.mjs";
+import {
+  OrbitSolverError,
+  UNSUPPORTED_ORBIT_SUBGROUP,
+} from "../../public/cube-pattern-transformer/orbit-solver-error.mjs";
 
 const UA = "R U' R U R U R U' R' U' R2";
 const PATTERNS = [
@@ -101,6 +105,11 @@ test("even edge flips solve while odd permutations report the A12 boundary", () 
   }
   assert.throws(
     () => solver.solve(odd, model.solvedColors),
-    /超出当前 A12 primitive 限制.*不表示目标不可达/,
+    (error) => (
+      error instanceof OrbitSolverError
+      && error.code === UNSUPPORTED_ORBIT_SUBGROUP
+      && error.details.implementedGroup === "A12"
+      && error.details.requestedParity === 1
+    ),
   );
 });

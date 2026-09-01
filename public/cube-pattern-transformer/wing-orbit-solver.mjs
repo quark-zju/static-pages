@@ -1,6 +1,10 @@
 import { analyzePieceState } from "./piece-state.mjs";
 import { createFourByFourOddWingPrimitive } from "./four-by-four-wing-parity.mjs";
 import {
+  OrbitSolverError,
+  UNSUPPORTED_ORBIT_SUBGROUP,
+} from "./orbit-solver-error.mjs";
+import {
   deriveWingPositionGauge,
   matchWingVisualAssignments,
 } from "./wing-state.mjs";
@@ -193,8 +197,10 @@ export function createTwentyFourWingSolver(model) {
       let assignment = initialAssignment;
       if (initialAssignment.parity !== 0) {
         if (model.size !== 4) {
-          throw new Error(
+          throw new OrbitSolverError(
+            UNSUPPORTED_ORBIT_SUBGROUP,
             "5x5x5 odd 24-wing assignment 超出第一版 A24 local solver 限制；这不表示目标不可达",
+            { orbitId: orbit.id, implementedGroup: "A24", requestedParity: 1 },
           );
         }
         oddPrimitive = createFourByFourOddWingPrimitive(model);

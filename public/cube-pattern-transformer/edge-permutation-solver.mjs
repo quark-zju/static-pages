@@ -1,4 +1,8 @@
 import { analyzePieceState } from "./piece-state.mjs";
+import {
+  OrbitSolverError,
+  UNSUPPORTED_ORBIT_SUBGROUP,
+} from "./orbit-solver-error.mjs";
 
 const BASE_ALGORITHM = Object.freeze(
   "R U' R U R U R U' R' U' R2".split(" "),
@@ -80,7 +84,11 @@ function decomposeIntoThreeCycles(permutation) {
     if (cycle.length % 2 === 0) transpositions.push([cycle[0], cycle.at(-1)]);
   }
   if (transpositions.length % 2 !== 0) {
-    throw new Error("12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达");
+    throw new OrbitSolverError(
+      UNSUPPORTED_ORBIT_SUBGROUP,
+      "12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达",
+      { implementedGroup: "A12", requestedParity: 1 },
+    );
   }
   for (let index = 0; index < transpositions.length; index += 2) {
     const [a, b] = transpositions[index];
@@ -310,7 +318,11 @@ export function createTwelveEdgePermutationSolver(model) {
       const relative = from.permutation.map((identity) => targetPositionByIdentity[identity]);
 
       if (permutationParity(relative) !== 0) {
-        throw new Error("12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达");
+        throw new OrbitSolverError(
+          UNSUPPORTED_ORBIT_SUBGROUP,
+          "12-edge odd permutation 超出当前 A12 primitive 限制；这不表示目标不可达",
+          { orbitId: orbit.id, implementedGroup: "A12", requestedParity: 1 },
+        );
       }
       const triples = decomposeIntoThreeCycles(relative);
       const permutationTokens = triples.flatMap(formulaForCycle);

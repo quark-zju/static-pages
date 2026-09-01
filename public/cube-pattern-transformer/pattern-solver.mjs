@@ -3,6 +3,10 @@ import { createCornerOrbitSolver } from "./corner-solver.mjs";
 import { createTwelveEdgePermutationSolver } from "./edge-permutation-solver.mjs";
 import { analyzePieceState } from "./piece-state.mjs";
 import {
+  OrbitSolverError,
+  UNSUPPORTED_ORBIT_SUBGROUP,
+} from "./orbit-solver-error.mjs";
+import {
   compileOrbitTarget,
   normalizeTargetPattern,
   PatternTargetError,
@@ -36,10 +40,8 @@ function validateEndpoint(model, state, label) {
 }
 
 function isRestrictedSubgroupFailure(error) {
-  return error instanceof Error && (
-    error.message.includes("超出当前 A12 primitive 限制")
-    || error.message.includes("超出第一版 A24 local solver 限制")
-  );
+  return error instanceof OrbitSolverError
+    && error.code === UNSUPPORTED_ORBIT_SUBGROUP;
 }
 
 function solverStages(model) {
@@ -160,7 +162,7 @@ export function createRestrictedPatternSolver(model) {
           `${stage.id} 超出第一版已认证 subgroup`,
           {
             stage: stage.id,
-            details: { orbitId: stage.orbit.id },
+            details: { orbitId: stage.orbit.id, ...error.details },
             cause: error,
           },
         );
