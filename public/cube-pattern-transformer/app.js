@@ -1,6 +1,7 @@
 import "https://cdn.cubing.net/v0/js/cubing/twisty";
 
 import { createCubeModel } from "./cube-model.mjs";
+import { validateEditorState } from "./editor-validation.mjs";
 import {
   createRestrictedPatternSolver,
   RestrictedPatternSolveError,
@@ -54,41 +55,6 @@ function setBusy(busy) {
   elements.solve.disabled = busy;
   elements.example.disabled = busy;
   elements.size.disabled = busy;
-}
-
-function quickValidation(colors, stateName) {
-  if (!model || colors.length !== model.stickers.length) return { valid: false, invalid: [] };
-  const counts = Object.fromEntries(model.colors.map((color) => [color, 0]));
-  let wildcardCount = 0;
-  for (const color of colors) {
-    if (color === null) {
-      wildcardCount += 1;
-      continue;
-    }
-    if (!(color in counts)) return { valid: false, invalid: [color] };
-    counts[color] += 1;
-  }
-  const expected = model.size ** 2;
-  if (stateName === "source" && wildcardCount > 0) {
-    return { valid: false, invalid: [], wildcardCount, reason: "source-wildcard" };
-  }
-  const partialPiece = model.pieces.find((piece) => {
-    if (piece.stickerIndices.length === 1) return false;
-    const pieceWildcards = piece.stickerIndices.filter((index) => colors[index] === null).length;
-    return pieceWildcards > 0 && pieceWildcards < piece.stickerIndices.length;
-  });
-  if (partialPiece) {
-    return { valid: false, invalid: [], wildcardCount, reason: "partial-piece" };
-  }
-  return {
-    valid: model.colors.every((color) => (
-      wildcardCount > 0 ? counts[color] <= expected : counts[color] === expected
-    )),
-    invalid: model.colors.filter((color) => (
-      wildcardCount > 0 ? counts[color] > expected : counts[color] !== expected
-    )),
-    wildcardCount,
-  };
 }
 
 function createFace(face, stateName) {
@@ -158,7 +124,11 @@ function renderNet(container, stateName) {
       : `${COLOR_NAMES[color] ?? color}色${fixed ? "（第一版固定）" : ""}`;
     button.classList.toggle("pending", pendingSticker?.stateName === stateName && pendingSticker?.index === index);
   });
-  const validation = quickValidation(states[stateName], stateName === "from" ? "source" : "target");
+  const validation = validateEditorState(
+    model,
+    states[stateName],
+    stateName === "from" ? "source" : "target",
+  );
   const validationElement = stateName === "from" ? elements.fromValid : elements.toValid;
   validationElement.className = validation.valid ? "count-ok" : "count-bad";
   if (validation.valid && validation.wildcardCount > 0) {
@@ -169,6 +139,10 @@ function renderNet(container, stateName) {
     validationElement.textContent = "corner/edge/wing 必须整块设为 ?";
   } else if (validation.reason === "source-wildcard") {
     validationElement.textContent = "起点不能包含 ?";
+  } else if (validation.reason === "physical-state") {
+    validationElement.textContent = "颜色总数正确，但不能组成合法 physical pieces";
+  } else if (validation.reason === "physical-pattern") {
+    validationElement.textContent = "现有颜色约束不能补成合法 physical pieces";
   } else {
     validationElement.textContent = `${validation.invalid.map((color) => COLOR_NAMES[color] ?? color).join("、")}色数量错误`;
   }
