@@ -1,11 +1,11 @@
 import "https://cdn.cubing.net/v0/js/cubing/twisty";
 
-import { createCubeModel } from "./cube-model.mjs";
+import { createCubeModel } from "./cube-model.mjs?v=singmaster-20260901";
 import { validateEditorState } from "./editor-validation.mjs";
 import {
   createRestrictedPatternSolver,
   RestrictedPatternSolveError,
-} from "./pattern-solver.mjs";
+} from "./pattern-solver.mjs?v=singmaster-20260901";
 
 const COLOR_CSS = {
   white: "var(--white)", red: "var(--red-sticker)", green: "var(--green-sticker)",

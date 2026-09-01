@@ -1,6 +1,6 @@
-import { createTwentyFourCenterSolver } from "./center-orbit-solver.mjs";
+import { createTwentyFourCenterSolver } from "./center-orbit-solver.mjs?v=singmaster-20260901";
 import { createCornerOrbitSolver } from "./corner-solver.mjs";
-import { createTwelveEdgePermutationSolver } from "./edge-permutation-solver.mjs";
+import { createTwelveEdgePermutationSolver } from "./edge-permutation-solver.mjs?v=singmaster-20260901";
 import { analyzePieceState } from "./piece-state.mjs";
 import {
   OrbitSolverError,
@@ -11,7 +11,7 @@ import {
   normalizeTargetPattern,
   PatternTargetError,
 } from "./pattern-target.mjs";
-import { createTwentyFourWingSolver } from "./wing-orbit-solver.mjs";
+import { createTwentyFourWingSolver } from "./wing-orbit-solver.mjs?v=singmaster-20260901";
 
 export class RestrictedPatternSolveError extends Error {
   constructor(code, message, options = {}) {
