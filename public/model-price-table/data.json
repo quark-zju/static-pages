@@ -46,6 +46,16 @@
       "notes": "自动 context caching（无 write 单独收费）；cache storage 限时免费（未计入）"
     },
     {
+      "model": "GLM-5.3-Flash",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 0.15,
+        "cached_read": 0.03,
+        "cached_write": null,
+        "output": 0.50
+      },
+      "notes": "自动 context caching（无 write 单独收费）；cache storage 限时免费（未计入）"
+    },
+    {
       "model": "Muse Spark 1.3",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.25,
