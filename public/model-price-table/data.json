@@ -136,6 +136,26 @@
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
     },
     {
+      "model": "Grok 4.20 (<200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 1.25,
+        "cached_read": 0.20,
+        "cached_write": null,
+        "output": 2.50
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；按 prompt <200K 档；官方 API 价格"
+    },
+    {
+      "model": "Grok 4.20 (>=200K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.50,
+        "cached_read": 0.40,
+        "cached_write": null,
+        "output": 5.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
+    },
+    {
       "model": "Qwen 3.6 Plus (<=256K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.276,
