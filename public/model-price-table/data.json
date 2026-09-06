@@ -286,6 +286,26 @@
       "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费；官方降价 80% 后价格"
     },
     {
+      "model": "GPT-6 Astra (<=272K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 10.00,
+        "cached_read": 1.00,
+        "cached_write": 12.50,
+        "output": 50.00
+      },
+      "notes": "cache write 按 input 1.25 倍收费；按 input <=272K 标准档"
+    },
+    {
+      "model": "GPT-6 Astra (>272K)",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 20.00,
+        "cached_read": 2.00,
+        "cached_write": 12.50,
+        "output": 75.00
+      },
+      "notes": "cache write 按标准 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
+    },
+    {
       "model": "Claude Opus 4.7",
       "unit_price_usd_per_1m_tokens": {
         "input": 5.00,
