@@ -6,16 +6,6 @@
   },
   "models": [
     {
-      "model": "MiniMax M2.7",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 0.30,
-        "cached_read": 0.06,
-        "cached_write": 0.375,
-        "output": 1.20
-      },
-      "notes": "显式 cache write 收费"
-    },
-    {
       "model": "MiniMax-M3 (<=512K)",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.30,
@@ -166,26 +156,6 @@
       "notes": "显式 cache write/read 收费；按输入 256K-1M 档"
     },
     {
-      "model": "GPT-5.4-mini",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 0.75,
-        "cached_read": 0.075,
-        "cached_write": null,
-        "output": 4.50
-      },
-      "notes": "自动 cache（无 write 单独收费）"
-    },
-    {
-      "model": "GPT-5.4",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 2.50,
-        "cached_read": 0.25,
-        "cached_write": null,
-        "output": 15.00
-      },
-      "notes": "自动 cache（无 write 单独收费）"
-    },
-    {
       "model": "DeepSeek V4 Flash",
       "unit_price_usd_per_1m_tokens": {
         "input": 0.22,
@@ -244,16 +214,6 @@
         "output": 0.87
       },
       "notes": "自动 cache（无 write 单独收费）；按 2026-05-27 官宣永久降价口径（不再区分输入长度）"
-    },
-    {
-      "model": "GPT-5.3-Codex",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 1.75,
-        "cached_read": 0.175,
-        "cached_write": null,
-        "output": 14.00
-      },
-      "notes": "自动 cache（无 write 单独收费）"
     },
     {
       "model": "Gemini 3.1 Pro (<=200K)",
