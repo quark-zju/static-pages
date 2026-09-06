@@ -46,14 +46,14 @@
       "notes": "有额外 cache storage（未计入）"
     },
     {
-      "model": "Gemini 3.6 Flash",
+      "model": "Gemini 3.8 Flash",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.50,
         "cached_read": 0.15,
         "cached_write": null,
         "output": 7.50
       },
-      "notes": "有额外 cache storage（未计入）"
+      "notes": "有额外 cache storage（未计入）；标准价，2026-12-31 前促销价 input 0.75 / output 3.75"
     },
     {
       "model": "Gemini 3.5 Pro",
