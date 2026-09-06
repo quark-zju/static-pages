@@ -86,24 +86,24 @@
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
     },
     {
-      "model": "Qwen 3.6 Plus (<=256K)",
+      "model": "Qwen3.8 Max",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.276,
-        "cached_read": 0.028,
-        "cached_write": 0.344,
-        "output": 1.651
+        "input": 2.00,
+        "cached_read": 0.20,
+        "cached_write": 2.50,
+        "output": 6.00
       },
-      "notes": "显式 cache write/read 收费；按输入 <=256K 档"
+      "notes": "显式 cache write/read 收费；完整 1M 上下文统一计价；thinking 与非 thinking 同价"
     },
     {
-      "model": "Qwen 3.6 Plus (256K-1M)",
+      "model": "Qwen3.8 Flash",
       "unit_price_usd_per_1m_tokens": {
-        "input": 1.101,
-        "cached_read": 0.111,
-        "cached_write": 1.376,
-        "output": 6.602
+        "input": 0.15,
+        "cached_read": 0.016,
+        "cached_write": 0.20,
+        "output": 0.47
       },
-      "notes": "显式 cache write/read 收费；按输入 256K-1M 档"
+      "notes": "显式 cache write/read 收费；完整 1M 上下文统一计价"
     },
     {
       "model": "DeepSeek V4 Flash",
