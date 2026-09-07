@@ -2,6 +2,7 @@ import "https://cdn.cubing.net/v0/js/cubing/twisty";
 
 import { createCubeModel } from "./cube-model.mjs?v=singmaster-20260901";
 import { validateEditorState } from "./editor-validation.mjs";
+import { describePatternTargetError, describePieceStateErrors } from "./error-explanation.mjs";
 import {
   createRestrictedPatternSolver,
   RestrictedPatternSolveError,
@@ -140,9 +141,11 @@ function renderNet(container, stateName) {
   } else if (validation.reason === "source-wildcard") {
     validationElement.textContent = "起点不能包含 ?";
   } else if (validation.reason === "physical-state") {
-    validationElement.textContent = "颜色总数正确，但不能组成合法 physical pieces";
+    const why = describePieceStateErrors(model, validation.details, { max: 2 });
+    validationElement.textContent = `颜色总数正确，但不能组成合法 physical pieces${why ? `：${why}` : ""}`;
   } else if (validation.reason === "physical-pattern") {
-    validationElement.textContent = "现有颜色约束不能补成合法 physical pieces";
+    const why = describePatternTargetError(model, validation.details);
+    validationElement.textContent = `现有颜色约束不能补成合法 physical pieces${why ? `：${why}` : ""}`;
   } else {
     validationElement.textContent = `${validation.invalid.map((color) => COLOR_NAMES[color] ?? color).join("、")}色数量错误`;
   }
@@ -213,14 +216,36 @@ function handleStickerClick(event) {
   renderAll();
 }
 
+function withReasons(sentence, why) {
+  return why ? `${sentence}原因：${why}。` : sentence;
+}
+
+function endpointFailureText(code, details) {
+  const label = code === "invalid-source-state" ? "起点" : "目标";
+  const why = describePieceStateErrors(model, Array.isArray(details) ? details : []);
+  return withReasons(`${label}贴纸不能组成合法的 physical pieces。`, why);
+}
+
 function errorMessage(error) {
   if (!(error instanceof RestrictedPatternSolveError)) return error.message;
-  if (error.code === "invalid-source-state") return "起点贴纸不能组成合法的 physical pieces。";
-  if (error.code === "invalid-target-state") return "目标贴纸不能组成合法的 physical pieces。";
+  if (error.code === "invalid-source-state" || error.code === "invalid-target-state") {
+    return endpointFailureText(error.code, error.details);
+  }
   if (error.code === "unsupported-fixed-center-target") return "第一版不处理奇数阶固定中心换色；请保持六个中心贴纸不变。";
   if (error.code === "unsupported-orbit-subgroup") return `${error.stage} 超出当前第一版支持的局部子群；目标未被判定为不可达。`;
-  if (error.code === "invalid-pattern-wildcard") return "corner、edge 和 wing 必须整块设为 wildcard；center 可以单贴纸设为 ?。";
-  if (error.code === "no-pattern-assignment") return `${error.stage} 找不到满足颜色、orientation 和 parity 的 wildcard assignment。`;
+  if (error.code === "invalid-pattern-wildcard") {
+    return withReasons(
+      "corner、edge 和 wing 必须整块设为 wildcard；center 可以单贴纸设为 ?。",
+      describePatternTargetError(model, error.details),
+    );
+  }
+  if (error.code === "no-pattern-assignment") {
+    return withReasons(
+      `${error.stage} 找不到满足颜色、orientation 和 parity 的 wildcard assignment。`,
+      describePatternTargetError(model, error.details),
+    );
+  }
+  if (error.code === "invalid-target-pattern") return `目标图案非法：${error.message}`;
   return `${error.code}：${error.message}`;
 }
 
