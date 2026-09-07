@@ -64,7 +64,7 @@ export function describePieceStateError(model, error) {
     }
     case "mirrored-piece": {
       const location = pieceLocation(model, error.pieceIndex);
-      return `${name} 被摆成镜像朝向（两枚贴纸互换），任何转动都做不到${
+      return `${name}被摆成镜像朝向（两枚贴纸互换），任何转动都做不到${
         location ? `：${location}` : ""
       }`;
     }
@@ -75,7 +75,7 @@ export function describePieceStateError(model, error) {
     case "wing-orientation-ambiguous":
       return `${name} 的朝向无法唯一判定，wildcard 补全依赖明确手性`;
     case "wing-handedness-inventory":
-      return `${name} 翼块手性不配平：应 ${error.expected?.[0] ?? "?"}+${
+      return `${name}手性不配平：应 ${error.expected?.[0] ?? "?"}+${
         error.expected?.[1] ?? "?"
       }，实为 ${error.actual?.[0] ?? "?"}+${
         error.actual?.[1] ?? "?"
@@ -118,13 +118,13 @@ export function describePatternTargetError(model, details) {
       return `有块只把部分贴纸设成了 ?，必须整块设 ?${location ? `（${location}）` : ""}`;
     }
     case "no-position-candidate":
-      return `${label} 中存在凑不出来的块位（块位 #${(details.target ?? 0) + 1}）：没有任何合法块能满足该处颜色`;
+      return `${label}内存在凑不出来的块位（块位 #${(details.target ?? 0) + 1}）：没有任何合法块能满足该处颜色`;
     case "no-physical-assignment":
-      return `${label} 的颜色约束与 orientation / parity 冲突，wildcard 也补不出合法拼法`;
+      return `${label}的颜色约束与 orientation / parity 冲突，wildcard 也补不出合法拼法`;
     case "ambiguous-source-identity":
-      return `起点的 ${label} 有同色块无法区分物理身份，wildcard 补全失败`;
+      return `起点的${label}存在无法区分的同色块，wildcard 补全失败`;
     case "ambiguous-wing-orientation":
-      return `起点的 ${label} 有翼块朝向无法判定，wildcard 补全失败`;
+      return `起点的${label}有翼块朝向无法判定，wildcard 补全失败`;
     case "invalid-current-orbit":
       return describePieceStateErrors(model, details.errors ?? []);
     default:
