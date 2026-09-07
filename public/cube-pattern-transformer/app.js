@@ -6,7 +6,7 @@ import { describePatternTargetError, describePieceStateErrors } from "./error-ex
 import {
   createRestrictedPatternSolver,
   RestrictedPatternSolveError,
-} from "./pattern-solver.mjs?v=singmaster-20260901";
+} from "./pattern-solver.mjs?v=explain-20260906";
 
 const COLOR_CSS = {
   white: "var(--white)", red: "var(--red-sticker)", green: "var(--green-sticker)",
