@@ -143,7 +143,7 @@ export function createRestrictedPatternSolver(model) {
           `${stage.id} 无法把 wildcard constraints 编译为 physical target`,
           {
             stage: stage.id,
-            details: error.details,
+            details: { code: error.code, ...(error.details ?? {}) },
             cause: error,
           },
         );
@@ -249,7 +249,7 @@ export function createRestrictedPatternSolver(model) {
         throw new RestrictedPatternSolveError(
           "invalid-target-pattern",
           error.message,
-          { details: error.details, cause: error },
+          { details: { code: error.code, ...(error.details ?? {}) }, cause: error },
         );
       }
       const resolvedTarget = [...fromColors];

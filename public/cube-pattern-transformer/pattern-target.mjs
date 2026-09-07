@@ -162,7 +162,7 @@ export function compileOrbitTarget(model, orbitId, currentColors, rawPattern, op
     throw new PatternTargetError(
       "invalid-current-orbit",
       `${orbit.id} current state 没有合法 physical assignment`,
-      decoded?.errors ?? [],
+      { code: "invalid-current-orbit", errors: decoded?.errors ?? [] },
     );
   }
 
