@@ -6,24 +6,14 @@
   },
   "models": [
     {
-      "model": "MiniMax-M3 (<=512K)",
+      "model": "MiniMax-M3",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.30,
-        "cached_read": 0.06,
+        "input": { "<=512K": 0.30, ">512K": 0.60 },
+        "cached_read": { "<=512K": 0.06, ">512K": 0.12 },
         "cached_write": null,
-        "output": 1.20
+        "output": { "<=512K": 1.20, ">512K": 2.40 }
       },
-      "notes": "自动 prompt caching（无 write 单独收费）；按输入 <=512K 档；官方永久 50% off（原价 input 0.60 / cached 0.12 / output 2.40）"
-    },
-    {
-      "model": "MiniMax-M3 (>512K)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 0.60,
-        "cached_read": 0.12,
-        "cached_write": null,
-        "output": 2.40
-      },
-      "notes": "自动 prompt caching（无 write 单独收费）；按输入 >512K 档；官方永久 50% off（原价 input 1.20 / cached 0.24 / output 4.80）"
+      "notes": "自动 prompt caching（无 write 单独收费）；按输入长度分档计价；官方永久 50% off（原价 input 0.60 / 1.20，cached 0.12 / 0.24，output 2.40 / 4.80）"
     },
     {
       "model": "Gemini 3.8 Flash",
@@ -76,22 +66,12 @@
       "notes": "自动 prompt caching（无 write 单独收费）；使用此档位即允许 Meta 使用 prompts 和 completions 改进其产品"
     },
     {
-      "model": "Grok 4.20 (<200K)",
+      "model": "Grok 4.20",
       "unit_price_usd_per_1m_tokens": {
-        "input": 1.25,
-        "cached_read": 0.20,
+        "input": { "<200K": 1.25, ">=200K": 2.50 },
+        "cached_read": { "<200K": 0.20, ">=200K": 0.40 },
         "cached_write": null,
-        "output": 2.50
-      },
-      "notes": "自动 prompt caching（无 write 单独收费）；按 prompt <200K 档；官方 API 价格"
-    },
-    {
-      "model": "Grok 4.20 (>=200K)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 2.50,
-        "cached_read": 0.40,
-        "cached_write": null,
-        "output": 5.00
+        "output": { "<200K": 2.50, ">=200K": 5.00 }
       },
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
     },
@@ -166,62 +146,32 @@
       "notes": "自动 cache（无 write 单独收费）；按 2026-05-27 官宣永久降价口径（不再区分输入长度）"
     },
     {
-      "model": "GPT-5.6 Sol (<=272K)",
+      "model": "GPT-5.6 Sol",
       "unit_price_usd_per_1m_tokens": {
-        "input": 5.00,
-        "cached_read": 0.50,
-        "cached_write": 6.25,
-        "output": 30.00
-      },
-      "notes": "cache write 按 input 1.25 倍收费；按 input <=272K 标准档"
-    },
-    {
-      "model": "GPT-5.6 Sol (>272K)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 10.00,
-        "cached_read": 1.00,
-        "cached_write": 12.50,
-        "output": 45.00
+        "input": { "<=272K": 5.00, ">272K": 10.00 },
+        "cached_read": { "<=272K": 0.50, ">272K": 1.00 },
+        "cached_write": { "<=272K": 6.25, ">272K": 12.50 },
+        "output": { "<=272K": 30.00, ">272K": 45.00 }
       },
       "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },
     {
-      "model": "GPT-5.6 Luna (<=272K)",
+      "model": "GPT-5.6 Luna",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.20,
-        "cached_read": 0.02,
-        "cached_write": 0.25,
-        "output": 1.20
-      },
-      "notes": "cache write 按 input 1.25 倍收费；按 input <=272K 标准档；官方降价 80% 后价格"
-    },
-    {
-      "model": "GPT-5.6 Luna (>272K)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 0.40,
-        "cached_read": 0.04,
-        "cached_write": 0.50,
-        "output": 1.80
+        "input": { "<=272K": 0.20, ">272K": 0.40 },
+        "cached_read": { "<=272K": 0.02, ">272K": 0.04 },
+        "cached_write": { "<=272K": 0.25, ">272K": 0.50 },
+        "output": { "<=272K": 1.20, ">272K": 1.80 }
       },
       "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费；官方降价 80% 后价格"
     },
     {
-      "model": "GPT-6 Astra (<=272K)",
+      "model": "GPT-6 Astra",
       "unit_price_usd_per_1m_tokens": {
-        "input": 10.00,
-        "cached_read": 1.00,
+        "input": { "<=272K": 10.00, ">272K": 20.00 },
+        "cached_read": { "<=272K": 1.00, ">272K": 2.00 },
         "cached_write": 12.50,
-        "output": 50.00
-      },
-      "notes": "cache write 按 input 1.25 倍收费；按 input <=272K 标准档"
-    },
-    {
-      "model": "GPT-6 Astra (>272K)",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 20.00,
-        "cached_read": 2.00,
-        "cached_write": 12.50,
-        "output": 75.00
+        "output": { "<=272K": 50.00, ">272K": 75.00 }
       },
       "notes": "cache write 按标准 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },

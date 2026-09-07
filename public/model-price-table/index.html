@@ -352,30 +352,97 @@
       return path.split('.').reduce((acc, key) => (acc == null ? null : acc[key]), obj);
     }
 
+    function pickPrice(value, tierKey) {
+      if (value !== null && typeof value === 'object') {
+        return value[tierKey] ?? null;
+      }
+      return value;
+    }
+
+    function tierKeysOf(unit) {
+      const keys = [];
+      for (const field of ['input', 'cached_read', 'cached_write', 'output']) {
+        const value = unit[field];
+        if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
+          for (const k of Object.keys(value)) {
+            if (!keys.includes(k)) {
+              keys.push(k);
+            }
+          }
+        }
+      }
+      return keys;
+    }
+
     function calculateEstimatedCosts(model, usage) {
       const unit = model.unit_price_usd_per_1m_tokens;
+      const tiers = tierKeysOf(unit);
+
+      if (tiers.length === 0) {
+        const est = {
+          input: unit.input * usage.input,
+          cached_read: unit.cached_read * usage.cached_read,
+          cached_write: null,
+          output: unit.output * usage.output,
+          total: null
+        };
+
+        if (typeof unit.cached_write === 'number') {
+          est.cached_write = unit.cached_write * usage.input;
+          est.total = est.input + est.cached_read + est.cached_write + est.output;
+        } else if (unit.cached_write && typeof unit.cached_write === 'object') {
+          est.cached_write = {};
+          est.total = {};
+          for (const [k, v] of Object.entries(unit.cached_write)) {
+            const writeCost = v * usage.input;
+            est.cached_write[k] = writeCost;
+            est.total[k] = est.input + est.cached_read + writeCost + est.output;
+          }
+        } else {
+          est.cached_write = null;
+          est.total = est.input + est.cached_read + est.output;
+        }
+
+        return est;
+      }
+
       const est = {
-        input: unit.input * usage.input,
-        cached_read: unit.cached_read * usage.cached_read,
-        cached_write: null,
-        output: unit.output * usage.output,
-        total: null
+        input: {},
+        cached_read: {},
+        cached_write: {},
+        output: {},
+        total: {}
       };
 
-      if (typeof unit.cached_write === 'number') {
-        est.cached_write = unit.cached_write * usage.input;
-        est.total = est.input + est.cached_read + est.cached_write + est.output;
-      } else if (unit.cached_write && typeof unit.cached_write === 'object') {
-        est.cached_write = {};
-        est.total = {};
-        for (const [k, v] of Object.entries(unit.cached_write)) {
-          const writeCost = v * usage.input;
-          est.cached_write[k] = writeCost;
-          est.total[k] = est.input + est.cached_read + writeCost + est.output;
+      for (const tier of tiers) {
+        const inputPrice = pickPrice(unit.input, tier);
+        const readPrice = pickPrice(unit.cached_read, tier);
+        const writePrice = pickPrice(unit.cached_write, tier);
+        const outputPrice = pickPrice(unit.output, tier);
+
+        est.input[tier] = inputPrice == null ? null : inputPrice * usage.input;
+        est.cached_read[tier] = readPrice == null ? null : readPrice * usage.cached_read;
+        est.output[tier] = outputPrice == null ? null : outputPrice * usage.output;
+
+        if (writePrice == null) {
+          est.cached_write[tier] = null;
+          est.total[tier] =
+            (est.input[tier] ?? 0) + (est.cached_read[tier] ?? 0) + (est.output[tier] ?? 0);
+        } else if (typeof writePrice === 'number') {
+          const writeCost = writePrice * usage.input;
+          est.cached_write[tier] = writeCost;
+          est.total[tier] =
+            (est.input[tier] ?? 0) + (est.cached_read[tier] ?? 0) + writeCost + (est.output[tier] ?? 0);
+        } else {
+          est.cached_write[tier] = {};
+          est.total[tier] = {};
+          for (const [k, v] of Object.entries(writePrice)) {
+            const writeCost = v * usage.input;
+            est.cached_write[tier][k] = writeCost;
+            est.total[tier][k] =
+              (est.input[tier] ?? 0) + (est.cached_read[tier] ?? 0) + writeCost + (est.output[tier] ?? 0);
+          }
         }
-      } else {
-        est.cached_write = null;
-        est.total = est.input + est.cached_read + est.output;
       }
 
       return est;
