@@ -146,24 +146,24 @@
       "notes": "自动 cache（无 write 单独收费）；按 2026-05-27 官宣永久降价口径（不再区分输入长度）"
     },
     {
-      "model": "GPT-5.6 Sol",
+      "model": "GPT-6 Sol",
       "unit_price_usd_per_1m_tokens": {
-        "input": { "<=272K": 5.00, ">272K": 10.00 },
-        "cached_read": { "<=272K": 0.50, ">272K": 1.00 },
-        "cached_write": { "<=272K": 6.25, ">272K": 12.50 },
-        "output": { "<=272K": 30.00, ">272K": 45.00 }
+        "input": { "<=272K": 2.00, ">272K": 4.00 },
+        "cached_read": { "<=272K": 0.20, ">272K": 0.40 },
+        "cached_write": { "<=272K": 2.50, ">272K": 5.00 },
+        "output": { "<=272K": 10.00, ">272K": 15.00 }
       },
       "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },
     {
-      "model": "GPT-5.6 Luna",
+      "model": "GPT-6 Luna",
       "unit_price_usd_per_1m_tokens": {
-        "input": { "<=272K": 0.20, ">272K": 0.40 },
-        "cached_read": { "<=272K": 0.02, ">272K": 0.04 },
-        "cached_write": { "<=272K": 0.25, ">272K": 0.50 },
-        "output": { "<=272K": 1.20, ">272K": 1.80 }
+        "input": { "<=272K": 0.10, ">272K": 0.20 },
+        "cached_read": { "<=272K": 0.01, ">272K": 0.02 },
+        "cached_write": { "<=272K": 0.125, ">272K": 0.25 },
+        "output": { "<=272K": 0.50, ">272K": 0.75 }
       },
-      "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费；官方降价 80% 后价格"
+      "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },
     {
       "model": "GPT-6 Astra",
@@ -176,17 +176,17 @@
       "notes": "cache write 按标准 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },
     {
-      "model": "Claude Opus 5",
+      "model": "Claude Opus 5.5",
       "unit_price_usd_per_1m_tokens": {
-        "input": 5.00,
-        "cached_read": 0.50,
+        "input": 4.00,
+        "cached_read": 0.20,
         "cached_write": {
-          "5min": 6.25,
-          "1hour": 10.00
+          "5min": 5.00,
+          "1hour": 8.00
         },
-        "output": 25.00
+        "output": 20.00
       },
-      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；官方标准价格"
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；cache read 按 input 0.05 倍收费；官方标准价格"
     },
     {
       "model": "Claude Fable 5.1",
