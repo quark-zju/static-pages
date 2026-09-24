@@ -66,12 +66,12 @@
       "notes": "自动 prompt caching（无 write 单独收费）；使用此档位即允许 Meta 使用 prompts 和 completions 改进其产品"
     },
     {
-      "model": "Grok 4.20",
+      "model": "Grok 4.7",
       "unit_price_usd_per_1m_tokens": {
-        "input": { "<200K": 1.25, ">=200K": 2.50 },
-        "cached_read": { "<200K": 0.20, ">=200K": 0.40 },
+        "input": { "<200K": 2.00, ">=200K": 4.00 },
+        "cached_read": { "<200K": 0.50, ">=200K": 1.00 },
         "cached_write": null,
-        "output": { "<200K": 2.50, ">=200K": 5.00 }
+        "output": { "<200K": 6.00, ">=200K": 12.00 }
       },
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
     },
@@ -96,24 +96,14 @@
       "notes": "显式 cache write/read 收费；完整 1M 上下文统一计价"
     },
     {
-      "model": "DeepSeek V4 Flash",
+      "model": "DeepSeek V4.1 Flash",
       "unit_price_usd_per_1m_tokens": {
-        "input": 0.22,
-        "cached_read": 0.007,
+        "input": 0.15,
+        "cached_read": 0.003,
         "cached_write": null,
-        "output": 0.66
+        "output": 0.60
       },
-      "notes": "自动 cache（无 write 单独收费）；2026-08-16 起按官方 off-peak 价格，peak 时段价格为两倍"
-    },
-    {
-      "model": "DeepSeek V4 Pro",
-      "unit_price_usd_per_1m_tokens": {
-        "input": 0.66,
-        "cached_read": 0.022,
-        "cached_write": null,
-        "output": 1.98
-      },
-      "notes": "自动 cache（无 write 单独收费）；2026-08-16 起按官方 off-peak 价格，peak 时段价格为两倍"
+      "notes": "自动 cache（无 write 单独收费）；按官方 off-peak 价格，peak 时段价格为两倍；API 模型名 deepseek-flash"
     },
     {
       "model": "LongCat-2.0",
