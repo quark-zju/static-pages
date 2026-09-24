@@ -1,7 +1,7 @@
 {
   "repo": "textualize/textual",
-  "updated": "2026-05-28T08:40:46Z",
-  "total": 222,
+  "updated": "2026-09-24T18:49:47Z",
+  "total": 223,
   "releases": [
     {
       "tag": "v0.1.2",
@@ -1334,6 +1334,12 @@
       "date": "2026-05-19",
       "prerelease": false,
       "name": "The more Kitty Release"
+    },
+    {
+      "tag": "v8.2.8",
+      "date": "2026-06-30",
+      "prerelease": false,
+      "name": "The more super release"
     }
   ]
 }
