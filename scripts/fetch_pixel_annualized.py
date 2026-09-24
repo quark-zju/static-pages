@@ -28,8 +28,12 @@ SLUG_TO_CYCLE = {
     "pixel-10": "10",
     "pixel-10-pro": "10pro",
     "pixel-10-pro-xl": "10proxl",
-    "pixel-10-pro-fold": "9profold",
+    "pixel-10-pro-fold": "10profold",
     "pixel-10a": "10a",
+    "pixel-11": "11",
+    "pixel-11-pro": "11pro",
+    "pixel-11-pro-xl": "11proxl",
+    "pixel-11-pro-fold": "11profold",
 }
 
 
@@ -88,6 +92,27 @@ def parse_pph_products(html: str) -> list[dict]:
     return json.loads(tdata_chunk[start_pos:end_pos])
 
 
+def parse_product_history(html: str) -> list[dict]:
+    """Extract a product's price chart from its Next.js page payload."""
+    chunks = []
+    for m in re.finditer(
+        r'<script>self\.__next_f\.push\(\[1,"((?:\\.|[^"\\])*)"\]\)</script>',
+        html,
+        re.S,
+    ):
+        try:
+            chunks.append(json.loads('"' + m.group(1) + '"'))
+        except json.JSONDecodeError:
+            continue
+
+    marker = '"chartDataMain":'
+    chunk = next((c for c in chunks if marker + "[" in c), None)
+    if chunk is None:
+        raise ValueError("Product page has no price history chart")
+    start = chunk.index(marker + "[") + len(marker)
+    return json.JSONDecoder().raw_decode(chunk[start:])[0]
+
+
 def parse_pph_date(d: str) -> date:
     """Parse DD/MM/YY or D/M/YY date string."""
     parts = d.split("/")
@@ -130,7 +155,11 @@ def main() -> None:
         total_days = max(1, (eol_date - release_date).days)
 
         crnt_price = p.get("crntPrice", 0)
-        price_history = p.get("priceHistory", [])
+        price_history = p.get("priceHistory")
+        if price_history is None:
+            price_history = parse_product_history(
+                fetch_text(f"{PPH_URL}product/us/{slug}")
+            )
 
         # Parse and enrich each price-history point with annualized cost
         parsed_history: list[dict] = []
