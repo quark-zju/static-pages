@@ -356,119 +356,39 @@
       return Number.NEGATIVE_INFINITY;
     }
 
-    // A tiered model carries two unrelated kinds of sub-key. A cache write duration (5min /
-    // 1hour) is a choice, so sorting is stable if one is always preferred; a prompt-size tier
-    // (<=100K / >100K) is not a choice, it is a regime the assumed input volume falls into.
-    const TIER_KEY_PATTERN = /^\s*(<=|>=|<|>)?\s*([\d.]+)\s*([KM])?\s*$/i;
-
-    function parseTierKey(key) {
-      const match = TIER_KEY_PATTERN.exec(String(key));
-      if (!match) {
-        return null;
-      }
-      const scale = { k: 1e3, m: 1e6 }[(match[3] || '').toLowerCase()] || 1;
-      const operator = match[1] || '<=';
-      return {
-        operator,
-        threshold: Number(match[2]) * scale,
-        // A tier naming its upper bound (<=100K) owns everything below it; the counterpart
-        // (>100K) owns everything above. Both carry the same number, so the operator is what
-        // decides which one a given volume falls into.
-        isUpperBound: operator === '<=' || operator === '<'
-      };
-    }
-
-    function pickTierKey(tierKeys, usageInputMillion) {
-      // usageInputMillion is expressed in millions of tokens, matching the tier thresholds.
-      const assumedTokens = usageInputMillion * 1e6;
-      let best = null;
-      for (const key of tierKeys) {
-        const parsed = parseTierKey(key);
-        if (parsed === null) {
-          continue;
-        }
-        const covers = parsed.isUpperBound
-          ? assumedTokens <= parsed.threshold
-          : assumedTokens > parsed.threshold;
-        if (!covers) {
-          continue;
-        }
-        if (best === null || parsed.threshold > best.parsed.threshold) {
-          best = { key, parsed };
-        }
-      }
-      // With no tier covering the volume, fall back to the highest one rather than an
-      // arbitrary key, so the ranking is at least deterministic and consistent.
-      if (best === null) {
-        for (const key of tierKeys) {
-          const parsed = parseTierKey(key);
-          if (parsed !== null && (best === null || parsed.threshold > best.parsed.threshold)) {
-            best = { key, parsed };
-          }
-        }
-      }
-      return best === null ? tierKeys[0] ?? null : best.key;
-    }
-
-    // Collapse a price object to the single number a sort should rank it by. Without this the
-    // generic minimum is used, which compares an inapplicable regime (e.g. Haiku's cheap
-    // <=100K row) against models priced for the assumed volume.
+    // Collapse a unit price to the single number a sort ranks it by.
     //
-    // This deliberately works from the unit prices rather than from the estimated totals. The
-    // estimated columns multiply a per-request prompt-size tier by the whole assumed volume,
-    // which is a known distortion; sorting on those totals would carry that distortion into the
-    // ordering and can contradict the unit prices outright. Ranking on the applicable unit price
-    // scaled by the assumed volumes keeps the order consistent with the Unit Price columns.
+    // The cheapest tier is the representative one. The assumed input volume is a total across
+    // many sessions, not one request, and sessions start from an empty context, so short
+    // sessions are the common case and the cheapest prompt-size tier is what a typical session
+    // actually pays. Ranking on the minimum also keeps the order self-consistent: a model whose
+    // cheapest tier is rarer or cheaper sorts accordingly, and two models with the same base
+    // rates (Claude Sonnet 5.5 and GPT-6.1 Sol) do not get pushed apart by a per-request
+    // long-context multiplier that the estimated columns apply to the whole volume.
     function pickSortPrice(value, usage, field) {
-      if (value === null || value === undefined || typeof value !== 'object') {
-        return numericComparable(value);
-      }
-
-      const pick = (price) => {
-        // Two levels are handled: a price may be keyed by cache duration and/or by prompt-size
-        // tier, in either order.
-        for (let depth = 0; depth < 2; depth += 1) {
-          if (price === null || typeof price !== 'object') {
-            break;
-          }
-          const keys = Object.keys(price);
-          if (keys.length === 0) {
-            return null;
-          }
-          const isDuration = keys.some((k) => /^(?:5|1h|60)\s*(?:min|hour|h)?$/i.test(k.trim()));
-          const key = isDuration
-            ? keys.find((k) => /^5\s*min$/i.test(k.trim())) ?? keys[0]
-            : pickTierKey(keys, usage.input);
-          if (key === null) {
-            return null;
-          }
-          price = price[key];
-        }
-        return typeof price === 'number' ? price : null;
-      };
-
       // A single unit-price column ranks on its own dimension, so the breakdown columns stay
-      // meaningful; the total ranks on the full unit price.
+      // meaningful; the total accumulates every dimension.
       if (field && field in value) {
-        const only = pick(value[field]);
         // A model without this price at all (a null cache write) must rank last in either
         // direction, since the column renders it as "-" rather than as a number.
-        return only === null ? null : only;
+        return value[field] === null || value[field] === undefined
+          ? null
+          : numericComparable(value[field]);
       }
 
-      const inputPrice = pick(value.input);
-      const outputPrice = pick(value.output);
-      if (inputPrice === null && outputPrice === null) {
+      const inputPrice = numericComparable(value.input);
+      const outputPrice = numericComparable(value.output);
+      if (inputPrice === Number.NEGATIVE_INFINITY && outputPrice === Number.NEGATIVE_INFINITY) {
         return numericComparable(value);
       }
 
-      const readPrice = pick(value.cached_read) ?? 0;
-      const writePrice = pick(value.cached_write) ?? 0;
+      const readPrice = numericComparable(value.cached_read);
+      const writePrice = numericComparable(value.cached_write);
       return (
-        (inputPrice ?? 0) * usage.input +
-        readPrice * usage.cached_read +
-        writePrice * usage.input +
-        (outputPrice ?? 0) * usage.output
+        (Number.isFinite(inputPrice) ? inputPrice : 0) * usage.input +
+        (Number.isFinite(readPrice) ? readPrice : 0) * usage.cached_read +
+        (Number.isFinite(writePrice) ? writePrice : 0) * usage.input +
+        (Number.isFinite(outputPrice) ? outputPrice : 0) * usage.output
       );
     }
 
