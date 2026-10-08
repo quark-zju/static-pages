@@ -324,8 +324,11 @@
         if (entries.length === 0) {
           return '<span class="muted">-</span>';
         }
+        // Recurse so a nested object renders as a label plus its own stacked breakdown instead
+        // of falling through to formatNumber and printing NaN.
         return `<span class="stack ${alignLeft ? 'left' : ''}">` +
-          entries.map(([k, v]) => `<span class="stack-item"><span class="key">${k}:</span>${formatNumber(v)}</span>`).join('') +
+          entries.map(([k, v]) =>
+            `<span class="stack-item"><span class="key">${k}:</span>${formatValue(v, alignLeft)}</span>`).join('') +
           '</span>';
       }
       return String(value);
@@ -364,7 +367,13 @@
       for (const field of ['input', 'cached_read', 'cached_write', 'output']) {
         const value = unit[field];
         if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
-          for (const k of Object.keys(value)) {
+          for (const [k, v] of Object.entries(value)) {
+            // Only numeric values are prompt-size tiers. A nested object means this key is a
+            // cache write duration whose own tiers live one level down, and reading it as a
+            // prompt tier would invent columns named 5min / 1hour.
+            if (typeof v !== 'number') {
+              continue;
+            }
             if (!keys.includes(k)) {
               keys.push(k);
             }
