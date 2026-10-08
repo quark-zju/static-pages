@@ -342,11 +342,16 @@
         return value;
       }
       if (typeof value === 'object') {
-        const numbers = Object.values(value).filter((v) => typeof v === 'number' && Number.isFinite(v));
-        if (numbers.length === 0) {
-          return Number.NEGATIVE_INFINITY;
+        // Recurse rather than only inspecting one level: a nested price left unhandled returns
+        // -Infinity, which silently pins that model to the top of every sort.
+        let best = Number.POSITIVE_INFINITY;
+        for (const v of Object.values(value)) {
+          const n = numericComparable(v);
+          if (n > Number.NEGATIVE_INFINITY && n < best) {
+            best = n;
+          }
         }
-        return Math.min(...numbers);
+        return best === Number.POSITIVE_INFINITY ? Number.NEGATIVE_INFINITY : best;
       }
       return Number.NEGATIVE_INFINITY;
     }
