@@ -179,6 +179,19 @@
       "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；cache read 按 input 0.05 倍收费；官方标准价格"
     },
     {
+      "model": "Claude Sonnet 5.5",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 2.00,
+        "cached_read": 0.10,
+        "cached_write": {
+          "5min": 2.50,
+          "1hour": 4.00
+        },
+        "output": 10.00
+      },
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；cache read 按 input 0.05 倍收费（$0.10，自 Sonnet 5 的 0.20 减半）；官方标准价格"
+    },
+    {
       "model": "Claude Haiku 5.5",
       "unit_price_usd_per_1m_tokens": {
         "input": { "<=100K": 0.10, ">100K": 0.50 },
