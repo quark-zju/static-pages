@@ -66,6 +66,16 @@
       "notes": "自动 prompt caching（无 write 单独收费）；使用此档位即允许 Meta 使用 prompts 和 completions 改进其产品"
     },
     {
+      "model": "Muse Wonder 1.0",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 4.00,
+        "cached_read": 0.20,
+        "cached_write": null,
+        "output": 20.00
+      },
+      "notes": "自动 prompt caching（无 write 单独收费）；完整 1M 上下文无长上下文附加价；Meta Model API 标准价；同系列 muse-wonder-full-1.0 仅随 Muse Code 订阅提供，无按 token 定价故未列入"
+    },
+    {
       "model": "Grok 4.7",
       "unit_price_usd_per_1m_tokens": {
         "input": { "<200K": 2.00, ">=200K": 4.00 },
