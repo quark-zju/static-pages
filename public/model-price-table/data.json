@@ -26,6 +26,16 @@
       "notes": "有额外 cache storage（未计入）；标准价，2026-12-31 前促销价 input 0.75 / output 3.75"
     },
     {
+      "model": "Gemini 4 Argon",
+      "unit_price_usd_per_1m_tokens": {
+        "input": 4.00,
+        "cached_read": 0.20,
+        "cached_write": null,
+        "output": 20.00
+      },
+      "notes": "仅 implicit caching（不支持 explicit caching，故无 cache write 单独收费）；完整 1M 上下文统一计价，无长上下文附加档；按 2026-12-01 起的标准价记录，未采用 2026-11-30 前促销价 input 2.00 / output 10.00；另有非全球区域加价（input 4.40 / output 22.00）未计入"
+    },
+    {
       "model": "GLM-5.3",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.40,
