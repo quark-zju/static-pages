@@ -26,7 +26,7 @@
       "notes": "有额外 cache storage（未计入）；标准价，2026-12-31 前促销价 input 0.75 / output 3.75"
     },
     {
-      "model": "Gemini 4 Argon",
+      "model": "Gemini 4 Carbon",
       "unit_price_usd_per_1m_tokens": {
         "input": 4.00,
         "cached_read": 0.20,
@@ -225,17 +225,17 @@
       "notes": "显式 cache write；长 prompt 分档方向与其他模型相反：prompt 超过 100K 时 input 及 cache 按 5 倍计价，短 prompt 更便宜；官方标准价格"
     },
     {
-      "model": "Claude Fable 5.1",
+      "model": "Claude Fable 5.2",
       "unit_price_usd_per_1m_tokens": {
-        "input": 10.00,
-        "cached_read": 0.25,
+        "input": 8.00,
+        "cached_read": 0.20,
         "cached_write": {
-          "5min": 12.50,
-          "1hour": 20.00
+          "5min": 10.00,
+          "1hour": 16.00
         },
-        "output": 50.00
+        "output": 40.00
       },
-      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；Fable 5.1 起缓存读取降价 75%"
+      "notes": "显式 cache write；完整 1M 上下文无长上下文附加价；cache read 按 input 0.025 倍收费（$0.20）；5.2 起 input/output 由 10.00/50.00 降至 8.00/40.00"
     }
   ]
 }
