@@ -16,14 +16,14 @@
       "notes": "自动 prompt caching（无 write 单独收费）；按输入长度分档计价；官方永久 50% off（原价 input 0.60 / 1.20，cached 0.12 / 0.24，output 2.40 / 4.80）"
     },
     {
-      "model": "Gemini 3.8 Flash",
+      "model": "Gemini 4 Hydrogen",
       "unit_price_usd_per_1m_tokens": {
         "input": 1.50,
-        "cached_read": 0.15,
+        "cached_read": 0.075,
         "cached_write": null,
         "output": 7.50
       },
-      "notes": "有额外 cache storage（未计入）；标准价，2026-12-31 前促销价 input 0.75 / output 3.75"
+      "notes": "仅 implicit caching（不支持 explicit caching，故无 cache write 单独收费；Vertex 侧 2027-01-12 起将按 1.875 计 cache write）；无 cache storage 费用；完整 1M 上下文统一计价，无长上下文附加档；input/output 与 3.8 Flash 标准价持平，cache read 为其一半"
     },
     {
       "model": "Gemini 4 Carbon",
