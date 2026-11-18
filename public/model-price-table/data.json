@@ -160,10 +160,13 @@
       "unit_price_usd_per_1m_tokens": {
         "input": { "<=272K": 2.00, ">272K": 4.00 },
         "cached_read": { "<=272K": 0.10, ">272K": 0.20 },
-        "cached_write": { "<=272K": 2.50, ">272K": 5.00 },
+        "cached_write": {
+          "<=272K": { "30min": 2.50, "12hour": 5.00 },
+          ">272K": { "30min": 5.00, "12hour": 10.00 }
+        },
         "output": { "<=272K": 10.00, ">272K": 15.00 }
       },
-      "notes": "cache write 按 input 1.25 倍收费（30 分钟保留价）；input 超过 272K 时整次请求均按长上下文档计费；6.2 Sol 价格与 6.1 Sol 相同"
+      "notes": "cache write 分 30 分钟（input 1.25 倍）与 12 小时（input 2.5 倍）两档保留期；input 超过 272K 时整次请求均按长上下文档计费；6.2 Sol 价格与 6.1 Sol 相同"
     },
     {
       "model": "GPT-6 Luna",
@@ -180,10 +183,13 @@
       "unit_price_usd_per_1m_tokens": {
         "input": { "<=272K": 8.00, ">272K": 16.00 },
         "cached_read": { "<=272K": 0.40, ">272K": 0.80 },
-        "cached_write": { "<=272K": 10.00, ">272K": 20.00 },
+        "cached_write": {
+          "<=272K": { "30min": 10.00, "12hour": 20.00 },
+          ">272K": { "30min": 20.00, "12hour": 40.00 }
+        },
         "output": { "<=272K": 40.00, ">272K": 60.00 }
       },
-      "notes": "cache write 按 input 1.25 倍收费（30 分钟保留价）；input 超过 272K 时整次请求均按长上下文档计费；6.2 Astra 起降价，input 10.00 降至 8.00、output 50.00 降至 40.00"
+      "notes": "cache write 分 30 分钟（input 1.25 倍）与 12 小时（input 2.5 倍）两档保留期；input 超过 272K 时整次请求均按长上下文档计费；6.2 Astra 起降价，input 10.00 降至 8.00、output 50.00 降至 40.00"
     },
     {
       "model": "Claude Opus 5.5",
