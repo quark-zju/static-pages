@@ -156,14 +156,14 @@
       "notes": "自动 cache（无 write 单独收费）；按 2026-05-27 官宣永久降价口径（不再区分输入长度）"
     },
     {
-      "model": "GPT-6.1 Sol",
+      "model": "GPT-6.2 Sol",
       "unit_price_usd_per_1m_tokens": {
         "input": { "<=272K": 2.00, ">272K": 4.00 },
         "cached_read": { "<=272K": 0.10, ">272K": 0.20 },
         "cached_write": { "<=272K": 2.50, ">272K": 5.00 },
         "output": { "<=272K": 10.00, ">272K": 15.00 }
       },
-      "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费；6.1 Sol 的缓存读取价为 6 Sol 的一半"
+      "notes": "cache write 按 input 1.25 倍收费（30 分钟保留价）；input 超过 272K 时整次请求均按长上下文档计费；6.2 Sol 价格与 6.1 Sol 相同"
     },
     {
       "model": "GPT-6 Luna",
@@ -176,14 +176,14 @@
       "notes": "cache write 按 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
     },
     {
-      "model": "GPT-6 Astra",
+      "model": "GPT-6.2 Astra",
       "unit_price_usd_per_1m_tokens": {
-        "input": { "<=272K": 10.00, ">272K": 20.00 },
-        "cached_read": { "<=272K": 1.00, ">272K": 2.00 },
-        "cached_write": 12.50,
-        "output": { "<=272K": 50.00, ">272K": 75.00 }
+        "input": { "<=272K": 8.00, ">272K": 16.00 },
+        "cached_read": { "<=272K": 0.40, ">272K": 0.80 },
+        "cached_write": { "<=272K": 10.00, ">272K": 20.00 },
+        "output": { "<=272K": 40.00, ">272K": 60.00 }
       },
-      "notes": "cache write 按标准 input 1.25 倍收费；input 超过 272K 时整次请求均按长上下文档计费"
+      "notes": "cache write 按 input 1.25 倍收费（30 分钟保留价）；input 超过 272K 时整次请求均按长上下文档计费；6.2 Astra 起降价，input 10.00 降至 8.00、output 50.00 降至 40.00"
     },
     {
       "model": "Claude Opus 5.5",
