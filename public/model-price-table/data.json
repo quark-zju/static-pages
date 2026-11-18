@@ -96,14 +96,14 @@
       "notes": "自动 prompt caching（无 write 单独收费）；prompt 达到 200K 时整次请求均按高价档计费；官方 API 价格"
     },
     {
-      "model": "Qwen3.8 Max",
+      "model": "Qwen4 Max",
       "unit_price_usd_per_1m_tokens": {
-        "input": 2.00,
-        "cached_read": 0.20,
-        "cached_write": 2.50,
-        "output": 6.00
+        "input": 1.50,
+        "cached_read": 0.075,
+        "cached_write": 1.875,
+        "output": 4.50
       },
-      "notes": "显式 cache write/read 收费；完整 1M 上下文统一计价；thinking 与非 thinking 同价"
+      "notes": "显式 cache write/read 收费；完整 1M 上下文统一计价；thinking 与非 thinking 同价；采用新加坡（International）区价，Cache write 与 Cache read 取该区 5m 档；4.0 起较 3.8 便宜（input 2.00 降至 1.50、output 6.00 降至 4.50）"
     },
     {
       "model": "Qwen3.8 Flash",
@@ -136,14 +136,17 @@
       "notes": "自动 cache（无 write 单独收费）；按官方 API Pay-As-You-Go 限时折扣价，原价 input 0.75 / cached 0.015 / output 2.95"
     },
     {
-      "model": "Kimi K3",
+      "model": "Kimi K3.1 Pro",
       "unit_price_usd_per_1m_tokens": {
-        "input": 3.00,
-        "cached_read": 0.30,
-        "cached_write": null,
-        "output": 15.00
+        "input": 2.00,
+        "cached_read": 0.20,
+        "cached_write": {
+          "5min": 2.00,
+          "1hour": 4.00
+        },
+        "output": 10.00
       },
-      "notes": "自动 context caching（无 write 单独收费）；完整 1M 上下文统一计价"
+      "notes": "cache write 按 TTL 分档（5m / 1h）单独收费；完整 1,048,576 上下文统一计价；3.1 Pro 较 K3 降价（input 3.00 降至 2.00、output 15.00 降至 10.00）"
     },
     {
       "model": "MiMo-V2.5 Pro",
